@@ -44,6 +44,10 @@ new NavbarConfig(instanceRegister);
 import SubscriptionConfig from './navbar/subscriptions/subscription-config';
 new SubscriptionConfig(instanceRegister);
 
+// import billing config
+import BillingConfig from './navbar/billing/billing-config';
+new BillingConfig(instanceRegister);
+
 // import factories
 import FactoryConfig from './factories/factories-config';
 new FactoryConfig(instanceRegister);

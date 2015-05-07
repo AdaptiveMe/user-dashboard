@@ -12,5 +12,89 @@
 -->
 <cdvy-toolbar cdvy-title="Billing and Invoices"></cdvy-toolbar>
 
-<md-content layout="column" layout-fill>
+<md-content md-scroll-y flex>
+  <cdvy-panel cdvy-title="Add a credit card">
+    <p>Some text</p>
+    <ng-form name="creditCardInformationForm">
+      <div layout="row">
+        <div style="width: 400px; height: 200px; background-color: red"></div>
+        <div layout="column" flex>
+          <cdvy-input cdvy-form="creditCardInformationForm"
+                      cdvy-name="cardNumber"
+                      cdvy-label-name="Card Number"
+                      cdvy-place-holder="**** **** **** ****"
+                      ng-model="billingCtrl.creditCard.number"
+                      required
+                      ng-maxlength="16" ng-minlength="16">
+            <div ng-message="required">A credit card number is required.</div>
+            <div ng-message="maxlength">The credit card number has to be 16 digits long.</div>
+            <div ng-message="minlength">The credit card number has to be 16 digits long.</div>
+          </cdvy-input>
+          <cdvy-input cdvy-form="creditCardInformationForm"
+                      cdvy-name="cardholderName"
+                      cdvy-label-name="Cardholder Name"
+                      cdvy-place-holder="Name"
+                      ng-model="billingCtrl.creditCard.cardholder"
+                      required
+                      ng-maxlength="128">
+            <div ng-message="required">A cardholder name is required.</div>
+            <div ng-message="maxlength">The name has to be less than 128 characters long.</div>
+          </cdvy-input>
+          <cdvy-input cdvy-form="creditCardInformationForm"
+                      cdvy-name="expires"
+                      cdvy-label-name="Expires"
+                      cdvy-place-holder="--/--"
+                      ng-model="billingCtrl.creditCard.expires"
+                      required>
+            <div ng-message="required">The expires value is required.</div>
+          </cdvy-input>
+          <cdvy-input cdvy-form="creditCardInformationForm"
+                      cdvy-name="cvv"
+                      cdvy-label-name="CVV"
+                      cdvy-place-holder="****"
+                      ng-model="billingCtrl.creditCard.cvv"
+                      required
+                      ng-minlength="3"
+                      ng-maxlength="4">
+            <div ng-message="required">A cvv code is required.</div>
+            <div ng-message="maxlength">The cvv code has to be less than 4 digits long.</div>
+            <div ng-message="minlength">The cvv code has to be more than 3 digits long.</div>
+          </cdvy-input>
+        </div>
+      </div>
+
+      <cdvy-input cdvy-form="creditCardInformationForm"
+                  cdvy-name="streetAddress"
+                  cdvy-label-name="Street Address"
+                  cdvy-place-holder=""
+                  ng-model="billingCtrl.creditCard.address"
+                  ng-maxlength="128">
+        <div ng-message="maxlength">The address has to be less than 128 characters long.</div>
+      </cdvy-input>
+      <cdvy-input cdvy-form="creditCardInformationForm"
+                  cdvy-name="city"
+                  cdvy-label-name="City"
+                  cdvy-place-holder=""
+                  ng-model="billingCtrl.creditCard.city"
+                  ng-maxlength="128">
+        <div ng-message="maxlength">The city has to be less than 128 characters long.</div>
+      </cdvy-input>
+      <cdvy-input cdvy-form="creditCardInformationForm"
+                  cdvy-name="state"
+                  cdvy-label-name="State"
+                  cdvy-place-holder=""
+                  ng-model="billingCtrl.creditCard.state"
+                  ng-maxlength="128">
+        <div ng-message="maxlength">The state has to be less than 128 characters long.</div>
+      </cdvy-input>
+      <cdvy-input cdvy-form="creditCardInformationForm"
+                  cdvy-name="country"
+                  cdvy-label-name="Country"
+                  cdvy-place-holder=""
+                  ng-model="billingCtrl.creditCard.country"
+                  ng-maxlength="128">
+        <div ng-message="maxlength">The country has to be less than 128 characters long.</div>
+      </cdvy-input>
+    </ng-form>
+  </cdvy-panel>
 </md-content>
