@@ -10,54 +10,59 @@
  */
 'use strict';
 
-//import Card from '../../../bower_components/card/lib/js/card.js';
-
 class BillingCtrl {
 
   /**
    * Default constructor that is using resource injection
    * @ngInject for Dependency injection
    */
-    constructor (codenvyAPI) {
+  constructor (codenvyAPI, $mdDialog) {
     this.codenvyAPI = codenvyAPI;
-    this.creditCards = [];
+    this.$mdDialog = $mdDialog;
 
- /*   if (this.codenvyAPI.getAccount().getAccounts().length > 0) {
-      this.fetchSubscriptions();
+    this.creditCards = [];
+    this.loadedCreditCards = false;
+
+
+    if (this.codenvyAPI.getAccount().getAccounts().length > 0) {
+      this.fetchCreditCards();
     } else {
       this.codenvyAPI.getAccount().fetchAccounts().then(() => {
-        this.fetchSubscriptions();
+        this.fetchCreditCards();
       });
-    }*/
-   // this.getCreditCard();
+    }
+
+  }
+
+  fetchCreditCards() {
+    let currentAccount = this.codenvyAPI.getAccount().getCurrentAccount();
+
+    this.codenvyAPI.getPayment().fetchCreditCards(currentAccount.id).then(() => {
+      this.loadedCreditCards = true;
+      this.creditCards = this.codenvyAPI.getPayment().getCreditCards(currentAccount.id);
+      if (this.creditCards.length == 0) {
+        this.getCreditCard();
+      }
+    })
   }
 
   getCreditCard() {
-    /*var card = new Card({
-      // a selector or DOM element for the form where users will
-      // be entering their information
-      form: 'form', // *required*
-      // a selector or DOM element for the container
-      // where you want the card to appear
-      container: '.card-wrapper', // *required*
+    var card = new Card({
+      form: document.getElementById('creditCardInformationForm'),
+      container: '.card-wrapper',
 
       formSelectors: {
-        numberInput: 'input#number', // optional — default input[name="number"]
-        expiryInput: 'input#expiry', // optional — default input[name="expiry"]
-        cvcInput: 'input#cvc', // optional — default input[name="cvc"]
-        nameInput: 'input#name' // optional - defaults input[name="name"]
+        numberInput: 'input[name$=cardNumber]', // optional — default input[name="number"]
+        expiryInput: 'input[name$=expires]', // optional — default input[name="expiry"]
+        cvcInput: 'input[name$=cvv]', // optional — default input[name="cvc"]
+        nameInput: 'input[name$=cardholderName]' // optional - defaults input[name="name"]
       },
-
-      width: 200, // optional — default 350px
       formatting: true, // optional - default true
-
-      // Strings for translation - optional
       messages: {
         validDate: 'valid\ndate', // optional - default 'valid\nthru'
-        monthYear: 'mm/yyyy', // optional - default 'month/year'
+        monthYear: 'mm/yyyy' // optional - default 'month/year'
       },
 
-      // Default values for rendered fields - optional
       values: {
         number: '•••• •••• •••• ••••',
         name: 'Full Name',
@@ -65,9 +70,28 @@ class BillingCtrl {
         cvc: '•••'
       },
 
-      // if true, will log helpful messages for setting up Card
-      debug: false // optional - default false
-    });*/
+
+      debug: true // optional - default false
+    });
+  }
+
+  removeCreditCard(card, event) {
+    var confirm = this.$mdDialog.confirm()
+      .title('Would you like to remove credit card ' + card.number)
+      .content('Please confirm for the credit card removal.')
+      .ariaLabel('Remove credit card')
+      .ok('Ok')
+      .cancel('Cancel')
+      .targetEvent(event);
+    this.$mdDialog.show(confirm).then(() => {
+      // remove it !
+      let promise = this.codenvyAPI.getPayment().removeCreditCard(card.accountId, card.number);
+      promise.then(() => {
+        this.fetchCreditCards(card.accountId);
+      }, (error) => {
+        console.log('error', error);
+      });
+    });
   }
 }
 

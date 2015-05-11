@@ -22,13 +22,21 @@ class CodenvyPayment {
    * Default constructor that is using resource
    * @ngInject for Dependency injection
    */
-  constructor ($resource) {
+  constructor ($resource, $braintree, register) {
     // keep resource
     this.$resource = $resource;
+    this.$braintree = $braintree;
+
+ //   register.app.requires.push('braintree-angular');
+    register.app.constant('clientTokenPath', '/');//is necessary for Braintree
+
+
     this.creditCardsPerAccount = new Map();
+    this.tokensPerAccount = new Map();
 
     // remote call
-    this.remotePaymentAPI = this.$resource('/api/creditcard/:accountId', {
+    this.remotePaymentAPI = this.$resource('/api/creditcard/:accountId', {}, {
+      getToken: {method: 'GET', url: '/api/creditcard/:accountId/token'},
       add: {method: 'POST', url: '/api/creditcard/:accountId'},
       remove: {method: 'DELETE', url: '/api/creditcard/:accountId/:creditCardNumber'}
     });
@@ -57,12 +65,43 @@ class CodenvyPayment {
     return this.creditCardsPerAccount.get(accountId);
   }
 
+  getClientToken(accountId) {
+    let promise = this.remotePaymentAPI.getToken({accountId: accountId}).$promise;
+    // check if if was OK or not
+    let parsedResultPromise = promise.then((data) => {
+      this.tokensPerAccount.set(accountId, data.token);
+    });
+    return parsedResultPromise;
+  }
+
   addCreditCard(accountId, creditCard) {
-    //TODO
+    var client;
+    var mainCreditCardInfo = {};
+    mainCreditCardInfo.number = creditCard.number;
+    mainCreditCardInfo.cardholderName = creditCard.cardholderName;
+    mainCreditCardInfo.expirationDate = creditCard.expirationDate.replace(/ /g, '');
+    mainCreditCardInfo.cvv = creditCard.cvv;
+    mainCreditCardInfo.billingAddress = {postalCode: creditCard.postalCode};
+
+    this.getClientToken(accountId).then(() => {
+      client = new this.$braintree.api.Client({
+        clientToken: this.tokensPerAccount.get(accountId)
+      });
+
+      client.tokenizeCard(mainCreditCardInfo, function (err, nonce) {
+        var newCreditCard = {nonce: nonce};
+        newCreditCard.state = creditCard.state;
+        newCreditCard.country = creditCard.country;
+        newCreditCard.streetAddress = creditCard.streetAddress;
+        newCreditCard.city = creditCard.city;
+
+        return this.remotePaymentAPI.add({accountId: accountId}, newCreditCard).$promise;
+      });
+    });
   }
 
   removeCreditCard(accountId, creditCardNumber) {
-    //TODO
+    return this.remotePaymentAPI.remove({accountId: accountId, creditCardNumber: creditCardNumber}).$promise;
   }
 }
 

@@ -10,14 +10,15 @@
       Codenvy, S.A. - initial API and implementation
 
 -->
+<script src="/bower_components/card/lib/js/card.js"></script>
 <cdvy-toolbar cdvy-title="Billing and Invoices"></cdvy-toolbar>
 
 <md-content md-scroll-y flex>
-  <cdvy-panel cdvy-title="Add a credit card">
+  <cdvy-panel cdvy-title="Add a credit card" ng-show="billingCtrl.creditCards.length == 0 && billingCtrl.loadedCreditCards">
     <p>Some text</p>
-    <ng-form name="creditCardInformationForm">
+    <ng-form name="creditCardInformationForm" id="creditCardInformationForm">
       <div layout="row">
-        <div style="width: 400px; height: 200px; background-color: red"></div>
+        <div style="width: 400px; height: 200px" class="card-wrapper"></div>
         <div layout="column" flex>
           <cdvy-input cdvy-form="creditCardInformationForm"
                       cdvy-name="cardNumber"
@@ -97,4 +98,12 @@
       </cdvy-input>
     </ng-form>
   </cdvy-panel>
+
+  <cdvy-panel ng-repeat="card in billingCtrl.creditCards" cdvy-title="{{card.cardholder}}">
+    <p>{{card.type}} ...{{card.number.slice(-4)}} ({{card.expiration}})</p>
+    <div layout-align="center center" layout="column">
+      <cdvy-button-danger cdvy-button-title="Remove" ng-click="billingCtrl.removeCreditCard(card, $event);"/>
+    </div>
+  </cdvy-panel>
+
 </md-content>
