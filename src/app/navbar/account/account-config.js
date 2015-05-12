@@ -10,15 +10,15 @@
  */
 'use strict';
 
-class BillingCtrl {
+import AddCreditcardCtrl from '../account/creditcard/add-creditcard.controller';
+import AddCreditcard from '../account/creditcard/add-creditcard.directive';
 
-  /**
-   * Default constructor that is using resource injection
-   * @ngInject for Dependency injection
-   */
-  constructor (codenvyAPI) {
-    this.codenvyAPI = codenvyAPI;
+class AccountConfig {
+
+  constructor(register) {
+    register.controller('AddCreditcardCtrl', AddCreditcardCtrl);
+    register.directive('AddCreditcard', AddCreditcard);
   }
 }
 
-export default BillingCtrl;
+export default AccountConfig;

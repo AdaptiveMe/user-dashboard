@@ -10,15 +10,21 @@
  */
 'use strict';
 
-class BillingCtrl {
+/**
+ * @ngdoc controller
+ * @name account.creditcard.controller:AddCreditcardCtrl
+ * @description This class is handling the controller for the adding credit card
+ * @author Ann Shumilova
+ */
+class AddCreditcardCtrl {
 
   /**
-   * Default constructor that is using resource injection
+   * Default constructor that is using resource
    * @ngInject for Dependency injection
    */
-  constructor (codenvyAPI) {
-    this.codenvyAPI = codenvyAPI;
+  constructor() {
+    this.creditCard = {};
   }
 }
 
-export default BillingCtrl;
+export default AddCreditcardCtrl;

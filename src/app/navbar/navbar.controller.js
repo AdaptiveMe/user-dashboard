@@ -40,7 +40,7 @@ class NavBarCtrl {
     if(this.profile.attributes) {
       this.email = this.profile.attributes.email;
     }
-    this.admin = true // hardcoded until we know how to check it
+    this.admin = true; // hardcoded until we know how to check it
   }
 
   /**

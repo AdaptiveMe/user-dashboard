@@ -15,7 +15,7 @@ var DEV = true;
 var ADDONBOARDINGFLOW = false;
 
 // init module
-let module = angular.module('userDashboard', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'angular-websocket', 'ui.bootstrap', 'ui.codemirror', 'ngMaterial', 'ngMessages', 'angularMoment', 'angular.filter', 'ngDropdowns', 'ui.gravatar', 'ngLodash']);
+let module = angular.module('userDashboard', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'angular-websocket', 'ui.bootstrap', 'ui.codemirror', 'ngMaterial', 'ngMessages', 'angularMoment', 'angular.filter', 'ngDropdowns', 'ui.gravatar', 'ngLodash', 'braintree-angular']);
 
 
 // add a global resolve flag on all routes (user needs to be resolved first)
@@ -55,9 +55,18 @@ var instanceRegister = Register.getInstance();
 import NavbarConfig from './navbar/navbar-config';
 new NavbarConfig(instanceRegister);
 
+// import account config
+import AccountConfig from './navbar/account/account-config';
+new AccountConfig(instanceRegister);
+
+
 // import subscription config
 import SubscriptionConfig from './navbar/subscriptions/subscription-config';
 new SubscriptionConfig(instanceRegister);
+
+// import billing config
+import BillingConfig from './navbar/billing/billing-config';
+new BillingConfig(instanceRegister);
 
 // import factories
 import FactoryConfig from './factories/factories-config';
