@@ -16,8 +16,8 @@ import AddCreditcard from '../account/creditcard/add-creditcard.directive';
 class AccountConfig {
 
   constructor(register) {
-    register.controller('AddCreditcardCtrl', AddCreditcardCtrl);
-    register.directive('AddCreditcard', AddCreditcard);
+   register.controller('AddCreditcardCtrl', AddCreditcardCtrl);
+   register.directive('addCreditcard', AddCreditcard);
   }
 }
 
