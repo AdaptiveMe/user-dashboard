@@ -27,8 +27,8 @@
       <div ng-controller="CreditcardCtrl as creditCardCtrl">
         <cdvy-panel cdvy-title="Add a credit card" ng-show="creditCardCtrl.creditCards.length == 0 && creditCardCtrl.loadedCreditCards">
           <ng-form name="creditCardInformationForm" id="creditCardInformationForm">
-            <add-creditcard loaded="{{creditCardCtrl.loadedCreditCards}}" ng-init="creditCardCtrl.setCreditCard(this);"></add-creditcard>
-            <cdvy-button-default cdvy-button-title="add" ng-click="creditCardCtrl.addCreditCard(addCreditcardCtrl.creditCard);"></cdvy-button-default>
+            <add-creditcard loaded="{{creditCardCtrl.loadedCreditCards}}" ng-init="creditCardCtrl.setCreditCard(this.addCreditcardCtrl.creditCard);"></add-creditcard>
+            <cdvy-button-default cdvy-button-title="add" ng-click="creditCardCtrl.addCreditCard();"></cdvy-button-default>
           </ng-form>
         </cdvy-panel>
         <cdvy-panel ng-repeat="card in creditCardCtrl.creditCards" cdvy-title="{{card.cardholder}}">

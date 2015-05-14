@@ -29,6 +29,7 @@ class CreditcardCtrl {
     this.$mdDialog = $mdDialog;
 
     this.creditCards = [];
+    this.creditCard = {};
     this.loadedCreditCards = false;
 
 
@@ -51,12 +52,14 @@ class CreditcardCtrl {
     });
   }
 
-  addCreditCard(card) {
-    console.log(card);
+  addCreditCard() {
+    console.log(this.creditCard);
+    let currentAccount = this.codenvyAPI.getAccount().getCurrentAccount();
+    this.codenvyAPI.getPayment().addCreditCard(currentAccount.id, this.creditCard);
   }
 
   setCreditCard(card) {
-    console.log(card);
+    this.creditCard = card;
   }
 
   removeCreditCard(card, event) {

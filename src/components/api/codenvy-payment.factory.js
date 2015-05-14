@@ -71,12 +71,13 @@ class CodenvyPayment {
 
   addCreditCard(accountId, creditCard) {
     var client;
+    var remotePaymentAPI = this.remotePaymentAPI;
     var mainCreditCardInfo = {};
     mainCreditCardInfo.number = creditCard.number;
-    mainCreditCardInfo.cardholderName = creditCard.cardholderName;
-    mainCreditCardInfo.expirationDate = creditCard.expirationDate.replace(/ /g, '');
+    mainCreditCardInfo.cardholderName = creditCard.cardholder;
+    mainCreditCardInfo.expirationDate = creditCard.expires.replace(/ /g, '');
     mainCreditCardInfo.cvv = creditCard.cvv;
-    mainCreditCardInfo.billingAddress = {postalCode: creditCard.postalCode};
+   // mainCreditCardInfo.billingAddress = {postalCode: creditCard.postalCode};
 
     this.getClientToken(accountId).then(() => {
       client = new this.$braintree.api.Client({
@@ -90,7 +91,7 @@ class CodenvyPayment {
         newCreditCard.streetAddress = creditCard.streetAddress;
         newCreditCard.city = creditCard.city;
 
-        return this.remotePaymentAPI.add({accountId: accountId}, newCreditCard).$promise;
+        return remotePaymentAPI.add({accountId: accountId}, newCreditCard).$promise;
       });
     });
   }
