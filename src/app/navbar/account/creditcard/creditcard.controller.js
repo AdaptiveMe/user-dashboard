@@ -8,16 +8,22 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  */
+
 'use strict';
 
-//import Card from '../../../bower_components/card/lib/js/card.js';
-
-class BillingCtrl {
+/**
+ * @ngdoc controller
+ * @name account.creditcard.controller:CreditcardCtrl
+ * @description This class is handling the controller for managing credit cards (list, add, remove)
+ * @author Ann Shumilova
+ */
+class CreditcardCtrl {
 
   /**
    * Default constructor that is using resource injection
    * @ngInject for Dependency injection
    */
+
     constructor(codenvyAPI, $mdDialog) {
     this.codenvyAPI = codenvyAPI;
     this.$mdDialog = $mdDialog;
@@ -42,36 +48,15 @@ class BillingCtrl {
     this.codenvyAPI.getPayment().fetchCreditCards(currentAccount.id).then(() => {
       this.loadedCreditCards = true;
       this.creditCards = this.codenvyAPI.getPayment().getCreditCards(currentAccount.id);
-      if (this.creditCards.length == 0) {
-        this.getCreditCard();
-      }
-    })
+    });
   }
 
-  getCreditCard() {
-    var card = new Card({
-      form: document.getElementById('creditCardInformationForm'),
-      container: '.card-wrapper',
+  addCreditCard(card) {
+    console.log(card);
+  }
 
-      formSelectors: {
-        numberInput: 'input[name$=cardNumber]', // optional — default input[name="number"]
-        expiryInput: 'input[name$=expires]', // optional — default input[name="expiry"]
-        cvcInput: 'input[name$=cvv]', // optional — default input[name="cvc"]
-        nameInput: 'input[name$=cardholderName]' // optional - defaults input[name="name"]
-      },
-      formatting: true, // optional - default true
-      messages: {
-        validDate: 'valid\ndate', // optional - default 'valid\nthru'
-        monthYear: 'mm/yyyy' // optional - default 'month/year'
-      },
-      values: {
-        number: '•••• •••• •••• ••••',
-        name: 'Full Name',
-        expiry: '••/••',
-        cvc: '•••'
-      },
-      debug: true // optional - default false
-    });
+  setCreditCard(card) {
+    console.log(card);
   }
 
   removeCreditCard(card, event) {
@@ -94,4 +79,5 @@ class BillingCtrl {
   }
 }
 
-export default BillingCtrl;
+export default CreditcardCtrl;
+

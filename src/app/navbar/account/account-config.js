@@ -12,10 +12,12 @@
 
 import AddCreditcardCtrl from '../account/creditcard/add-creditcard.controller';
 import AddCreditcard from '../account/creditcard/add-creditcard.directive';
+import CreditcardCtrl from '../account/creditcard/creditcard.controller';
 
 class AccountConfig {
 
   constructor(register) {
+   register.controller('CreditcardCtrl', CreditcardCtrl);
    register.controller('AddCreditcardCtrl', AddCreditcardCtrl);
    register.directive('addCreditcard', AddCreditcard);
   }

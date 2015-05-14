@@ -25,6 +25,32 @@ class AddCreditcardCtrl {
   constructor() {
     this.creditCard = {};
   }
+
+  getCard() {
+    var card = new Card({
+      form: '#creditCardInformationForm',
+      container: '.card-wrapper',
+
+      formSelectors: {
+        numberInput: 'input[name$=cardNumber]', // optional — default input[name="number"]
+        expiryInput: 'input[name$=expires]', // optional — default input[name="expiry"]
+        cvcInput: 'input[name$=cvv]', // optional — default input[name="cvc"]
+        nameInput: 'input[name$=cardholderName]' // optional - defaults input[name="name"]
+      },
+      formatting: true, // optional - default true
+      messages: {
+        validDate: 'valid\ndate', // optional - default 'valid\nthru'
+        monthYear: 'mm/yyyy' // optional - default 'month/year'
+      },
+      values: {
+        number: '•••• •••• •••• ••••',
+        name: 'Full Name',
+        expiry: '••/••',
+        cvc: '•••'
+      },
+      debug: true // optional - default false
+    });
+  }
 }
 
 export default AddCreditcardCtrl;
