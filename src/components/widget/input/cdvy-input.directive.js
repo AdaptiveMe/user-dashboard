@@ -40,13 +40,13 @@ class CodenvyInput {
       placeHolder:'@cdvyPlaceHolder',
       myForm: '=cdvyForm',
       ctrl: '=cdvyController'
-
     };
 
   }
 
 
   compile(element, attrs) {
+
     var keys = Object.keys(attrs);
 
     // search the input field
@@ -89,12 +89,15 @@ class CodenvyInput {
 
   }
 
-
-
   /**
    * Keep reference to the model controller
    */
   link($scope, element, attr) {
+    $scope.$watch(function() { return element.is(':visible') }, function() {
+      element.find("input:hidden").attr("disabled", "disabled");
+      element.find("input:visible").removeAttr("disabled");
+    });
+
     $scope.$watch('myForm.desk' + $scope.inputName + '.$pristine', (isPristine) => {
       if (isPristine) {
         element.addClass('desktop-pristine');
