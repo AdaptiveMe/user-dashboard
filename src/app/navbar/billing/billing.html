@@ -14,4 +14,18 @@
 <cdvy-toolbar cdvy-title="Billing and Invoices"></cdvy-toolbar>
 
 <md-content md-scroll-y flex>
+  <cdvy-panel cdvy-title="Usage and Balance">
+
+  </cdvy-panel>
+  <cdvy-panel cdvy-title="Invoices" ng-show="billingCtrl.invoices.length > 0">
+    <div layout="column">
+      <div ng-repeat="invoice in billingCtrl.invoices" layout="row" class="invoice-row">
+        <div flex="85">{{invoice.creationDate | date:'MMMM d, yyyy'}} (${{invoice.total}})</div>
+        <div flex="15" layout-align="end center" layout="row">
+          <a flex="50" ng-href="{{invoice.viewLink}}" target="_blank">PDF</a>
+          <a flex="50" ng-href="{{invoice.viewLink}}" target="_blank">HTML</a>
+        </div>
+      </div>
+    </div>
+  </cdvy-panel>
 </md-content>

@@ -18,6 +18,29 @@ class BillingCtrl {
    */
   constructor (codenvyAPI) {
     this.codenvyAPI = codenvyAPI;
+
+    this.invoices = [];
+
+    if (this.codenvyAPI.getAccount().getAccounts().length > 0) {
+      this.fetchInvoices();
+    } else {
+      this.codenvyAPI.getAccount().fetchAccounts().then(() => {
+        this.fetchInvoices();
+      });
+    }
+  }
+
+  fetchInvoices() {
+    let currentAccount = this.codenvyAPI.getAccount().getCurrentAccount();
+    this.codenvyAPI.getPayment().fetchInvoices(currentAccount.id).then(() => {
+      this.invoices = this.codenvyAPI.getPayment().getInvoices(currentAccount.id);
+    }, (error) => {
+      if (error.status === 304) {
+        this.invoices = this.codenvyAPI.getPayment().getInvoices(currentAccount.id);
+      } else {
+        //TODO
+      }
+    });
   }
 }
 
