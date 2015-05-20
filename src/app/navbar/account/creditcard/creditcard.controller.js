@@ -32,7 +32,6 @@ class CreditcardCtrl {
     this.creditCard = {};
     this.loadedCreditCards = false;
 
-
     if (this.codenvyAPI.getAccount().getAccounts().length > 0) {
       this.fetchCreditCards();
     } else {
