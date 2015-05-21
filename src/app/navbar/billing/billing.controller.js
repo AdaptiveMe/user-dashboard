@@ -16,8 +16,9 @@ class BillingCtrl {
    * Default constructor that is using resource injection
    * @ngInject for Dependency injection
    */
-  constructor (codenvyAPI, lodash) {
+  constructor (codenvyAPI, lodash, codenvyNotificationService) {
     this.codenvyAPI = codenvyAPI;
+    this.codenvyNotificationService = codenvyNotificationService;
     this.lodash = lodash;
 
     this.invoices = [];
@@ -44,7 +45,7 @@ class BillingCtrl {
       if (error.status === 304) {
         this.processInvoices(this.codenvyAPI.getPayment().getInvoices(currentAccount.id));
       } else {
-        //TODO
+        this.codenvyNotificationService.showError(error.data.message !== null ? error.data.message : 'Failed to load invoices.');
       }
     });
   }
@@ -60,19 +61,37 @@ class BillingCtrl {
 
   detectUsage() {
     let currentAccount = this.codenvyAPI.getAccount().getCurrentAccount();
+    //TODO Fix this hardcorded value when API is ready (CLDIDE-2408)
     this.providedGBH = 20;
-    this.usedGBH = 6;
-    this.availableGBH = this.providedGBH - this.usedGBH;
+    this.usedGBH = 0;
+
 
     this.codenvyAPI.getAccount().fetchAccountResources(currentAccount.id).then(() => {
       let resources = this.codenvyAPI.getAccount().getAccountResources(currentAccount.id);
-      console.log(resources);
+      this.usedGBH = this.countUsedGBH(resources);
+      this.setUpChart(this.usedGBH, this.providedGBH);
     });
-
-    this.setUpChart();
   }
 
-  setUpChart() {
+  countUsedGBH(resources) {
+    let saasServiceId = this.codenvyAPI.getAccount().getSaasServiceId();
+    let saasSubscription = this.lodash.find(resources, function (subscription) {
+      return saasServiceId === subscription.subscriptionReference.serviceId;
+    });
+    let used = this.lodash.pluck(saasSubscription.used, 'memory');
+    let usedMb = used.reduce(function(sum, use) {
+      sum += use;
+      return sum;
+    });
+    return (usedMb).toFixed(2);
+  }
+
+  setUpChart(used, provided) {
+    let available = provided - used;
+
+    let usedPercents = (used * 100 / provided).toFixed(0);
+    let availablePercents = 100 - usedPercents;
+
     this.config = {
       tooltips: true,
       labels: false,
@@ -83,19 +102,19 @@ class BillingCtrl {
         display: false,
         position: 'right'
       },
-      innerRadius: "25",
+      innerRadius: '25',
       colors: ['#4e5a96', '#d4d4d4']
     };
 
     this.data = {
       data: [{
-        x: "Consumed",
-        y: [this.usedGBH],
-        tooltip: 'Consumed'
+        x: 'Consumed',
+        y: [used],
+        tooltip: 'Consumed (' + usedPercents + '%)'
       }, {
         x: 'Available',
-        y: [this.availableGBH],
-        tooltip: 'Available'
+        y: [available],
+        tooltip: 'Available (' + availablePercents + '%)'
       }]
     };
 
@@ -106,7 +125,7 @@ class BillingCtrl {
     this.invoices = invoices;
     this.invoices.forEach((invoice) => {
       var link = this.lodash.find(invoice.links, function(link) {
-        return link.rel == 'html view';
+        return link.rel === 'html view';
       });
       if (link) {
         invoice.htmlLink = link.href;

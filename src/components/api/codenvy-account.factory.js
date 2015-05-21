@@ -114,6 +114,10 @@ class CodenvyAccount {
     // check if if was OK or not
     let parsedResultPromise = promise.then((data) => {
       this.resourcesPerAccount.set(accountId, data);
+    }, (error) => {
+      if (error.status !== 304) {
+        console.log(error);
+      }
     });
     return parsedResultPromise;
   }
