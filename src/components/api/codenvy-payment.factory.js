@@ -87,7 +87,7 @@ class CodenvyPayment {
     mainCreditCardInfo.expirationDate = creditCard.expires.replace(/ /g, '');
     mainCreditCardInfo.cvv = creditCard.cvv;
     mainCreditCardInfo.billingAddress = {};
-   // mainCreditCardInfo.billingAddress = {postalCode: creditCard.postalCode};
+    mainCreditCardInfo.billingAddress = {postalCode: creditCard.postCode};
     var defer = this.$q.defer();
 
     this.getClientToken(accountId).then(() => {
@@ -104,6 +104,8 @@ class CodenvyPayment {
 
         remotePaymentAPI.add({accountId: accountId}, newCreditCard).$promise.then(() => {
           defer.resolve();
+        }, (error) => {
+          defer.reject(error);
         });
 
       });
