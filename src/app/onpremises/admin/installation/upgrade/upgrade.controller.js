@@ -16,9 +16,37 @@ class UpgradeInstallationCtrl {
    * Default constructor.
    * @ngInject for Dependency injection
    */
-  constructor() {
+  constructor($rootScope, imsSaasAuthApi, imsUpdateApi) {
+    this.imsUpdateApi = imsUpdateApi;
+    this.$rootScope = $rootScope;
+    this.$rootScope.$watch(
+      () => imsSaasAuthApi.promise,
+      (newValue, oldValue) => { this.updateSubscriptionStatus(newValue); }
+    );
+    // by default, false, until login and subscription check
+    this.subscriptionOk = false;
   }
 
+  install() {
+    this.imsUpdateApi.update();
+  }
+
+  saveSchedule() {
+    // Not implemented yet
+  }
+
+  updateSubscriptionStatus(value) {
+    if (value) {
+      this.subscriptionOk = true;
+    } else {
+      this.subscriptionOk = false;
+    }
+    this.$rootScope.$broadcast('cdvyPanel:disabled', {id: 'upgrade-your-installation-panel', disabled: this.isSectionDisabled()});
+  }
+
+  isSectionDisabled() {
+    return !this.subscriptionOk;
+  }
 }
 
 export default UpgradeInstallationCtrl;

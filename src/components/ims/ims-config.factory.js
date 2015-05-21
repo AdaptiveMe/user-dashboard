@@ -15,7 +15,7 @@ import Register from '../utils/register.js';
 /**
  * This class is handling the interface with Installation Manager Server (IMS) configuration.
  */
-class imsConfigApi {
+class ImsConfigApi {
 
   /**
    * Default constructorfor the config API.
@@ -25,16 +25,18 @@ class imsConfigApi {
 
     // remote call
     this.remoteImsAPI = $resource('/im', {}, {
-      getIMConfig: { method: 'GET', url: '/im/config' },
+      getIMConfig: { method: 'GET', url: '/im/config' }
     });
   }
 
+  /**
+   * Returns Installation Manager Server configuration
+   */
   getIMConfig() {
     let request = this.remoteImsAPI.getIMConfig();
     return request.$promise;
   }
-
 }
 
 // Register this factory
-Register.getInstance().factory('imsConfigApi', imsConfigApi);
+Register.getInstance().factory('imsConfigApi', ImsConfigApi);

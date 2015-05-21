@@ -11,23 +11,25 @@
 'use strict';
 
 import Register from '../utils/register.js';
+import dictionary from './dictionary';
 
 /**
  * This class is handling the interface with Installation Manager Server (IMS) part of the API that relates to artifacts.
  */
-class imsArtifactApi {
+class ImsArtifactApi {
 
   /**
    * Default constructor for the artifact API.
    * @ngInject for Dependency injection
    */
-  constructor($resource) {
+  constructor($resource, $q) {
+    this.$q = $q;
 
     // remote call
     this.remoteImsAPI = $resource('/im', {}, {
-      getDownloadedArtifactsList: { method: 'GET', url: '/im/download/list' },
-      getInstalledArtifactsList: { method: 'GET', url: '/im/install/list' },
-      getAvailableArtifactsList: { method: 'GET', url: '/im/download/check' },
+      getDownloadedArtifactsList: { method: 'GET', url: '/im/download' },
+      getInstalledArtifactsList: { method: 'GET', url: '/im/installation' },
+      getAvailableArtifactsList: { method: 'GET', url: '/im/update' },
 
       downloadArtifacts: { method: 'POST', url: '/im/download/start' },
       downloadArtifact: { method: 'POST', url: '/im/download/start?artifact=:artifactName&version=:version' },
@@ -64,9 +66,9 @@ class imsArtifactApi {
     let installPromise = this.getInstalledArtifactsList();
     let downloadedPromise = this.getDownloadedArtifactsList();
     let availablePromise = this.getAvailableArtifactsList();
-    let all = Promise.all([installPromise, downloadedPromise, availablePromise]);
+    let all = this.$q.all([installPromise, downloadedPromise, availablePromise]);
 
-    return all.then((results) => this.consolidateArtifacts(results));
+    return all.then(results => this.consolidateArtifacts(results));
   }
 
   /**
@@ -123,7 +125,35 @@ class imsArtifactApi {
 
     return artifacts;
   }
+
+  getArtifactDisplayName(artifact) {
+    let entry = dictionary.artifacts[artifact];
+    if (entry) {
+      return entry.display;
+    } else {
+      return artifact;
+    }
+  }
+
+  getArtifactDescription(artifact) {
+    let entry = dictionary.artifacts[artifact];
+    if (entry) {
+      return entry.description;
+    } else {
+      return ;
+    }
+  }
+
+  getArtifactReleaseNotesUrl(artifact) {
+    let entry = dictionary.artifacts[artifact];
+    if (entry) {
+      return entry.releaseNotes;
+    } else {
+      return undefined;
+    }
+  }
+
 }
 
 // Register this factory
-Register.getInstance().factory('imsArtifactApi', imsArtifactApi);
+Register.getInstance().factory('imsArtifactApi', ImsArtifactApi);
