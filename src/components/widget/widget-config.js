@@ -16,6 +16,7 @@ CodenvyHtmlSource, CodenvyInput, CodenvyTab, CodenvyPanel, CodenvySelecterCtrl, 
 import CodenvyButtonPrimary from './button/cdvy-button-primary.directive';
 import CodenvyButtonDanger from './button/cdvy-button-danger.directive';
 import CodenvyButtonDefault from './button/cdvy-button-default.directive';
+import CodenvyButtonWarning from './button/cdvy-button-warning.directive';
 
 import CodenvyLink from './link/cdvy-link.directive';
 
