@@ -17,6 +17,7 @@
 'use strict';
 var DEV = true;
 var ONPREM = false;
+//var LOGINSTATE= false;
 
 angular.module('odeskApp', [
     'angular-lodash',
