@@ -17,9 +17,8 @@
 
 angular.module('odeskApp')
     .controller('LoginCtrl', function ($scope, $rootScope, $timeout, $http, $location, $cookies, $window, ProfileService) {
-      $scope.username = 'hector@adaptive.me';
-      $scope.password = 'hector';
-
+      $scope.username = 'test';
+      $scope.password = 'test';
         $scope.submit = function () {
             $http({
                 url: "/api/auth/login",
@@ -39,10 +38,10 @@ angular.module('odeskApp')
                 $cookies.refreshStatus = "DISABLED";
                 $location.path("/dashboard");
             }, function (response) { // optional
-                console.log(response);
                 console.log("error on login");
                 alert('error');
                 console.log(response);
             });
         };
+
     });

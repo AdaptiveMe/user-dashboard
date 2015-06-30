@@ -1,6 +1,4 @@
-<div>
-
-<div class="breadcrumb-wrap" >
+<div class="breadcrumb-wrap">
     <ul class="breadcrumb projectnav breadcrumb clearfix">
       <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}} workspaces</li>
       <li class="dropdown user-dropdown">SORT BY:
@@ -481,6 +479,7 @@
   </div><!-- modal-dialog -->
 </div><!-- Warning-user Modal -->
 
+
 <div class="modal modal-project fade" id="warning-project" tabindex="-1" role="dialog" aria-labelledby="WarningProjectLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -507,17 +506,3 @@
     </div><!-- modal-dialog -->
 </div><!-- Warning-project Modal -->
 
-</div>
-
-<script>
-    jQuery(document).ready(function() {
-        // init background slide images
-        $.backstretch([
-                    "/assets/admin/img/bg-white.png",
-                ], {
-                    fade: 1,
-                    duration: 0
-                }
-        );
-    });
-</script>

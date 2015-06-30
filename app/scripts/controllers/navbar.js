@@ -17,7 +17,7 @@
 'use strict';
 
 angular.module('odeskApp')
-    .controller('NavbarCtrl', function ($scope, $rootScope, $location, $http, $cookies, $window, OrgAddon, ProfileService) {
+    .controller('NavbarCtrl', function ($scope, $rootScope, $location, $http, $cookies, $window, OrgAddon, ProfileService, $q) {
         $scope.menu = [
             {
                 'title': 'Projects',
@@ -89,19 +89,14 @@ angular.module('odeskApp')
         };
 
         $scope.logout = function () {
-
             $http({
                 url: "/api/auth/logout",
                 method: "POST",
-                //data: { "token": $cookies['session-access-key']}
-                data: { "token": $cookies.token}
+                data: { "token": $cookies['session-access-key']}
             }).success(function (data, status) {
-
-                $location.path("/login");
-
+                $window.location.href = '/site/login';
             });
         };
-
         $("#navbar-collapse").click(function(){
             $(".navbar-collapse").toggle();
         });

@@ -710,5 +710,3 @@ angular.module('odeskApp')
             }
         };
     });
-
-
