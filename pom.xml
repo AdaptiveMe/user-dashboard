@@ -91,7 +91,7 @@
                                     <arg value="install" />
                                 </exec>
                                 <!-- Disable development mode -->
-                                <replace file="${basedir}/app/scripts/app.js">
+                               <!-- <replace file="${basedir}/app/scripts/app.js">
                                     <replacetoken><![CDATA[var DEV = true;]]></replacetoken>
                                     <replacevalue><![CDATA[var DEV = false;]]></replacevalue>
                                 </replace>
@@ -99,15 +99,15 @@
                                     <replacetoken><![CDATA[var ONPREM = true;]]></replacetoken>
                                     <replacevalue><![CDATA[var ONPREM = false;]]></replacevalue>
                                 </replace>
-                                <!-- Build the application -->
+                                &lt;!&ndash; Build the application &ndash;&gt;
                                 <exec dir="${basedir}/target" executable="grunt" failonerror="true">
                                     <arg value="build" />
                                 </exec>
-                                <!-- Build onprem -->
+                                &lt;!&ndash; Build onprem &ndash;&gt;
                                 <replace file="${basedir}/app/scripts/app.js">
                                     <replacetoken><![CDATA[var ONPREM = false;]]></replacetoken>
                                     <replacevalue><![CDATA[var ONPREM = true;]]></replacevalue>
-                                </replace>
+                                </replace>-->
                                 <exec dir="${basedir}/target" executable="grunt" failonerror="true">
                                     <arg value="onprem" />
                                 </exec>
