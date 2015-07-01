@@ -341,7 +341,14 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/bower_components/octicons',
           src: ['octicons/octicons*.*'],
           dest: '<%= yeoman.dist %>/styles/'
-        }
+        },
+          {
+            expand: true,
+            flatten: true,
+            cwd: '<%= yeoman.app %>/scripts/plugins',
+            src: ['**'],
+            dest: '<%= yeoman.dist %>/scripts/plugins'
+          }
         ]
       },
       onprem: {
