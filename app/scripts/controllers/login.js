@@ -17,8 +17,8 @@
 
 angular.module('odeskApp')
     .controller('LoginCtrl', function ($scope, $rootScope, $timeout, $http, $location, $cookies, $window, ProfileService) {
-      $scope.username = 'hector@adaptive.me';
-      $scope.password = 'hector';
+      $scope.username = 'test';
+      $scope.password = 'test';
 
         $scope.submit = function () {
             $http({
