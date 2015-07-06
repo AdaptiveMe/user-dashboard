@@ -62,7 +62,13 @@
 <body class="page-md login" ng-app="odeskApp" ng-controller="MainCtrl" >
 -->
 
-<body class="page-md login" ng-app="odeskApp" ng-controller="MainCtrl" >
+<body class="page-md login page-on-load" ng-app="odeskApp" ng-controller="MainCtrl" >
+
+<!-- BEGIN PAGE SPINNER -->
+<!--
+<div ng-spinner-bar class="page-spinner-bar"> <div class="bounce1"></div> <div class="bounce2"></div> <div class="bounce3"></div></div>
+-->
+<!-- END PAGE SPINNER -->
 
 <!--[if lt IE 7]>
 <!--
@@ -82,17 +88,17 @@
 
   </div><!-- wrap -->
 
- <!-- <div id="footer">
+  <div id="footer">
     <div class="container" style="  display: flex;  height: 90px; ">
 
-      &lt;!&ndash;<p class="text-muted text-center"><img src="images/footerlogo.png" alt="Codenvy | Footer logo"/></p>
+      <!--<p class="text-muted text-center"><img src="images/footerlogo.png" alt="Codenvy | Footer logo"/></p>
       <p style="text-align:center">  _________________________  </p>
       <p style="text-align:center; color:#3B7ABA">Codenvy is new software. You may run into quirks. We'd appreciate you <a href="https://codenvy.uservoice.com/" target="_blank">filing a ticket</a> and supporting us as we improve Codenvy.</p>
-      &ndash;&gt;
-      <p class="text-muted text-center" style="text-align:center; color:#3B7ABA;/* display: flex; */align-self: flex-end;/* position: absolute; */width: 100%;" >&#169; 2016 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Barcelona</p>
+      -->
+      <p class="text-muted text-center" style="text-align:center; color:#FFFFFF;/* display: flex; */align-self: flex-end;/* position: absolute; */width: 100%;" >&#169; 2016 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Barcelona</p>
 
     </div>
-  </div>-->
+  </div>
 
   <script type="text/ng-template" id="template/modal/window.html">
       <div class="modal fade" tabindex="-1" role="dialog" ng-class="{in: animate}" ng-style="{'z-index': 1050 + index*10, display: 'block'}">

@@ -35,6 +35,7 @@ angular.module('odeskApp', [
     'ngClipboard'
 ]).config(function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeBar = false;
+
 }).constant('udCodemirrorConfig', {
     codemirror: {
         lineWrapping: true,
@@ -66,12 +67,22 @@ angular.module('odeskApp', [
             return config || $q.when(config);
         },
         response: function (response) {
-            if (response.status === 401 || response.status == 403) {
-                $log.info('Redirect to login page.')
+
+            if (response.status == 401  || response.status == 403 || response.status == 400 || response.status == 404) {
+                $log.info('Redirect to login page.');
                 $location.path('/login');
             }
             return response || $q.when(response);
         }
+        ,
+
+        responseError: function (rejection){
+
+            //$location.path('/login');
+            console.log(rejection.status);
+            return $q.reject(rejection);
+        }
+
     };
 }).config(function ($routeProvider, $locationProvider, $httpProvider) {
     var DEFAULT;

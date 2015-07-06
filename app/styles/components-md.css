@@ -2646,7 +2646,7 @@ Customized Bootstrap Close Icon
   background-repeat: no-repeat !important;
   text-indent: -10000px;
   outline: none;
-  background-image: url("../img/remove-icon-small.png") !important;
+  background-image: url("../images/remove-icon-small.png") !important;
 }
 
 /***
@@ -4098,7 +4098,7 @@ Metro icons
 
 /* white icon */
 .m-icon-white {
-  background-image: url(../img/syncfusion-icons-white.png);
+  background-image: url(../images/syncfusion-icons-white.png);
 }
 
 /*  Misc */
