@@ -34,7 +34,16 @@ angular.module('odeskApp', [
     'angularFileUpload',
     'ngClipboard'
 ]).config(function (cfpLoadingBarProvider) {
+
+   /* this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
+    this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';*/
+
     cfpLoadingBarProvider.includeBar = false;
+    /*cfpLoadingBarProvider.loadingBarTemplate = '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+    cfpLoadingBarProvider.spinnerTemplate= '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+
+*/
+
 
 }).constant('udCodemirrorConfig', {
     codemirror: {
@@ -99,7 +108,17 @@ angular.module('odeskApp', [
     if (DEV) {
         $httpProvider.interceptors.push('AuthInterceptor');
     }
+
     $routeProvider
+        .when('/home', {
+            templateUrl: BASE_URL + 'views/home.html',
+            controller: 'DashboardCtrl',
+            abstract:true
+        })
+        .when('/home/projects', {
+            templateUrl: BASE_URL + 'views/dashboard.html',
+            controller: 'DashboardCtrl'
+        })
         .when('/dashboard', {
             templateUrl: BASE_URL + 'views/dashboard.html',
             controller: 'DashboardCtrl'

@@ -1,7 +1,9 @@
 <div>
 
+<!--div class="breadcrumb-wrap" >
+    <ul class="breadcrumb projectnav clearfix"-->
 <div class="breadcrumb-wrap" >
-    <ul class="breadcrumb projectnav breadcrumb clearfix">
+    <ul class="breadcrumb projectnav clearfix">
       <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}} workspaces</li>
       <li class="dropdown user-dropdown">SORT BY:
       <a href="" class="dropdown-toggle" data-toggle="dropdown"><i ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'" class="fa"></i>{{param == 'modificationDate' ? 'Date Modified' : 'Name'}}</a>
@@ -31,13 +33,15 @@
         </li>
     </ul>
 </div>
-<div class="row"></div>
+
+   <!--         -->
+<!--div class="row"></div>
 <div class="panel panel-default panel-ce">
-      <div class="panel-body"></div></div>
+      <div class="panel-body"></div></div-->
 
+    <!--         -->
 
-
-<div class="col-md-12 factorylistbox" ng-show="projectselect">
+    <div class="col-md-12 factorylistbox" ng-show="projectselect">
     <img style="margin-left: 68px; margin-top: -37px;" src="./images/up-arrow.png" />
     <h3 ng-click="projectselect=0" class="pull-right"><a href="">x</a></h3>
     <div ng-include="'views/factory-carousal.html'"></div>
@@ -69,7 +73,7 @@
 
 <div class="project-box clearfix">
 
-    <div class="new-project col-md-2 col-sm-4 col-lg-2 col-xs-12" ng-show="workspaces.length > 0">
+    <div class="new-project col-md-4 col-sm-4 col-lg-4 col-xs-12" ng-show="workspaces.length > 0">
 
         <div class="box box-two " ng-if="workspaces.length == 1">
             <a class="clearfix" href="/ws/{{workspaces[0].workspaceReference.name}}?action=newProject" target="_blank">
@@ -107,7 +111,7 @@
 
     <!-- start help-->
     <div ng-show="isNeedToShowHelp()" class="box-example">
-        <div class="col-lg-3 col-sm-6 col-md-3 col-xs-12">
+        <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12">
             <div class="arrow-img hidden-xs"><img src="./images/arrow.png" class="img-responsive"  alt=""/></div>
             <div class="panel panel-default">
               <div class="panel-heading" style="text-align:center">
@@ -509,14 +513,39 @@
 
 </div>
 
+<!--<script>
+  jQuery(document).ready(function() {
+    Metronic.init(); // init metronic core componets
+    Layout.init(); // init layout
+    Demo.init(); // init demo features
+    Index.init();
+    Index.initDashboardDaterange();
+    Index.initJQVMAP(); // init index page's custom scripts
+    Index.initCalendar(); // init index page's custom scripts
+    Index.initCharts(); // init index page's custom scripts
+    Index.initChat();
+    Index.initMiniCharts();
+    Tasks.initDashboardWidget();
+  });
+</script>-->
+
 <script>
-    jQuery(document).ready(function() {
+
+   /* Metronic.init(); // init metronic core components
+    Layout.init(); // init current layout*/
+    /*jQuery(document).ready(function() {*/
         // init background slide images
+
+   $('.page-sidebar-menu').on('click', 'li', function() {
+       $('.page-sidebar-menu li.active').removeClass('active');
+       $(this).addClass('active');
+   });
+
         $.backstretch([
                     "images/bg-white.png",
                 ], {
 
                 }
         );
-    });
+    /*});*/
 </script>

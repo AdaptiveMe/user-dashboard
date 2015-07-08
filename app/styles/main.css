@@ -18,6 +18,7 @@ a.documentation {
 }
 .mainDivContainer {
 	padding-top: 50px;
+    width: 100%;
 }
 .navbar-collapse {
   max-height: 100%;
@@ -73,7 +74,7 @@ li.no-bdr{border: 0px !important; background: none !important}
 .jqsfield { display: inline-block; line-height: 13px; padding: 4px 5px 5px; }
 
 .dropdown-menu { border: 1px solid #DCDCDC; left:auto; right:0; margin:-1px -1px 0 0; border-top:none; box-shadow:none; }
-.dropdown-menu li a { color: #177eb7; text-align:right; font-size:11px;}
+.dropdown-menu li a { color: #177eb7; font-size:11px;}
 .dropdown_bg{background:#404040;border:none;}
 .dropdown_bg li a{font-size: 12px;color:#ffffff !important;}
 .dropdown_bg li a:hover{background: #505050;}
@@ -283,8 +284,8 @@ img.bordered { min-height: 44px; min-width: 44px; display: block;}
 }
 .breadcrumb-wrap {
   position: fixed;
-  top: 46px;
-  width: 100%;
+  /*top: 46px;
+  width: 96%;*/
   z-index: 999;
 }
 .breadcrumb .new-project > div {
@@ -557,7 +558,7 @@ img.bordered { min-height: 44px; min-width: 44px; display: block;}
 /* PROJECTBOX
 -----------------------------*/
 .project-box {
-  padding-top: 25px;
+  padding-top: 52px;
 }
 .project-box > .col-md-10{
   padding: 0;
@@ -1293,6 +1294,9 @@ label {margin-right:0px;}
   .starting_date .textdate5{padding-right: 0 !important;}
   .starting_date { text-align: center !important;}
   .starting_date .textdate1{ float: none !important;}
+    .breadcrumb {
+        width: 100%;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -1303,6 +1307,9 @@ label {margin-right:0px;}
     margin: 12px;
     padding: 1px 0;
 }
+    .breadcrumb {
+        width: 100%;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -1313,10 +1320,16 @@ label {margin-right:0px;}
     margin: 12px;
     padding: 1px 0;
 }
+    .breadcrumb {
+        width: 83%;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    .breadcrumb {
+        width: 100%;
+    }
 
 }
 
@@ -2069,4 +2082,24 @@ html[dir="rtl"] .select2-search input {
 
 .centerText td {
     vertical-align: middle !important;
+}
+
+
+.loginContent {
+    background: url(../images/bg-white-lock.png) repeat;
+    width: 360px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
 }

@@ -58,8 +58,6 @@ angular.module('odeskApp')
                     //document.getElementById("loading-bar-spinner").style.display = 'none';
                     $scope.errorSubmit = false;
 
-                    console.log("response: "+response);
-
                     ProfileService.getProfile().then(function (profile, status) {
 
                         console.log("status : "+status);
@@ -69,11 +67,13 @@ angular.module('odeskApp')
                         } else {
                             fullUserName = profile.attributes.email;
                         }
+
                         $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
 
                     });
                     $cookies.token = response.data.value;
                     $cookies.refreshStatus = "DISABLED";
+                    /* $location.path("/dashboard");*/
                     $location.path("/dashboard");
 
                 }, function (response) { // optional
