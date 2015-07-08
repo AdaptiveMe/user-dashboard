@@ -34,7 +34,17 @@ angular.module('odeskApp', [
     'angularFileUpload',
     'ngClipboard'
 ]).config(function (cfpLoadingBarProvider) {
+
+   /* this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
+    this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';*/
+
     cfpLoadingBarProvider.includeBar = false;
+    /*cfpLoadingBarProvider.loadingBarTemplate = '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+    cfpLoadingBarProvider.spinnerTemplate= '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+
+*/
+
+
 }).constant('udCodemirrorConfig', {
     codemirror: {
         lineWrapping: true,
@@ -66,12 +76,22 @@ angular.module('odeskApp', [
             return config || $q.when(config);
         },
         response: function (response) {
-            if (response.status === 401 || response.status == 403) {
-                $log.info('Redirect to login page.')
+
+            if (response.status == 401  || response.status == 403 || response.status == 400 || response.status == 404) {
+                $log.info('Redirect to login page.');
                 $location.path('/login');
             }
             return response || $q.when(response);
         }
+        ,
+
+        responseError: function (rejection){
+
+            //$location.path('/login');
+            console.log(rejection.status);
+            return $q.reject(rejection);
+        }
+
     };
 }).config(function ($routeProvider, $locationProvider, $httpProvider) {
     var DEFAULT;
@@ -88,7 +108,17 @@ angular.module('odeskApp', [
     if (DEV) {
         $httpProvider.interceptors.push('AuthInterceptor');
     }
+
     $routeProvider
+        .when('/home', {
+            templateUrl: BASE_URL + 'views/home.html',
+            controller: 'DashboardCtrl',
+            abstract:true
+        })
+        .when('/home/projects', {
+            templateUrl: BASE_URL + 'views/dashboard.html',
+            controller: 'DashboardCtrl'
+        })
         .when('/dashboard', {
             templateUrl: BASE_URL + 'views/dashboard.html',
             controller: 'DashboardCtrl'

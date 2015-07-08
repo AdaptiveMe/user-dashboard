@@ -328,3 +328,23 @@
     </div>
 </div>
 <!-- Workspaces Cap Modal end -->
+<script>
+
+    /* Metronic.init(); // init metronic core components
+     Layout.init(); // init current layout*/
+    /*jQuery(document).ready(function() {*/
+    // init background slide images
+
+    $('.page-sidebar-menu').on('click', 'li', function() {
+        $('.page-sidebar-menu li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $.backstretch([
+                "images/bg-white.png",
+            ], {
+
+            }
+    );
+    /*});*/
+</script>

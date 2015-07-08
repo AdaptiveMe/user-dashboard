@@ -1,0 +1,427 @@
+<!--<body class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed" ng-app="odeskApp" ng-controller="MainCtrl">-->
+<!-- BEGIN HEADER -->
+
+<div class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed">
+
+<div ng-hide="false">
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="index.html">
+                    <img src="../images/adaptive_logo_small.png" alt="logo" class="logo-default"/>
+                </a>
+                <div class="menu-toggler sidebar-toggler">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN PAGE ACTIONS -->
+            <!-- DOC: Remove "hide" class to enable the page header actions -->
+            <div class="page-actions hide">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-circle red-pink dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-bar-chart"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-user"></i> New User </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-present"></i> New Event <span class="badge badge-success">4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-basket"></i> New order </a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-flag"></i> Pending Orders <span class="badge badge-danger">4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-users"></i> Pending Users <span class="badge badge-warning">12</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-circle green-haze dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-bell"></i>&nbsp;<span class="hidden-sm hidden-xs">Post&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-docs"></i> New Post </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-tag"></i> New Comment </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-share"></i> Share </a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-flag"></i> Comments <span class="badge badge-success">4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-users"></i> Feedbacks <span class="badge badge-danger">2</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END PAGE ACTIONS -->
+            <!-- BEGIN PAGE TOP -->
+            <div class="page-top">
+                <!-- BEGIN HEADER SEARCH BOX -->
+                <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+                <form class="search-form search-form-expanded" action="extra_search.html" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." name="query">
+					<span class="input-group-btn">
+					<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+					</span>
+                    </div>
+                </form>
+                <!-- END HEADER SEARCH BOX -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- BEGIN NOTIFICATION DROPDOWN -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+
+                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img alt="" class="img-circle" src="../images/avatar3_small.jpg"/>
+						<span class="username username-hide-on-mobile">
+						Nick </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="extra_profile.html">
+                                        <i class="icon-user"></i> My Profile </a>
+                                </li>
+                                <li>
+                                    <a href="page_calendar.html">
+                                        <i class="icon-calendar"></i> My Calendar </a>
+                                </li>
+                                <li>
+                                    <a href="inbox.html">
+                                        <i class="icon-envelope-open"></i> My Inbox <span class="badge badge-danger">
+								3 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page_todo.html">
+                                        <i class="icon-rocket"></i> My Tasks <span class="badge badge-success">
+								7 </span>
+                                    </a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="extra_lock.html">
+                                        <i class="icon-lock"></i> Lock Screen </a>
+                                </li>
+                                <li>
+                                    <a href="login.html">
+                                        <i class="icon-key"></i> Log Out </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END PAGE TOP -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+</div>
+<!-- END HEADER -->
+
+<div class="clearfix">
+</div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <div class="page-container">
+
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+                    <li class="start active ">
+                        <a href="index.html">
+                            <i class="icon-home"></i>
+                            <span class="title">Projects</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-basket"></i>
+                            <span class="title">Runners</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-basket"></i>
+                            <span class="title">Factories</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a ng-href="#/dashboard">
+                            <i class="icon-basket"></i>
+                            <span class="title">Workspaces</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-basket"></i>
+                            <span class="title">Account</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+
+        <!-- BEGIN CONTENT -->
+
+        <div class="page-content-wrapper">
+
+            <div class="page-content ">
+                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+                <div id="wrap" >
+                   <!-- <div class="loginContent" ng-view="#/home/projects"></div>-->
+                </div>
+
+                <!-- /.modal -->
+                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <!-- BEGIN STYLE CUSTOMIZER -->
+
+                <!--<div class="theme-panel">
+                  <div class="toggler tooltips" data-container="body" data-placement="left" data-html="true" data-original-title="Click to open advance theme customizer panel">
+                    <i class="icon-settings"></i>
+                  </div>
+                  <div class="toggler-close">
+                    <i class="icon-close"></i>
+                  </div>
+                  <div class="theme-options">
+                    <div class="theme-option theme-colors clearfix">
+                                    <span>
+                                    THEME COLOR </span>
+                      <ul>
+                        <li class="color-default current tooltips" data-style="default" data-container="body" data-original-title="Default">
+                        </li>
+                        <li class="color-grey tooltips" data-style="grey" data-container="body" data-original-title="Grey">
+                        </li>
+                        <li class="color-blue tooltips" data-style="blue" data-container="body" data-original-title="Blue">
+                        </li>
+                        <li class="color-dark tooltips" data-style="dark" data-container="body" data-original-title="Dark">
+                        </li>
+                        <li class="color-light tooltips" data-style="light" data-container="body" data-original-title="Light">
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Theme Style </span>
+                      <select class="layout-style-option form-control input-small">
+                        <option value="square" selected="selected">Square corners</option>
+                        <option value="rounded">Rounded corners</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Layout </span>
+                      <select class="layout-option form-control input-small">
+                        <option value="fluid" selected="selected">Fluid</option>
+                        <option value="boxed">Boxed</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Header </span>
+                      <select class="page-header-option form-control input-small">
+                        <option value="fixed" selected="selected">Fixed</option>
+                        <option value="default">Default</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Top Dropdown</span>
+                      <select class="page-header-top-dropdown-style-option form-control input-small">
+                        <option value="light" selected="selected">Light</option>
+                        <option value="dark">Dark</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Sidebar Mode</span>
+                      <select class="sidebar-option form-control input-small">
+                        <option value="fixed">Fixed</option>
+                        <option value="default" selected="selected">Default</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Sidebar Style</span>
+                      <select class="sidebar-style-option form-control input-small">
+                        <option value="default" selected="selected">Default</option>
+                        <option value="compact">Compact</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Sidebar Menu </span>
+                      <select class="sidebar-menu-option form-control input-small">
+                        <option value="accordion" selected="selected">Accordion</option>
+                        <option value="hover">Hover</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Sidebar Position </span>
+                      <select class="sidebar-pos-option form-control input-small">
+                        <option value="left" selected="selected">Left</option>
+                        <option value="right">Right</option>
+                      </select>
+                    </div>
+                    <div class="theme-option">
+                                    <span>
+                                    Footer </span>
+                      <select class="page-footer-option form-control input-small">
+                        <option value="fixed">Fixed</option>
+                        <option value="default" selected="selected">Default</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>-->
+                <!-- END STYLE CUSTOMIZER -->
+                <!-- BEGIN PAGE HEADER-->
+                <h3 class="page-title">
+                    Dashboard</h3>
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Dashboard</a>
+                        </li>
+                    </ul>
+                    <div class="page-toolbar">
+                        <div id="dashboard-report-range" class="tooltips btn btn-fit-height btn-sm green-haze btn-dashboard-daterange" data-container="body" data-placement="left" data-original-title="Change dashboard date range">
+                            <i class="icon-calendar"></i>
+                            &nbsp;&nbsp; <i class="fa fa-angle-down"></i>
+                            <!-- uncomment this to display selected daterange in the button
+              &nbsp; <span class="thin uppercase visible-lg-inline-block"></span>&nbsp;
+              <i class="fa fa-angle-down"></i>
+              -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN DASHBOARD STATS -->
+
+                <div class="clearfix">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                </div>
+                <div class="clearfix">
+                </div>
+
+                <div class="clearfix">
+                </div>
+
+                <div class="clearfix">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT -->
+        <!-- BEGIN QUICK SIDEBAR -->
+        <!--Cooming Soon...-->
+        <!-- END QUICK SIDEBAR -->
+    </div>
+
+</div>
+<!-- END CONTAINER -->
+
+</div>
+
+<script>
+  jQuery(document).ready(function() {
+
+      // init background slide images
+      $.backstretch([
+                  "images/bg-white.png",
+              ], {
+
+              }
+      );
+  });
+
+
+</script>

@@ -26,34 +26,43 @@ var Login = function () {
 	                }
 	            },
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+	            invalidHandler: function (event, validator) { //display error alert on form submit
 	                $('.alert-danger', $('.login-form')).show();
+					console.log("invalidHandler");
 	            },
 
 	            highlight: function (element) { // hightlight error inputs
+					console.log("highlight");
 	                $(element)
 	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
 	            },
 
 	            success: function (label) {
+					console.log("success");
 	                label.closest('.form-group').removeClass('has-error');
 	                label.remove();
 	            },
 
 	            errorPlacement: function (error, element) {
+					console.log("errorPlacement");
 	                error.insertAfter(element.closest('.input-icon'));
 	            },
 
 	            submitHandler: function (form) {
+					console.log("submitHandler");
 	                form.submit();
 	            }
 	        });
 
 	        $('.login-form input').keypress(function (e) {
+				console.log("login-form input').keypr");
 	            if (e.which == 13) {
+					console.log("e.which == 13");
 	                if ($('.login-form').validate().form()) {
+						console.log("$('.login-form').validate().form()");
 	                    $('.login-form').submit();
-	                }
+	                }else
+						console.log("nooo login-form input').keypr");
 	                return false;
 	            }
 	        });
@@ -192,7 +201,7 @@ var Login = function () {
 	                }
 	            },
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+	            invalidHandler: function (event, validator) { //display error alert on form submit
 
 	            },
 
@@ -207,7 +216,7 @@ var Login = function () {
 	            },
 
 	            errorPlacement: function (error, element) {
-	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container                  
+	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container
 	                    error.insertAfter($('#register_tnc_error'));
 	                } else if (element.closest('.input-icon').size() === 1) {
 	                    error.insertAfter(element.closest('.input-icon'));
@@ -246,8 +255,8 @@ var Login = function () {
         init: function () {
         	
             handleLogin();
-            handleForgetPassword();
-            handleRegister();    
+            //handleForgetPassword();
+            //handleRegister();
         }
 
     };

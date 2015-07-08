@@ -697,7 +697,7 @@ var Metronic = function() {
             options = $.extend(true, {}, options);
             var html = '';
             if (options.animate) {
-                html = '<div class="loading-message ' + (options.boxed ? 'loading-message-boxed' : '') + '">' + '<div class="block-spinner-bar"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>' + '</div>';
+                html = '<div class="loading-message ' + (options.fluid ? 'loading-message-boxed' : '') + '">' + '<div class="block-spinner-bar"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>' + '</div>';
             } else if (options.iconOnly) {
                 html = '<div class="loading-message ' + (options.boxed ? 'loading-message-boxed' : '') + '"><img src="' + this.getGlobalImgPath() + 'loading-spinner-grey.gif" align=""></div>';
             } else if (options.textOnly) {

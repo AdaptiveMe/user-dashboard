@@ -154,13 +154,12 @@ Page Header
   color: #969696;
 }
 .page-header.navbar .search-form .input-group .input-group-btn .btn.submit > i {
-  color: #999999;
-}
+  color: #999999;}
 .page-header.navbar .search-form.open {
   background: #393939;
 }
 .page-header.navbar .menu-toggler {
-  background-image: url(../../img/sidebar_toggler_icon_default.png);
+  background-image: url(../../images/sidebar_toggler_icon_default.png);
 }
 
 /* Default Horizontal Menu */
