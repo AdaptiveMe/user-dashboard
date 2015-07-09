@@ -186,7 +186,7 @@ Page Header
 }
 .page-header.navbar .hor-menu .navbar-nav > li.open > a,
 .page-header.navbar .hor-menu .navbar-nav > li > a:hover {
-  color: #3b3b3b;
+/*  color: #3b3b3b;*/
   background: #eeeeee !important;
 }
 .page-header.navbar .hor-menu .navbar-nav > li.open > a > i,
@@ -258,7 +258,7 @@ Page Header
   color: #888888;
 }
 .page-header.navbar .hor-menu.hor-menu-light .navbar-nav > li > a:hover {
-  color: #3b3b3b;
+  /*color: #3b3b3b;*/
   background: #eeeeee;
 }
 .page-header.navbar .hor-menu.hor-menu-light .navbar-nav > li > a:hover > i {

@@ -138,7 +138,7 @@ Page Header
   background: #151515;
 }
 .page-header.navbar .search-form:hover {
-  background: #393939;
+  /*background: #393939;*/
 }
 .page-header.navbar .search-form .input-group .form-control {
   color: #999999;
@@ -156,7 +156,7 @@ Page Header
 .page-header.navbar .search-form .input-group .input-group-btn .btn.submit > i {
   color: #999999;}
 .page-header.navbar .search-form.open {
-  background: #393939;
+  /*background: #393939;*/
 }
 .page-header.navbar .menu-toggler {
   background-image: url(../../images/sidebar_toggler_icon_default.png);
@@ -886,7 +886,7 @@ Page Footer
     background-color: #1f1f1f;
   }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
-    background-color: #3b3b3b;
+    /*background-color: #3b3b3b;*/
   }
   .page-header-fixed-mobile .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
     background: none;
