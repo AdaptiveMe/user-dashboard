@@ -174,9 +174,6 @@ module.exports = function (grunt) {
       }
     },
 
-
-
-
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
@@ -313,7 +310,8 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'account/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'scripts/plugins/**'
           ]
         }, {
           expand: true,
@@ -341,14 +339,13 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/bower_components/octicons',
           src: ['octicons/octicons*.*'],
           dest: '<%= yeoman.dist %>/styles/'
-        },
+        }/*,
           {
             expand: true,
-            flatten: true,
             cwd: '<%= yeoman.app %>/scripts/plugins',
-            src: ['**'],
+            src: ['*.*'],
             dest: '<%= yeoman.dist %>/scripts/plugins'
-          }
+          }*/
         ]
       },
       onprem: {

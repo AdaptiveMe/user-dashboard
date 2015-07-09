@@ -9668,7 +9668,7 @@ Grey Gallery
   background-color: #363636;
 }
 .grey-gallery.btn:active:hover, .grey-gallery.btn.active:hover {
-  background-color: #3b3b3b;
+  /*background-color: #3b3b3b;*/
 }
 .open .grey-gallery.btn.dropdown-toggle {
   background-image: none;

@@ -120,6 +120,11 @@ angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
         },
 
         'responseError': function(rejection) {
+
+          console.log("responseError--loading-bar");
+
+          setComplete();
+
           if (!rejection.config.ignoreLoadingBar && !isCached(rejection.config)) {
             reqsCompleted++;
             $rootScope.$broadcast('cfpLoadingBar:loaded', {url: rejection.config.url});
@@ -155,8 +160,8 @@ angular.module('cfp.loadingBar', [])
     this.latencyThreshold = 100;
     this.startSize = 0.02;
     this.parentSelector = 'body';
-    this.spinnerTemplate = '<div ng-spinner-bar="" class="page-spinner-bar ">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
-    this.loadingBarTemplate = '<div ng-spinner-bar="" class="page-spinner-bar ">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+    this.spinnerTemplate = '<div id="loading-bar" ng-spinner-bar="" class="page-spinner-bar">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+    this.loadingBarTemplate = '<div id="loading-bar" ng-spinner-bar="" class="page-spinner-bar">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
 
     this.$get = ['$injector', '$document', '$timeout', '$rootScope', function ($injector, $document, $timeout, $rootScope) {
       var $animate;

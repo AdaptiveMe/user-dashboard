@@ -85,7 +85,7 @@
           <div class="page-header-inner">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-              <a href="index.html">
+              <a href="">
                 <img src="../images/adaptive_logo_small_white.png" alt="logo" class="logo-default"/>
               </a>
               <div class="menu-toggler sidebar-toggler">
@@ -179,7 +179,7 @@
               </form>
               <!-- END HEADER SEARCH BOX -->
               <!-- BEGIN TOP NAVIGATION MENU -->
-              <div class="top-menu">
+              <div class="top-menu" style="background-color: #fff;">
                 <ul class="nav navbar-nav pull-right">
                   <!-- BEGIN NOTIFICATION DROPDOWN -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -245,7 +245,7 @@
       </div>
 
       <!-- BEGIN CONTAINER -->
-      <div class="page-container">
+      <div class="page-container" style="margin-bottom: -35px;">
         <div class="page-container">
 
           <!-- BEGIN SIDEBAR -->
@@ -263,32 +263,32 @@
               <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 
                 <li class="start active">
-                  <a ng-href="#/dashboard" data-toggle="collapse" data-target=".navbar-collapse">
+                  <a id="itemTopMenu1" ng-href="#/dashboard" >
                     <i class="icon-docs"></i>
                     <span class="title">Projects</span>
                     <!--<span class="selected"></span>-->
                   </a>
                 </li>
                 <li>
-                  <a ng-href="#/runner" data-toggle="collapse" data-target=".navbar-collapse">
+                  <a id="itemTopMenu2" ng-href="#/runner" >
                     <i class="icon-speedometer"></i>
                     <span class="title">Runners</span>
                   </a>
                 </li>
                 <li>
-                  <a ng-href="#/factories" data-toggle="collapse" data-target=".navbar-collapse">
+                  <a id="itemTopMenu3" ng-href="#/factories" >
                     <i class="icon-layers"></i>
                     <span class="title">Factories</span>
                   </a>
                 </li>
                 <li>
-                  <a ng-href="#/organizations" data-toggle="collapse" data-target=".navbar-collapse">
+                  <a id="itemTopMenu4" ng-href="#/organizations" >
                     <i class="icon-support"></i>
                     <span class="title">Workspaces</span>
                   </a>
                 </li>
                 <li>
-                  <a ng-href="#/account" data-toggle="collapse" data-target=".navbar-collapse">
+                  <a id="itemTopMenu5" ng-href="#/account">
                     <i class="icon-user"></i>
                     <span class="title">Account</span>
                   </a>
@@ -478,7 +478,7 @@
 
     </div>
 
-    <script>
+   <!-- <script>
       jQuery(document).ready(function() {
 
         // init background slide images
@@ -490,15 +490,14 @@
         );
       });
 
-    </script>
+    </script>-->
 
   </div>
 
-  <div>
-    <div class="container" style="  display: flex;  height: 35px; ">
-      <p class="text-muted text-center" style="text-align:center; color:#FFFFFF;/* display: flex; */align-self: flex-end;/* position: absolute; */width: 100%;" >&#169; 2016 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Barcelona</p>
+    <div class="container" style="  display: flex;  height: 35px;   width: 100%;  padding-left: 0px; padding-right: 0px;">
+      <p id="footerText" class="text-muted text-center" style="z-index: 999;text-align:center; color:#FFFFFF;/* display: flex; */align-self: flex-end;/* position: absolute; */width: 100%;/* padding-bottom: 0px; *//* margin-top: 0px; */margin: 0 0 0px;padding-top: 10px;padding-bottom: 10px;" >&#169; 2016 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Barcelona</p>
     </div>
-  </div>
+
 
   <!--<div ng-view=""> </div>-->
 
@@ -1069,14 +1068,14 @@
   <script src="scripts/login-soft.js" type="text/javascript"></script>
   <script src="scripts/index.js" type="text/javascript"></script>
   <script src="scripts/tasks.js" type="text/javascript"></script>
-  <script>
-
-  </script>
   <!---------------------------------------------------------------------->
 
-
+  <!-- endbuild -->
 
 <script>
+
+
+
 
   $('.page-sidebar-menu').on('click', 'li', function() {
     $('.page-sidebar-menu li.active').removeClass('active');
@@ -1084,6 +1083,7 @@
   });
 
   jQuery(document).ready(function() {
+
     Metronic.init(); // init metronic core components
     Layout.init(); // init current layout
     Demo.init();
@@ -1098,11 +1098,52 @@
 
   });
 
+
+
+  /*$('#footerText').removeAttr('background-color');*/
+
+
+
+  $( window ).resize(function() {
+    if($('body').width() > 991){
+      $('#itemTopMenu1').removeAttr('data-toggle');
+      $('#itemTopMenu1').removeAttr('data-target');
+
+      $('#itemTopMenu2').removeAttr('data-toggle');
+      $('#itemTopMenu2').removeAttr('data-target');
+
+      $('#itemTopMenu3').removeAttr('data-toggle');
+      $('#itemTopMenu3').removeAttr('data-target');
+
+      $('#itemTopMenu4').removeAttr('data-toggle');
+      $('#itemTopMenu4').removeAttr('data-target');
+
+      $('#itemTopMenu5').removeAttr('data-toggle');
+      $('#itemTopMenu5').removeAttr('data-target');
+    }else{
+      $('#itemTopMenu1').attr('data-toggle','collapse');
+      $('#itemTopMenu1').attr('data-target','.navbar-collapse');
+
+      $('#itemTopMenu2').attr('data-toggle','collapse');
+      $('#itemTopMenu2').attr('data-target','.navbar-collapse');
+
+      $('#itemTopMenu3').attr('data-toggle','collapse');
+      $('#itemTopMenu3').attr('data-target','.navbar-collapse');
+
+      $('#itemTopMenu4').attr('data-toggle','collapse');
+      $('#itemTopMenu4').attr('data-target','.navbar-collapse');
+
+      $('#itemTopMenu5').attr('data-toggle','collapse');
+      $('#itemTopMenu5').attr('data-target','.navbar-collapse');
+
+    }
+  });
+
   /*page-sidebar-menu*/
 
 </script>
 
-  <!-- endbuild -->
+
 
 </body>
 </html>

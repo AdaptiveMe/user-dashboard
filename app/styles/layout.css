@@ -1375,14 +1375,17 @@ Page sidebar
   .page-sidebar.navbar-collapse.collapse {
     display: none !important;
   }
-  .page-sidebar.navbar-collapse.in {
-    border-top: 0 !important;
-    margin: 20px;
-    position: relative;
-    overflow: hidden !important;
-    overflow-y: auto !important;
-    display: block !important;
-  }
+
+  /*@media (max-width: 991px) {*/
+    .page-sidebar.navbar-collapse.in {
+      border-top: 0 !important;
+      margin: 20px;
+      position: relative;
+      overflow: hidden !important;
+      overflow-y: auto !important;
+      display: block !important;
+    }
+  /*}*/
   .page-sidebar.navbar-collapse.navbar-no-scroll {
     max-height: none !important;
   }
