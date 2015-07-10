@@ -534,7 +534,7 @@ var Metronic = function() {
 
             //Core handlers
             handleInit(); // initialize core variables
-            handleOnResize(); // set and handle responsive    
+            handleOnResize(); // set and handle responsive
 
             //UI Component handlers     
             handleMaterialDesign(); // handle material design       
