@@ -541,14 +541,21 @@
        $(this).addClass('active');
    });
 
-   $.backstretch([
+   /*$.backstretch([
                     "images/bg-white.png",
                 ], {
 
                 }
+   );*/
+   $.backstretch("pause");
+
+   $.backstretch([
+               "images/bg-white.png",
+           ]
    );
 
-   $('#footerText').css('background-color', '#79848E');
+
+   $('#footerText').css('background-color', 'rgb(77, 91, 103)');
 
    /*$('#loading-bar').attr('data-toggle', 'collapse');*/
 
