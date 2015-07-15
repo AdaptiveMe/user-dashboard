@@ -63,9 +63,10 @@
 
 </head>
 
-<body ng-controller="MainCtrl" ng-app="odeskApp" ng-cloak style="background-color: #122435;">
+<body ng-controller="MainCtrl" ng-app="odeskApp" ng-cloak>
 
-  <div ng-cloak ng-if="isLoginPage" style="height: 83%;">
+  <div ng-cloak ng-if="isLoginPage">
+    <!--<div ng-cloak ng-if="isLoginPage" style="height: 83%;">-->
     <!--<div  ng-include="'views/login.html'"></div>-->
     <div ng-view=""> </div>
   </div>
@@ -85,7 +86,8 @@
             <!-- BEGIN LOGO -->
 
             <div class="page-logo">
-              <a href="index.html">
+             <!-- <a href="index.html">-->
+               <a>
                 <img src="../images/adaptive_logo_small_white.png" alt="logo" class="logo-default">
               </a>
               <div class="menu-toggler sidebar-toggler">
@@ -314,7 +316,7 @@
             <div class="page-content ">
               <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
-             <!-- <div id="wrap" >-->
+              <!-- <div id="wrap" >-->
               <div id="wrap" >
                  <div ng-view=""></div>
               </div>
@@ -338,7 +340,9 @@
 
                 </div>
               </div>
+
             </div>
+
           </div>
           <!-- END CONTENT -->
           <!-- BEGIN QUICK SIDEBAR -->

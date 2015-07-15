@@ -778,7 +778,8 @@ Page container
   clear: both;
 }
 .page-header-fixed .page-container {
-  margin-top: 34px;
+  /*margin-top: 34px;*/
+  padding-top: 34px;
 }
 .page-footer-fixed.page-footer-fixed-mobile .page-container {
   margin-bottom: 20px !important;
