@@ -2104,3 +2104,22 @@ html[dir="rtl"] .select2-search input {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+@media (max-width: 400px){
+    .loginContent{
+        width: 280px;
+    }
+
+}
+
+.loginLogo{
+    margin: 0px auto 20px auto;
+    padding-top: 75px;
+    text-align: center;
+}
+
+@media (max-height: 600px){
+    .loginLogo{
+        padding-top: 33px;
+    }
+}

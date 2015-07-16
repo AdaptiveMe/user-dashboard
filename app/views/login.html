@@ -11,9 +11,9 @@
 
 <div class="page-md login" ng-controller="LoginCtrl">
 
-<div id="wrap">
+<div id="wrap" >
 
-<div class="logo" style="margin: 0px auto 20px auto; padding-top: 75px; text-align: center;">
+<div class="loginLogo">
     <a href="">
         <img style="height: 3em;" src="images/adaptive_logo.png" alt=""/>
     </a>
@@ -75,11 +75,22 @@
              <button  type="submit" class="btn blue pull-right" ng-click="submit()">login</button>
 
          </div>-->
-         <div class="form-actions">
-             <label class="checkbox" style="margin-left: 20px;color: white;">
-                 <input type="checkbox" name="remember" value="1"/> Remember me </label>
-            <!-- <button type="submit" class="btn blue pull-right" ng-click="submit()">-->
 
+         <div class="form-actions">
+           <!--  <label class="checkbox" style="color: white;   font-size: 13px;" >-->
+
+                 <div class="md-checkbox">
+                     <input type="checkbox" id="checkbox1" class="md-check" name="remember" value="1">
+                     <label style="color: white; font-size: 12px;" for="checkbox1">
+                         <span class="inc"></span>
+                         <span class="check"></span>
+                         <span class="box"></span>
+                         Remember me </label>
+                 </div>
+
+                 <!--<input type="checkbox" name="remember" value="1"/> Remember me </label>-->
+
+             <!-- <button type="submit" class="btn blue pull-right" ng-click="submit()">-->
              <button class="btn blue pull-right" ng-click="submit()" style="margin-top: -23px;">
                  Login <i class="m-icon-swapright m-icon-white"></i>
              </button>
@@ -103,7 +114,8 @@
 </div>
 </div>
 </div>
- <script>
+
+<script>
 
      /*$('.login-form input').keypress(function (e) {
          //console.log("login-form input').keypr");
@@ -125,6 +137,7 @@
         //Login.init();
         Demo.init();*/
         // init background slide images
+
         $.backstretch([
                     "images/1.jpg",
                     "images/2.jpg",

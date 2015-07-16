@@ -35,7 +35,7 @@ angular.module('odeskApp', [
     'ngClipboard'
 ]).config(function (cfpLoadingBarProvider) {
 
-   /* this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
+    /* this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
     this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';*/
 
     cfpLoadingBarProvider.includeBar = false;
@@ -43,7 +43,6 @@ angular.module('odeskApp', [
     cfpLoadingBarProvider.spinnerTemplate= '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
 
 */
-
 
 }).constant('udCodemirrorConfig', {
     codemirror: {
@@ -75,9 +74,10 @@ angular.module('odeskApp', [
             }
             return config || $q.when(config);
         },
+
         response: function (response) {
 
-            if (response.status == 401  || response.status == 403 || response.status == 400 || response.status == 404) {
+            if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404) {
                 $log.info('Redirect to login page.');
                 $location.path('/login');
             }

@@ -1,8 +1,35 @@
+
+<div class="portlet box red-pink" >
+  <div class="portlet-title" style="background-color: #4D5B69;">
+    <div class="caption">
+      <!--<i class="fa fa-gift"></i>-->
+       <span class="hidden-480">
+         Projects </span>
+    </div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#/account/profile" data-toggle="tab" aria-expanded="true" >
+          Profile </a>
+      </li>
+      <li class="">
+        <a href="#/account/subscriptions" data-toggle="tab" aria-expanded="false" ng-hide="ONPREM">
+          Subscriptions </a>
+      </li>
+      <li class="">
+        <a href="#/account/billing" data-toggle="tab" aria-expanded="false" ng-hide="ONPREM">
+          Usage and Billing</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--
+
 <ul class="breadcrumb boxnav" >
     <li style="margin-top:4px;margin-bottom:8px;" class="active"><a href="#/account/profile">Profile</a></li>
     <li style="margin-top:4px;margin-bottom:8px;"><a href="#/account/subscriptions" ng-hide="ONPREM">Subscriptions</a></li>
     <li style="margin-top:4px;margin-bottom:8px;"><a href="#/account/billing" ng-hide="ONPREM">Usage and Billing</a></li>
 </ul>
+-->
 
 <div class="container mainDivContainer" style="width: 100%">
   <div class="col-md-6">
@@ -66,8 +93,18 @@
                 </div>
               </div>
               Can our sales teams contact you to discuss our offerings? &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                <input type="checkbox" id="checkbox1" class="md-check"   name="sales" ng-model="sales" value="1">
+                <label   for="checkbox1">
+                  <span class="inc"></span>
+                  <span class="check"></span>
+                  <span class="box"></span>
+                  Yes </label>
+              </div>
+<!--
               <input type="checkbox" style="margin-top: -1px;vertical-align: middle" name="sales" ng-model="sales" value="1">
-              &nbsp;&nbsp;Yes
+              &nbsp;&nbsp;Yes-->
+
               <div class="row">
                 <div id="upadateProfileAlert" class="col-md-10">
                   <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Update profile information process completed.</div>
@@ -217,17 +254,76 @@
               <div class="row">
                 <div class="control-group">
                   <div class="controls col-md-5 col-md-offset-1">
-                    <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_1">Personal</label>
-                    <label class="checkbox">
+
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox11" class="md-check"    ng-model="usage_1"  >
+                      <label  for="checkbox11">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Personal </label>
+                    </div>
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox2" class="md-check"   ng-model="usage_2"  >
+                      <label  for="checkbox2">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Open Source </label>
+                    </div>
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox3" class="md-check"   ng-model="usage_3"  >
+                      <label  for="checkbox3">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Corporate </label>
+                    </div>
+
+                   <!-- <label class="checkbox">
+                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_1">Personal
+                    </label>-->
+                   <!-- <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="usage_2">
-                      Open Source </label>
+                      Open Source
+                    </label>
                     <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="usage_3">
-                      Corporate </label>
+                      Corporate
+                    </label>-->
+
                   </div>
                   <div class="controls col-md-5 col-md-offset-1">
-                    <label class="checkbox">
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox4" class="md-check"  ng-model="usage_4"  >
+                      <label  for="checkbox4">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Hackathon </label>
+                    </div>
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox5" class="md-check"  ng-model="usage_5"  >
+                      <label  for="checkbox5">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Classroom </label>
+                    </div>
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox6" class="md-check" ng-model="usage_6"  >
+                      <label  for="checkbox6">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Others </label>
+                    </div>
+
+                   <!-- <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="usage_4">
                       Hackathon </label>
                     <label class="checkbox">
@@ -235,7 +331,7 @@
                       Classroom </label>
                     <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="usage_6">
-                      Others </label>
+                      Others </label>-->
                   </div>
                 </div>
               </div>
@@ -243,20 +339,63 @@
               <div class="row">
                 <div class="control-group">
                   <div class="controls col-md-5 col-md-offset-1">
-                    <label class="checkbox">
+
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox7" class="md-check" ng-model="project_1" >
+                      <label  for="checkbox7">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Mobile </label>
+                    </div>
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox8" class="md-check" ng-model="project_2"  >
+                      <label  for="checkbox8">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        APIs </label>
+                    </div>
+
+
+                   <!-- <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="project_1">
                       Mobile </label>
                     <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="project_2">
                       APIs </label>
+                    -->
+
                   </div>
                   <div class="controls col-md-5 col-md-offset-1">
-                    <label class="checkbox">
+
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox10" class="md-check" ng-model="project_3"  >
+                      <label  for="checkbox10">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Web Apps  </label>
+                    </div>
+
+                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                      <input type="checkbox" id="checkbox111" class="md-check" ng-model="project_4"  >
+                      <label  for="checkbox111">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        Others </label>
+                    </div>
+
+
+                   <!-- <label class="checkbox">
                       <input type="checkbox"  style="margin-top: 1px;" ng-model="project_3">
                       Web Apps </label>
                     <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="project_4">
-                      Others </label>
+                      Others </label>-->
                   </div>
                 </div>
               </div>
