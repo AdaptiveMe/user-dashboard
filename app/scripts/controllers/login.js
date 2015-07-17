@@ -38,7 +38,6 @@ angular.module('odeskApp')
                 $scope.errorSubmit = false;
                 //document.getElementById("loading-bar-spinner").style.display = 'none';
             }
-
             else {
                 $scope.errorUsernameEmpty = false;
 
