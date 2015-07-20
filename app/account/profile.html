@@ -1,10 +1,9 @@
-
 <div class="portlet box red-pink" >
   <div class="portlet-title" style="background-color: #4D5B69;">
     <div class="caption">
       <!--<i class="fa fa-gift"></i>-->
        <span class="hidden-480">
-         Projects </span>
+         Account </span>
     </div>
     <ul class="nav nav-tabs">
       <li class="active">
@@ -39,26 +38,40 @@
         <div class="row">
           <div class="col-md-12">
             <form method="post" accept-charset="utf-8" class="form" role="form" ng-submit="updateProfile()">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <label for="name">First Name:</label>
-                  <input class="form-control" id="name" name="name" placeholder="Your First Name" ng-model="firstName" type="text" required autofocus />
+              <div class="row form-body">
+                <div class="col-md-6 form-group form-md-line-input" style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
+                  <input class="form-control" id="name" name="name" placeholder="Your First Name" ng-model="firstName" type="text" required />
+                  <label for="name" style="left: 0; right: 0;">First Name:</label>
+                  <!--<span class="help-block">Some help goes here...</span>-->
+                  <span class="help-block"></span>
                 </div>
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group form-md-line-input" style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
+                  <input class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" ng-model="lastName" type="text" required />
                   <label for="lastName">Last Name:</label>
-                  <input class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" ng-model="lastName" type="text" required autofocus/>
+                  <!--<span class="help-block">Some help goes here...</span>-->
+                  <span class="help-block"></span>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
+                 <!--!&#45;&#45; <div class="input-group">&ndash;&gt;-->
                   <label for="email">Email:</label>
-                  <input class="form-control" id="email" name="email" placeholder="Your Email Address" ng-model="email" type="email" required autofocus />
+                 <div class="input-group">
+                   <span class="input-group-addon">
+                     <i class="fa fa-envelope"></i>
+                   </span>
+                   <input class="form-control" placeholder="Email Address" id="email" name="email" ng-model="email" type="email">
+                 </div>
+                <!-- <label for="email">Email:</label>
+                 <input class="form-control" id="email" name="email" placeholder="Your Email Address" ng-model="email" type="email" required autofocus />-->
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 form-group">
+                <div class="col-md-12 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
+                  <input class="form-control" id="phone" name="phone" ng-model="phone" placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)" maxlength=15  />
                   <label for="phone">Phone:</label>
-                  <input class="form-control" id="phone" name="phone" ng-model="phone" placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)" maxlength=15 autofocus />
+                  <!--<span class="help-block">Some help goes here...</span>-->
+                  <span class="help-block"></span>
                 </div>
               </div>
               <div class="row">
@@ -71,9 +84,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 form-group">
+                <div class="col-md-12 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
+                  <input class="form-control" id="companyName" name="companyName" ng-model="companyName" placeholder="Your Company Name" type="text"  />
                   <label for="companyName">Company Name:</label>
-                  <input class="form-control" id="companyName" name="companyName" ng-model="companyName" placeholder="Your Company Name" type="text" autofocus />
+                  <!--<span class="help-block">Some help goes here...</span>-->
+                  <span class="help-block"></span>
                 </div>
               </div>
               <div class="row">
@@ -136,14 +151,31 @@
             <form method="post" accept-charset="utf-8" class="form" role="form" ng-submit="updatePassword()">
               <div class="row">
                 <div class="col-md-12 form-group">
+
                   <label for="password1">New Password:</label>
-                  <input class="form-control" id="password1" name="password1" placeholder="" type="password" ng-model="password" required autofocus />
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="password1" name="password1" placeholder="" type="password" ng-model="password" required  >
+                      <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                  </div>
+
+                 <!-- <label for="password1">New Password:</label>
+                  <input class="form-control" id="password1" name="password1" placeholder="" type="password" ng-model="password" required autofocus />-->
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="password2">Repeat New Password:</label>
-                  <input class="form-control" id="password2" name="password2" placeholder="" type="password" ng-model="password_verify" required autofocus />
+                  <div class="input-group">
+                    <input   class="form-control" id="password2" name="password2" placeholder="" type="password" ng-model="password_verify" required  >
+                      <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                  </div>
+
+                  <!--<label for="password2">Repeat New Password:</label>
+                  <input class="form-control" id="password2" name="password2" placeholder="" type="password" ng-model="password_verify" required autofocus />-->
                 </div>
               </div>
               <div class="row">
@@ -181,31 +213,6 @@
       </div>
     </div>
 
-
-    <!--  MARKETING BOX (DISABLE) -->
-    <!--
-    <div class="panel panel-primary">
-      <a  href="mailto:support@codenvy.com">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="panel-title white"><strong>WIN 6 MONTHS PREMIUM SERVICES</strong></h3>
-          </div>
-        </div>
-      </div>
-      <div class="panel-body">
-        <ul class="list-unstyled">
-          <li><b>1-</b> Organize a User Group/Presentation/Classroom and we will be there,</li>
-          <li><b>2-</b> You will be get 6 months premium service for free, and</li>
-          <li><b>3-</b> One add person who attends will also get it as well.</li>
-        </ul>
-      </div>
-      <div class="marketing-box panel-footer">
-        <span>Contact us</span>
-      </div>
-      </a>
-    </div>
-    -->
     <div class="panel panel-default panel-ce">
       <div class="panel-body">
         <h4 class="text-center" style="margin-bottom:20px">Your Skills</h4>
@@ -216,8 +223,12 @@
           <div class="col-md-12">
             <form accept-charset="utf-8" class="form" role="form">
               <div class="row">
-                <div class="col-md-10 form-group">
+                <div class="col-md-10 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 74%;">
+
                   <input class="form-control" id="skill-name" name="name" ng-model="addSkillModel" type="text" />
+                  <label for="companyName">Skill:</label>
+                 <!-- <span class="help-block">Some help goes here...</span>-->
+                  <span class="help-block"></span>
                 </div>
                 <div class="col-md-2">
                   <button class="btn btn-primary btn-block signup-btn" id="btn3" ng-click="addSkill()" ng-disabled="skillsPreloader">Add</button>
@@ -255,7 +266,6 @@
                 <div class="control-group">
                   <div class="controls col-md-5 col-md-offset-1">
 
-
                     <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
                       <input type="checkbox" id="checkbox11" class="md-check"    ng-model="usage_1"  >
                       <label  for="checkbox11">
@@ -282,18 +292,6 @@
                         <span class="box"></span>
                         Corporate </label>
                     </div>
-
-                   <!-- <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_1">Personal
-                    </label>-->
-                   <!-- <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_2">
-                      Open Source
-                    </label>
-                    <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_3">
-                      Corporate
-                    </label>-->
 
                   </div>
                   <div class="controls col-md-5 col-md-offset-1">
@@ -340,7 +338,6 @@
                 <div class="control-group">
                   <div class="controls col-md-5 col-md-offset-1">
 
-
                     <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
                       <input type="checkbox" id="checkbox7" class="md-check" ng-model="project_1" >
                       <label  for="checkbox7">
@@ -358,7 +355,6 @@
                         APIs </label>
                     </div>
 
-
                    <!-- <label class="checkbox">
                       <input type="checkbox" style="margin-top: 1px;" ng-model="project_1">
                       Mobile </label>
@@ -369,7 +365,6 @@
 
                   </div>
                   <div class="controls col-md-5 col-md-offset-1">
-
 
                     <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
                       <input type="checkbox" id="checkbox10" class="md-check" ng-model="project_3"  >
@@ -388,7 +383,6 @@
                         <span class="box"></span>
                         Others </label>
                     </div>
-
 
                    <!-- <label class="checkbox">
                       <input type="checkbox"  style="margin-top: 1px;" ng-model="project_3">
