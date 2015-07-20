@@ -27,7 +27,6 @@ Login page
   border-radius: 7px;
 }
 
-
 .loginContent {
   background: url(../images/bg-white-lock.png) repeat;
   width: 360px;
@@ -41,6 +40,18 @@ Login page
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   border-radius: 7px;
+}
+
+@media (max-width: 400px){
+  .loginContent{
+    width: 280px;
+  }
+}
+
+@media (min-width: 401px){
+  .loginContent{
+    width: 360px;
+  }
 }
 
 .login .content h3 {

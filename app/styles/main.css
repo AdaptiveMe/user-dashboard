@@ -2109,8 +2109,14 @@ html[dir="rtl"] .select2-search input {
     .loginContent{
         width: 280px;
     }
-
 }
+
+@media (min-width: 401px){
+    .loginContent{
+        width: 360px;
+    }
+}
+
 
 .loginLogo{
     margin: 0px auto 20px auto;
