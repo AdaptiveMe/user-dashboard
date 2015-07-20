@@ -5,9 +5,9 @@
 <!--div class="breadcrumb-wrap" >
     <ul class="breadcrumb projectnav clearfix"-->
 
-    <!--<div class="portlet box red">
-        <div class="portlet-title">
-            <div class="caption breadcrumb projectnav clearfix" >
+   <!-- <div class="portlet box red">
+        <div class="portlet-title" style=" background-color: #4D5B69;">
+            <div class="caption breadcrumb projectnav clearfix" style=" background-color: #4D5B69;">
                 <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}} workspaces</li>
 
                 <li class="dropdown user-dropdown">SORT BY:
@@ -28,17 +28,10 @@
                     </ul>
                 </li>
 
-
-                <li class="search1 clearfix">
-                    <div>
-                        <input type="button" class="searchfield " />
-                    </div>
-                    &lt;!&ndash; content title&ndash;&gt;
-                    <div class="searchfull clearfix" style="display: none">
-                        <input type="button" class="closeBtn" style="display: none;" ng-click="filter = ''" />
-                        <input type="text" ng-model="filter.name" class="searchfield " placeholder="Search for Projects" />
-                    </div>
-                </li>
+                <div class="input-icon">
+                    <i class="fa fa-search"></i>
+                    <input class="form-control " size="16" type="text"  ng-model="filter.name"  placeholder="Search for Projects" >
+                </div>
 
             </div>
             <div class="tools">
@@ -61,7 +54,7 @@
                 <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i class="fa fa-caret-up garrow"></i>Date Created</a></li>
                 <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i class="fa fa-caret-down garrow"></i>Date Created</a></li>
             </ul>
-      </li>
+        </li>
         <li class="dropdown user-dropdown">WORKSPACE:
             <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace ? currentWorkspace.workspaceReference.name : 'All'}}</a>
             <ul class="dropdown-menu">
