@@ -68,10 +68,13 @@
               </div>
               <div class="row">
                 <div class="col-md-12 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
-                  <input class="form-control" id="phone" name="phone" ng-model="phone" placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)" maxlength=15  />
+                  <!--<input class="form-control" id="phone" name="phone" ng-model="phone" placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)" maxlength=15  />-->
+
+                  <input class="form-control" id="phone" name="phone" ng-model="phone" placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)" maxlength=15/>
+
                   <label for="phone">Phone:</label>
-                  <!--<span class="help-block">Some help goes here...</span>-->
-                  <span class="help-block"></span>
+                  <span class="help-block">+XX-XXXX-XXXX</span>
+
                 </div>
               </div>
               <div class="row">
@@ -126,7 +129,7 @@
                   <div class="alert alert-danger" style="display: none;"></div>
                 </div>
                 <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn1" type="submit">Save</button>
+                  <button class="btn btn-primary btn-block signup-btn" id="btn1" type="submit" style="width: 59px;">Save</button>
                   <div id="btn-preloader1" style="display:none">
                     <div id="bowlG">
                       <div id="bowl_ringG">
@@ -187,7 +190,7 @@
                   <div class="alert alert-danger" id="doesNotMatch" style="display: none;"><b>Failed!</b> New Password and Repeat New Password do not match.</div>
                 </div>
                 <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn2" type="submit" >Save</button>
+                  <button class="btn btn-primary btn-block signup-btn" id="btn2" type="submit" style="width: 59px;">Save</button>
                   <div id="btn-preloader2" style="display:none">
                     <div id="bowlG">
                       <div id="bowl_ringG">
@@ -229,9 +232,10 @@
                   <label for="companyName">Skill:</label>
                  <!-- <span class="help-block">Some help goes here...</span>-->
                   <span class="help-block"></span>
+
                 </div>
                 <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn3" ng-click="addSkill()" ng-disabled="skillsPreloader">Add</button>
+                  <button style="width: 59px;" class="btn btn-primary btn-block signup-btn" id="btn3" ng-click="addSkill()" ng-disabled="skillsPreloader">Add</button>
                   <div id="btn-preloader3" ng-class="{'preloader': skillsPreloader}" style="display:none">
                     <div id="bowlG">
                       <div id="bowl_ringG">
@@ -398,7 +402,7 @@
                   <div class="garrow" style="padding:9px 0px;">Check multiple values</div>
                 </div>
                 <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn4" ng-click="addUsage()">Save</button>
+                  <button style="width: 59px;" class="btn btn-primary btn-block signup-btn" id="btn4" ng-click="addUsage()">Save</button>
                   <div id="btn-preloader4" style="display:none">
                     <div id="bowlG">
                       <div id="bowl_ringG">
@@ -424,3 +428,13 @@
 <div style="width:100%;text-align:center;margin-top:20px;margin-bottom:30px;">
     <a href="mailto:cancellation@codenvy.com?subject=Account Deletion Request" class="btn btn-danger">Delete Account</a>
 </div>
+
+<script>
+
+  $('#footerText').css('background-color', 'rgb(77, 91, 103)');
+
+  //$('.backstretch').removeClass('backstretch');
+
+  $('.backstretch').remove();
+
+</script>

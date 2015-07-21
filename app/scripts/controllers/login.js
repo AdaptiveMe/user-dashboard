@@ -24,7 +24,9 @@ angular.module('odeskApp')
         $scope.errorUsernameEmpty = false;
         $scope.errorPasswordEmpty= false;
 
-       // document.getElementById("loading-bar-spinner").style.display = 'block';
+       console.log( "cookies.myFavorite: "+ $cookies.myFavorite );
+
+        // document.getElementById("loading-bar-spinner").style.display = 'block';
 
         $scope.submit = function () {
 
@@ -58,7 +60,6 @@ angular.module('odeskApp')
                     $scope.errorSubmit = false;
 
                     ProfileService.getProfile().then(function (profile, status) {
-
                         console.log("status : "+status);
                         var fullUserName;
                         if (profile.attributes.firstName && profile.attributes.lastName) {
@@ -66,10 +67,10 @@ angular.module('odeskApp')
                         } else {
                             fullUserName = profile.attributes.email;
                         }
-
                         $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
-
                     });
+
+
                     $cookies.token = response.data.value;
                     $cookies.refreshStatus = "DISABLED";
                     /* $location.path("/dashboard");*/

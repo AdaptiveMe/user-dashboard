@@ -123,10 +123,10 @@ angular.module('odeskApp')
             }
         }
 
-
         $scope.updateProfile = function () {
             var filter = /^[0-9-+]+$/;
-            if (filter.test($scope.phone) && $scope.phone.length>=10 && $scope.phone.length<=20) {
+           /* if (filter.test($scope.phone) && $scope.phone.length>=15 && $scope.phone.length<=20) {*/
+             if (filter.test($scope.phone) && $scope.phone.length>=10 && $scope.phone.length<=20) {
                 $('#phone').css('border', '1px solid #e5e5e5');
                 $('#btn-preloader1').addClass('preloader');
                 $('#btn1').addClass('btn-disabled');
@@ -140,7 +140,6 @@ angular.module('odeskApp')
                     "jobtitle":$scope.jobTitle,
                     "sales_can_contact": $scope.sales
                 }
-
                 ProfileService.updateProfile(appValue)
                     .then(function (profile, status) {
                         //TODO process error
@@ -157,6 +156,7 @@ angular.module('odeskApp')
             }
             else {
                 $('#phone').css('border', '1px solid #a94442');
+
                 return false;
             }
 
