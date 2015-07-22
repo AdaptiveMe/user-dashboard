@@ -82,7 +82,7 @@ angular.module('odeskApp')
 
         $scope.addUsage = function () {
             $('#btn-preloader4').addClass('preloader');
-            $('#btn4').addClass('btn-disabled');
+            //$('#btn4').addClass('btn-disabled');
             var usageData = {
                 "usage_1": $scope.usage_1,
                 "usage_2": $scope.usage_2,
@@ -97,7 +97,7 @@ angular.module('odeskApp')
             };
             ProfileService.updatePreferences(usageData).then(function () {
                 $('#btn-preloader4').removeClass('preloader');
-                $('#btn4').removeClass('btn-disabled');
+                //$('#btn4').removeClass('btn-disabled');
                 //TODO process errors
             });
         };
@@ -105,7 +105,7 @@ angular.module('odeskApp')
         $scope.updatePassword = function () {
             if ($scope.password === $scope.password_verify) {
                 $('#btn-preloader2').addClass('preloader');
-                $('#btn2').addClass('btn-disabled');
+                //$('#btn2').addClass('btn-disabled');
                 $('#doesNotMatch').hide();
                 $('#password1').css('border', '1px solid #e5e5e5');
                 $('#password2').css('border', '1px solid #e5e5e5');
@@ -129,7 +129,7 @@ angular.module('odeskApp')
             if (filter.test($scope.phone) && $scope.phone.length>=10 && $scope.phone.length<=20) {
                 $('#phone').css('border', '1px solid #e5e5e5');
                 $('#btn-preloader1').addClass('preloader');
-                $('#btn1').addClass('btn-disabled');
+                //$('#btn1').addClass('btn-disabled');
                 var appValue = {
                     "firstName":$scope.firstName,
                     "lastName":$scope.lastName,
@@ -145,7 +145,7 @@ angular.module('odeskApp')
                     .then(function (profile, status) {
                         //TODO process error
                         $('#btn-preloader1').removeClass('preloader');
-                        $('#btn1').removeClass('btn-disabled');
+                        //$('#btn1').removeClass('btn-disabled');
                         var fullUserName;
                         if (profile.attributes.firstName && profile.attributes.lastName) {
                             fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;

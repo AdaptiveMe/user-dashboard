@@ -1,7 +1,68 @@
-<div class="portlet box red-pink" >
-  <div class="portlet-title" style="background-color: #4D5B69;">
+<h3 class="page-title">
+    Account
+    <small>Manage your account information</small>
+</h3>
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/dashboard">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#/account">Account</a>
+            <!--<i class="fa fa-angle-right"></i>-->
+        </li>
+
+    </ul>
+    <!-- <div class="page-toolbar">
+        <div class="btn-group pull-right">
+           <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+             Actions <i class="fa fa-angle-down"></i>
+           </button>
+           <ul class="dropdown-menu pull-right" role="menu">
+             <li>
+               <a href="#">Action</a>
+             </li>
+             <li>
+               <a href="#">Another action</a>
+             </li>
+             <li>
+               <a href="#">Something else here</a>
+             </li>
+             <li class="divider">
+             </li>
+             <li>
+               <a href="#">Separated link</a>
+             </li>
+           </ul>
+         </div>
+    </div>-->
+</div>
+
+<!--<div class="portlet box red">
+  <div class="portlet-title" style="background-color: #8F8F8F;">
+    <div class="caption" style="  font-size: 15px;">
+      <i class="fa fa-gift"></i>Account
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+      <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
+      </a>
+      <a href="javascript:;" class="reload" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+
+</div>-->
+
+<!--<div class="portlet box red-pink" >
+
+  &lt;!&ndash;<div class="portlet-title" style="background-color: #4D5B69;">
     <div class="caption">
-      <!--<i class="fa fa-gift"></i>-->
+      &lt;!&ndash;<i class="fa fa-gift"></i>&ndash;&gt;
        <span class="hidden-480">
          Account </span>
     </div>
@@ -19,8 +80,8 @@
           Usage and Billing</a>
       </li>
     </ul>
-  </div>
-</div>
+  </div>&ndash;&gt;
+</div>-->
 <!--
 
 <ul class="breadcrumb boxnav" >
@@ -30,396 +91,416 @@
 </ul>
 -->
 
-<div class="container mainDivContainer" style="width: 100%">
-  <div class="col-md-6">
-    <div class="panel panel-default panel-ce">
-      <div class="panel-body">
-        <h4 class="text-center">Your Information</h4>
-        <div class="row">
-          <div class="col-md-12">
-            <form method="post" accept-charset="utf-8" class="form" role="form" ng-submit="updateProfile()">
-              <div class="row form-body">
-                <div class="col-md-6 form-group form-md-line-input" style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
-                  <input class="form-control" id="name" name="name" placeholder="Your First Name" ng-model="firstName" type="text" required />
-                  <label for="name" style="left: 0; right: 0;">First Name:</label>
-                  <!--<span class="help-block">Some help goes here...</span>-->
-                  <span class="help-block"></span>
-                </div>
-                <div class="col-md-6 form-group form-md-line-input" style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
-                  <input class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" ng-model="lastName" type="text" required />
-                  <label for="lastName">Last Name:</label>
-                  <!--<span class="help-block">Some help goes here...</span>-->
-                  <span class="help-block"></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                 <!--!&#45;&#45; <div class="input-group">&ndash;&gt;-->
-                  <label for="email">Email:</label>
-                 <div class="input-group">
+<div class="container mainDivContainer" style="width: 100%; padding-top: 8px;">
+    <div class="col-md-6">
+
+        <div class="panel panel-info panel-ce">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <form method="post" accept-charset="utf-8" class="form" role="form" ng-submit="updateProfile()">
+                        <div class="row form-body">
+                            <div class="col-md-6 form-group form-md-line-input"
+                                 style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
+                                <input class="form-control" id="name" name="name" placeholder="Your First Name"
+                                       ng-model="firstName" type="text" required/>
+                                <label for="name" style="left: 0; right: 0;">First Name:</label>
+                                <!--<span class="help-block">Some help goes here...</span>-->
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="col-md-6 form-group form-md-line-input"
+                                 style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
+                                <input class="form-control" id="lastName" name="lastName"
+                                       placeholder="Your Last Name" ng-model="lastName" type="text" required/>
+                                <label for="lastName">Last Name:</label>
+                                <!--<span class="help-block">Some help goes here...</span>-->
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <!--!&#45;&#45; <div class="input-group">&ndash;&gt;-->
+                                <label for="email">Email:</label>
+
+                                <div class="input-group">
                    <span class="input-group-addon">
                      <i class="fa fa-envelope"></i>
                    </span>
-                   <input class="form-control" placeholder="Email Address" id="email" name="email" ng-model="email" type="email">
-                 </div>
-                <!-- <label for="email">Email:</label>
-                 <input class="form-control" id="email" name="email" placeholder="Your Email Address" ng-model="email" type="email" required autofocus />-->
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
-                  <input class="form-control" id="phone" name="phone" ng-model="phone" placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)" maxlength=15  />
-                  <label for="phone">Phone:</label>
-                  <!--<span class="help-block">Some help goes here...</span>-->
-                  <span class="help-block"></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <label for="country">Country:</label>
-                  <select id="country" ng-model="country" class="form-control" required>
-                    <option value="">Select Your Country</option>
-                    <option ng-repeat="country in countries">{{country.name}}</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
-                  <input class="form-control" id="companyName" name="companyName" ng-model="companyName" placeholder="Your Company Name" type="text"  />
-                  <label for="companyName">Company Name:</label>
-                  <!--<span class="help-block">Some help goes here...</span>-->
-                  <span class="help-block"></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <label for="jobTitle">Job Title:</label>
-                  <!--<input class="form-control" id="name" name="name" ng-model="jobTitle" placeholder="Product Manager" type="text" required autofocus />-->
-                  <select ng-model="jobTitle" id="jobTitle" class="form-control" ng-model="jobTitle" autofocus>
-                    <option value="">Please select role...</option>
-                    <option value="Developer">Developer</option>
-                    <option value="Architect">Architect</option>
-                    <option value="PM">Product Manager</option>
-                    <option value="Project">Project Manager</option>
-                    <option value="CEO/CTO">CEO/CTO</option>
-                    <option value="Student">Student</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-              </div>
-              Can our sales teams contact you to discuss our offerings? &nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                <input type="checkbox" id="checkbox1" class="md-check"   name="sales" ng-model="sales" value="1">
-                <label   for="checkbox1">
-                  <span class="inc"></span>
-                  <span class="check"></span>
-                  <span class="box"></span>
-                  Yes </label>
-              </div>
-<!--
-              <input type="checkbox" style="margin-top: -1px;vertical-align: middle" name="sales" ng-model="sales" value="1">
-              &nbsp;&nbsp;Yes-->
-
-              <div class="row">
-                <div id="upadateProfileAlert" class="col-md-10">
-                  <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Update profile information process completed.</div>
-                  <div class="alert alert-danger" style="display: none;"></div>
-                </div>
-                <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn1" type="submit">Save</button>
-                  <div id="btn-preloader1" style="display:none">
-                    <div id="bowlG">
-                      <div id="bowl_ringG">
-                        <div class="ball_holderG">
-                          <div class="ballG"> </div>
+                                    <input class="form-control" placeholder="Email Address" id="email" name="email"
+                                           ng-model="email" type="email">
+                                </div>
+                                <!-- <label for="email">Email:</label>
+                                 <input class="form-control" id="email" name="email" placeholder="Your Email Address" ng-model="email" type="email" required autofocus />-->
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default panel-ce">
-      <div class="panel-body">
-        <h4 class="text-center">Update Your Password</h4>
-        <div class="row">
-          <div class="col-md-12">
-            <form method="post" accept-charset="utf-8" class="form" role="form" ng-submit="updatePassword()">
-              <div class="row">
-                <div class="col-md-12 form-group">
+                        <div class="row">
+                            <div class="col-md-12 form-group form-md-line-input"
+                                 style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
+                                <input class="form-control" id="phone" name="phone" ng-model="phone"
+                                       placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)"
+                                       maxlength=15/>
+                                <label for="phone">Phone:</label>
+                                <!--<span class="help-block">Some help goes here...</span>-->
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="country">Country:</label>
+                                <select id="country" ng-model="country" class="form-control" required>
+                                    <option value="">Select Your Country</option>
+                                    <option ng-repeat="country in countries">{{country.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group form-md-line-input"
+                                 style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
+                                <input class="form-control" id="companyName" name="companyName"
+                                       ng-model="companyName" placeholder="Your Company Name" type="text"/>
+                                <label for="companyName">Company Name:</label>
+                                <!--<span class="help-block">Some help goes here...</span>-->
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="jobTitle">Job Title:</label>
+                                <!--<input class="form-control" id="name" name="name" ng-model="jobTitle" placeholder="Product Manager" type="text" required autofocus />-->
+                                <select ng-model="jobTitle" id="jobTitle" class="form-control" ng-model="jobTitle"
+                                        autofocus>
+                                    <option value="">Please select role...</option>
+                                    <option value="Developer">Developer</option>
+                                    <option value="Architect">Architect</option>
+                                    <option value="PM">Product Manager</option>
+                                    <option value="Project">Project Manager</option>
+                                    <option value="CEO/CTO">CEO/CTO</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        Can our sales teams contact you to discuss our offerings? &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                            <input type="checkbox" id="checkbox1" class="md-check" name="sales" ng-model="sales"
+                                   value="1">
+                            <label for="checkbox1">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                Yes </label>
+                        </div>
+                        <!--
+                                      <input type="checkbox" style="margin-top: -1px;vertical-align: middle" name="sales" ng-model="sales" value="1">
+                                      &nbsp;&nbsp;Yes-->
 
-                  <label for="password1">New Password:</label>
-                  <div class="input-group">
-                    <input type="password" class="form-control" id="password1" name="password1" placeholder="" type="password" ng-model="password" required  >
+                        <div id="upadateProfileAlert" class="col-md-10">
+                            <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Update
+                                profile information process completed.
+                            </div>
+                            <div class="alert alert-danger" style="display: none;"></div>
+
+                        </div>
+
+                        <div class="form-actions noborder">
+                            <button class="btn blue" id="btn1" type="submit">Save</button>
+                        </div>
+
+                        <!--<div id="btn-preloader1" style="display:none">
+                          <div id="bowlG">
+                            <div id="bowl_ringG">
+                              <div class="ball_holderG">
+                                <div class="ballG"> </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>-->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info panel-ce">
+            <div class="panel-heading">
+                <h3 class="panel-title">Update Your Password</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="col-md-12">
+                    <form method="post" accept-charset="utf-8" class="form" role="form"
+                          ng-submit="updatePassword()">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+
+                                <label for="password1">New Password:</label>
+
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password1" name="password1"
+                                           placeholder="" type="password" ng-model="password" required>
                       <span class="input-group-addon">
                         <i class="fa fa-user"></i>
                       </span>
-                  </div>
+                                </div>
 
-                 <!-- <label for="password1">New Password:</label>
-                  <input class="form-control" id="password1" name="password1" placeholder="" type="password" ng-model="password" required autofocus />-->
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <label for="password2">Repeat New Password:</label>
-                  <div class="input-group">
-                    <input   class="form-control" id="password2" name="password2" placeholder="" type="password" ng-model="password_verify" required  >
+                                <!-- <label for="password1">New Password:</label>
+                                 <input class="form-control" id="password1" name="password1" placeholder="" type="password" ng-model="password" required autofocus />-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="password2">Repeat New Password:</label>
+
+                                <div class="input-group">
+                                    <input class="form-control" id="password2" name="password2" placeholder=""
+                                           type="password" ng-model="password_verify" required>
                       <span class="input-group-addon">
                         <i class="fa fa-user"></i>
                       </span>
-                  </div>
+                                </div>
 
-                  <!--<label for="password2">Repeat New Password:</label>
-                  <input class="form-control" id="password2" name="password2" placeholder="" type="password" ng-model="password_verify" required autofocus />-->
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-10">
-                  <div id="changePasswordAlert">
-                    <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Change password process completed.</div>
-                    <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Change password process failed.</div>
-                  </div>
-                  <div class="alert alert-danger" id="doesNotMatch" style="display: none;"><b>Failed!</b> New Password and Repeat New Password do not match.</div>
-                </div>
-                <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn2" type="submit" >Save</button>
-                  <div id="btn-preloader2" style="display:none">
-                    <div id="bowlG">
-                      <div id="bowl_ringG">
-                        <div class="ball_holderG">
-                          <div class="ballG"> </div>
+                                <!--<label for="password2">Repeat New Password:</label>
+                                <input class="form-control" id="password2" name="password2" placeholder="" type="password" ng-model="password_verify" required autofocus />-->
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="panel panel-default panel-ce" ng-if="accountType=='PREMIUM'">
-      <div class="panel-body">
-        <h4 class="text-center" ><img height="22" src="../images/user.png"/> You are a SAAS Premium user</h4>
-        <h4 class="text-center" ng-if="accountType=='FREE'" >You are a SAAS Community user</h4>
-      </div>
-    </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div id="changePasswordAlert">
+                                    <div class="alert alert-success" style="display: none;"><b>Successfully
+                                        Done!</b> Change password process completed.
+                                    </div>
+                                    <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Change
+                                        password process failed.
+                                    </div>
+                                </div>
+                                <div class="alert alert-danger" id="doesNotMatch" style="display: none;">
+                                    <b>Failed!</b> New Password and Repeat New Password do not match.
+                                </div>
+                            </div>
 
-    <div class="panel panel-default panel-ce">
-      <div class="panel-body">
-        <h4 class="text-center" style="margin-bottom:20px">Your Skills</h4>
-        <div class="celist clearfix">
-          <div class="label label-default clearfix" ng-repeat="skill in userSkills" ><span class = "skill">{{skill.name}}</span> <span ng-click="removeSkill(skill)" class="glyphicon glyphicon-remove"></span></div>
-        </div>
-        <div class="row" style="margin-top:0px;margin-bottom:0px">
-          <div class="col-md-12">
-            <form accept-charset="utf-8" class="form" role="form">
-              <div class="row">
-                <div class="col-md-10 form-group form-md-line-input" style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 74%;">
-
-                  <input class="form-control" id="skill-name" name="name" ng-model="addSkillModel" type="text" />
-                  <label for="companyName">Skill:</label>
-                 <!-- <span class="help-block">Some help goes here...</span>-->
-                  <span class="help-block"></span>
-                </div>
-                <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn3" ng-click="addSkill()" ng-disabled="skillsPreloader">Add</button>
-                  <div id="btn-preloader3" ng-class="{'preloader': skillsPreloader}" style="display:none">
-                    <div id="bowlG">
-                      <div id="bowl_ringG">
-                        <div class="ball_holderG">
-                          <div class="ballG"> </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="addSkillsAlert">
-                <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Add Skill process completed.</div>
-                <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Add Skill process failed.</div>
-              </div>
-              <div id="removeSkillsAlert">
-                <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Remove Skill process completed.</div>
-                <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Remove Skill process failed.</div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default panel-ce">
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-12">
-            <form method="post" accept-charset="utf-8" class="form" role="form">
-              <h4 class="text-center">Your Usage</h4>
-              <div class="row">
-                <div class="control-group">
-                  <div class="controls col-md-5 col-md-offset-1">
 
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox11" class="md-check"    ng-model="usage_1"  >
-                      <label  for="checkbox11">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Personal </label>
-                    </div>
-
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox2" class="md-check"   ng-model="usage_2"  >
-                      <label  for="checkbox2">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Open Source </label>
-                    </div>
-
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox3" class="md-check"   ng-model="usage_3"  >
-                      <label  for="checkbox3">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Corporate </label>
-                    </div>
-
-                  </div>
-                  <div class="controls col-md-5 col-md-offset-1">
-
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox4" class="md-check"  ng-model="usage_4"  >
-                      <label  for="checkbox4">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Hackathon </label>
-                    </div>
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox5" class="md-check"  ng-model="usage_5"  >
-                      <label  for="checkbox5">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Classroom </label>
-                    </div>
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox6" class="md-check" ng-model="usage_6"  >
-                      <label  for="checkbox6">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Others </label>
-                    </div>
-
-                   <!-- <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_4">
-                      Hackathon </label>
-                    <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_5">
-                      Classroom </label>
-                    <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="usage_6">
-                      Others </label>-->
-                  </div>
-                </div>
-              </div>
-              <h4 class="text-center">Your Projects</h4>
-              <div class="row">
-                <div class="control-group">
-                  <div class="controls col-md-5 col-md-offset-1">
-
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox7" class="md-check" ng-model="project_1" >
-                      <label  for="checkbox7">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Mobile </label>
-                    </div>
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox8" class="md-check" ng-model="project_2"  >
-                      <label  for="checkbox8">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        APIs </label>
-                    </div>
-
-                   <!-- <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="project_1">
-                      Mobile </label>
-                    <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="project_2">
-                      APIs </label>
-                    -->
-
-                  </div>
-                  <div class="controls col-md-5 col-md-offset-1">
-
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox10" class="md-check" ng-model="project_3"  >
-                      <label  for="checkbox10">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Web Apps  </label>
-                    </div>
-
-                    <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                      <input type="checkbox" id="checkbox111" class="md-check" ng-model="project_4"  >
-                      <label  for="checkbox111">
-                        <span class="inc"></span>
-                        <span class="check"></span>
-                        <span class="box"></span>
-                        Others </label>
-                    </div>
-
-                   <!-- <label class="checkbox">
-                      <input type="checkbox"  style="margin-top: 1px;" ng-model="project_3">
-                      Web Apps </label>
-                    <label class="checkbox">
-                      <input type="checkbox" style="margin-top: 1px;" ng-model="project_4">
-                      Others </label>-->
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-10 text-right">
-                  <div class="garrow" style="padding:9px 0px;">Check multiple values</div>
-                </div>
-                <div class="col-md-2">
-                  <button class="btn btn-primary btn-block signup-btn" id="btn4" ng-click="addUsage()">Save</button>
-                  <div id="btn-preloader4" style="display:none">
-                    <div id="bowlG">
-                      <div id="bowl_ringG">
-                        <div class="ball_holderG">
-                          <div class="ballG"> </div>
+                        <div class="form-actions noborder">
+                            <button class="btn blue" id="btn2" type="submit">Save</button>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                    </form>
                 </div>
-              </div>
-              <div id="usageAlert">
-                <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Save Usage &amp; Projects process completed.</div>
-                <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Save Usage &amp; Projects process failed.</div>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
+
     </div>
-  </div>
+    <div class="col-md-6">
+
+        <div class="panel panel-info panel-ce">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your Skills</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="celist clearfix">
+                    <div class="label label-default clearfix" ng-repeat="skill in userSkills"><span class="skill">{{skill.name}}</span>
+                        <span ng-click="removeSkill(skill)" class="glyphicon glyphicon-remove"></span></div>
+                </div>
+                <div class="col-md-12">
+                    <form accept-charset="utf-8" class="form" role="form">
+                        <div class="row">
+                            <div class="col-md-12 form-group form-md-line-input">
+                                <label for="companyName">Skill:</label>
+                                <input class="form-control" id="skill-name" name="name" ng-model="addSkillModel"
+                                       type="text"/>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions noborder">
+                            <button class="btn blue" id="btn3" type="submit" ng-click="addSkill()"
+                                    ng-disabled="skillsPreloader">Save
+                            </button>
+                        </div>
+                        <div id="addSkillsAlert">
+                            <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Add
+                                Skill process completed.
+                            </div>
+                            <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Add Skill process
+                                failed.
+                            </div>
+                        </div>
+                        <div id="removeSkillsAlert">
+                            <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Remove
+                                Skill process completed.
+                            </div>
+                            <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Remove Skill
+                                process failed.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info panel-ce">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your Usage</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" accept-charset="utf-8" class="form" role="form">
+
+                            <div class="row">
+                                <div class="control-group">
+                                    <div class="controls col-md-5 col-md-offset-1">
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox11" class="md-check" ng-model="usage_1">
+                                            <label for="checkbox11">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Personal </label>
+                                        </div>
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox2" class="md-check" ng-model="usage_2">
+                                            <label for="checkbox2">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Open Source </label>
+                                        </div>
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox3" class="md-check" ng-model="usage_3">
+                                            <label for="checkbox3">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Corporate </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="controls col-md-5 col-md-offset-1">
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox4" class="md-check" ng-model="usage_4">
+                                            <label for="checkbox4">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Hackathon </label>
+                                        </div>
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox5" class="md-check" ng-model="usage_5">
+                                            <label for="checkbox5">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Classroom </label>
+                                        </div>
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox6" class="md-check" ng-model="usage_6">
+                                            <label for="checkbox6">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Others </label>
+                                        </div>
+
+                                        <!-- <label class="checkbox">
+                                           <input type="checkbox" style="margin-top: 1px;" ng-model="usage_4">
+                                           Hackathon </label>
+                                         <label class="checkbox">
+                                           <input type="checkbox" style="margin-top: 1px;" ng-model="usage_5">
+                                           Classroom </label>
+                                         <label class="checkbox">
+                                           <input type="checkbox" style="margin-top: 1px;" ng-model="usage_6">
+                                           Others </label>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-center">Your Projects</h4>
+
+                            <div class="row">
+                                <div class="control-group">
+                                    <div class="controls col-md-5 col-md-offset-1">
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox7" class="md-check" ng-model="project_1">
+                                            <label for="checkbox7">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Mobile </label>
+                                        </div>
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox8" class="md-check" ng-model="project_2">
+                                            <label for="checkbox8">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                APIs </label>
+                                        </div>
+
+                                        <!-- <label class="checkbox">
+                                           <input type="checkbox" style="margin-top: 1px;" ng-model="project_1">
+                                           Mobile </label>
+                                         <label class="checkbox">
+                                           <input type="checkbox" style="margin-top: 1px;" ng-model="project_2">
+                                           APIs </label>
+                                         -->
+
+                                    </div>
+                                    <div class="controls col-md-5 col-md-offset-1">
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox10" class="md-check"
+                                                   ng-model="project_3">
+                                            <label for="checkbox10">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Web Apps </label>
+                                        </div>
+
+                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
+                                            <input type="checkbox" id="checkbox111" class="md-check"
+                                                   ng-model="project_4">
+                                            <label for="checkbox111">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                Others </label>
+                                        </div>
+
+                                        <!-- <label class="checkbox">
+                                           <input type="checkbox"  style="margin-top: 1px;" ng-model="project_3">
+                                           Web Apps </label>
+                                         <label class="checkbox">
+                                           <input type="checkbox" style="margin-top: 1px;" ng-model="project_4">
+                                           Others </label>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions noborder">
+                                <button class="btn blue" id="btn4" type="submit">Save</button>
+                            </div>
+                            <div id="usageAlert">
+                                <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Save
+                                    Usage &amp; Projects process completed.
+                                </div>
+                                <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Save Usage &amp;
+                                    Projects process failed.
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div style="width:100%;text-align:center;margin-top:20px;margin-bottom:30px;">
     <a href="mailto:cancellation@codenvy.com?subject=Account Deletion Request" class="btn btn-danger">Delete Account</a>
