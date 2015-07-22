@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         hostname: '0.0.0.0',
         livereload: false
       },
-     // e.g.: Use grunt serve --codenvy-url=dev.box.com --codenvy-port=80 --no-codenvy-https --codenvy-chg-orig to test with Vagrant
+     // e.g.: Use grunt serve --codenvy-url=my.adaptive.me --codenvy-port=80 --no-codenvy-https --codenvy-chg-orig to test with Vagrant
      proxies: [{
        context: ['/api', '/ws', '/datasource', '/java-ca'], // the context of the data service
        host: grunt.option('codenvy-url') || 'nightly.codenvy-stg.com', // wherever the data service is running

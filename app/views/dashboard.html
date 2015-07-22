@@ -1,13 +1,16 @@
 <div>
 
     <h3 class="page-title">
-        Projects</h3>
-<!--div class="breadcrumb-wrap" >
-    <ul class="breadcrumb projectnav clearfix"-->
+        Projects
+        <small>Manage your projects</small>
+    </h3>
 
-   <!-- <div class="portlet box red">
-        <div class="portlet-title" style=" background-color: #4D5B69;">
-            <div class="caption breadcrumb projectnav clearfix" style=" background-color: #4D5B69;">
+    <!--div class="breadcrumb-wrap" >
+        <ul class="breadcrumb projectnav clearfix"-->
+
+    <!--<div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption breadcrumb projectnav clearfix" >
                 <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}} workspaces</li>
 
                 <li class="dropdown user-dropdown">SORT BY:
@@ -28,10 +31,17 @@
                     </ul>
                 </li>
 
-                <div class="input-icon">
-                    <i class="fa fa-search"></i>
-                    <input class="form-control " size="16" type="text"  ng-model="filter.name"  placeholder="Search for Projects" >
-                </div>
+
+                <li class="search1 clearfix">
+                    <div>
+                        <input type="button" class="searchfield " />
+                    </div>
+                    &lt;!&ndash; content title&ndash;&gt;
+                    <div class="searchfull clearfix" style="display: none">
+                        <input type="button" class="closeBtn" style="display: none;" ng-click="filter = ''" />
+                        <input type="text" ng-model="filter.name" class="searchfield " placeholder="Search for Projects" />
+                    </div>
+                </li>
 
             </div>
             <div class="tools">
@@ -43,514 +53,751 @@
         </div>
     </div>-->
 
-    <div class="breadcrumb-wrap">
-    <ul class="breadcrumb projectnav clearfix">
-      <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}} workspaces</li>
-      <li class="dropdown user-dropdown">SORT BY:
-      <a href="" class="dropdown-toggle" data-toggle="dropdown"><i ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'" class="fa"></i>{{param == 'modificationDate' ? 'Date Modified' : 'Name'}}</a>
-            <ul class="dropdown-menu">
-                <li><a href="" ng-click="reverse = true; param = 'name'"><i class="fa fa-caret-up garrow"></i>Name</a></li>
-                <li><a href="" ng-click="reverse = false; param = 'name'"><i class="fa fa-caret-down garrow"></i>Name</a></li>
-                <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i class="fa fa-caret-up garrow"></i>Date Created</a></li>
-                <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i class="fa fa-caret-down garrow"></i>Date Created</a></li>
-            </ul>
-        </li>
-        <li class="dropdown user-dropdown">WORKSPACE:
-            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace ? currentWorkspace.workspaceReference.name : 'All'}}</a>
-            <ul class="dropdown-menu">
-                <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
-                <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a href="">{{workspace.workspaceReference.name}}</a></li>
-            </ul>
-        </li>
-        <li class="search1 clearfix">
-            <div>
-                <input type="button" class="searchfield " />
-            </div>
-            <!-- content title-->
-            <div class="searchfull clearfix" style="display: none">
-                <input type="button" class="closeBtn" style="display: none;" ng-click="filter = ''" />
-                <input type="text" ng-model="filter.name" class="searchfield " placeholder="Search for Projects" />
-            </div>
-        </li>
-    </ul>
-</div>
 
-   <!--         -->
-<!--div class="row"></div>
-<div class="panel panel-default panel-ce">
-      <div class="panel-body"></div></div-->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#/dashboard">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#/dashboard">Projects</a>
+                <!--<i class="fa fa-angle-right"></i>-->
+            </li>
+
+        </ul>
+        <!-- <div class="page-toolbar">
+            <div class="btn-group pull-right">
+               <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                 Actions <i class="fa fa-angle-down"></i>
+               </button>
+               <ul class="dropdown-menu pull-right" role="menu">
+                 <li>
+                   <a href="#">Action</a>
+                 </li>
+                 <li>
+                   <a href="#">Another action</a>
+                 </li>
+                 <li>
+                   <a href="#">Something else here</a>
+                 </li>
+                 <li class="divider">
+                 </li>
+                 <li>
+                   <a href="#">Separated link</a>
+                 </li>
+               </ul>
+             </div>
+        </div>-->
+    </div>
+
+    <div class="breadcrumb-wrap">
+        <ul class="breadcrumb projectnav clearfix">
+            <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}}
+                workspaces
+            </li>
+            <li class="dropdown user-dropdown">SORT BY:
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
+                        ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'" class="fa"></i>{{param ==
+                    'modificationDate' ? 'Date Modified' : 'Name'}}</a>
+                <ul class="dropdown-menu">
+                    <li><a href="" ng-click="reverse = true; param = 'name'"><i
+                            class="fa fa-caret-up garrow"></i>Name</a></li>
+                    <li><a href="" ng-click="reverse = false; param = 'name'"><i class="fa fa-caret-down garrow"></i>Name</a>
+                    </li>
+                    <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i
+                            class="fa fa-caret-up garrow"></i>Date Created</a></li>
+                    <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i
+                            class="fa fa-caret-down garrow"></i>Date Created</a></li>
+                </ul>
+            </li>
+            <li class="dropdown user-dropdown">WORKSPACE:
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace
+                    ? currentWorkspace.workspaceReference.name : 'All'}}</a>
+                <ul class="dropdown-menu">
+                    <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
+                    <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a href="">{{workspace.workspaceReference.name}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="search1 clearfix">
+                <div>
+                    <input type="button" class="searchfield "/>
+                </div>
+                <!-- content title-->
+                <div class="searchfull clearfix" style="display: none">
+                    <input type="button" class="closeBtn" style="display: none;" ng-click="filter = ''"/>
+                    <input type="text" ng-model="filter.name" class="searchfield " placeholder="Search for Projects"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!--         -->
+    <!--div class="row"></div>
+    <div class="panel panel-default panel-ce">
+          <div class="panel-body"></div></div-->
 
     <!--         -->
 
     <div class="col-md-12 factorylistbox" ng-show="projectselect">
-    <img style="margin-left: 68px; margin-top: -37px;" src="./images/up-arrow.png" />
-    <h3 ng-click="projectselect=0" class="pull-right"><a href="">x</a></h3>
-    <div ng-include="'views/factory-carousal.html'"></div>
-</div>
+        <img style="margin-left: 68px; margin-top: -37px;" src="./images/up-arrow.png"/>
 
-<!-- <div class="col-md-12"> -->
+        <h3 ng-click="projectselect=0" class="pull-right"><a href="">x</a></h3>
 
-<div class="col-md-12">
-    <div class="panel-box" style="margin-top: 10px" ng-if="scheduled">
-        <div class="panel-bg" ng-repeat="maintenance in data">
-          <a class="message" ng-href="{{maintenance.shortlink}}" target="_blank">
-            Scheduled Maintenance: {{maintenance.name}}
-            </a>
-          <span>{{maintenance.scheduled_for | date: 'medium' : 'UTC'}}</span>
-        </div>
+        <div ng-include="'views/factory-carousal.html'"></div>
     </div>
-<!-- Warning Message -->
-<!--
-    <div class="panel-box" style="margin-top: 10px" >
-        <div class="panel-bg-warning">
-            <div class="row">
-                <div>We are experiencing performance issues with the storage layer. File operations, especially cloning, are running slower than expected. We are investigating the situation.
+
+    <!-- <div class="col-md-12"> -->
+
+    <div class="col-md-12">
+        <div class="panel-box" style="margin-top: 10px" ng-if="scheduled">
+            <div class="panel-bg" ng-repeat="maintenance in data">
+                <a class="message" ng-href="{{maintenance.shortlink}}" target="_blank">
+                    Scheduled Maintenance: {{maintenance.name}}
+                </a>
+                <span>{{maintenance.scheduled_for | date: 'medium' : 'UTC'}}</span>
+            </div>
+        </div>
+        <!-- Warning Message -->
+        <!--
+            <div class="panel-box" style="margin-top: 10px" >
+                <div class="panel-bg-warning">
+                    <div class="row">
+                        <div>We are experiencing performance issues with the storage layer. File operations, especially cloning, are running slower than expected. We are investigating the situation.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        -->
+
+        <div class="project-box clearfix">
+
+            <!--<div class="new-project col-md-4 col-sm-4 col-lg-4 col-xs-12" ng-show="workspaces.length > 0">
+
+                <div class="box box-two " ng-if="workspaces.length == 1">
+                    <a class="clearfix" href="/ws/{{workspaces[0].workspaceReference.name}}?action=newProject"
+                       target="_blank">
+                        <span class="glyphicon white glyphicon-plus"></span>
+                        <br/>
+
+                        <div class="text-center" style="color: #919191"><strong>Create New Project</strong></div>
+                    </a>
+                </div>
+                <div class="box box-one" ng-if="workspaces.length > 1">
+                    <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon white glyphicon-plus"></span>
+                        <br>
+                        <strong>Create New Project <span class="caret"></span></strong>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><span>Select Destination Workspace:</span></li>
+                        <li ng-repeat="workspace in workspaces"><a
+                                href="/ws/{{workspace.workspaceReference.name}}?action=newProject" target="_blank">{{workspace.workspaceReference.name}}</a>
+                        </li>
+                    </ul>
                 </div>
 
+                <div class="box box-one">
+                    <button type="button" class="dropdown-toggle" ng-click="importNewProject('GitHub')">
+                        <span class="glyphicon white glyphicon-import"></span>
+                        <br>
+                        <strong>Import Project</strong>
+                    </button>
+                </div>
+            </div>-->
+            <!-- New Project -->
+
+            <div class="panel panel-default" ng-show="workspaces.length == 0">
+                <div class="panel-body text-center">
+                    <h4>You do not have membership in any workspace.</h4>
+                </div>
             </div>
-        </div>
-    </div>
--->
 
-<div class="project-box clearfix">
+            <!-- start help-->
+            <div ng-show="isNeedToShowHelp()" class="box-example">
+                <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12">
+                    <div class="arrow-img hidden-xs"><img src="./images/arrow.png" class="img-responsive" alt=""/></div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="text-align:center">
+                            <div class="codenvy-rounded-logo"><img src="./images/codenvy-rounded-logo.png"
+                                                                   class="img-responsive" alt=""/></div>
+                            <strong>Welcome to your Workspace!</strong>
+                        </div>
+                        <div class="panel-body">
+                            <p style="margin-top:2px">Click <b>Create New Project</b> to get started.</p>
 
-    <div class="new-project col-md-4 col-sm-4 col-lg-4 col-xs-12" ng-show="workspaces.length > 0">
-
-        <div class="box box-two " ng-if="workspaces.length == 1">
-            <a class="clearfix" href="/ws/{{workspaces[0].workspaceReference.name}}?action=newProject" target="_blank">
-                <span class="glyphicon white glyphicon-plus"></span>
-                <br />
-                <div class="text-center" style="color: #919191"><strong>Create New Project</strong></div>
-            </a>
-        </div><!-- Box -->
-        <div class="box box-one" ng-if="workspaces.length > 1">
-            <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="glyphicon white glyphicon-plus"></span>
-                <br>
-                <strong>Create New Project <span class="caret"></span></strong>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><span>Select Destination Workspace:</span></li>
-                <li ng-repeat="workspace in workspaces"><a href="/ws/{{workspace.workspaceReference.name}}?action=newProject" target="_blank">{{workspace.workspaceReference.name}}</a></li>
-            </ul>
-        </div><!-- Box -->
-
-        <div class="box box-one">
-            <button type="button" class="dropdown-toggle" ng-click="importNewProject('GitHub')">
-                <span class="glyphicon white glyphicon-import"></span>
-                <br>
-                <strong>Import Project</strong>
-            </button>
-        </div><!-- Box -->
-    </div><!-- New Project -->
-
-    <div class="panel panel-default" ng-show="workspaces.length == 0">
-        <div class="panel-body text-center">
-            <h4>You do not have membership in any workspace.</h4>
-        </div>
-    </div>
-
-    <!-- start help-->
-    <div ng-show="isNeedToShowHelp()" class="box-example">
-        <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12">
-            <div class="arrow-img hidden-xs"><img src="./images/arrow.png" class="img-responsive"  alt=""/></div>
-            <div class="panel panel-default">
-              <div class="panel-heading" style="text-align:center">
-                <div class="codenvy-rounded-logo"><img src="./images/codenvy-rounded-logo.png" class="img-responsive"  alt=""/></div>
-                <strong>Welcome to your Workspace!</strong>
-              </div>
-              <div class="panel-body">
-                <p style="margin-top:2px">Click <b>Create New Project</b> to get started.</p>
-                <p style="margin-top:2px">Want to learn more? Check out our <a href="http://docs.codenvy.com" style="color: #52ade1;">docs for use cases, explanations and tips</a>.</p>
-              </div>
+                            <p style="margin-top:2px">Want to learn more? Check out our <a
+                                    href="http://docs.codenvy.com" style="color: #52ade1;">docs for use cases,
+                                explanations and tips</a>.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-     <!-- end help-->
+            <!-- end help-->
 
-    <!-- start displaying doc-boxes -->
-    <div class="col-lg-10" ng-if="docboxes.length > 0">
-        <div class="row">
-            
-             <div class="col-lg-4 col-lg-offset-8 hello-world" ng-repeat="docbox in docboxes">
-                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-ttl">{{docbox.title}}</h3>
+            <!-- start displaying doc-boxes -->
+            <div class="col-lg-10" ng-if="docboxes.length > 0">
+                <div class="row">
+
+                    <div class="col-lg-4 col-lg-offset-8 hello-world" ng-repeat="docbox in docboxes">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-ttl">{{docbox.title}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{{docbox.content}}</p>
+                                <a style="color: #52ade1;float:right" href="" ng-click="hideDocBox(docbox)">Hide</a>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="panel-body">
-                      <p>{{docbox.content}}</p>
-                      <a style="color: #52ade1;float:right" href="" ng-click="hideDocBox(docbox)">Hide</a>
+                </div>
+            </div>
+            <!-- end doc-boxes -->
+
+            <!-- -->
+
+            <!--<div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number" style="font-size: 22px; padding-top: 15px;">
+                                 adaptive-sample-app
+                            </div>
+                            <div class="desc" style="font-size: 12px;">
+                                ferran-ws<br>
+                                Use my first adaptive project.
+                            </div>
+                        </div>
+                        <div class="more col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                            &lt;!&ndash; TODO: remove padding &ndash;&gt;
+                            &lt;!&ndash; TODO: increase text size &ndash;&gt;
+                            &lt;!&ndash; TODO: check responsive &ndash;&gt;
+                            &lt;!&ndash; TODO: find icons &ndash;&gt;
+                            &lt;!&ndash; TODO: integrate with foreach &ndash;&gt;
+
+                            <div class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" style="font-size: 10px"><i class="m-icon-swapright m-icon-white">Public</i></div>
+                            <div class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" style="font-size: 10px"><i class="m-icon-swapright m-icon-white">Developers</i></div>
+                            <div class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" style="font-size: 10px"><i class="m-icon-swapright m-icon-white">Settings</i></div>
+                        </div>
+                        &lt;!&ndash;<a class="more" href="javascript:;">
+                            View more <i class="m-icon-swapright m-icon-white"></i>
+                        </a>&ndash;&gt;
                     </div>
-                  </div>
+                </div>
 
-             </div>
+            </div>-->
+
+            <div class="row">
+
+
+                <div ng-repeat="project in projects| filter: filter | orderBy:param:reverse"
+                     class="">
+
+                    <div class=" " ng-if="projects.length > 0">
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat blue">
+                                <div class="visual">
+                                    <i class="fa fa-comments"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number" style="font-size: 22px; padding-top: 15px;">
+                                        {{project.name}}
+                                    </div>
+                                    <div class="desc" style="font-size: 12px;">
+                                        {{project.workspaceName}}<br>
+
+                                        <!--<div ng-if="project.description != null && project.misconfigured==true"><span
+                                                style="color:#b42020">{{project.description}}</span></div>-->
+                                        <div ng-if="project.description != null && project.misconfigured==undefined">
+                                            {{project.description}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="more col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                                    <!-- TODO: remove padding -->
+                                    <!-- TODO: increase text size -->
+                                    <!-- TODO: check responsive -->
+                                    <!-- TODO: find icons -->
+                                    <!-- TODO: integrate with foreach -->
+
+                                    <a class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-click="selectProject(project,'privacysetting')"
+                                         style="color: white;font-size: 10px"><i class="m-icon-swapright m-icon-white"><span style="padding-left: 15px;">Public</span></i>
+                                    </a>
+                                    <a class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-click="selectProject(project,'developersetting')"
+                                         style="color: white;font-size: 10px"><i class="m-icon-swapright m-icon-white"><span style="padding-left: 15px;">Developers</span></i>
+                                    </a>
+                                    <a class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4" ng-click="selectProject(project,'projectsetting')"
+                                         style="color: white;font-size: 10px"><i class="m-icon-swapright m-icon-white"><span style="padding-left: 15px;">Settings</span></i>
+                                    </a>
+                                </div>
+                                <!--<a class="more" href="javascript:;">
+                                    View more <i class="m-icon-swapright m-icon-white"></i>
+                                </a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- show projects -->
+
+          <!--  <div class="col-md-10">
+                <div ng-repeat="project in projects| filter: filter | orderBy:param:reverse"
+                     class="col-lg-3 col-md-4 col-sm-6 col-xs-12 projectbox">
+                    <div class="panel panel-default" ng-if="projects.length > 0">
+                        <div class="panel-heading">
+                            <a href="{{project.ideUrl}}" target="_blank">
+                                <div class="row">
+                                    &lt;!&ndash;<div class="col-md-3 col-sm-3 col-xs-3" style="width: 54px">
+                                        <img class="bordered" height="44" width="44"
+                                             ng-src="./images/{{project.type}}.png" alt="">
+                                    </div>&ndash;&gt;
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <h3 class="panel-title"><strong>{{project.name}}</strong></h3>
+                                        <span>{{project.workspaceName}}</span>
+                                    </div>
+                                </div>
+                                &lt;!&ndash; .row &ndash;&gt;
+                            </a>
+                        </div>
+                        &lt;!&ndash; panel-heading &ndash;&gt;
+
+                        <div class="panel-body" ng-if="project.description != null && project.misconfigured==true"><span
+                                style="color:#b42020">{{project.description}}</span></div>
+                        <div class="panel-body" ng-if="project.description != null && project.misconfigured==undefined">
+                            {{project.description}}
+                        </div>
+                        <div class="panel-body pointer" ng-if="project.description == null "
+                             ng-click="selectProject(project)" data-toggle="modal" data-target="#projectDetailModal"><a
+                                href="">Add description...</a></div>
+
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4"
+                                     ng-click="selectProject(project,'privacysetting')">
+                                    <div class="row"><i class="fa fa-fw"
+                                                        ng-class="{'fa-lock':project.visibility == 'private', 'fa-unlock':project.visibility == 'public'}"></i>
+                                        <small>{{project.visibility}}</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4"
+                                     ng-click="selectProject(project,'developersetting')">
+                                    <div class="row"><i class="fa fa-fw fa-users"></i>
+                                        <small>Developers</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4"
+                                     ng-click="selectProject(project,'projectsetting')">
+                                    <div class="row"><i class="fa fa-fw fa-cog"></i></div>
+                                </div>
+                            </div>
+                            &lt;!&ndash; .row &ndash;&gt;
+                        </div>
+                        &lt;!&ndash; panel-footer &ndash;&gt;
+                    </div>
+                    &lt;!&ndash; panel-default &ndash;&gt;
+
+                </div>
+                &lt;!&ndash; projectbox &ndash;&gt;
+            </div>-->
+
         </div>
-    </div>
-    <!-- end doc-boxes -->
 
-    <!-- show projects-->
-    <div class="col-md-10">
-        <div ng-repeat="project in projects| filter: filter | orderBy:param:reverse" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 projectbox">
-            <div class="panel panel-default" ng-if="projects.length > 0">
+
+        <div ng-if="notification" style="width: 300px" class="col-md-3 projectbox" data-toggle="modal"
+             data-target="#myModal">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <a href="{{project.ideUrl}}" target="_blank">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3 col-xs-3" style="width: 54px">
-                                <img class="bordered" height="44" width="44" ng-src="./images/{{project.type}}.png" alt="">
-                            </div>
-                            <div class="col-md-9 col-sm-9 col-xs-9">
-                                <h3 class="panel-title"><strong>{{project.name}}</strong></h3>
-                                <span>{{project.workspaceName}}</span>
-                            </div>
-                        </div><!-- .row -->
-                    </a>
-                </div><!-- panel-heading -->
-
-                <div class="panel-body" ng-if="project.description != null && project.misconfigured==true"><span style="color:#b42020">{{project.description}}</span></div>
-                <div class="panel-body" ng-if="project.description != null && project.misconfigured==undefined">{{project.description}}</div>
-                <div class="panel-body pointer" ng-if="project.description == null " ng-click="selectProject(project)" data-toggle="modal" data-target="#projectDetailModal"><a href="">Add description...</a></div>
-
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="panel-title white"><strong>WIN 6 MONTHS PREMIUM SERVICES</strong></h3>
+                        </div>
+                    </div>
+                    <!-- .row -->
+                </div>
+                <!-- panel-header -->
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li>1 Organize a User Group and we will be there,</li>
+                        <li>2 Organize a User Presentation and we will be there,</li>
+                        <li>3 Organize a User Classroom and we will be there,</li>
+                    </ul>
+                </div>
+                <!-- panel-body -->
                 <div class="panel-footer">
                     <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-4" ng-click="selectProject(project,'privacysetting')">
-                            <div class="row"><i class="fa fa-fw" ng-class="{'fa-lock':project.visibility == 'private', 'fa-unlock':project.visibility == 'public'}"></i><small>{{project.visibility}}</small></div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4" ng-click="selectProject(project,'developersetting')">
-                            <div class="row"><i class="fa fa-fw fa-users"></i><small>Developers</small></div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4" ng-click="selectProject(project,'projectsetting')">
-                            <div class="row"><i class="fa fa-fw fa-cog"></i></div>
-                        </div>
-                    </div><!-- .row -->
-                </div><!-- panel-footer -->
-            </div><!-- panel-default -->
-
-        </div><!-- projectbox -->
-    </div>
-
-</div>
-
-
-<div ng-if="notification" style="width: 300px" class="col-md-3 projectbox" data-toggle="modal" data-target="#myModal">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="panel-title white"><strong>WIN 6 MONTHS PREMIUM SERVICES</strong></h3>
-                </div>
-            </div>
-            <!-- .row -->
-        </div>
-        <!-- panel-header -->
-        <div class="panel-body">
-            <ul class="list-unstyled">
-                <li>1 Organize a User Group and we will be there,</li>
-                <li>2 Organize a User Presentation and we will be there,</li>
-                <li>3 Organize a User Classroom and we will be there,</li>
-            </ul>
-        </div>
-        <!-- panel-body -->
-        <div class="panel-footer">
-            <div class="row">
-                <div class="col-md-12 text-center">Contact US</div>
-            </div>
-            <!-- .row -->
-        </div>
-        <!-- panel-footer -->
-    </div>
-    <!-- panel-primary -->
-</div>
-
-<div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="privacyModalLabel">Update Project Privacy</h4>
-            </div>
-            <div class="modal-body">
-                <h4>Select the appropriate privacy for {{selected.name}}</h4>
-                <div class="form-group">
-                    <label>
-                        <input type="radio" ng-model="activeProjectVisibility" value="public">
-                        Public</label>
-                    <p class="help-block">Everyone can see the project, You choose who can collabrate</p>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="radio" ng-model="activeProjectVisibility" value="private">
-                        Private</label>
-                    <p class="help-block">You choose who can see and who can collabrate</p>
-                </div>
-            </div>
-            <!-- .modal-body -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="switchVisibility()" data-dismiss="modal">Ok</button>
-            </div>
-        </div>
-    </div>
-</div><!-- Modal -->
-
-
-<div class="modal fade" id="developersModal" tabindex="-1" role="dialog" aria-labelledby="developersModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="developersModalLabel">Manage Project &amp; Developers</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                <div class="permission">
-                    <table class="table borderless">
-                        <thead>
-                            <tr>
-                              <th ng-show="isAdmin">
-                                <strong >Developers Permissions:</strong>
-                                <p>List of workspace's developers</p>
-                              </th>
-                              <th ng-show="!isAdmin">
-                                  <strong>User Permissions:</strong>
-                                    <p>You can only see your permission on this project</p>
-                                </th>
-                                <th>Read</th>
-                                <th>Write</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr ng-if="isAdmin==false" >
-                                <td>{{currentUser.fullName}} ({{currentUser.email}})</td>
-                                <td>
-                                    <input type="checkbox" ng-model="currentUser.read" disabled="disabled" >
-                                </td>
-                                <td>
-                                    <input type="checkbox" ng-model="currentUser.write" disabled="disabled" >
-                                </td>
-                            </tr>
-                            <tr ng-repeat="member in activeMembers" ng-if="member.userId !== currentUserId">
-                                <td>{{member.fullName}} ({{member.email}})</td>
-                                <td>
-                                    <input type="checkbox" ng-model="member.read" disabled="disabled" ng-change="setReadWrite(member)">
-                                </td>
-                                <td>
-                                    <input type="checkbox" ng-model="member.write" ng-change="setReadWrite(member)">
-                                </td>
-                                <td class="last"><a data-toggle="modal" data-target="#warning-user" ng-click="setMemberToBeDeleted(member)"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                </form>
-              <div class="invitation" ng-show="isAdmin">
-                <strong>Invite other developers</strong>
-                <p ng-show="showInviteError">These developers will be added to the workspace and be granted permissions accross all projects of the workspace.</p>
-
-                <form class="form-inline">
-                  <div class="form-group clearfix">
-                    <input type="text" class="form-control pull-left" ng-model="emailList" placeholder="Type email addresses seperated by commas">
-                    <input type="submit" class="btn btn-success pull-right" value="Invite" ng-click="invite()">
-                    <div id="btn-preloader1" style="display: none">
-                      <div id="bowlG">
-                        <div id="bowl_ringG">
-                          <div class="ball_holderG">
-                            <div class="ballG"></div>
-                          </div>
-                        </div>
-                      </div>
+                        <div class="col-md-12 text-center">Contact US</div>
                     </div>
-                  </div>
-                </form>
-                <div class="alert alert-danger" id="showInviteError" ng-show="showInviteError" >{{errors}} must be Codenvy user<span ng-if="errors.indexOf(',') > 0">s</span> before being added as developer<span ng-if="errors.indexOf(',') > 0">s</span> of your workspace.</div>
-                <p ng-show="!showInviteError">Developers become workspace/members and granted permissions across <u>all</u> projects.</p>
-              </div>
-                <div class="invitation " ng-show="!isAdmin">
-                    <p class="darkBlack">Invitation require Administrator permissions to the project's workspace.</p>
+                    <!-- .row -->
+                </div>
+                <!-- panel-footer -->
+            </div>
+            <!-- panel-primary -->
+        </div>
+
+        <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="privacyModalLabel">Update Project Privacy</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Select the appropriate privacy for {{selected.name}}</h4>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="radio" ng-model="activeProjectVisibility" value="public">
+                                Public</label>
+
+                            <p class="help-block">Everyone can see the project, You choose who can collabrate</p>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="radio" ng-model="activeProjectVisibility" value="private">
+                                Private</label>
+
+                            <p class="help-block">You choose who can see and who can collabrate</p>
+                        </div>
+                    </div>
+                    <!-- .modal-body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="switchVisibility()"
+                                data-dismiss="modal">Ok
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+        </div>
+        <!-- Modal -->
 
+
+        <div class="modal fade" id="developersModal" tabindex="-1" role="dialog" aria-labelledby="developersModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="developersModalLabel">Manage Project &amp; Developers</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="permission">
+                                <table class="table borderless">
+                                    <thead>
+                                    <tr>
+                                        <th ng-show="isAdmin">
+                                            <strong>Developers Permissions:</strong>
+
+                                            <p>List of workspace's developers</p>
+                                        </th>
+                                        <th ng-show="!isAdmin">
+                                            <strong>User Permissions:</strong>
+
+                                            <p>You can only see your permission on this project</p>
+                                        </th>
+                                        <th>Read</th>
+                                        <th>Write</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr ng-if="isAdmin==false">
+                                        <td>{{currentUser.fullName}} ({{currentUser.email}})</td>
+                                        <td>
+                                            <input type="checkbox" ng-model="currentUser.read" disabled="disabled">
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" ng-model="currentUser.write" disabled="disabled">
+                                        </td>
+                                    </tr>
+                                    <tr ng-repeat="member in activeMembers" ng-if="member.userId !== currentUserId">
+                                        <td>{{member.fullName}} ({{member.email}})</td>
+                                        <td>
+                                            <input type="checkbox" ng-model="member.read" disabled="disabled"
+                                                   ng-change="setReadWrite(member)">
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" ng-model="member.write"
+                                                   ng-change="setReadWrite(member)">
+                                        </td>
+                                        <td class="last"><a data-toggle="modal" data-target="#warning-user"
+                                                            ng-click="setMemberToBeDeleted(member)"><i
+                                                class="fa fa-trash-o"></i></a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <div class="invitation" ng-show="isAdmin">
+                            <strong>Invite other developers</strong>
+
+                            <p ng-show="showInviteError">These developers will be added to the workspace and be granted
+                                permissions accross all projects of the workspace.</p>
+
+                            <form class="form-inline">
+                                <div class="form-group clearfix">
+                                    <input type="text" class="form-control pull-left" ng-model="emailList"
+                                           placeholder="Type email addresses seperated by commas">
+                                    <input type="submit" class="btn btn-success pull-right" value="Invite"
+                                           ng-click="invite()">
+
+                                    <div id="btn-preloader1" style="display: none">
+                                        <div id="bowlG">
+                                            <div id="bowl_ringG">
+                                                <div class="ball_holderG">
+                                                    <div class="ballG"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="alert alert-danger" id="showInviteError" ng-show="showInviteError">{{errors}}
+                                must be Codenvy user<span ng-if="errors.indexOf(',') > 0">s</span> before being added as
+                                developer<span ng-if="errors.indexOf(',') > 0">s</span> of your workspace.
+                            </div>
+                            <p ng-show="!showInviteError">Developers become workspace/members and granted permissions
+                                across <u>all</u> projects.</p>
+                        </div>
+                        <div class="invitation " ng-show="!isAdmin">
+                            <p class="darkBlack">Invitation require Administrator permissions to the project's
+                                workspace.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="defineUserPassword" tabindex="-1" role="dialog" aria-labelledby="defineUserPasswordLabel" aria-hidden="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" accept-charset="utf-8" role="form" ng-submit="definePassword()">
+        <!-- Modal -->
+        <div class="modal fade" id="defineUserPassword" tabindex="-1" role="dialog"
+             aria-labelledby="defineUserPasswordLabel" aria-hidden="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" accept-charset="utf-8" role="form" ng-submit="definePassword()">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="defineUserPasswordLabel">Define your Password</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>New Password:</label>
+                                    <input class="form-control" id="newPassword" placeholder="" type="password" required
+                                           autofocus/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>Repeat New Password:</label>
+                                    <input class="form-control" id="newPasswordVerify" placeholder="" type="password"
+                                           required autofocus/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12  form-group">
+                                    <div id="changePasswordAlert">
+                                        <div class="alert alert-success" style="display: none;">
+                                            <b>Successfully Done!</b> Change password process completed.
+                                        </div>
+                                        <div class="alert alert-danger" style="display: none;">
+                                            <b>Failed!</b> Change password process failed.
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-danger" id="doesNotMatch" style="display: none;">
+                                        <b>Failed!</b> New Password and Repeat New Password do not match.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Ok</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="projectDetailModal" tabindex="-1" role="dialog"
+             aria-labelledby="projectDetailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="projectDetailModalLabel">Project Detail</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>Project Name:</label>
+                                <input type="text" autofocus required="" ng-model="tempProject.name"
+                                       placeholder="Intuit" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Project Technology:</label>
+
+                                <div class="row">
+                                    <div style="width: 54px" class="col-md-3">
+                                        <img width="44" height="44" alt="" class="bordered"
+                                             ng-src="./images/{{selected.type}}.png">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h3 ng-if="selected.projectTypeName == 'nameless' " class="panel-title">Blank
+                                            Project</h3>
+
+                                        <h3 ng-if="selected.projectTypeName != 'nameless' " class="panel-title">
+                                            {{selected.projectTypeName}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>Project Description:</label>
+                                <textarea ng-model="tempProject.description" class="form-control" style="max-width:100%"
+                                          placeholder="Add a Description..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="changeProjectDetailAlert">
+                                    <div class="alert alert-success" style="display: none;">
+                                        <b>Successfully Done!</b> Change project detail completed.
+                                    </div>
+                                    <div class="alert alert-danger" style="display: none;">
+                                        <b>Failed!</b> Change project detail failed.
+                                    </div>
+                                </div>
+                                <div class="alert alert-danger" id="alreadyExist" style="display: none;">
+                                    <b>Failed!</b> Impossible to rename the project. The name
+                                    <strong>"{{changeName}}"</strong> is already used in your projects.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="updateProject()">Ok</button>
+                        <button type="button" class="btn btn-danger pull-left" data-toggle="modal"
+                                ng-click="deleteProjectConfirm()" data-dismiss="modal"><i class="fa fa-trash-o"></i></i>
+                            Delete Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="privacyMessageModal" tabindex="-1" role="dialog"
+         aria-labelledby="privacyMessageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="defineUserPasswordLabel">Define your Password</h4>
+                    <h4 class="modal-title" id="privacyMessageModalLabel">Project Privacy</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <label>New Password:</label>
-                            <input class="form-control" id="newPassword" placeholder="" type="password" required autofocus/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <label>Repeat New Password:</label>
-                            <input class="form-control" id="newPasswordVerify" placeholder="" type="password" required autofocus/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12  form-group">
-                            <div id="changePasswordAlert">
-                                <div class="alert alert-success" style="display: none;">
-                                    <b>Successfully Done!</b> Change password process completed.
-                                </div>
-                                <div class="alert alert-danger" style="display: none;">
-                                    <b>Failed!</b> Change password process failed.</div>
-                            </div>
-                            <div class="alert alert-danger" id="doesNotMatch" style="display: none;">
-                                <b>Failed!</b> New Password and Repeat New Password do not match.
-                            </div>
-                        </div>
-                    </div>
+                    As a developer of the workspace, <b>{{selected.workspaceName}}</b>, you are not permitted to change
+                    privacy of the project. This action is only permitted for users with workspace/admin role
+                    designation. This workspace's administrator {{getAllAdminListToDisplay()}}.
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Ok</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-user fade" id="warning-user" tabindex="-1" role="dialog" aria-labelledby="WarningUserLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="WarningUserLabel">Warning</h4>
+                </div>
+                <!-- modal-header -->
+
+                <div class="modal-body">
+                    <p>You are going to remove <b>{{selectMemberToBeDeleted.fullName}}
+                        ({{selectMemberToBeDeleted.email}})</b> from the workspace/developer of <b>{{selected.workspaceName}}</b>.
+                        This developer will be removed permissions to all projects of the workspace. </p>
+
+                    <p>Are you sure you want to continue?</p>
+                </div>
+                <!-- modal-body -->
+
+                <div class="modal-footer">
+                    <a ng-click="removeMember(selectMemberToBeDeleted)" class="btn btn-danger"
+                       data-dismiss="modal">Ok</a>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+                <!-- modal-footer -->
 
-<!-- Modal -->
-<div class="modal fade" id="projectDetailModal" tabindex="-1" role="dialog" aria-labelledby="projectDetailModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="projectDetailModalLabel">Project Detail</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label>Project Name:</label>
-                        <input type="text" autofocus required="" ng-model="tempProject.name" placeholder="Intuit" name="name" id="name" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label>Project Technology:</label>
-                        <div class="row">
-                            <div style="width: 54px" class="col-md-3">
-                                <img width="44" height="44" alt="" class="bordered" ng-src="./images/{{selected.type}}.png">
-                            </div>
-                            <div class="col-md-9">
-                                <h3 ng-if="selected.projectTypeName == 'nameless' " class="panel-title">Blank Project</h3>
-                                <h3 ng-if="selected.projectTypeName != 'nameless' " class="panel-title">{{selected.projectTypeName}}</h3>
-                            </div>
+            <!-- modal-content -->
+        </div>
+        <!-- modal-dialog -->
+    </div>
+    <!-- Warning-user Modal -->
+
+    <div class="modal modal-project fade" id="warning-project" tabindex="-1" role="dialog"
+         aria-labelledby="WarningProjectLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="WarningProjectLabel">Warning</h4>
+                </div>
+                <!-- modal-header -->
+                <div class="modal-body">
+                    <p id="warning-project-message"></p>
+
+                    <div id="warning-project-alert">
+                        <div class="alert alert-success" style="display: none;">
+                            <b>Successfully Done!</b> Delete process completed.
+                        </div>
+                        <div class="alert alert-danger" style="display: none;">
+                            <b>Failed!</b> {{deleteProjectError}}
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <label>Project Description:</label>
-                        <textarea ng-model="tempProject.description" class="form-control" style="max-width:100%" placeholder="Add a Description..."></textarea>
-                    </div>
+                <!-- modal-body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-if="isDeleteAllowed">Cancel
+                    </button>
+                    <a class="btn btn-danger" ng-click="deleteProject()" ng-if="isAdmin">OK</a>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="changeProjectDetailAlert">
-                            <div class="alert alert-success" style="display: none;">
-                                <b>Successfully Done!</b> Change project detail completed.
-                            </div>
-                            <div class="alert alert-danger" style="display: none;">
-                                <b>Failed!</b> Change project detail failed.</div>
-                            </div>
-                            <div class="alert alert-danger" id="alreadyExist" style="display: none;">
-                                <b>Failed!</b> Impossible to rename the project. The name <strong>"{{changeName}}"</strong> is already used in your projects.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="updateProject()">Ok</button>
-                <button type="button" class="btn btn-danger pull-left" data-toggle="modal" ng-click="deleteProjectConfirm()" data-dismiss="modal"><i class="fa fa-trash-o"></i></i> Delete Project</button>
+                <!-- modal-footer -->
             </div>
+            <!-- modal-content -->
         </div>
+        <!-- modal-dialog -->
     </div>
-</div>
-
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="privacyMessageModal" tabindex="-1" role="dialog" aria-labelledby="privacyMessageModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="privacyMessageModalLabel">Project Privacy</h4>
-            </div>
-            <div class="modal-body">
-              As a developer of the workspace, <b>{{selected.workspaceName}}</b>, you are not permitted to change privacy of the project. This action is only permitted for users with workspace/admin role designation. This workspace's administrator {{getAllAdminListToDisplay()}}.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal modal-user fade" id="warning-user" tabindex="-1" role="dialog" aria-labelledby="WarningUserLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="WarningUserLabel">Warning</h4>
-      </div><!-- modal-header -->
-
-      <div class="modal-body">
-        <p>You are going to remove <b>{{selectMemberToBeDeleted.fullName}} ({{selectMemberToBeDeleted.email}})</b> from the workspace/developer of <b>{{selected.workspaceName}}</b>. This developer will be removed permissions to all projects of the workspace. </p>
-        <p>Are you sure you want to continue?</p>
-      </div><!-- modal-body -->
-
-      <div class="modal-footer">
-        <a ng-click="removeMember(selectMemberToBeDeleted)" class="btn btn-danger" data-dismiss="modal">Ok</a>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div><!-- modal-footer -->
-
-    </div><!-- modal-content -->
-  </div><!-- modal-dialog -->
-</div><!-- Warning-user Modal -->
-
-<div class="modal modal-project fade" id="warning-project" tabindex="-1" role="dialog" aria-labelledby="WarningProjectLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="WarningProjectLabel">Warning</h4>
-            </div><!-- modal-header -->
-            <div class="modal-body">
-                <p id="warning-project-message"></p>
-                <div id="warning-project-alert">
-                    <div class="alert alert-success" style="display: none;">
-                        <b>Successfully Done!</b> Delete process completed.
-                    </div>
-                    <div class="alert alert-danger" style="display: none;">
-                        <b>Failed!</b> {{deleteProjectError}}
-                    </div>
-                </div>
-            </div><!-- modal-body -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-if="isDeleteAllowed">Cancel</button>
-                <a  class="btn btn-danger" ng-click="deleteProject()" ng-if="isAdmin">OK</a>
-            </div><!-- modal-footer -->
-        </div><!-- modal-content -->
-    </div><!-- modal-dialog -->
-</div><!-- Warning-project Modal -->
+    <!-- Warning-project Modal -->
 
 </div>
 
@@ -573,39 +820,39 @@
 <script>
 
     /* Metronic.init(); // init metronic core components
-    Layout.init(); // init current layout*/
+     Layout.init(); // init current layout*/
     /*jQuery(document).ready(function() {*/
-        // init background slide images
+    // init background slide images
 
-   $('.page-sidebar-menu').on('click', 'li', function() {
-       $('.page-sidebar-menu li.active').removeClass('active');
-       $(this).addClass('active');
-   });
+    $('.page-sidebar-menu').on('click', 'li', function () {
+        $('.page-sidebar-menu li.active').removeClass('active');
+        $(this).addClass('active');
+    });
 
-   /*$.backstretch([
-                    "images/bg-white.png",
-                ], {
+    /*$.backstretch([
+     "images/bg-white.png",
+     ], {
 
-                }
-   );*/
-   //$.backstretch("pause");
+     }
+     );*/
+    //$.backstretch("pause");
 
-   /*$.backstretch([
-               null
-           ]
+    /*$.backstretch([
+     null
+     ]
 
-  );*/
+     );*/
 
 
-   $('#footerText').css('background-color', 'rgb(77, 91, 103)');
+    $('#footerText').css('background-color', 'rgb(77, 91, 103)');
 
-   //$('.backstretch').removeClass('backstretch');
+    //$('.backstretch').removeClass('backstretch');
 
-   $('.backstretch').remove();
+    $('.backstretch').remove();
 
-   /*$('#loading-bar').attr('data-toggle', 'collapse');*/
+    /*$('#loading-bar').attr('data-toggle', 'collapse');*/
 
-   /*});*/
+    /*});*/
 
     var resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
 

@@ -107,7 +107,7 @@ th h4 { font-weight:normal; }
   padding: 0;
   border-right: 0;
 }
-.panel-title  { font-size:12px; color:#3c3c3c; margin:5px 0px; }
+/*.panel-title  { font-size:12px; color:#3c3c3c; margin:5px 0px; }*/
 .bordered { border:1px solid #bcbcbc; background: #FFFFFF; padding:2px}
 /*.projectbox .panel:hover  { box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.2); } */
 .projectbox .panel  { transition: box-shadow 0.1s linear; }
@@ -2130,9 +2130,20 @@ html[dir="rtl"] .select2-search input {
     }
 }
 
-.help-phone {
+.logo-text{
+    color: white;
+    font-weight: 300;
+    /* padding: 0px; */
+    font-size: 19px;
+    letter-spacing: -1px;
+    line-height: 14px;
     display: block;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: darkgreen;
+    /* color: #666; */
+    margin: 0px 0px 20px 0px;
+    /* font-weight: 300; */
+    font-family: "Open Sans", sans-serif;
+}
+
+.clear-padding{
+    padding: 0px; !important;
 }

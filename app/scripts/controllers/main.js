@@ -114,7 +114,7 @@ angular.module('odeskApp')
                 data: { "token": $cookies.token}
             }).success(function (data, status) {
 
-                $location.path("/");
+                $location.path("/login");
 
             });
         };
