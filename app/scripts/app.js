@@ -59,7 +59,7 @@ angular.module('odeskApp', [
     }
 }).config(function () {
     uiCodemirrorDirective.$inject = ["$timeout", "udCodemirrorConfig"];
-}).factory('AuthInterceptor', function ($window, $cookies, $q) {
+}).factory('AuthInterceptor', function ($window, $cookies, $q, $location) {
     return {
         request: function (config) {
             //remove prefix url
@@ -77,10 +77,16 @@ angular.module('odeskApp', [
 
         response: function (response) {
 
-            if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404) {
-                $log.info('Redirect to login page.');
+            console.log("response AuthInterceptor: " + response );
+
+
+            if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
+               // $log.info('Redirect to login page.');
                 $location.path('/login');
+            }else {
+
             }
+
             return response || $q.when(response);
         }
         ,
@@ -98,7 +104,8 @@ angular.module('odeskApp', [
     var BASE_URL;
 
     if (DEV) {
-        DEFAULT = '/login';
+        /*DEFAULT = '/login';*/
+        DEFAULT = '/dashboard';
         BASE_URL = '/';
     } else {
         DEFAULT = '/dashboard';
