@@ -11,12 +11,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title>Adaptive user Dashboard</title>
+    <title>Adaptive Dashbar</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--<link rel="icon" href="favicon.ico" type="image/x-icon">-->
+    <link rel="icon" href="adaptiveme_imago_me-300x244.png" type="image/png">
 
     <!-- build:css(app) styles/vendor.css -->
     <!-- bower:css -->
@@ -63,8 +64,6 @@
     <link href="styles/dark.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="styles/jqvmap.css" rel="stylesheet" type="text/css"/>
 
-    <!---------------------------------------------------------------------->
-
     <!-- endbuild -->
 
 </head>
@@ -72,12 +71,9 @@
 <body ng-controller="MainCtrl" ng-app="odeskApp" ng-cloak
       class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed">
 
-<div ng-cloak ng-if="isLoginPage">
-    <!--<div ng-cloak ng-if="isLoginPage" style="height: 83%;">-->
-    <!--<div  ng-include="'views/login.html'"></div>-->
-    <div ng-view=""></div>
-</div>
+<!--TODO: change ng-if -->
 
+<!--BEGIN LOGIN PAGE-->
 <div ng-if="!isLoginPage">
     <!--<div  ng-include="'views/home.html'"></div>-->
 
@@ -216,6 +212,12 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                         <li>
+                                            <a ng-href="">
+                                                <i class="icon-user"></i> Status </a>
+                                        </li>
+
+                                        <li class="divider">
+                                        <li>
                                             <a ng-href="#/account">
                                                 <i class="icon-user"></i> Account </a>
                                         </li>
@@ -255,29 +257,27 @@
                     <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                     <div class="page-sidebar navbar-collapse collapse">
                         <!-- BEGIN SIDEBAR MENU -->
-
                         <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
                             data-auto-scroll="true" data-slide-speed="200">
-
-
                             <li>
-                                <a id="itemTopMenu3" ng-href="#/runner">
+                                <a id="itemTopMenu3" ng-href="#/dashbar">
                                     <i class="icon-layers"></i>
                                     <span class="title">Dashbar</span>
+                                    <span class="selected"></span>
                                 </a>
                             </li>
-
                             <li class="start active">
                                 <a id="itemTopMenu1" ng-href="#/dashboard">
                                     <i class="icon-docs"></i>
                                     <span class="title">Projects</span>
-                                    <!--<span class="selected"></span>-->
+                                    <span class="selected"></span>
                                 </a>
                             </li>
                             <li>
                                 <a id="itemTopMenu2" ng-href="#/runner">
                                     <i class="icon-speedometer"></i>
                                     <span class="title">Server Status</span>
+                                    <span class="selected"></span>
                                 </a>
                             </li>
                             <!--<li>
@@ -298,7 +298,6 @@
                                 <span class="title">Workspaces</span>
                               </a>
                             </li>-->
-
                         </ul>
                         <!-- END SIDEBAR MENU -->
                     </div>
@@ -308,7 +307,7 @@
                 <!-- BEGIN CONTENT -->
 
                 <div class="page-content-wrapper">
-
+                    
                     <div class="page-content ">
                         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
@@ -366,7 +365,13 @@
      </script>-->
 
 </div>
-
+<!--END LOGIN PAGE-->
+<div ng-if="isLoginPage">
+    <!--<div ng-cloak ng-if="isLoginPage" style="height: 83%;">-->
+    <!--<div  ng-include="'views/login.html'"></div>-->
+    <div ng-view=""></div>
+</div>
+<!--BEGIN MAIN PAGE-->
 <div class="page-footer">
     <div class="page-footer-inner" style=" text-align: center; display: block;float: initial; ">
         <!--
@@ -379,12 +384,7 @@
     </div>
 
 </div>
-
-<!--<div class="container" style="  display: flex;  height: 35px;   width: 100%;  padding-left: 0px; padding-right: 0px;">
-  <p id="footerText" class="text-muted text-center" style="z-index: 999; text-align: center; color: rgb(255, 255, 255); align-self: flex-end; width: 100%; margin: 0px; padding-top: 10px; padding-bottom: 10px; " >&#169; 2015 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Catalonia</p>
-</div>-->
-
-
+<!--END MAIN PAGE-->
 <!-- Google Analytics: -->
 <script>
     var _gaq = _gaq || [];

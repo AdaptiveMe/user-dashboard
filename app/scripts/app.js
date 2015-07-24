@@ -62,6 +62,9 @@ angular.module('odeskApp', [
 }).factory('AuthInterceptor', function ($window, $cookies, $q, $location) {
     return {
         request: function (config) {
+
+
+
             //remove prefix url
             if (config.url.indexOf("http://nightly.codenvy-stg.com/api") == 0) {
                 config.url = config.url.substring("http://nightly.codenvy-stg.com".length);
@@ -72,13 +75,18 @@ angular.module('odeskApp', [
                 config.params = config.params || {};
                 angular.extend(config.params, {token: $cookies.token});
             }
+
+            if (   typeof($cookies.token) === 'undefined' ) {
+                // $log.info('Redirect to login page.');
+                $location.path('/login');
+            }
+
             return config || $q.when(config);
         },
 
         response: function (response) {
 
             console.log("response AuthInterceptor: " + response );
-
 
             if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
                // $log.info('Redirect to login page.');
@@ -121,6 +129,14 @@ angular.module('odeskApp', [
             templateUrl: BASE_URL + 'views/home.html',
             controller: 'DashboardCtrl',
             abstract:true
+        })
+        .when('/status', {
+            templateUrl: BASE_URL + 'views/stats.html',
+            controller: 'StatsCtrl'
+        })
+        .when('/dashbar', {
+            templateUrl: BASE_URL + 'views/dashbar.html',
+            controller: 'DashboardCtrl'
         })
         .when('/home/projects', {
             templateUrl: BASE_URL + 'views/dashboard.html',

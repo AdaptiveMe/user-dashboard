@@ -70,7 +70,6 @@ angular.module('odeskApp')
                         $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
                     });
 
-
                     $cookies.token = response.data.value;
                     $cookies.refreshStatus = "DISABLED";
                     /* $location.path("/dashboard");*/
@@ -110,6 +109,6 @@ angular.module('odeskApp')
                 });
 
             }
-
+            return false;
         };
     });

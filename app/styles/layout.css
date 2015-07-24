@@ -1091,7 +1091,8 @@ Page sidebar
   .page-sidebar {
     width: 195px;
     float: left;
-    position: relative;
+    /*position: relative;*/
+    position: fixed;
     margin-right: -100%;
   }
   .page-full-width .page-sidebar {

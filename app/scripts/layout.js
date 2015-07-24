@@ -80,7 +80,6 @@ var Layout = function() {
 
         // disable active states
         menu.find('li.active').removeClass('active');
-        menu.find('li > a > .selected').remove();
 
         if (menu.hasClass('page-sidebar-menu-hover-submenu') === false) {
             menu.find('li.open').each(function(){

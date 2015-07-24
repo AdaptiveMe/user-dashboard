@@ -1,4 +1,3 @@
-
 <h3 class="page-title">
     Server Status
     <small></small>
@@ -13,193 +12,259 @@
         </li>
         <li>
             <a href="#/runner">Server Status</a>
-            <!--<i class="fa fa-angle-right"></i>-->
         </li>
 
     </ul>
-    <!-- <div class="page-toolbar">
-        <div class="btn-group pull-right">
-           <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-             Actions <i class="fa fa-angle-down"></i>
-           </button>
-           <ul class="dropdown-menu pull-right" role="menu">
-             <li>
-               <a href="#">Action</a>
-             </li>
-             <li>
-               <a href="#">Another action</a>
-             </li>
-             <li>
-               <a href="#">Something else here</a>
-             </li>
-             <li class="divider">
-             </li>
-             <li>
-               <a href="#">Separated link</a>
-             </li>
-           </ul>
-         </div>
-    </div>-->
+
 </div>
 
 
-<div class="breadcrumb-wrap">
-  <ul class="breadcrumb projectnav breadcrumb clearfix">
 
-    <li> You have {{(runners.length == 0) ? '0' : runners.length}} runners defined in {{workspaces.length}} workspaces</li>
+<!-- BEGIN PROJECTS INFORMATION AND SEARCH -->
 
-    <li class="dropdown user-dropdown">WORKSPACE:
-        <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace ? currentWorkspace.workspaceReference.name : 'All'}}</a>
-        <ul class="dropdown-menu">
-            <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
-            <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a href="">{{workspace.workspaceReference.name}}</a></li>
-        </ul>
-    </li>
+<div class="portlet box">
 
-    <li class="search1 clearfix">
-      <div>
-        <input type="button" class="searchfield "/>
-      </div><!-- content title-->
-      <div class="searchfull clearfix" style="display:none" >
-        <input type="button" class="closeBtn" style="display:none;" ng-click="filter = ''" />
-        <input type="text" ng-model="filter.project.name" class="searchfield " placeholder="Search for Runners"/>
-      </div>
-    </li>
-  </ul>
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                You have {{(runners.length == 0) ? '0' : runners.length}} runners defined in {{workspaces.length}}
+                workspaces
+            </div>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a style="padding-right: 0px;" href="" class="dropdown-toggle"
+                       data-toggle="dropdown">WORKSPACE: </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-caret-down garrow"></i>
+                        {{currentWorkspace? currentWorkspace.workspaceReference.name : 'All'}}
+
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
+                        <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a
+                                href="">{{workspace.workspaceReference.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search for Runners" ng-model="filter.project.name">
+                </div>
+                <button type="submit" class="btn blue">Search</button>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+
 </div>
+
+<!-- END PROJECTS INFORMATION AND SEARCH -->
+
+
+
+<!--<div class="breadcrumb-wrap">
+    <ul class="breadcrumb projectnav breadcrumb clearfix">
+
+        <li> You have {{(runners.length == 0) ? '0' : runners.length}} runners defined in {{workspaces.length}}
+            workspaces
+        </li>
+
+        <li class="dropdown user-dropdown">WORKSPACE:
+            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace
+                ? currentWorkspace.workspaceReference.name : 'All'}}</a>
+            <ul class="dropdown-menu">
+                <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
+                <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a href="">{{workspace.workspaceReference.name}}</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="search1 clearfix">
+            <div>
+                <input type="button" class="searchfield "/>
+            </div>
+            &lt;!&ndash; content title&ndash;&gt;
+            <div class="searchfull clearfix" style="display:none">
+                <input type="button" class="closeBtn" style="display:none;" ng-click="filter = ''"/>
+                <input type="text" ng-model="filter.project.name" class="searchfield "
+                       placeholder="Search for Runners"/>
+            </div>
+        </li>
+    </ul>
+</div>-->
 
 <div class="clearfix"></div>
 
 <div class=" col-lg-12 mrg-top80">
-  <div class="row">
-    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-      <div class="row">
-        <div class=" col-lg-3 col-sm-3 col-md-3 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+            <div class="row">
+                <div class=" col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
 
-              <h4 class="mrg-top0">Workspace RAM Consumption :</h4>
+                            <h4 class="mrg-top0">Workspace RAM Consumption :</h4>
 
-              <div class="row mrg0" ng-repeat="workspace in workspaces">
-                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 pad0">{{workspace.workspaceReference.name}}</div>
-                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
-                    <span ng-show="!workspace.isLocked">{{workspace.usedMemory}} Mb of {{workspace.totalMemory}} Mb</span>
-                    <div class="lockdown-label" style="margin-left: 0px" ng-show="workspace.isLocked">
-                        resources locked
+                            <div class="row mrg0" ng-repeat="workspace in workspaces">
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6 pad0">
+                                    {{workspace.workspaceReference.name}}
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+                                    <span ng-show="!workspace.isLocked">{{workspace.usedMemory}} Mb of {{workspace.totalMemory}} Mb</span>
+
+                                    <div class="lockdown-label" style="margin-left: 0px" ng-show="workspace.isLocked">
+                                        resources locked
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr-margin">
+                            <div class="row mrg-7">
+                                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center">
+                                    <button type="button" class="btn btn-ttl btn-sm-text" ng-click="refresh(true)"><span
+                                            class="glyphicon glyphicon-refresh"></span> Refresh Runners List
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mrg0">
+                                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center">
+                                    <button type="button" class="btn btn-ttl btn-sm-text"
+                                            ng-click="refreshStatusCheck()"> Auto Refresh - {{refreshStatus}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-              <hr class="hr-margin">
-              <div class="row mrg-7">
-                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center">
-                  <button type="button" class="btn btn-ttl btn-sm-text" ng-click="refresh(true)"><span class="glyphicon glyphicon-refresh"></span> Refresh Runners List</button>
-                </div>
-              </div>
-              <div class="row mrg0">
-                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center">
-                  <button type="button" class="btn btn-ttl btn-sm-text" ng-click="refreshStatusCheck()"> Auto Refresh - {{refreshStatus}} </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div ng-if="runners.length !== 0" class="col-lg-9 col-sm-9 col-md-9 col-xs-12">
-          <div class="row">
-            <!-- Start of runner box -->
-            <div class="col-lg-4 col-sm-6 col-md-4 col-xs-12" ng-repeat="runner in runners"
-                 ng-if="!currentWorkspace || runner.workspaceName==currentWorkspace.workspaceReference.name">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <div class="row">
-                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                      <strong>{{runner.projectName}}</strong>
-                      <div class="workspace-block">{{runner.workspaceName}}</div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                      <form class="form-inline btn-rt mrg-top10" role="search">
-                        <button type="submit" class="btn btn-ttl btn-sm-text" ng-click="shutdownRunner(runner)">Shut down</button>
-                        <button type="submit" class="btn btn-ttl btn-sm-text" ng-click="restartRunner(runner)">Restart</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <form class="form-horizontal" role="form" >
-                    <div class="form-group mrg0">
-                      <label class="col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">State :</label>
-                      <div class="col-lg-8 col-sm-8 raw-pad">
-                        <p class="form-control-static font-11 pad0">
+                <div ng-if="runners.length !== 0" class="col-lg-9 col-sm-9 col-md-9 col-xs-12">
+                    <div class="row">
+                        <!-- Start of runner box -->
+                        <div class="col-lg-4 col-sm-6 col-md-4 col-xs-12" ng-repeat="runner in runners"
+                             ng-if="!currentWorkspace || runner.workspaceName==currentWorkspace.workspaceReference.name">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                            <strong>{{runner.projectName}}</strong>
+
+                                            <div class="workspace-block">{{runner.workspaceName}}</div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                            <form class="form-inline btn-rt mrg-top10" role="search">
+                                                <button type="submit" class="btn btn-ttl btn-sm-text"
+                                                        ng-click="shutdownRunner(runner)">Shut down
+                                                </button>
+                                                <button type="submit" class="btn btn-ttl btn-sm-text"
+                                                        ng-click="restartRunner(runner)">Restart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group mrg0">
+                                            <label class="col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">State
+                                                :</label>
+
+                                            <div class="col-lg-8 col-sm-8 raw-pad">
+                                                <p class="form-control-static font-11 pad0">
                         <span ng-if="runner.runnerProcess.status === 'NEW'">
                              <span class="loader"></span><span class="runner-right-text"> Starting</span>
                         </span>
                         <span ng-if="runner.runnerProcess.status  === 'RUNNING'">
                             <span class="running-btn"></span><span class="runner-right-text">Running</span>
                         </span>
-                        </p>
-                      </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div ng-if="runner.runnerProcess.status  === 'RUNNING'">
+                                            <div class="form-group mrg0">
+                                                <label class="col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">Time
+                                                    Running :</label>
+
+                                                <div class="col-lg-8 col-sm-8 raw-pad">
+                                                    <p class="form-control-static font-11 pad0"><span
+                                                            class="runner-right-text">{{runner.startTime}}</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mrg0">
+                                                <label class=" col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">URL
+                                                    :</label>
+
+                                                <div class="col-lg-8 col-sm-8 raw-pad">
+                                                    <p class="form-control-static font-11 pad0">
+                                                        <a href="{{runner.url}}" target="_blank" title="{{runner.url}}"
+                                                           ng-if="runner.url.length > 0">
+                                                            {{runner.url.substr(0,30)}}<span
+                                                                ng-if="runner.url.length>30">...</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mrg0">
+                                                <label class="col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">Docker
+                                                    Recipe :</label>
+
+                                                <div class="col-lg-8 col-sm-8 raw-pad">
+                                                    <p class="form-control-static font-11 pad0">
+                                                        <a href="{{runner.dockerRecipe}}" target="_blank"
+                                                           title="{{runner.dockerRecipe}}"
+                                                           ng-if="runner.dockerRecipe.length > 0">
+                                                            {{runner.dockerRecipe.substr(0,30)}}<span
+                                                                ng-if="runner.dockerRecipe.length>30">...</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn-group btn-group-justified"
+                                     ng-if="runner.runnerProcess.status === 'RUNNING'">
+                                    <div class="btn-group">
+                                        <a class="btn btn-ttl btn-bdr-lf" href="{{runner.ideUrl}}" target="_blank">Open
+                                            IDE</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-ttl btn-bdr-rt " href="{{runner.terminalUrl}}"
+                                           target="_blank">Terminal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of runner box-->
+
                     </div>
-                      <div ng-if="runner.runnerProcess.status  === 'RUNNING'">
-                          <div class="form-group mrg0">
-                              <label class="col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">Time Running :</label>
-                              <div class="col-lg-8 col-sm-8 raw-pad">
-                                  <p class="form-control-static font-11 pad0"><span class="runner-right-text">{{runner.startTime}}</span> </p>
-                              </div>
-                          </div>
-                          <div class="form-group mrg0">
-                              <label class=" col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">URL :</label>
-                              <div class="col-lg-8 col-sm-8 raw-pad">
-                                  <p class="form-control-static font-11 pad0">
-                                      <a href="{{runner.url}}" target="_blank" title="{{runner.url}}" ng-if="runner.url.length > 0">
-                                          {{runner.url.substr(0,30)}}<span ng-if="runner.url.length>30">...</span>
-                                      </a>
-                                  </p>
-                              </div>
-                          </div>
-                          <div class="form-group mrg0">
-                              <label class="col-lg-4 col-sm-4 control-label font-11 pad0 runner-left-text">Docker Recipe :</label>
-                              <div class="col-lg-8 col-sm-8 raw-pad">
-                                  <p class="form-control-static font-11 pad0">
-                                      <a href="{{runner.dockerRecipe}}" target="_blank" title="{{runner.dockerRecipe}}" ng-if="runner.dockerRecipe.length > 0">
-                                          {{runner.dockerRecipe.substr(0,30)}}<span ng-if="runner.dockerRecipe.length>30">...</span>
-                                      </a>
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </form>
                 </div>
-                <div class="btn-group btn-group-justified" ng-if="runner.runnerProcess.status === 'RUNNING'">
-                  <div class="btn-group">
-                    <a class="btn btn-ttl btn-bdr-lf" href="{{runner.ideUrl}}" target="_blank">Open IDE</a>
-                  </div>
-                  <div class="btn-group">
-                    <a class="btn btn-ttl btn-bdr-rt " href="{{runner.terminalUrl}}" target="_blank">Terminal</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End of runner box-->
 
-          </div>
+                <div ng-if="runners.length == 0" class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="text-align:center">
+                    <div class="">
+                        <img src="./images/no-runner-icon.png" style="max-width: 70px;" alt=""/>
+
+                        <div class="panel-body runhelpblock">
+                            <b style="font-size: 12px;"> No Active Runner </b>
+
+                            <p style="text-align:center"> _________________________ </p>
+
+                            <p>When you Run a project or multiples projects, their Runners will show up here.</p>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
         </div>
-		
-		<div ng-if="runners.length == 0" class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="text-align:center">
-			<div class="">
-            	<img src="./images/no-runner-icon.png" style="max-width: 70px;" alt=""/>
-              <div class="panel-body runhelpblock">
-				<b style="font-size: 12px;"> No Active Runner </b>
-                <p style="text-align:center">  _________________________  </p>
-                <p>When you Run a project or multiples projects, their Runners will show up here.</p>
-              </div>
-            </div>
-		<div>
-      </div>
-    </div>
-  </div>
-</div>
 
-      <script>
+        <script>
 
-
-      </script>
+        </script>

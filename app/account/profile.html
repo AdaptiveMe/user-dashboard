@@ -16,80 +16,8 @@
         </li>
 
     </ul>
-    <!-- <div class="page-toolbar">
-        <div class="btn-group pull-right">
-           <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-             Actions <i class="fa fa-angle-down"></i>
-           </button>
-           <ul class="dropdown-menu pull-right" role="menu">
-             <li>
-               <a href="#">Action</a>
-             </li>
-             <li>
-               <a href="#">Another action</a>
-             </li>
-             <li>
-               <a href="#">Something else here</a>
-             </li>
-             <li class="divider">
-             </li>
-             <li>
-               <a href="#">Separated link</a>
-             </li>
-           </ul>
-         </div>
-    </div>-->
+
 </div>
-
-<!--<div class="portlet box red">
-  <div class="portlet-title" style="background-color: #8F8F8F;">
-    <div class="caption" style="  font-size: 15px;">
-      <i class="fa fa-gift"></i>Account
-    </div>
-    <div class="tools">
-      <a href="javascript:;" class="collapse" data-original-title="" title="">
-      </a>
-      <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
-      </a>
-      <a href="javascript:;" class="reload" data-original-title="" title="">
-      </a>
-    </div>
-  </div>
-
-</div>-->
-
-<!--<div class="portlet box red-pink" >
-
-  &lt;!&ndash;<div class="portlet-title" style="background-color: #4D5B69;">
-    <div class="caption">
-      &lt;!&ndash;<i class="fa fa-gift"></i>&ndash;&gt;
-       <span class="hidden-480">
-         Account </span>
-    </div>
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="#/account/profile" data-toggle="tab" aria-expanded="true" >
-          Profile </a>
-      </li>
-      <li class="">
-        <a href="#/account/subscriptions" data-toggle="tab" aria-expanded="false" ng-hide="ONPREM">
-          Subscriptions </a>
-      </li>
-      <li class="">
-        <a href="#/account/billing" data-toggle="tab" aria-expanded="false" ng-hide="ONPREM">
-          Usage and Billing</a>
-      </li>
-    </ul>
-  </div>&ndash;&gt;
-</div>-->
-<!--
-
-<ul class="breadcrumb boxnav" >
-    <li style="margin-top:4px;margin-bottom:8px;" class="active"><a href="#/account/profile">Profile</a></li>
-    <li style="margin-top:4px;margin-bottom:8px;"><a href="#/account/subscriptions" ng-hide="ONPREM">Subscriptions</a></li>
-    <li style="margin-top:4px;margin-bottom:8px;"><a href="#/account/billing" ng-hide="ONPREM">Usage and Billing</a></li>
-</ul>
--->
 
 <div class="container mainDivContainer" style="width: 100%; padding-top: 8px;">
     <div class="col-md-6">
@@ -505,3 +433,9 @@
 <div style="width:100%;text-align:center;margin-top:20px;margin-bottom:30px;">
     <a href="mailto:cancellation@codenvy.com?subject=Account Deletion Request" class="btn btn-danger">Delete Account</a>
 </div>
+
+<script>
+    /*REMOVE THE STYLE SELECTION OF ITEM IN SIDEBAR MENU WHEN ENTER TO ACCOUNT PAGE*/
+    var menu = $('.page-sidebar-menu');
+    menu.find('li.active').removeClass('active');
+</script>
