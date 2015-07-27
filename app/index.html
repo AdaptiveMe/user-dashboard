@@ -61,7 +61,8 @@
 
     <link href="styles/tasks.css" rel="stylesheet" type="text/css"/>
     <!--<link href="styles/grey.css" rel="stylesheet" type="text/css" id="style_color"/>-->
-    <link href="styles/dark.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <!--<link href="styles/dark.css" rel="stylesheet" type="text/css" id="style_color"/>-->
+    <link href="styles/dracula.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="styles/jqvmap.css" rel="stylesheet" type="text/css"/>
 
     <!-- endbuild -->
@@ -192,7 +193,7 @@
                     <div class="page-top">
 
                         <!-- BEGIN TOP NAVIGATION MENU -->
-                        <div class="top-menu" style="background-color: #fff;">
+                        <div class="top-menu">
                             <ul class="nav navbar-nav pull-right">
                                 <!-- BEGIN NOTIFICATION DROPDOWN -->
                                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -213,7 +214,7 @@
                                     <ul class="dropdown-menu dropdown-menu-default">
                                         <li>
                                             <a ng-href="">
-                                                <i class="icon-user"></i> Status </a>
+                                                <i class="icon-graph"></i> Status </a>
                                         </li>
 
                                         <li class="divider">
@@ -259,14 +260,14 @@
                         <!-- BEGIN SIDEBAR MENU -->
                         <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
                             data-auto-scroll="true" data-slide-speed="200">
-                            <li>
+                            <li class="active">
                                 <a id="itemTopMenu3" ng-href="#/dashbar">
                                     <i class="icon-layers"></i>
                                     <span class="title">Dashbar</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            <li class="start active">
+                            <li>
                                 <a id="itemTopMenu1" ng-href="#/dashboard">
                                     <i class="icon-docs"></i>
                                     <span class="title">Projects</span>

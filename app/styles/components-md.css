@@ -3262,20 +3262,7 @@ Forms
 }
 
 /* Form inputs */
-.form-control {
-  font-size: 14px;
-  font-weight: normal;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  box-shadow: none;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
+
 .form-control:focus {
   border-color: #999;
   outline: 0;
@@ -4456,7 +4443,7 @@ Customized Bootstrap Panels
 }
 .panel-info > .panel-heading {
   color: white;
-  background-color: #89C4F4;
+  background-color: #44475A;
   border-color: #68caf1;
 }
 .panel-info > .panel-heading + .panel-collapse .panel-body {

@@ -88,6 +88,18 @@
 
         <div class="navbar navbar-default" role="navigation">
              <div class="navbar-header">
+
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+										<span class="sr-only">
+										Toggle navigation </span>
+										<span class="icon-bar">
+										</span>
+										<span class="icon-bar">
+										</span>
+										<span class="icon-bar">
+										</span>
+                 </button>
+
                 <div class="navbar-brand">
                     You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in
                     {{workspaces.length}}
@@ -150,9 +162,10 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="search">
+
+                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" ng-model="filter.name">
+                        <input type="text" class="form-control shadow" placeholder="Search" ng-model="filter.name">
                     </div>
                     <button type="submit" class="btn blue">Search</button>
                 </form>
@@ -281,7 +294,7 @@
                                 <i class="fa fa-comments"></i>
                             </div>
                             <div class="details">
-                                <div class="number" style="font-size: 22px; padding-top: 15px;">
+                                <div class="title-text-box number" style="font-size: 22px; padding-top: 15px;">
                                     {{project.name}}
                                 </div>
                                 <div class="desc" style="font-size: 12px;">

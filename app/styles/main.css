@@ -2161,3 +2161,11 @@ html[dir="rtl"] .select2-search input {
     font-style: italic;
 }
 
+.title-text-box{
+
+    text-overflow: ellipsis; /* will make [...] at the end */
+    width: 370px; /* change to your preferences */
+    white-space: nowrap; /* paragraph to one line */
+    overflow:hidden; /* older browsers */
+}
+

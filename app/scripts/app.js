@@ -113,11 +113,11 @@ angular.module('odeskApp', [
 
     if (DEV) {
         /*DEFAULT = '/login';*/
-        DEFAULT = '/dashboard';
+        DEFAULT = '/dashbar';
         BASE_URL = '/';
     } else {
-        DEFAULT = '/dashboard';
-        BASE_URL = '/dashboard/';
+        DEFAULT = '/dashbar';
+        BASE_URL = '/dashbar/';
     }
 
     if (DEV) {
@@ -135,8 +135,7 @@ angular.module('odeskApp', [
             controller: 'StatsCtrl'
         })
         .when('/dashbar', {
-            templateUrl: BASE_URL + 'views/dashbar.html',
-            controller: 'DashboardCtrl'
+            templateUrl: BASE_URL + 'views/dashbar.html'
         })
         .when('/home/projects', {
             templateUrl: BASE_URL + 'views/dashboard.html',

@@ -100,7 +100,7 @@ Page Header
 }
 .page-header.navbar .page-top {
   height: 68px;
-  background: #BAC0B6;
+  /*background: #BAC0B6;*/
 }
 .page-header.navbar .search-form {
   margin-left: 10px;
@@ -941,11 +941,11 @@ Page sidebar
 }
 .page-container-bg-solid .page-sidebar .page-sidebar-menu > li.active > a > .selected, .page-container-bg-solid
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .selected {
-  border-color: transparent #F1F3FA transparent transparent;
+  border-color: transparent #1E1F29 transparent transparent;
 }
 .page-container-bg-solid.page-sidebar-reversed .page-sidebar .page-sidebar-menu > li.active > a > .selected, .page-container-bg-solid.page-sidebar-reversed
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .selected {
-  border-color: transparent transparent transparent #F1F3FA;
+  border-color: transparent transparent transparent #1E1F29;
 }
 .page-sidebar .page-sidebar-menu li > a > .arrow:before,
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li > a > .arrow:before {
@@ -1437,7 +1437,7 @@ Page content
   letter-spacing: -1px;
   line-height: 26px;
   display: block;
-  color: #666;
+  color: #fff;
   margin: 0px 0px 20px 0px;
   font-weight: 300;
   font-family: "Open Sans", sans-serif;
@@ -1447,19 +1447,19 @@ Page content
   font-size: 13px;
   letter-spacing: 0px;
   font-weight: 300;
-  color: #888;
+  color: #fff;
 }
 .page-container-bg-solid .page-title {
-  color: #666;
+  color: #fff;
 }
 .page-container-bg-solid .page-title small {
-  color: #666;
+  color: #D2D2D2;
 }
 
 /* Page breadcrumb */
 .page-bar {
   padding: 0px;
-  background-color: #ffffff;
+  background-color: #44475A;
   margin-bottom: 20px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1489,7 +1489,7 @@ Page content
 }
 .page-bar .page-breadcrumb > li > a,
 .page-bar .page-breadcrumb > li > span {
-  color: #888;
+  color: #95D1E5;
   font-size: 13px;
   text-shadow: none;
 }
@@ -1553,7 +1553,7 @@ Page content
   background-color: #fff;
 }
 .page-container-bg-solid .page-content {
-  background: #F1F3FA;
+  background: #1E1F29;
 }
 .page-full-width .page-content {
   margin-left: 0px !important;
