@@ -7,7 +7,7 @@ Page Header
   /* Header seaech box */
 }
 .page-header.navbar .page-logo {
-  background: #EF3F3F;
+  /*background: #EF3F3F;*/
 }
 .page-header.navbar .page-top {
   box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 0.2);
@@ -29,7 +29,7 @@ Page Header
   color: #C0CDDC;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle .badge.badge-default {
-  background-color: #EF3F3F;
+  /*background-color: #EF3F3F;*/
   color: #ffffff;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown.open .dropdown-toggle {
@@ -74,11 +74,11 @@ Page Header
   background: #e4e4e4;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-inbox > .dropdown-toggle > .circle {
-  background-color: #EF3F3F;
+  /*background-color: #EF3F3F;*/
   color: #ffffff;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-inbox > .dropdown-toggle > .corner {
-  border-color: transparent transparent transparent #EF3F3F;
+  /*border-color: transparent transparent transparent #EF3F3F;*/
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-inbox .dropdown-menu .dropdown-menu-list .subject .from {
   color: #5b9bd1;
@@ -229,7 +229,7 @@ Page Header
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > i,
 .page-sidebar .page-sidebar-menu > li.active > a > i,
 .page-sidebar .page-sidebar-menu > li.active.open > a > i {
-  color: #f04848;
+  /*color: #f04848;*/
 }
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .arrow.open:before,
 .page-sidebar .page-sidebar-menu > li.active > a > .arrow:before,
@@ -401,7 +401,7 @@ Page Footer
 @media (max-width: 767px) {
   /* 767px */
   .page-header.navbar {
-    background: #EF3F3F;
+    /*background: #EF3F3F;*/
     /* Top menu */
   }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:hover {
@@ -413,7 +413,9 @@ Page Footer
 ****/
 .page-spinner-bar > div,
 .block-spinner-bar > div {
+  /*
   background: #f15757;
+  */
 }
 
 /****

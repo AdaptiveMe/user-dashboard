@@ -175,7 +175,7 @@ Page Header
   display: none;
   float: right;
   margin: 24px 14px 0 6px;
-  background-image: url(../images/sidebar-toggler-inverse.png);
+  /*background-image: url(../images/sidebar-toggler-inverse.png);*/
 }
 .page-header.navbar .page-actions {
   margin: 17px 0 15px 15px;

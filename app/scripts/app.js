@@ -128,8 +128,7 @@ angular.module('odeskApp', [
             abstract:true
         })
         .when('/status', {
-            templateUrl: BASE_URL + 'views/stats.html',
-            controller: 'StatsCtrl'
+            templateUrl: BASE_URL + 'views/status.html'
         })
         .when('/dashbar', {
             templateUrl: BASE_URL + 'views/dashbar.html'
@@ -138,7 +137,7 @@ angular.module('odeskApp', [
             templateUrl: BASE_URL + 'views/dashboard.html',
             controller: 'DashboardCtrl'
         })
-        .when('/dashboard', {
+        .when('/projects', {
             templateUrl: BASE_URL + 'views/dashboard.html',
             controller: 'DashboardCtrl'
         })
