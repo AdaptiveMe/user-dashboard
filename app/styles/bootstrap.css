@@ -1106,7 +1106,8 @@ pre code {
     width: 33.33333333%;
   }
   .col-md-3 {
-    width: 25%;
+   /* width: 25%;*/
+    width: 35%;
   }
   .col-md-2 {
     width: 16.66666667%;
@@ -1264,7 +1265,8 @@ pre code {
     width: 33.33333333%;
   }
   .col-lg-3 {
-    width: 25%;
+    /*width: 25%;*/
+    width: 35%;
   }
   .col-lg-2 {
     width: 16.66666667%;
@@ -3462,7 +3464,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 0px 7px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3742,9 +3744,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   padding: 11px 15px;
-  font-size: 18px;
+  /*font-size: 18px;*/
   line-height: 20px;
-  height: 20px;
+  /*height: 20px;*/
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -3938,26 +3940,26 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: rgb(51, 52, 60);
+  /*border-color: #e7e7e7;*/
 }
 .navbar-default .navbar-brand {
-  color: #777777;
+  color: #EAEAEA;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
+  color: #F3E3E3;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
   color: #777777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #D8D8D8;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #F3E3E3;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
