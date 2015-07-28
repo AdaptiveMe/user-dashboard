@@ -24,7 +24,7 @@ angular.module('odeskApp')
         $scope.errorUsernameEmpty = false;
         $scope.errorPasswordEmpty= false;
 
-       console.log( "cookies.myFavorite: "+ $cookies.myFavorite );
+       //console.log( "cookies.myFavorite: "+ $cookies.myFavorite );
 
         // document.getElementById("loading-bar-spinner").style.display = 'block';
 
@@ -32,8 +32,8 @@ angular.module('odeskApp')
 
            // document.getElementById("loading-bar-spinner").style.display = 'block';
 
-            console.log("$scope.username: "+$scope.username );
-            console.log("$scope.password: "+$scope.password );
+            //console.log("$scope.username: "+$scope.username );
+            //console.log("$scope.password: "+$scope.password );
 
             if ($scope.username.length == 0 || $scope.password.length == 0) {
                 $scope.errorUsernameEmpty = true;
@@ -60,7 +60,7 @@ angular.module('odeskApp')
                     $scope.errorSubmit = false;
 
                     ProfileService.getProfile().then(function (profile, status) {
-                        console.log("status : "+status);
+                        //console.log("status : "+status);
                         var fullUserName;
                         if (profile.attributes.firstName && profile.attributes.lastName) {
                             fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;
@@ -77,7 +77,7 @@ angular.module('odeskApp')
 
                 }, function (response) { // optional
                     //console.log(response);
-                    console.log("error on login: "+response);
+                    //console.log("error on login: "+response);
 
                     //loading-bar-spinner
 
@@ -105,7 +105,7 @@ angular.module('odeskApp')
 
                     }*/
 
-                    // console.log(response);
+                   // console.log(response);
                 });
 
             }
