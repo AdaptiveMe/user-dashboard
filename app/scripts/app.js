@@ -59,9 +59,7 @@ angular.module('odeskApp', [
     }
 }).config(function () {
     uiCodemirrorDirective.$inject = ["$timeout", "udCodemirrorConfig"];
-})
-
-    .factory('AuthInterceptor', function ($window, $cookies, $q, $location) {
+}).factory('AuthInterceptor', function ($window, $cookies, $q, $location) {
     return {
         request: function (config) {
 
@@ -86,8 +84,7 @@ angular.module('odeskApp', [
 
         response: function (response) {
 
-            console.log("response AuthInterceptor: " + response );
-
+            //console.log("response AuthInterceptor: " + response );
             if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
                // $log.info('Redirect to login page.');
                 $location.path('/login');
@@ -102,15 +99,12 @@ angular.module('odeskApp', [
         responseError: function (rejection){
 
             //$location.path('/login');
-            console.log(rejection.status);
+            //console.log(rejection.status);
             return $q.reject(rejection);
         }
 
     };
-})
-
-
-    .config(function ($routeProvider, $locationProvider, $httpProvider) {
+}).config(function ($routeProvider, $locationProvider, $httpProvider) {
     var DEFAULT;
     var BASE_URL;
 

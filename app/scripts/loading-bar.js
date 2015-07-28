@@ -121,7 +121,7 @@ angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
 
         'responseError': function(rejection) {
 
-          console.log("responseError--loading-bar");
+          //console.log("responseError--loading-bar");
 
           setComplete();
 
