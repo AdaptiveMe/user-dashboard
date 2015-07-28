@@ -65,8 +65,6 @@ angular.module('odeskApp', [
     return {
         request: function (config) {
 
-
-
             //remove prefix url
             if (config.url.indexOf("http://nightly.codenvy-stg.com/api") == 0) {
                 config.url = config.url.substring("http://nightly.codenvy-stg.com".length);
@@ -80,7 +78,7 @@ angular.module('odeskApp', [
 
             if (   typeof($cookies.token) === 'undefined' ) {
                 // $log.info('Redirect to login page.');
-              /*  $location.path('/login');*/
+                $location.path('/login');
             }
 
             return config || $q.when(config);
@@ -92,7 +90,7 @@ angular.module('odeskApp', [
 
             if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
                // $log.info('Redirect to login page.');
-               /* $location.path('/login');*/
+                $location.path('/login');
             }else {
 
             }
