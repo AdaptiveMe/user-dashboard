@@ -3970,6 +3970,7 @@ UI Loading
 }
 
 .page-spinner-bar {
+
   position: fixed;
   z-index: 10051;
   width: 100px;
@@ -3978,6 +3979,7 @@ UI Loading
   margin-left: -55px;
   text-align: center;
 }
+
 .page-spinner-bar > div {
   margin: 0 5px;
   width: 18px;
@@ -3991,13 +3993,21 @@ UI Loading
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
 .page-spinner-bar .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
+  background: #3598dc;
 }
+
 .page-spinner-bar .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
+  background: #3598dc;
+}
+
+.page-spinner-bar .bounce3 {
+  background: #3598dc;
 }
 
 .block-spinner-bar {

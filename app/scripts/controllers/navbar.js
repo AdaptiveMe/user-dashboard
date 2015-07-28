@@ -21,7 +21,7 @@ angular.module('odeskApp')
         $scope.menu = [
             {
                 'title': 'Projects',
-                'link': '#/dashboard'
+                'link': '#/projects'
             },
             {
                 'title': 'Runners',
