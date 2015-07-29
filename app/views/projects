@@ -15,81 +15,17 @@
             <!--<i class="fa fa-angle-right"></i>-->
         </li>
     </ul>
-    <!-- <div class="page-toolbar">
-        <div class="btn-group pull-right">
-           <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-             Actions <i class="fa fa-angle-down"></i>
-           </button>
-           <ul class="dropdown-menu pull-right" role="menu">
-             <li>
-               <a href="#">Action</a>
-             </li>
-             <li>
-               <a href="#">Another action</a>
-             </li>
-             <li>
-               <a href="#">Something else here</a>
-             </li>
-             <li class="divider">
-             </li>
-             <li>
-               <a href="#">Separated link</a>
-             </li>
-           </ul>
-         </div>
-    </div>-->
-</div>
 
-<!-- <div class="breadcrumb-wrap">
-    <ul class="breadcrumb projectnav clearfix">
-        <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}}
-            workspaces
-        </li>
-        <li class="dropdown user-dropdown">SORT BY:
-            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
-                    ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'" class="fa"></i>{{param ==
-                'modificationDate' ? 'Date Modified' : 'Name'}}</a>
-            <ul class="dropdown-menu">
-                <li><a href="" ng-click="reverse = true; param = 'name'"><i
-                        class="fa fa-caret-up garrow"></i>Name</a></li>
-                <li><a href="" ng-click="reverse = false; param = 'name'"><i class="fa fa-caret-down garrow"></i>Name</a>
-                </li>
-                <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i
-                        class="fa fa-caret-up garrow"></i>Date Created</a></li>
-                <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i
-                        class="fa fa-caret-down garrow"></i>Date Created</a></li>
-            </ul>
-        </li>
-        <li class="dropdown user-dropdown">WORKSPACE:
-            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace
-                ? currentWorkspace.workspaceReference.name : 'All'}}</a>
-            <ul class="dropdown-menu">
-                <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
-                <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a href="">{{workspace.workspaceReference.name}}</a>
-                </li>
-            </ul>
-        </li>
-        <li class="search1 clearfix">
-            <div>
-                <input type="button" class="searchfield "/>
-            </div>
-            &lt;!&ndash; content title&ndash;&gt;
-            <div class="searchfull clearfix" style="display: none">
-                <input type="button" class="closeBtn" style="display: none;" ng-click="filter = ''"/>
-                <input type="text" ng-model="filter.name" class="searchfield " placeholder="Search for Projects"/>
-            </div>
-        </li>
-    </ul>
-</div>-->
+</div>
 
 <!-- BEGIN PROJECTS INFORMATION AND SEARCH -->
 
 <div class="portlet box">
 
-        <div class="navbar navbar-default" role="navigation">
-             <div class="navbar-header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
 
-                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 										<span class="sr-only">
 										Toggle navigation </span>
 										<span class="icon-bar">
@@ -98,86 +34,85 @@
 										</span>
 										<span class="icon-bar">
 										</span>
-                 </button>
+            </button>
 
-                <div class="navbar-brand">
-                    You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in
-                    {{workspaces.length}}
-                    workspaces
-                </div>
+            <div class="navbar-brand">
+                You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in
+                {{workspaces.length}}
+                workspaces
             </div>
-             <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a style="" href="" class="dropdown-toggle" data-toggle="dropdown">SORT BY: </a>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
-                                ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'"
-                                class="fa fa-caret-down garrow"></i>{{param ==
-                            'modificationDate' ? 'Date Modified' : 'Name'}}</a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="" class="dropdown-toggle" ng-click="reverse = true; param = 'name'">Name
-                                    <i class="fa fa-caret-up garrow"> </i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="reverse = false; param = 'name'"><i
-                                        class="fa fa-caret-down garrow"></i>Name</a>
-                            </li>
-                            <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i
-                                    class="fa fa-caret-up garrow"></i>Date Created</a></li>
-                            <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i
-                                    class="fa fa-caret-down garrow"></i>Date Created</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a style="padding-right: 0px;" href="" class="dropdown-toggle"
-                           data-toggle="dropdown">WORKSPACE: </a>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-caret-down garrow"></i>
-                            {{currentWorkspace? currentWorkspace.workspaceReference.name : 'All'}}
-
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
-                            <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a
-                                    href="">{{workspace.workspaceReference.name}}</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-                 <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control shadow" placeholder="Search" ng-model="filter.name">
-                    </div>
-                    <button type="submit" class="btn blue">Search</button>
-                </form>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a style="" href="" class="dropdown-toggle" data-toggle="dropdown">SORT BY: </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
+                            ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'"
+                            class="fa fa-caret-down garrow"></i>{{param ==
+                        'modificationDate' ? 'Date Modified' : 'Name'}}</a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="" class="dropdown-toggle" ng-click="reverse = true; param = 'name'">Name
+                                <i class="fa fa-caret-up garrow"> </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="reverse = false; param = 'name'"><i
+                                    class="fa fa-caret-down garrow"></i>Name</a>
+                        </li>
+                        <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i
+                                class="fa fa-caret-up garrow"></i>Date Created</a></li>
+                        <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i
+                                class="fa fa-caret-down garrow"></i>Date Created</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a style="padding-right: 0px;" href="" class="dropdown-toggle"
+                       data-toggle="dropdown">WORKSPACE: </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-caret-down garrow"></i>
+                        {{currentWorkspace? currentWorkspace.workspaceReference.name : 'All'}}
+
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
+                        <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a
+                                href="">{{workspace.workspaceReference.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control shadow" placeholder="Search" ng-model="filter.name">
+                </div>
+                <button type="submit" class="btn blue">Search</button>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
 
 </div>
 
 <!-- END PROJECTS INFORMATION AND SEARCH -->
 
-<!--  -->
 
 <div class="col-md-12 factorylistbox" ng-show="projectselect">
     <img style="margin-left: 68px; margin-top: -37px;" src="./images/up-arrow.png"/>
@@ -285,13 +220,13 @@
 
         </div>-->
         <div class="row">
-            <div ng-repeat="project in projects| filter: filter | orderBy:param:reverse"
-                 class="">
+            <div ng-repeat="project in projects| filter: filter | orderBy:param:reverse" class="">
                 <div class=" " ng-if="projects.length > 0">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="dashboard-stat blue">
+                        <div class="dashboard-stat shadow-color">
+
                             <div class="visual">
-                                <i class="fa fa-comments"></i>
+                               <!-- <i class="fa fa-comments"></i>-->
                                 <div class="details">
                                     <div class="title-text-box number" style="font-size: 22px; padding-top: 15px;">
                                         {{project.name}}
@@ -301,7 +236,7 @@
 
                                         <!--<div ng-if="project.description != null && project.misconfigured==true"><span
                                                 style="color:#b42020">{{project.description}}</span></div>-->
-                                        <div ng-if="project.description != null && project.misconfigured==undefined">
+                                        <div class="title-text-box" ng-if="project.description != null && project.misconfigured==undefined">
                                             {{project.description}}
                                         </div>
 
@@ -313,26 +248,24 @@
                                 <!-- TODO: remove padding -->
                                 <!-- TODO: increase text size -->
                                 <!-- TODO: check responsive -->
-                                <!-- TODO: find icons -->
-                                <!-- TODO: integrate with foreach -->
 
                                 <a class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center"
                                    ng-click="selectProject(project,'privacysetting')"
                                    style="color: white;font-size: 10px"><i class="fa fa-fw" ng-class="{'fa-lock':project.visibility == 'private', 'fa-unlock':project.visibility == 'public'}"></i>
                                     <span class="text-settings-project-box"
-                                          >  Public  </span>
+                                            >  Public  </span>
                                 </a>
                                 <a class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center"
                                    ng-click="selectProject(project,'developersetting')"
                                    style="color: white;font-size: 10px"><i class="fa fa-fw fa-users"></i>
                                     <span class="text-settings-project-box"
-                                          >Developers</span>
+                                            >Developers</span>
                                 </a>
                                 <a class="clear-padding col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center"
                                    ng-click="selectProject(project,'projectsetting')"
                                    style="color: white;font-size: 10px"><i class="fa fa-fw fa-cog"></i>
                                     <span class="text-settings-project-box"
-                                          > Settings </span>
+                                            > Settings </span>
                                 </a>
 
                             </div>
@@ -347,68 +280,7 @@
 
         <!-- show projects -->
 
-        <!--  <div class="col-md-10">
-              <div ng-repeat="project in projects| filter: filter | orderBy:param:reverse"
-                   class="col-lg-3 col-md-4 col-sm-6 col-xs-12 projectbox">
-                  <div class="panel panel-default" ng-if="projects.length > 0">
-                      <div class="panel-heading">
-                          <a href="{{project.ideUrl}}" target="_blank">
-                              <div class="row">
-                                  &lt;!&ndash;<div class="col-md-3 col-sm-3 col-xs-3" style="width: 54px">
-                                      <img class="bordered" height="44" width="44"
-                                           ng-src="./images/{{project.type}}.png" alt="">
-                                  </div>&ndash;&gt;
-                                  <div class="col-md-12 col-sm-12 col-xs-12">
-                                      <h3 class="panel-title"><strong>{{project.name}}</strong></h3>
-                                      <span>{{project.workspaceName}}</span>
-                                  </div>
-                              </div>
-                              &lt;!&ndash; .row &ndash;&gt;
-                          </a>
-                      </div>
-                      &lt;!&ndash; panel-heading &ndash;&gt;
-
-                      <div class="panel-body" ng-if="project.description != null && project.misconfigured==true"><span
-                              style="color:#b42020">{{project.description}}</span></div>
-                      <div class="panel-body" ng-if="project.description != null && project.misconfigured==undefined">
-                          {{project.description}}
-                      </div>
-                      <div class="panel-body pointer" ng-if="project.description == null "
-                           ng-click="selectProject(project)" data-toggle="modal" data-target="#projectDetailModal"><a
-                              href="">Add description...</a></div>
-
-                      <div class="panel-footer">
-                          <div class="row">
-                              <div class="col-md-4 col-sm-4 col-xs-4"
-                                   ng-click="selectProject(project,'privacysetting')">
-                                  <div class="row"><i class="fa fa-fw"
-                                                      ng-class="{'fa-lock':project.visibility == 'private', 'fa-unlock':project.visibility == 'public'}"></i>
-                                      <small>{{project.visibility}}</small>
-                                  </div>
-                              </div>
-                              <div class="col-md-4 col-sm-4 col-xs-4"
-                                   ng-click="selectProject(project,'developersetting')">
-                                  <div class="row"><i class="fa fa-fw fa-users"></i>
-                                      <small>Developers</small>
-                                  </div>
-                              </div>
-                              <div class="col-md-4 col-sm-4 col-xs-4"
-                                   ng-click="selectProject(project,'projectsetting')">
-                                  <div class="row"><i class="fa fa-fw fa-cog"></i></div>
-                              </div>
-                          </div>
-                          &lt;!&ndash; .row &ndash;&gt;
-                      </div>
-                      &lt;!&ndash; panel-footer &ndash;&gt;
-                  </div>
-                  &lt;!&ndash; panel-default &ndash;&gt;
-
-              </div>
-              &lt;!&ndash; projectbox &ndash;&gt;
-          </div>-->
-
     </div>
-
 
     <div ng-if="notification" style="width: 300px" class="col-md-3 projectbox" data-toggle="modal"
          data-target="#myModal">
@@ -575,7 +447,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn blue" data-dismiss="modal">Ok</button>
 
                 </div>
             </div>
@@ -693,8 +565,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" ng-click="updateProject()">Ok</button>
+                    <button type="button" class="btn cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn blue" ng-click="updateProject()">Ok</button>
                     <button type="button" class="btn btn-danger pull-left" data-toggle="modal"
                             ng-click="deleteProjectConfirm()" data-dismiss="modal"><i class="fa fa-trash-o"></i></i>
                         Delete Project
@@ -710,7 +582,7 @@
 <div class="modal fade" id="privacyMessageModal" tabindex="-1" role="dialog"
      aria-labelledby="privacyMessageModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content ">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="privacyMessageModalLabel">Project Privacy</h4>
@@ -721,7 +593,7 @@
                 designation. This workspace's administrator {{getAllAdminListToDisplay()}}.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                <button type="button" class="btn blue" data-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>
@@ -794,59 +666,17 @@
     </div>
     <!-- modal-dialog -->
 </div>
-<!-- Warning-project Modal -->
-
-<!--<script>
-  jQuery(document).ready(function() {
-    Metronic.init(); // init metronic core componets
-    Layout.init(); // init layout
-    Demo.init(); // init demo features
-    Index.init();
-    Index.initDashboardDaterange();
-    Index.initJQVMAP(); // init index page's custom scripts
-    Index.initCalendar(); // init index page's custom scripts
-    Index.initCharts(); // init index page's custom scripts
-    Index.initChat();
-    Index.initMiniCharts();
-    Tasks.initDashboardWidget();
-  });
-</script>-->
 
 <script>
-
-    /* Metronic.init(); // init metronic core components
-     Layout.init(); // init current layout*/
-    /*jQuery(document).ready(function() {*/
-    // init background slide images
 
     $('.page-sidebar-menu').on('click', 'li', function () {
         $('.page-sidebar-menu li.active').removeClass('active');
         $(this).addClass('active');
     });
 
-    /*$.backstretch([
-     "images/bg-white.png",
-     ], {
-
-     }
-     );*/
-    //$.backstretch("pause");
-
-    /*$.backstretch([
-     null
-     ]
-
-     );*/
-
     $('#footerText').css('background-color', 'rgb(77, 91, 103)');
 
-    //$('.backstretch').removeClass('backstretch');
-
     $('.backstretch').remove();
-
-    /*$('#loading-bar').attr('data-toggle', 'collapse');*/
-
-    /*});*/
 
     var resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
 

@@ -396,7 +396,7 @@ Page Footer
         /* Top menu */
     }
     .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:hover {
-        background-color: #f6f7fa;
+        background-color: #44475A;
     }
     .page-header.navbar .page-top {
         box-shadow: none;
@@ -434,4 +434,40 @@ body.page-boxed {
 
 .shadow {
     background-color: #33343C;
+}
+
+.page-content-wrapper-color {
+    background-color: #303342;
+}
+
+.shadow-color{
+    color: #FFFFFF;
+    background-color: #828282;
+}
+
+.dashboard-stat.shadow-color .more{
+    color: #FFFFFF;
+    background-color: #1E1F29;
+}
+
+/* Message modal
+----------------------------------------------*/
+
+.modal-content-color{
+    background-color: #3c3f41;
+}
+
+.modal-text-color{
+    color: white;
+}
+
+.modal-button{
+    color: white;
+    background-color: #32465f;
+}
+
+.modal-button:hover,
+.modal-button:focus,
+.modal-button:active{
+    background-color: #5F6A77;
 }
