@@ -59,18 +59,37 @@
     <!-- <link id="style_color" href="styles/themes/default.css" rel="stylesheet" type="text/css"/>-->
     <link href="styles/custom.css" rel="stylesheet" type="text/css"/>
     <!-- <link href="styles/profile.css" rel="stylesheet" type="text/css"/>-->
+
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link href="styles/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/jqvmap.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+
     <link href="styles/tasks.css" rel="stylesheet" type="text/css"/>
     <!--<link href="styles/grey.css" rel="stylesheet" type="text/css" id="style_color"/>-->
     <!--<link href="styles/dark.css" rel="stylesheet" type="text/css" id="style_color"/>-->
     <link href="styles/dracula.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="styles/jqvmap.css" rel="stylesheet" type="text/css"/>
-
+l
     <!-- endbuild -->
 
 </head>
 
 <body ng-controller="MainCtrl" ng-app="odeskApp" ng-cloak
       class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed">
+
+
+<!--<div id="content">
+
+    <div class="demo-container">
+        <div id="placeholder" class="demo-placeholder"></div>
+    </div>
+
+    <p>With the categories plugin you can plot categories/textual data easily.</p>
+
+</div>
+-->
 
 <!--TODO: change ng-if -->
 
@@ -81,8 +100,6 @@
     <!--<body class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed" ng-app="odeskApp" ng-controller="MainCtrl">-->
     <!-- BEGIN HEADER -->
 
-    <div>
-        
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
             <div class="page-header-inner">
@@ -100,7 +117,6 @@
                         </div>
 
                     </a>
-
 
                     <div class="menu-toggler sidebar-toggler">
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -346,8 +362,6 @@
         </div>
         <!-- END CONTAINER -->
 
-    </div>
-
     <!-- <script>
        jQuery(document).ready(function() {
 
@@ -369,8 +383,11 @@
     <!--<div  ng-include="'views/login.html'"></div>-->
     <div ng-view=""></div>
 </div>
+
 <!--BEGIN MAIN PAGE-->
+
 <div class="page-footer">
+
     <div class="page-footer-inner" style=" text-align: center; display: block;float: initial; ">
         <!--
               2014 © Metronic by keenthemes. <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
@@ -378,10 +395,10 @@
 
         &#169; 2015 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Catalonia
 
-
     </div>
 
 </div>
+
 <!--END MAIN PAGE-->
 <!-- Google Analytics: -->
 <script>
@@ -418,6 +435,10 @@
 
 <!-- build:js(app) scripts/vendor.js -->
 <!-- bower:js -->
+
+<script src="scripts/jquery.min.js" type="text/javascript"></script>
+<script src="scripts/jquery-migrate.min.js" type="text/javascript"></script>
+
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/raphael/raphael.js"></script>
 <script src="bower_components/morris.js/morris.js"></script>
@@ -457,6 +478,10 @@
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+
+
+
 <script src="scripts/loading-bar.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/services/statsservice.js"></script>
@@ -475,6 +500,8 @@
 <script src="scripts/controllers/workspace_info.js"></script>
 <script src="scripts/controllers/orgdetail.js"></script>
 <script src="scripts/controllers/admin.js"></script>
+<script src="scripts/controllers/DashboardController.js"></script>
+
 
 <script src="scripts/services/services.js"></script>
 <script src="scripts/services/new-project.js"></script>
@@ -501,29 +528,43 @@
 
 <!----------------------------- metronic scripts-------------------------------->
 
-<!--<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>-->
-<!--<script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>-->
-<!--
-  <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
--->
 
 <script src="scripts/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="scripts/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+<script src="scripts/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+
+<script src="scripts/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="scripts/jquery.uniform.min.js" type="text/javascript"></script>
 <script src="scripts/bootstrap-switch.min.js" type="text/javascript"></script>
+
 <script src="scripts/jquery.vmap.js" type="text/javascript"></script>
+<script src="scripts/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="scripts/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="scripts/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="scripts/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="scripts/jquery.vmap.usa.js" type="text/javascript"></script>
+
+<script src="scripts/jquery.vmap.sampledata.js" type="text/javascript"></script>
+
 <script src="scripts/jquery.flot.min.js" type="text/javascript"></script>
 <script src="scripts/jquery.flot.resize.min.js" type="text/javascript"></script>
+<script src="scripts/jquery.flot.categories.min.js" type="text/jlavascript"></script>
 <script src="scripts/jquery.pulsate.min.js" type="text/javascript"></script>
 <script src="scripts/moment.min.js" type="text/javascript"></script>
 
-<script src="scripts/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="scripts/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="scripts/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="scripts/daterangepicker.js" type="text/javascript"></script>
+<script src="scripts/fullcalendar.min.js" type="text/javascript"></script>
+<script src="scripts/jquery.easypiechart.min.js" type="text/javascript"></script>
+
+<script src="scripts/jquery.sparkline.min.js" type="text/javascript"></script>
+
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="scripts/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="scripts/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
+
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="scripts/metronic.js" type="text/javascript"></script>
 <script src="scripts/layout.js" type="text/javascript"></script>
@@ -531,6 +572,16 @@
 <script src="scripts/login-soft.js" type="text/javascript"></script>
 <script src="scripts/index.js" type="text/javascript"></script>
 <script src="scripts/tasks.js" type="text/javascript"></script>
+
+
+
+
+<!--<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>-->
+<!--<script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>-->
+<!--
+  <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+-->
+
 <!--<script src="scripts/profile.js" type="text/javascript"></script>-->
 <!---------------------------------------------------------------------->
 
@@ -545,17 +596,30 @@
 
     jQuery(document).ready(function () {
 
-        Metronic.init(); // init metronic core components
+       /* Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
         Demo.init();
         Index.init();
-        /* Index.initDashboardDaterange();
-         Index.initJQVMAP(); // init index page's custom scripts
+        Index.initDashboardDaterange();
+         Index.initJQVMAP(); // init index page's custom scripts/*
          Index.initCalendar(); // init index page's custom scripts
          Index.initCharts(); // init index page's custom scripts
          Index.initChat();
          Index.initMiniCharts();
          Tasks.initDashboardWidget();*/
+
+
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        Demo.init(); // init demo features
+       // Index.init();
+       // Index.initDashboardDaterange();
+       // Index.initJQVMAP(); // init index page's custom scripts
+       // Index.initCalendar(); // init index page's custom scripts
+       // Index.initCharts(); // init index page's custom scripts
+        //Index.initChat();
+        //Index.initMiniCharts();
+       // Tasks.initDashboardWidget();
 
     });
 
@@ -602,6 +666,44 @@
 
 </script>
 
+
+
+<script type="text/javascript">
+    /*
+    $(function() {
+
+        var data = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
+
+        $.plot("#placeholder", [ data ], {
+            series: {
+                bars: {
+                    show: true,
+                    barWidth: 0.6,
+                    align: "center"
+                }
+            },
+            xaxis: {
+                mode: "categories",
+                tickLength: 0
+            }
+        });
+
+        // Add the Flot version string to the footer
+
+        $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+    });
+    */
+   /* $(function () {
+        var disk1 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+        $.plot($("#placeholder"), [{
+                    label: "Disk 1",
+                    data: disk1,
+                    lines: { show: true, fill: true }
+                }],
+                {legend: { show: true, container: '#legendholder' }})
+    });
+*/
+</script>
 
 </body>
 </html>

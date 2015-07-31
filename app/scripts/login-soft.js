@@ -236,6 +236,7 @@ var Login = function () {
 	        });
 
 	        jQuery('#register-btn').click(function () {
+				console.log("jQuery('#register-btn').click(function ()");
 	            jQuery('.login-form').hide();
 	            jQuery('.register-form').show();
 	        });
@@ -249,10 +250,12 @@ var Login = function () {
     return {
         //main function to initiate the module
         init: function () {
-        	
-            handleLogin();
+
+			console.log("login-soft init");
+
+            //handleLogin();
             //handleForgetPassword();
-            //handleRegister();
+            handleRegister();
         }
 
     };
