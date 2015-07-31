@@ -175,7 +175,7 @@ Page Header
   display: none;
   float: right;
   margin: 24px 14px 0 6px;
-  /*background-image: url(../images/sidebar-toggler-inverse.png);*/
+  background-image: url(../images/sidebar-toggler-inverse.png);
 }
 .page-header.navbar .page-actions {
   margin: 17px 0 15px 15px;
@@ -271,7 +271,7 @@ Page Header
   content: '';
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu > li > a {
-  color: #555;
+  color: white;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu {
   min-width: 160px;

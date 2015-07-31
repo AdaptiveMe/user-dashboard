@@ -18,44 +18,22 @@
 
 </div>
 
-<script>
+<!-- BEGIN CONTENT -->
 
-    /* Metronic.init(); // init metronic core components
-     Layout.init(); // init current layout*/
-    /*jQuery(document).ready(function() {*/
-    // init background slide images
+<!-- END CONTENT -->
+
+
+<script>
 
     $('.page-sidebar-menu').on('click', 'li', function () {
         $('.page-sidebar-menu li.active').removeClass('active');
         $(this).addClass('active');
     });
 
-    /*$.backstretch([
-     "images/bg-white.png",
-     ], {
-
-     }
-     );*/
-    //$.backstretch("pause");
-
-    /*$.backstretch([
-     null
-     ]
-
-     );*/
-
     $('#footerText').css('background-color', 'rgb(77, 91, 103)');
-
-    //$('.backstretch').removeClass('backstretch');
-
     $('.backstretch').remove();
 
-    /*$('#loading-bar').attr('data-toggle', 'collapse');*/
-
-    /*});*/
-
     var resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
-
     var content = $('.page-content');
     var sidebar = $('.page-sidebar');
     var body = $('body');
@@ -88,7 +66,6 @@
                 height = sidebar.outerHeight() + 10;
                 console.log("log 8");
             }
-
             if ((height + headerHeight + footerHeight) <= Metronic.getViewPort().height) {
                 height = Metronic.getViewPort().height - headerHeight - footerHeight;
                 console.log("log 9");
@@ -97,49 +74,19 @@
         content.attr('style', 'min-height:' + height + 'px');
     }
 
+
+
+    Index.init();
+    Index.initDashboardDaterange();
+    Index.initJQVMAP(); // init index page's custom scripts
+    Index.initCalendar(); // init index page's custom scripts
+    Index.initCharts(); // init index page's custom scripts
+    Index.initChat();
+    Index.initMiniCharts();
+    Tasks.initDashboardWidget();
+
+
+
+
+
 </script>
-
-<!-- <div class="breadcrumb-wrap">
-    <ul class="breadcrumb projectnav clearfix">
-        <li>You have access to {{(projects.length == 0) ? '-' : projects.length}} projects in {{workspaces.length}}
-            workspaces
-        </li>
-        <li class="dropdown user-dropdown">SORT BY:
-            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
-                    ng-class="reverse ? 'fa-caret-up' : 'fa-caret-down'" class="fa"></i>{{param ==
-                'modificationDate' ? 'Date Modified' : 'Name'}}</a>
-            <ul class="dropdown-menu">
-                <li><a href="" ng-click="reverse = true; param = 'name'"><i
-                        class="fa fa-caret-up garrow"></i>Name</a></li>
-                <li><a href="" ng-click="reverse = false; param = 'name'"><i class="fa fa-caret-down garrow"></i>Name</a>
-                </li>
-                <li><a href="" ng-click="reverse = true; param = 'modificationDate'"><i
-                        class="fa fa-caret-up garrow"></i>Date Created</a></li>
-                <li><a href="" ng-click="reverse = false; param = 'modificationDate'"><i
-                        class="fa fa-caret-down garrow"></i>Date Created</a></li>
-            </ul>
-        </li>
-        <li class="dropdown user-dropdown">WORKSPACE:
-            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down garrow"></i>{{currentWorkspace
-                ? currentWorkspace.workspaceReference.name : 'All'}}</a>
-            <ul class="dropdown-menu">
-                <li><a href="" ng-click="setCurrentWorkspace(null)">All</a></li>
-                <li ng-repeat="workspace in workspaces" ng-click="setCurrentWorkspace(workspace)"><a href="">{{workspace.workspaceReference.name}}</a>
-                </li>
-            </ul>
-        </li>
-        <li class="search1 clearfix">
-            <div>
-                <input type="button" class="searchfield "/>
-            </div>
-            &lt;!&ndash; content title&ndash;&gt;
-            <div class="searchfull clearfix" style="display: none">
-                <input type="button" class="closeBtn" style="display: none;" ng-click="filter = ''"/>
-                <input type="text" ng-model="filter.name" class="searchfield " placeholder="Search for Projects"/>
-            </div>
-        </li>
-    </ul>
-</div>-->
-
-<!-- BEGIN PROJECTS INFORMATION AND SEARCH -->
-

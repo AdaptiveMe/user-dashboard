@@ -122,64 +122,15 @@ angular.module('odeskApp', [
     }
 
     $routeProvider
-        .when('/home', {
-            templateUrl: BASE_URL + 'views/home.html',
-            controller: 'DashboardCtrl',
-            abstract:true
-        })
         .when('/status', {
             templateUrl: BASE_URL + 'views/status.html'
         })
         .when('/dashbar', {
             templateUrl: BASE_URL + 'views/dashbar.html'
         })
-        .when('/home/projects', {
-            templateUrl: BASE_URL + 'views/dashboard.html',
-            controller: 'DashboardCtrl'
-        })
         .when('/projects', {
-            templateUrl: BASE_URL + 'views/dashboard.html',
+            templateUrl: BASE_URL + 'views/projects',
             controller: 'DashboardCtrl'
-        })
-        .when('/factories', {
-            templateUrl: BASE_URL + 'views/factories.html',
-            controller: 'FactoriesCtrl'
-        })
-        .when('/factory/:id', {
-            templateUrl: BASE_URL + 'views/factorydetails.html',
-            controller: 'FactoryCtrl'
-        })
-        .when('/stats', {
-            templateUrl: BASE_URL + 'views/stats.html',
-            controller: 'StatsCtrl'
-        })
-        .when('/runner', {
-            templateUrl: BASE_URL + 'views/runner.html',
-            controller: 'RunnerCtrl'
-        })
-        .when('/admin', {
-            templateUrl: BASE_URL + 'views/admin.html',
-            controller: 'AdminCtrl'
-        })
-        .when('/organizations', {
-            templateUrl: BASE_URL + 'views/organization/workspaces.html',
-            controller: 'OrganizationsCtrl'
-        })
-        .when('/organizations/members', {
-            templateUrl: BASE_URL + 'views/organization/members.html',
-            controller: 'OrganizationsCtrl'
-        })
-        .when('/organizations/workspace/:id', {
-            templateUrl: BASE_URL + 'views/organization/workspace_info.html',
-            controller: 'workspaceInfoCtrl'
-        })
-        .when('/organizations/workspace/:id/members', {
-            templateUrl: BASE_URL + 'views/organization/workspace_members.html',
-            controller: 'workspaceInfoCtrl'
-        })
-        .when('/organizations/:name', {
-            templateUrl: BASE_URL + 'views/orgdetail.html',
-            controller: 'OrgdetailCtrl'
         })
         .when('/account', {
             templateUrl: BASE_URL + 'account/profile.html',
@@ -196,17 +147,6 @@ angular.module('odeskApp', [
         .otherwise({
             redirectTo: DEFAULT
         });
-    if (!ONPREM) {
-        $routeProvider
-        .when('/account/subscriptions', {
-                templateUrl: BASE_URL + 'account/subscription/subscriptions.html',
-                controller: 'SubscriptionCtrl'
-            })
-        .when('/account/billing', {
-                templateUrl: BASE_URL + 'account/billing/billing.html',
-                controller: 'BillingCtrl'
-        });
-    }
 
     //while uncommenting line below fix # in navbar.js
     //$locationProvider.html5Mode(true);
@@ -234,6 +174,7 @@ angular.module('odeskApp', [
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function ($scope, $timeout, $transition, $q) {
+
     }]).directive('carousel', [function () {
         return { }
     }]);

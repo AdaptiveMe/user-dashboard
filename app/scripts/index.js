@@ -129,7 +129,7 @@ var Index = function () {
                 }
             }
 
-           
+
 
             $('#calendar').fullCalendar('destroy'); // destroy the calendar
             $('#calendar').fullCalendar({ //re-initialize the calendar
@@ -235,7 +235,6 @@ var Index = function () {
                 ['10/2013', 4600]
             ];
 
-
             if ($('#site_statistics').size() != 0) {
 
                 $('#site_statistics_loading').hide();
@@ -315,7 +314,6 @@ var Index = function () {
                     }
                 });
             }
-
 
             if ($('#site_activities').size() != 0) {
                 //site activities

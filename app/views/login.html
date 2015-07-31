@@ -43,14 +43,14 @@
 			Empty username or password. </span>
             </div>
 
-            <form class="login-form" ng-submit="submit()">
+            <form class="login-form"  ng-submit="submit()">
 
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
 
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+                        <input class="form-control placeholder-no-fix reset-input" type="text" autocomplete="off"
                                placeholder="Username" ng-model="username">
                     </div>
                 </div>
@@ -60,7 +60,7 @@
 
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
-                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off"
+                        <input class="form-control placeholder-no-fix reset-input" type="password" autocomplete="off"
                                placeholder="Password" ng-model="password">
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     <!--  <label class="checkbox" style="color: white;   font-size: 13px;" >-->
 
                     <div class="md-checkbox">
-                        <input type="checkbox" id="checkbox1" class="md-check" name="remember" value="1">
+                        <input type="checkbox" id="checkbox1" class="md-check reset-input" name="remember" value="1">
                         <label style="color: white; font-size: 12px;" for="checkbox1">
                             <span class="inc"></span>
                             <span class="check"></span>
@@ -99,13 +99,67 @@
                         to reset your password.
                     </p>
                 </div>
+
                 <div class="create-account">
                     <p style="color: white;">
-                        Don't have an account yet ?&nbsp; <a href="javascript:;" id="register-btn">
+                        Don't have an account yet ?&nbsp; <a id="register-btn">
                         Create an account </a>
                     </p>
                 </div>
+
             </form>
+
+            <!-- BEGIN REGISTRATION FORM -->
+            <form class="register-form" action="index.html" method="post">
+                <h3>Sign Up</h3>
+                <p>
+                    Enter your personal details below:
+                </p>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Email</label>
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix reset-input" type="text" placeholder="Email" name="email"/>
+                    </div>
+                </div>
+                <p>
+                    Enter your account details below:
+                </p>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input class="form-control placeholder-no-fix reset-input" type="text" autocomplete="off" placeholder="Username" name="username"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Password</label>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input class="form-control placeholder-no-fix reset-input" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="tnc"/> I agree to the <a href="javascript:;">
+                        Terms of Service </a>
+                        and <a href="javascript:;">
+                        Privacy Policy </a>
+                    </label>
+                    <div id="register_tnc_error">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button id="register-back-btn" type="button" class="btn">
+                        <i class="m-icon-swapleft"></i> Back </button>
+                    <button type="submit" id="register-submit-btn" class="btn blue pull-right">
+                        Sign Up <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                </div>
+            </form>
+            <!-- END REGISTRATION FORM -->
+
         </div>
     </div>
 </div>
@@ -133,6 +187,104 @@
      Demo.init();*/
     // init background slide images
 
+    jQuery('.register-form').hide();
+
+    //Login();
+
+    $('.register-form').validate({
+        errorElement: 'span', //default input error message container
+        errorClass: 'help-block', // default input error message class
+        focusInvalid: false, // do not focus the last invalid input
+        ignore: "",
+        rules: {
+
+            fullname: {
+                required: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            address: {
+                required: true
+            },
+            city: {
+                required: true
+            },
+            country: {
+                required: true
+            },
+
+            username: {
+                required: true
+            },
+            password: {
+                required: true
+            },
+            rpassword: {
+                equalTo: "#register_password"
+            },
+
+            tnc: {
+                required: true
+            }
+        },
+
+        messages: { // custom messages for radio buttons and checkboxes
+            tnc: {
+                required: "Please accept TNC first."
+            }
+        },
+
+        invalidHandler: function (event, validator) { //display error alert on form submit
+
+        },
+
+        highlight: function (element) { // hightlight error inputs
+            $(element)
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+        },
+
+        success: function (label) {
+            label.closest('.form-group').removeClass('has-error');
+            label.remove();
+        },
+
+        errorPlacement: function (error, element) {
+            if (element.attr("name") == "tnc") { // insert checkbox errors after the container
+                error.insertAfter($('#register_tnc_error'));
+            } else if (element.closest('.input-icon').size() === 1) {
+                error.insertAfter(element.closest('.input-icon'));
+            } else {
+                error.insertAfter(element);
+            }
+        },
+
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
+
+    $('.register-form input').keypress(function (e) {
+        if (e.which == 13) {
+            if ($('.register-form').validate().form()) {
+                $('.register-form').submit();
+            }
+            return false;
+        }
+    });
+
+    jQuery('#register-btn').click(function () {
+        console.log("jQuery('#register-btn').click(function ()");
+        jQuery('.login-form').hide();
+        jQuery('.register-form').show();
+    });
+
+    jQuery('#register-back-btn').click(function () {
+        jQuery('.login-form').show();
+        jQuery('.register-form').hide();
+    });
+
     $.backstretch([
                 "images/1.jpg",
                 "images/2.jpg",
@@ -146,4 +298,9 @@
 
     $('#footerText').css('background-color', '');
     /*});*/
+
+
+
 </script>
+
+

@@ -109,7 +109,7 @@
       this.canvas = this.createVmlNode('group');
       this.canvas.style.position = 'absolute';
     }
-
+    console.log("line 112");
     this.setSize(width, height);
   };
 
@@ -121,6 +121,10 @@
     canvas: null,
 
     setSize: function (width, height) {
+
+      //height = 200;
+      //width =  200;
+
       if (this.mode == 'svg') {
         this.canvas.setAttribute('width', width);
         this.canvas.setAttribute('height', height);
@@ -384,6 +388,7 @@
       map.width = params.container.width();
       map.height = params.container.height();
       map.resize();
+      console.log("line 387");
       map.canvas.setSize(map.width, map.height);
       map.applyTransform();
     });
