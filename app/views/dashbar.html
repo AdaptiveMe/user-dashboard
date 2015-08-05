@@ -15,10 +15,345 @@
             <!--<i class="fa fa-angle-right"></i>-->
         </li>
     </ul>
-
 </div>
 
-
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar" style="width: 250px;">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="images/avatar.png" class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        {{fullUserName}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Developer
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-circle green-haze btn-sm">Follow</button>
+                    <button type="button" class="btn btn-circle btn-danger btn-sm">Message</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="">
+                                <i class="icon-home"></i>
+                                Overview </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="icon-settings"></i>
+                                Account Settings </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <div class="portlet light">
+                <!-- STAT -->
+                <div class="row list-separated profile-stat">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            ...
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Projects
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            ...
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Tasks
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            ...
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Uploads
+                        </div>
+                    </div>
+                </div>
+                <!-- END STAT -->
+                <div>
+                    <h4 class="profile-desc-title">About {{fullUserName}}</h4>
+                    <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
+                    <div class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-globe"></i>
+                        <a href="">(...)</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-twitter"></i>
+                        <a href="">(...)</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-facebook"></i>
+                        <a href="">(...)</a>
+                    </div>
+                </div>
+            </div>
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-light blue-soft" href="">
+                        <div class="visual visual2">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details details2">
+                            <div class="number number2">
+                                ...
+                            </div>
+                            <div class="desc">
+                                Total user builds
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-light red-soft" href="">
+                        <div class="visual visual2">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                        <div class="details details2">
+                            <div class="number number2">
+                                ...
+                            </div>
+                            <div class="desc">
+                                Total user Android builds
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-light green-soft" href="">
+                        <div class="visual visual2">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details details2">
+                            <div class="number number2">
+                                ...
+                            </div>
+                            <div class="desc">
+                                Total user iOS builds
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <!-- BEGIN PORTLET-->
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-bar-chart font-green-sharp hide"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase">User Android Build time</span>
+                                <span class="caption-helper">...</span>
+                            </div>
+                            <div class="actions">
+                                <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                        <input type="radio" name="options" class="toggle" id="option1">New</label>
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                        <input type="radio" name="options" class="toggle" id="option2">Returning</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="site_androidBuildTime_loading">
+                                <img src="images/loading.gif" alt="loading"/>
+                            </div>
+                            <div id="site_androidBuildTime_content" class="display-none">
+                                <div id="site_androidBuildTime" class="chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PORTLET-->
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <!-- BEGIN PORTLET-->
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-share font-red-sunglo hide"></i>
+                                <span class="caption-subject font-red-sunglo bold uppercase">User iOS Build time</span>
+                                <span class="caption-helper">...</span>
+                            </div>
+                            <div class="actions">
+                                <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                        <input type="radio" name="options" class="toggle" id="option1">New</label>
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                        <input type="radio" name="options" class="toggle" id="option2">Returning</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="site_iOSBuildTime_loading">
+                                <img src="images/loading.gif" alt="loading"/>
+                            </div>
+                            <div id="site_iOSBuildTime_content" class="display-none">
+                                <div id="site_iOSBuildTime" class="chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PORTLET-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <!-- BEGIN PORTLET-->
+                    <!-- BEGIN SAMPLE TABLE PORTLET-->
+                    <div class="portlet box red">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-cogs"></i>Last builds
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse">
+                                </a>
+                                <a href="#portlet-config" data-toggle="modal" class="config">
+                                </a>
+                                <a href="javascript:;" class="reload">
+                                </a>
+                                <a href="javascript:;" class="remove">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="table-responsive">
+                                <table class="table black">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Table heading
+                                        </th>
+                                        <th>
+                                            Table heading
+                                        </th>
+                                        <th>
+                                            Table heading
+                                        </th>
+                                        <th>
+                                            Table heading
+                                        </th>
+                                        <th>
+                                            Table heading
+                                        </th>
+                                        <th>
+                                            Table heading
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                        <td>
+                                            Table cell
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PROFILE CONTENT -->
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
 
 <script>
 
@@ -98,6 +433,10 @@
         }
         content.attr('style', 'min-height:' + height + 'px');
     }
+
+    /*Index.initCharts();*/
+
+    Index.initDashbarCharts();
 
 </script>
 
