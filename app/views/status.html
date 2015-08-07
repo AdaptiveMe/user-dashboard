@@ -15,13 +15,367 @@
             <!--<i class="fa fa-angle-right"></i>-->
         </li>
     </ul>
-
 </div>
 
 <!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+
+    <div class="">
+
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-light blue-soft" href="javascript:;">
+                    <div class="visual visual2">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <div class="details details2">
+                        <div class="number number2">
+                            ...
+                        </div>
+                        <div class="desc">
+                            Total Users
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-light red-soft" href="javascript:;">
+                    <div class="visual visual2">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <div class="details details2">
+                        <div class="number number2">
+                            ...
+                        </div>
+                        <div class="desc">
+                            Total builds
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-light green-soft" href="javascript:;">
+                    <div class="visual visual2">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details details2">
+                        <div class="number number2">
+                            ...
+                        </div>
+                        <div class="desc">
+                            Total android builds
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-light purple-soft" href="javascript:;">
+                    <div class="visual visual2">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details details2">
+                        <div class="number number2">
+                            ...
+                        </div>
+                        <div class="desc">
+                            Total iOS builds
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-bar-chart font-green-sharp hide"></i>
+                            <span class="caption-subject font-green-sharp bold uppercase">Android Build time</span>
+                            <span class="caption-helper">...</span>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                    <input type="radio" name="options" class="toggle" id="option1">New</label>
+                                <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">Returning</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="site_statistics_android_loading">
+                            <img src="images/loading.gif" alt="loading"/>
+                        </div>
+                        <div id="site_statistics_android_content" class="display-none">
+                            <div id="site_statistics_android" class="chart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PORTLET-->
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-share font-red-sunglo hide"></i>
+                            <span class="caption-subject font-red-sunglo bold uppercase">iOS Build time</span>
+                            <span class="caption-helper">...</span>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                            <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">New</label>
+                            <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Returning</label>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="site_statistics_ios_loading">
+                            <img src="images/loading.gif" alt="loading"/>
+                        </div>
+                        <div id="site_statistics_ios_content" class="display-none">
+                            <div id="site_statistics_ios" style="height: 228px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PORTLET-->
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-equalizer font-purple-plum hide"></i>
+                        <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Dashbar</span>
+                        <span class="caption-helper">...</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse">
+                        </a>
+                        <a href="#portlet-config" data-toggle="modal" class="config">
+                        </a>
+                        <a href="" class="reload">
+                        </a>
+                        <a href="" class="remove">
+                        </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="sparkline-chart">
+                                <div class="number" id="sparkline_bar"></div>
+                                <a class="title" href="javascript:;">
+                                    CPU load <i class="icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="margin-bottom-10 visible-sm">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sparkline-chart">
+                                <div class="number" id="sparkline_bar2"></div>
+                                <a class="title" href="javascript:;">
+                                    Memory load <i class="icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="margin-bottom-10 visible-sm">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sparkline-chart">
+                                <div class="number" id="sparkline_line"></div>
+                                <a class="title" href="javascript:;">
+                                    File system <i class="icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-equalizer font-purple-plum hide"></i>
+                            <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Database</span>
+                            <span class="caption-helper">...</span>
+                        </div>
+                        <div class="tools">
+                            <a href="" class="collapse">
+                            </a>
+                            <a href="#portlet-config" data-toggle="modal" class="config">
+                            </a>
+                            <a href="" class="reload">
+                            </a>
+                            <a href="" class="remove">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline_bar"></div>
+                                    <a class="title" href="javascript:;">
+                                        CPU load <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline_bar2"></div>
+                                    <a class="title" href="javascript:;">
+                                        Memory load <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline_line"></div>
+                                    <a class="title" href="javascript:;">
+                                        File system <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-equalizer font-purple-plum hide"></i>
+                                <span class="caption-subject font-red-sunglo bold uppercase">Adaptive File system</span>
+                                <span class="caption-helper">...</span>
+                            </div>
+                            <div class="tools">
+                                <a href="" class="collapse">
+                                </a>
+                                <a href="#portlet-config" data-toggle="modal" class="config">
+                                </a>
+                                <a href="" class="reload">
+                                </a>
+                                <a href="" class="remove">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="sparkline-chart">
+                                        <div class="number" id="sparkline_bar"></div>
+                                        <a class="title" href="javascript:;">
+                                            CPU load <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-10 visible-sm">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="sparkline-chart">
+                                        <div class="number" id="sparkline_bar2"></div>
+                                        <a class="title" href="javascript:;">
+                                            Memory load <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-10 visible-sm">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="sparkline-chart">
+                                        <div class="number" id="sparkline_line"></div>
+                                        <a class="title" href="javascript:;">
+                                            File system <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-equalizer font-purple-plum hide"></i>
+                                <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Infrastructure</span>
+                                <span class="caption-helper">...</span>
+                            </div>
+                            <div class="tools">
+                                <a href="" class="collapse">
+                                </a>
+                                <a href="#portlet-config" data-toggle="modal" class="config">
+                                </a>
+                                <a href="" class="reload">
+                                </a>
+                                <a href="" class="remove">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="sparkline-chart">
+                                        <div class="number" id="sparkline_bar"></div>
+                                        <a class="title" href="javascript:;">
+                                            CPU load <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-10 visible-sm">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="sparkline-chart">
+                                        <div class="number" id="sparkline_bar2"></div>
+                                        <a class="title" href="javascript:;">
+                                            Memory load <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-10 visible-sm">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="sparkline-chart">
+                                        <div class="number" id="sparkline_line"></div>
+                                        <a class="title" href="javascript:;">
+                                            File system <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
 
 <!-- END CONTENT -->
-
 
 <script>
 
@@ -71,22 +425,15 @@
                 console.log("log 9");
             }
         }
+
         content.attr('style', 'min-height:' + height + 'px');
     }
 
-
-
-    Index.init();
     Index.initDashboardDaterange();
-    Index.initJQVMAP(); // init index page's custom scripts
+    /*Index.initJQVMAP(); */// init index page's custom scripts
     Index.initCalendar(); // init index page's custom scripts
     Index.initCharts(); // init index page's custom scripts
-    Index.initChat();
     Index.initMiniCharts();
-    Tasks.initDashboardWidget();
-
-
-
-
+    /*Tasks.initDashboardWidget();*/
 
 </script>

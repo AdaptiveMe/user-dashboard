@@ -2118,7 +2118,6 @@ html[dir="rtl"] .select2-search input {
     }
 }
 
-
 .loginLogo{
     margin: 0px auto 20px auto;
     padding-top: 75px;
@@ -2245,4 +2244,26 @@ html[dir="rtl"] .select2-search input {
 
 .legend table {
     border-spacing: 5px;
+}
+
+/* Modified and override classes of components-md-dracula.css */
+
+.dashboard-stat .visual2{
+    width: 80px;
+    float: left;
+}
+
+.dashboard-stat .details2{
+    position: absolute;
+}
+
+.dashboard-stat .details .number2 {
+     text-align: right;
+}
+
+.black {
+    color: #111;
+    font-size: 12px;
+    margin-right: 3px;
+    font-weight: bold;
 }
