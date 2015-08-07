@@ -19,6 +19,7 @@ angular.module('odeskApp')
         $scope.userSkills = [];
         $scope.profile = {};
         $scope.preferences = {};
+        console.log("addSkill: 4");
         $scope.skillsPreloader = false;
 
         ProfileService.getProfile().then(function () {
@@ -58,14 +59,20 @@ angular.module('odeskApp')
         });
 
         $scope.addSkill = function () {
+
+            console.log("addSkill: 1");
+
             if ($scope.addSkillModel != '') {
+                console.log("addSkill: 2");
                 $scope.skillsPreloader = true;
                 var next_key = "skill_" + ($scope.userSkills.length + 1);
                 var skills = {};
                 skills[next_key] = $scope.addSkillModel;
+
                 ProfileService.updatePreferences(skills).then(function () {
                     //TODO need to process errors
                     $scope.skillsPreloader = false;
+                    console.log("addSkill: 6");
                     $scope.userSkills.push({'key': next_key, 'name': $scope.addSkillModel});
                     $scope.addSkillModel = "";
                     $('#skill-name').focus();
