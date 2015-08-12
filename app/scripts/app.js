@@ -88,22 +88,25 @@ angular.module('odeskApp', [
                         $location.path('/login');
                     }
                 }
+
             }
             return config || $q.when(config);
         },
         response: function (response) {
+
             //console.log("response AuthInterceptor: " + response );
             if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
-
                 if (  $location.path().indexOf('service-terms') == -1) {
                     if ( $location.path().indexOf('policy-terms') == -1) {
                         console.log('Error status response -> Redirect to login page.');
                         $location.path('/login');
                     }
                 }
-            }else {
-            }
+                }else {
+                }
+
             return response || $q.when(response);
+
         }
         ,
         responseError: function (rejection){
