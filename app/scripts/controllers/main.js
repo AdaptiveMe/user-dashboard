@@ -21,7 +21,7 @@ angular.module('odeskApp')
 
             if (location) {
                 var newLocation = next;
-                if (newLocation.indexOf("login") !== -1) {
+                if (newLocation.indexOf("login") !== -1 || newLocation.indexOf("service-terms") !== -1 || newLocation.indexOf("policy-terms") !== -1 ) {
                     $scope.isLoginPage = true;
                 } else if ( newLocation.indexOf ("dashboard") !== -1) {
                     $scope.isLoginPage = false;
@@ -129,4 +129,7 @@ angular.module('odeskApp')
         OrgAddon.getOrgAccounts();
 
 
+        $scope.go = function (path){
+            $location.path(path);
+        }
     });

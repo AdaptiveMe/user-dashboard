@@ -21,6 +21,7 @@
 
     <!-- build:css(app) styles/vendor.css -->
     <!-- bower:css -->
+
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
     <link rel="stylesheet" href="bower_components/select2/select2.css">
@@ -131,7 +132,8 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="javascript:;">
-                                <i class="icon-user"></i> New User </a>
+                                <i class="icon-user"></i> New User
+                            </a>
                         </li>
                         <li>
                             <a href="javascript:;">
@@ -141,7 +143,8 @@
                         </li>
                         <li>
                             <a href="javascript:;">
-                                <i class="icon-basket"></i> New order </a>
+                                <i class="icon-basket"></i> New order
+                            </a>
                         </li>
                         <li class="divider">
                         </li>
@@ -262,22 +265,22 @@
                     <!-- BEGIN SIDEBAR MENU -->
                     <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
                         data-auto-scroll="true" data-slide-speed="200">
-                        <li class="active">
+                        <li id="sidebar-item-1" class="active">
                             <a id="itemTopMenu3" ng-href="#/dashbar">
                                 <i class="icon-layers"></i>
                                 <span class="title">Dashbar</span>
                                 <span class="selected"></span>
                             </a>
                         </li>
-                        <li>
-                            <a id="itemTopMenu1" ng-href="#/projects">
+                        <li id="sidebar-item-2">
+                            <a ng-href="#/projects">
                                 <i class="icon-docs"></i>
                                 <span class="title">Projects</span>
                                 <span class="selected"></span>
                             </a>
                         </li>
-                        <li>
-                            <a id="itemTopMenu2" ng-href="#/status">
+                        <li id="sidebar-item-3">
+                            <a ng-href="#/status">
                                 <i class="icon-speedometer"></i>
                                 <span class="title">Status Server</span>
                                 <span class="selected"></span>
@@ -603,7 +606,7 @@
 
     $(window).resize(function () {
         if ($('body').width() > 991) {
-            $('#itemTopMenu1').removeAttr('data-toggle');
+            $('#page-sidebar-menu').removeAttr('data-toggle');
             $('#itemTopMenu1').removeAttr('data-target');
 
             $('#itemTopMenu2').removeAttr('data-toggle');

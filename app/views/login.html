@@ -1,6 +1,6 @@
 <div class="page-md login" ng-controller="LoginCtrl">
 
-    <div id="wrap">
+    <div id="wrap" style="padding-bottom: 0">
 
         <div class="loginLogo">
             <a href="">
@@ -16,6 +16,7 @@
             <h3 class="form-title" style="margin-top: 24px; margin-bottom: 23px;">Login to your account</h3>
 
             <!--<div class="alert alert-danger display-hide">-->
+
             <div ng-hide="!errorSubmit" class="alert alert-danger">
                 <!--<button class="close" data-close="alert"></button>-->
 
@@ -43,6 +44,7 @@
 			Empty username or password. </span>
             </div>
 
+            <!-- BEGIN LOGIN FORM -->
             <form class="login-form"  ng-submit="submit()">
 
                 <div class="form-group">
@@ -90,15 +92,17 @@
                 </div>
 
                 <div class="forget-password">
-                    <h4 style="color: white;margin-top: 61px; margin-bottom: 13px;color: white;">Forgot your password
+                   <!-- <h4 style="color: white;margin-top: 61px; margin-bottom: 13px;color: white;">Forgot your password
                         ?</h4>
 
                     <p style="color: white;">
                         no worries, click <a href="javascript:;" id="forget-password">
                         here </a>
                         to reset your password.
-                    </p>
+                    </p>-->
                 </div>
+
+                <br><br>
 
                 <div class="create-account">
                     <p style="color: white;">
@@ -108,9 +112,10 @@
                 </div>
 
             </form>
+            <!-- END LOGIN FORM -->
 
             <!-- BEGIN REGISTRATION FORM -->
-            <form class="register-form" action="index.html" method="post">
+            <form class="register-form">
                 <h3>Sign Up</h3>
                 <p>
                     Enter your personal details below:
@@ -120,7 +125,7 @@
                     <label class="control-label visible-ie8 visible-ie9">Email</label>
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
-                        <input class="form-control placeholder-no-fix reset-input" type="text" placeholder="Email" name="email"/>
+                        <input ng-model="newEmail"   class="form-control placeholder-no-fix reset-input" type="text" placeholder="Email" name="email"/>
                     </div>
                 </div>
                 <p>
@@ -130,22 +135,22 @@
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <input class="form-control placeholder-no-fix reset-input" type="text" autocomplete="off" placeholder="Username" name="username"/>
+                        <input ng-model="newUsername" class="form-control placeholder-no-fix reset-input" type="text" autocomplete="off" placeholder="Username" name="username"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
-                        <input class="form-control placeholder-no-fix reset-input" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
+                        <input ng-model="newPassword" class="form-control placeholder-no-fix reset-input" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" name="tnc"/> I agree to the <a href="javascript:;">
+                        <input type="checkbox" name="tnc"/> I agree to the <a class="link-service-terms" >
                         Terms of Service </a>
-                        and <a href="javascript:;">
-                        Privacy Policy </a>
+                        and <a class="link-policy-terms">
+                        Privacy Policy   </a>
                     </label>
                     <div id="register_tnc_error">
                     </div>
@@ -153,15 +158,114 @@
                 <div class="form-actions">
                     <button id="register-back-btn" type="button" class="btn">
                         <i class="m-icon-swapleft"></i> Back </button>
-                    <button type="submit" id="register-submit-btn" class="btn blue pull-right">
+
+                    <button id="register-submit-btn" ng-click="registerForm()" class="btn blue pull-right">
                         Sign Up <i class="m-icon-swapright m-icon-white"></i>
                     </button>
                 </div>
             </form>
             <!-- END REGISTRATION FORM -->
 
+            <!-- BEGIN FORGOT PASSWORD FORM -->
+            <form class="forget-form" action="index.html" method="post">
+                <h3>Forget Password ?</h3>
+                <p>
+                    Enter your e-mail address below to reset your password.
+                </p>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="back-btn" class="btn">
+                        <i class="m-icon-swapleft"></i> Back
+                    </button>
+                    <button type="submit" class="btn blue pull-right">
+                        Submit <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                </div>
+            </form>
+            <!-- END FORGOT PASSWORD FORM -->
+
         </div>
+
+        <div class="service-terms">
+            <!-- <h3>Terms of Services</h3>
+             <p>
+                 ...
+             </p>
+             <button type="button" id="back-btn2" class="btn">
+                 <i class="m-icon-swapleft"></i> Back </button>-->
+
+            <!-- BEGIN TERMS SERVICES -->
+            <div class="portlet ng-scope">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tab-content">
+                                <div id="tab_3" class="tab-pane active">
+                                    <div id="accordion3" class="panel-group">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_1" aria-expanded="true">
+                                                        Terms of Services </a>
+                                                </h4>
+                                            </div>
+                                            <div id="accordion3_1" class="panel-collapse collapse in" aria-expanded="true">
+                                                <div class="panel-body"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="back-btn2" class="btn">
+                        <i class="m-icon-swapleft"></i> Back
+                    </button>
+                </div>
+            </div>
+            <!-- END TERMS SERVICES -->
+        </div>
+
+        <div class="policy-terms">
+            <div class="portlet ng-scope">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tab-content">
+                                <div id="tab_3" class="tab-pane active">
+                                    <div id="accordion3" class="panel-group">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_1" aria-expanded="true">
+                                                        Private Policy </a>
+                                                </h4>
+                                            </div>
+                                            <div id="accordion3_1" class="panel-collapse collapse in" aria-expanded="true">
+                                                <div class="panel-body"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="back-btn3" class="btn">
+                        <i class="m-icon-swapleft"></i> Back
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
 </div>
 
 <script>
@@ -181,10 +285,12 @@
      });*/
 
     /* jQuery(document).ready(function() {*/
+
     /* Metronic.init(); // init metronic core components
      Layout.init(); // init current layout
      //Login.init();
      Demo.init();*/
+
     // init background slide images
 
     jQuery('.register-form').hide();
@@ -273,6 +379,22 @@
             return false;
         }
     });
+    $('.register-form input').keypress(function (e) {
+        if (e.which == 13) {
+            if ($('.register-form').validate().form()) {
+                $('.register-form').submit();
+            }
+            return false;
+        }
+    });
+    $('.register-form input').keypress(function (e) {
+        if (e.which == 13) {
+            if ($('.register-form').validate().form()) {
+                $('.register-form').submit();
+            }
+            return false;
+        }
+    });
 
     jQuery('#register-btn').click(function () {
         console.log("jQuery('#register-btn').click(function ()");
@@ -285,12 +407,14 @@
         jQuery('.register-form').hide();
     });
 
-    $.backstretch([
+    $.backstretch(
+            [
                 "images/1.jpg",
                 "images/2.jpg",
                 "images/3.jpg",
                 "images/4.jpg"
-            ], {
+            ],
+            {
                 fade: 1000,
                 duration: 8000
             }
@@ -299,8 +423,99 @@
     $('#footerText').css('background-color', '');
     /*});*/
 
+    jQuery('.forget-form').hide();
 
+    $('.forget-form').validate({
+        errorElement: 'span', //default input error message container
+        errorClass: 'help-block', // default input error message class
+        focusInvalid: false, // do not focus the last invalid input
+        ignore: "",
+        rules: {
+            email: {
+                required: true,
+                email: true
+            }
+        },
+
+        messages: {
+            email: {
+                required: "Email is required."
+            }
+        },
+
+        invalidHandler: function (event, validator) { //display error alert on form submit
+
+        },
+
+        highlight: function (element) { // hightlight error inputs
+            $(element)
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+        },
+
+        success: function (label) {
+            label.closest('.form-group').removeClass('has-error');
+            label.remove();
+        },
+
+        errorPlacement: function (error, element) {
+            error.insertAfter(element.closest('.input-icon'));
+        },
+
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
+
+    $('.forget-form input').keypress(function (e) {
+        if (e.which == 13) {
+            if ($('.forget-form').validate().form()) {
+                $('.forget-form').submit();
+            }
+            return false;
+        }
+    });
+
+    jQuery('#forget-password').click(function () {
+        jQuery('.login-form').hide();
+        jQuery('.forget-form').show();
+    });
+
+    jQuery('#back-btn').click(function () {
+        jQuery('.login-form').show();
+        jQuery('.forget-form').hide();
+    });
+    jQuery ('.service-terms').hide();
+    jQuery ('.policy-terms').hide();
+
+    jQuery('.link-service-terms').click(function () {
+       /* jQuery('.login-form').hide();
+        jQuery('.forget-form').hide();
+        jQuery('.register-form').hide();*/
+        jQuery('.loginContent').hide();
+        jQuery('.service-terms').show();
+    });
+    jQuery('.link-policy-terms').click(function () {
+      /*  jQuery('.login-form').hide();
+        jQuery('.forget-form').hide();
+        jQuery('.register-form').hide();*/
+        jQuery('.loginContent').hide();
+        jQuery('.policy-terms').show();
+    });
+    jQuery('#back-btn2').click(function () {
+       /* jQuery('.login-form').hide();
+        jQuery('.register-form').show();
+        jQuery('.forget-form').hide();*/
+        jQuery('.loginContent').show();
+        jQuery('.policy-terms').hide();
+        jQuery('.service-terms').hide();
+    });
+    jQuery('#back-btn3').click(function () {
+       /* jQuery('.login-form').hide();
+        jQuery('.register-form').show();
+        jQuery('.forget-form').hide();*/
+        jQuery('.loginContent').show();
+        jQuery('.policy-terms').hide();
+        jQuery('.service-terms').hide();
+    });
 
 </script>
-
-

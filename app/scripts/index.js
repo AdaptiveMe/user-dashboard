@@ -190,6 +190,7 @@ var Index = function () {
                     display: 'none',
                     top: y - 40,
                     left: x - 40,
+
                     border: '0px solid #ccc',
                     padding: '2px 6px',
                     'background-color': '#fff'
@@ -242,6 +243,7 @@ var Index = function () {
                 var plot_statistics = $.plot($("#site_statistics_android"),
                     [{
                         data: data1,
+
                         lines: {
                             fill: 0.6,
                             lineWidth: 0
@@ -249,6 +251,7 @@ var Index = function () {
                         color: ['#f89f9f']
                     }, {
                         data: data1,
+
                         points: {
                             show: true,
                             fill: true,
@@ -306,7 +309,7 @@ var Index = function () {
                             var x = item.datapoint[0].toFixed(2),
                                 y = item.datapoint[1].toFixed(2);
 
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' visits');
+                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' ...');
                         }
                     } else {
                         $("#tooltip").remove();
@@ -338,6 +341,7 @@ var Index = function () {
 
                     [{
                         data: data2,
+
                         lines: {
                             fill: 0.2,
                             lineWidth: 0,
@@ -356,6 +360,7 @@ var Index = function () {
                         shadowSize: 1
                     }, {
                         data: data2,
+
                         lines: {
                             show: true,
                             fill: false,
@@ -409,7 +414,7 @@ var Index = function () {
                             $("#tooltip").remove();
                             var x = item.datapoint[0].toFixed(2),
                                 y = item.datapoint[1].toFixed(2);
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'M$');
+                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '...');
                         }
                     }
                 });
@@ -477,7 +482,10 @@ var Index = function () {
                 });
             });
 
-            $("#sparkline_bar").sparkline([8, 9, 10, 11, 10, 10, 12, 10, 10, 11, 9, 12, 11, 10, 9, 11, 13, 13, 12], {
+
+            /*1.1 First chart */
+
+            $("#sparkline1_bar").sparkline([8, 9, 10, 11, 10, 10, 12, 10, 10, 11, 9, 12, 11, 10, 9, 11, 13, 13, 12, 1, 1], {
                 type: 'bar',
                 width: '100',
                 barWidth: 5,
@@ -486,7 +494,9 @@ var Index = function () {
                 negBarColor: '#e02222'
             });
 
-            $("#sparkline_bar2").sparkline([9, 11, 12, 13, 12, 13, 10, 14, 13, 11, 11, 12, 11, 11, 10, 12, 11, 10], {
+            /*1.2 Second chart */
+
+            $("#sparkline1_bar2").sparkline([9, 11, 12, 13, 12, 13, 10, 14, 13, 11, 11, 12, 11, 11, 10, 12, 11, 10], {
                 type: 'bar',
                 width: '100',
                 barWidth: 5,
@@ -495,7 +505,102 @@ var Index = function () {
                 negBarColor: '#e02222'
             });
 
-            $("#sparkline_line").sparkline([9, 10, 9, 10, 10, 11, 12, 10, 10, 11, 11, 12, 11, 10, 12, 11, 10, 12], {
+            /*1.3 third chart */
+
+            $("#sparkline1_line").sparkline([9, 10, 9, 10, 10, 11, 12, 10, 10, 11, 11, 12, 11, 10, 12, 11, 10, 12], {
+                type: 'line',
+                width: '100',
+                height: '55',
+                lineColor: '#ffb848'
+            });
+
+            /*2.1 First chart */
+
+            $("#sparkline2_bar").sparkline([8, 9, 10, 11, 10, 10, 12, 10, 10, 11, 9, 12, 11, 10, 9, 11, 13, 13, 12], {
+                type: 'bar',
+                width: '100',
+                barWidth: 5,
+                height: '55',
+                barColor: '#35aa47',
+                negBarColor: '#e02222'
+            });
+
+            /*2.2 Second chart */
+
+            $("#sparkline2_bar2").sparkline([9, 11, 12, 13, 12, 13, 10, 14, 13, 11, 11, 12, 11, 11, 10, 12, 11, 10], {
+                type: 'bar',
+                width: '100',
+                barWidth: 5,
+                height: '55',
+                barColor: '#ffb848',
+                negBarColor: '#e02222'
+            });
+
+            /*2.3 third chart */
+
+            $("#sparklin2_line").sparkline([9, 10, 9, 10, 10, 11, 12, 10, 10, 11, 11, 12, 11, 10, 12, 11, 10, 12], {
+                type: 'line',
+                width: '100',
+                height: '55',
+                lineColor: '#ffb848'
+            });
+
+            /*3.1 First chart */
+
+            $("#sparkline3_bar").sparkline([8, 9, 10, 11, 10, 10, 12, 10, 10, 11, 9, 12, 11, 10, 9, 11, 13, 13, 12], {
+                type: 'bar',
+                width: '100',
+                barWidth: 5,
+                height: '55',
+                barColor: '#35aa47',
+                negBarColor: '#e02222'
+            });
+
+            /*3.2 Second chart */
+
+            $("#sparkline3_bar2").sparkline([9, 11, 12, 13, 12, 13, 10, 14, 13, 11, 11, 12, 11, 11, 10, 12, 11, 10], {
+                type: 'bar',
+                width: '100',
+                barWidth: 5,
+                height: '55',
+                barColor: '#ffb848',
+                negBarColor: '#e02222'
+            });
+
+            /*3.3 third chart */
+
+            $("#sparkline3_line").sparkline([9, 10, 9, 10, 10, 11, 12, 10, 10, 11, 11, 12, 11, 10, 12, 11, 10, 12], {
+                type: 'line',
+                width: '100',
+                height: '55',
+                lineColor: '#ffb848'
+            });
+
+            /*4.1 First chart */
+
+            $("#sparkline4_bar").sparkline([8, 9, 10, 11, 10, 10, 12, 10, 10, 11, 9, 12, 11, 10, 9, 11, 13, 13, 12], {
+                type: 'bar',
+                width: '100',
+                barWidth: 5,
+                height: '55',
+                barColor: '#35aa47',
+                negBarColor: '#e02222'
+            });
+
+            /*4.2 Second chart */
+
+            $("#sparkline4_bar2").sparkline([9, 11, 12, 13, 12, 13, 10, 14, 13, 11, 11, 12, 11, 11, 10, 12, 11, 10], {
+                type: 'bar',
+                width: '100',
+                barWidth: 5,
+                height: '55',
+                barColor: '#ffb848',
+                negBarColor: '#e02222'
+            });
+
+            /*4.3 third chart */
+
+            $("#sparkline4_line").sparkline([9, 10, 9, 10, 10, 11, 12, 10, 10, 11, 11, 12, 11, 10, 12, 11, 10, 12], {
                 type: 'line',
                 width: '100',
                 height: '55',
@@ -686,6 +791,7 @@ var Index = function () {
                 var plot_androidBuildTime = $.plot($("#site_androidBuildTime"),
                     [{
                         data: androidBuildTime,
+
                         lines: {
                             fill: 0.6,
                             lineWidth: 0
@@ -693,6 +799,7 @@ var Index = function () {
                         color: ['#f89f9f']
                     }, {
                         data: androidBuildTime,
+
                         points: {
                             show: true,
                             fill: true,
@@ -784,6 +891,7 @@ var Index = function () {
 
                     [{
                         data: data1,
+
                         lines: {
                             fill: 0.2,
                             lineWidth: 0,
@@ -802,6 +910,7 @@ var Index = function () {
                         shadowSize: 1
                     }, {
                         data: data1,
+
                         lines: {
                             show: true,
                             fill: false,

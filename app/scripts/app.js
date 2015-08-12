@@ -33,16 +33,16 @@ angular.module('odeskApp', [
     'ui.select',
     'angularFileUpload',
     'ngClipboard'
+
 ]).config(function (cfpLoadingBarProvider) {
 
-    /* this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
+    /*
+    this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
     this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';*/
-
     cfpLoadingBarProvider.includeBar = false;
     /*cfpLoadingBarProvider.loadingBarTemplate = '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
     cfpLoadingBarProvider.spinnerTemplate= '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
-
-*/
+    */
 
 }).constant('udCodemirrorConfig', {
     codemirror: {
@@ -61,41 +61,51 @@ angular.module('odeskApp', [
     uiCodemirrorDirective.$inject = ["$timeout", "udCodemirrorConfig"];
 }).factory('AuthInterceptor', function ($window, $cookies, $q, $location) {
     return {
-        request: function (config) {
 
+        request: function (config) {
             //remove prefix url
             if (config.url.indexOf("http://nightly.codenvy-stg.com/api") == 0) {
                 config.url = config.url.substring("http://nightly.codenvy-stg.com".length);
             }
-
             //Do not add token on auth login
             if (config.url.indexOf("/api/auth/login") == -1 && config.url.indexOf("api/") != -1 && $cookies.token) {
                 config.params = config.params || {};
                 angular.extend(config.params, {token: $cookies.token});
             }
 
-            if (   typeof($cookies.token) === 'undefined' ) {
-                // $log.info('Redirect to login page.');
-                $location.path('/login');
+            if (config.url.indexOf("/api/register/create") == -1 && config.url.indexOf("api/") != -1 ) {
+                console.log("request api/register/create");
+                config.params = config.params || {};
+                angular.extend(config.params, {token: $cookies.token});
             }
 
+            if ( typeof($cookies.token) === 'undefined'   )  {
+
+                // $log.info('Redirect to login page.');
+                if (  $location.path().indexOf('service-terms') == -1) {
+                    if ( $location.path().indexOf('policy-terms') == -1) {
+                        console.log('Undefined token -> Redirect to login page, current page: ' + $location.path() + ', contains: ' + $location.path().indexOf('service-terms'));
+                        $location.path('/login');
+                    }
+                }
+            }
             return config || $q.when(config);
         },
-
         response: function (response) {
-
             //console.log("response AuthInterceptor: " + response );
             if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
-               // $log.info('Redirect to login page.');
-                $location.path('/login');
+
+                if (  $location.path().indexOf('service-terms') == -1) {
+                    if ( $location.path().indexOf('policy-terms') == -1) {
+                        console.log('Error status response -> Redirect to login page.');
+                        $location.path('/login');
+                    }
+                }
             }else {
-
             }
-
             return response || $q.when(response);
         }
         ,
-
         responseError: function (rejection){
 
             //$location.path('/login');
@@ -105,6 +115,7 @@ angular.module('odeskApp', [
 
     };
 }).config(function ($routeProvider, $locationProvider, $httpProvider) {
+
     var DEFAULT;
     var BASE_URL;
 
@@ -143,6 +154,12 @@ angular.module('odeskApp', [
         .when('/login', {
             templateUrl: BASE_URL + 'views/login.html',
             controller: 'LoginCtrl'
+        })
+        .when('/policy-terms', {
+            templateUrl: BASE_URL + 'views/policy-terms.html'
+        })
+        .when('/service-terms', {
+            templateUrl: BASE_URL + 'views/service-terms.html'
         })
         .otherwise({
             redirectTo: DEFAULT
