@@ -4914,7 +4914,7 @@ Portlets
     padding: 10px 0;
 }
 .portlet.light > .portlet-title > .caption > .caption-subject {
-    font-size: 16px;
+    font-size: 14px;
 }
 .portlet.light > .portlet-title > .caption > i {
     color: #777;
@@ -5171,6 +5171,7 @@ Dashboard Stats
     font-size: 16px;
     letter-spacing: 0px;
     font-weight: 400;
+    padding-left: 25px;
 }
 .dashboard-stat .more {
     clear: both;
@@ -11523,6 +11524,7 @@ Red Flamingo
     color: #FFFFFF;
     opacity: 1;
     filter: alpha(opacity=100);
+
 }
 .dashboard-stat.red-soft .more {
     color: #FFFFFF;

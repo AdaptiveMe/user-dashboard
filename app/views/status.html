@@ -4,14 +4,16 @@
 </h3>
 
 <div class="page-bar">
-    <ul class="page-breadcrumb">
+    <ul class="page-breadcrumb breadcrumb-item-home">
         <li>
             <i class="fa fa-home"></i>
-            <a href="#/dashbar">Home</a>
+            <a   ng-href="#/dashbar">Home</a>
             <i class="fa fa-angle-right"></i>
         </li>
+    </ul>
+    <ul class="page-breadcrumb">
         <li>
-            <a href="#/status">Status Server</a>
+            <a ng-href="#/status">Status Server</a>
             <!--<i class="fa fa-angle-right"></i>-->
         </li>
     </ul>
@@ -19,7 +21,7 @@
 
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
-
+    
     <div class="">
 
         <div class="row">
@@ -131,11 +133,11 @@
                         </div>
                         <div class="actions">
                             <div class="btn-group btn-group-devided" data-toggle="buttons">
-                            <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-                                <input type="radio" name="options" class="toggle" id="option1">New</label>
-                            <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-                                <input type="radio" name="options" class="toggle" id="option2">Returning</label>
-                        </div>
+                                <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                    <input type="radio" name="options" class="toggle" id="option1">New</label>
+                                <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">Returning</label>
+                            </div>
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -143,7 +145,7 @@
                             <img src="images/loading.gif" alt="loading"/>
                         </div>
                         <div id="site_statistics_ios_content" class="display-none">
-                            <div id="site_statistics_ios" style="height: 228px;">
+                            <div id="site_statistics_ios" class="chart">
                             </div>
                         </div>
                     </div>
@@ -153,61 +155,60 @@
         </div>
         <div class="clearfix">
         </div>
-
         <div class="row">
             <div class="col-md-6 col-sm-6">
-            <div class="portlet light ">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-equalizer font-purple-plum hide"></i>
-                        <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Dashbar</span>
-                        <span class="caption-helper">...</span>
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-equalizer font-purple-plum hide"></i>
+                            <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Dashbar</span>
+                            <span class="caption-helper">...</span>
+                        </div>
+                        <div class="tools">
+                            <a href="" class="collapse">
+                            </a>
+                            <a href="#portlet-config" data-toggle="modal" class="config">
+                            </a>
+                            <a href="" class="reload">
+                            </a>
+                            <a href="" class="remove">
+                            </a>
+                        </div>
                     </div>
-                    <div class="tools">
-                        <a href="" class="collapse">
-                        </a>
-                        <a href="#portlet-config" data-toggle="modal" class="config">
-                        </a>
-                        <a href="" class="reload">
-                        </a>
-                        <a href="" class="remove">
-                        </a>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="sparkline-chart">
-                                <div class="number" id="sparkline_bar"></div>
-                                <a class="title" href="javascript:;">
-                                    CPU load <i class="icon-arrow-right"></i>
-                                </a>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline1_bar"></div>
+                                    <a class="title" href="javascript:;">
+                                        CPU load <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="margin-bottom-10 visible-sm">
-                        </div>
-                        <div class="col-md-4">
-                            <div class="sparkline-chart">
-                                <div class="number" id="sparkline_bar2"></div>
-                                <a class="title" href="javascript:;">
-                                    Memory load <i class="icon-arrow-right"></i>
-                                </a>
+                            <div class="margin-bottom-10 visible-sm">
                             </div>
-                        </div>
-                        <div class="margin-bottom-10 visible-sm">
-                        </div>
-                        <div class="col-md-4">
-                            <div class="sparkline-chart">
-                                <div class="number" id="sparkline_line"></div>
-                                <a class="title" href="javascript:;">
-                                    File system <i class="icon-arrow-right"></i>
-                                </a>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline1_bar2"></div>
+                                    <a class="title" href="javascript:;">
+                                        Memory load <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline1_line"></div>
+                                    <a class="title" href="javascript:;">
+                                        File system <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
             <div class="col-md-6 col-sm-6">
                 <div class="portlet light ">
                     <div class="portlet-title">
@@ -231,7 +232,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="sparkline-chart">
-                                    <div class="number" id="sparkline_bar"></div>
+                                    <div class="number" id="sparkline2_bar"></div>
                                     <a class="title" href="javascript:;">
                                         CPU load <i class="icon-arrow-right"></i>
                                     </a>
@@ -241,7 +242,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="sparkline-chart">
-                                    <div class="number" id="sparkline_bar2"></div>
+                                    <div class="number" id="sparkline2_bar2"></div>
                                     <a class="title" href="javascript:;">
                                         Memory load <i class="icon-arrow-right"></i>
                                     </a>
@@ -251,7 +252,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="sparkline-chart">
-                                    <div class="number" id="sparkline_line"></div>
+                                    <div class="number" id="sparkline2_line"></div>
                                     <a class="title" href="javascript:;">
                                         File system <i class="icon-arrow-right"></i>
                                     </a>
@@ -266,111 +267,111 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                    <div class="portlet light ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="icon-equalizer font-purple-plum hide"></i>
-                                <span class="caption-subject font-red-sunglo bold uppercase">Adaptive File system</span>
-                                <span class="caption-helper">...</span>
-                            </div>
-                            <div class="tools">
-                                <a href="" class="collapse">
-                                </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config">
-                                </a>
-                                <a href="" class="reload">
-                                </a>
-                                <a href="" class="remove">
-                                </a>
-                            </div>
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-equalizer font-purple-plum hide"></i>
+                            <span class="caption-subject font-red-sunglo bold uppercase">Adaptive File system</span>
+                            <span class="caption-helper">...</span>
                         </div>
-                        <div class="portlet-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="sparkline-chart">
-                                        <div class="number" id="sparkline_bar"></div>
-                                        <a class="title" href="javascript:;">
-                                            CPU load <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
+                        <div class="tools">
+                            <a href="" class="collapse">
+                            </a>
+                            <a href="#portlet-config" data-toggle="modal" class="config">
+                            </a>
+                            <a href="" class="reload">
+                            </a>
+                            <a href="" class="remove">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline3_bar"></div>
+                                    <a class="title" href="javascript:;">
+                                        CPU load <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
-                                <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline3_bar2"></div>
+                                    <a class="title" href="javascript:;">
+                                        Memory load <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="sparkline-chart">
-                                        <div class="number" id="sparkline_bar2"></div>
-                                        <a class="title" href="javascript:;">
-                                            Memory load <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="margin-bottom-10 visible-sm">
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="sparkline-chart">
-                                        <div class="number" id="sparkline_line"></div>
-                                        <a class="title" href="javascript:;">
-                                            File system <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline3_line"></div>
+                                    <a class="title" href="javascript:;">
+                                        File system <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <div class="col-md-6 col-sm-6">
-                    <div class="portlet light ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="icon-equalizer font-purple-plum hide"></i>
-                                <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Infrastructure</span>
-                                <span class="caption-helper">...</span>
-                            </div>
-                            <div class="tools">
-                                <a href="" class="collapse">
-                                </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config">
-                                </a>
-                                <a href="" class="reload">
-                                </a>
-                                <a href="" class="remove">
-                                </a>
-                            </div>
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-equalizer font-purple-plum hide"></i>
+                            <span class="caption-subject font-red-sunglo bold uppercase">Adaptive Infrastructure</span>
+                            <span class="caption-helper">...</span>
                         </div>
-                        <div class="portlet-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="sparkline-chart">
-                                        <div class="number" id="sparkline_bar"></div>
-                                        <a class="title" href="javascript:;">
-                                            CPU load <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
+                        <div class="tools">
+                            <a href="" class="collapse">
+                            </a>
+                            <a href="#portlet-config" data-toggle="modal" class="config">
+                            </a>
+                            <a href="" class="reload">
+                            </a>
+                            <a href="" class="remove">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline4_bar"></div>
+                                    <a class="title" href="javascript:;">
+                                        CPU load <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
-                                <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline4_bar2"></div>
+                                    <a class="title" href="javascript:;">
+                                        Memory load <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="sparkline-chart">
-                                        <div class="number" id="sparkline_bar2"></div>
-                                        <a class="title" href="javascript:;">
-                                            Memory load <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="margin-bottom-10 visible-sm">
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="sparkline-chart">
-                                        <div class="number" id="sparkline_line"></div>
-                                        <a class="title" href="javascript:;">
-                                            File system <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sparkline-chart">
+                                    <div class="number" id="sparkline4_line"></div>
+                                    <a class="title" href="javascript:;">
+                                        File system <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
@@ -401,24 +402,24 @@
             console.log("log 2");
         }
     } else {
-        console.log("log 3");
+
         if (body.hasClass('page-sidebar-fixed')) {
-            console.log("log 4");
+
             height = _calculateFixedSidebarViewportHeight();
             if (body.hasClass('page-footer-fixed') === false) {
                 height = height - $('.page-footer').outerHeight();
-                console.log("log 5");
+
             }
         } else {
             var headerHeight = $('.page-header').outerHeight();
             var footerHeight = $('.page-footer').outerHeight();
-            console.log("log 6");
+
             if (Metronic.getViewPort().width < resBreakpointMd) {
                 height = Metronic.getViewPort().height - headerHeight - footerHeight;
                 console.log("log 7");
             } else {
                 height = sidebar.outerHeight() + 10;
-                console.log("log 8");
+
             }
             if ((height + headerHeight + footerHeight) <= Metronic.getViewPort().height) {
                 height = Metronic.getViewPort().height - headerHeight - footerHeight;
@@ -435,5 +436,17 @@
     Index.initCharts(); // init index page's custom scripts
     Index.initMiniCharts();
     /*Tasks.initDashboardWidget();*/
+
+    $('.breadcrumb-item-home').on('click', 'li > a', function () {
+        /*$('.page-sidebar-menu li.active').removeClass('active');
+        $(this).addClass('active');*/
+        console.log("breadcrumb-item-home");
+
+        $('#sidebar-item-2').removeClass('active');
+        $('#sidebar-item-3').removeClass('active');
+        $('#sidebar-item-1').addClass('active');
+
+    });
+
 
 </script>

@@ -19,7 +19,7 @@ New Profile Page
 .profile-userpic img {
   float: none;
   margin: 0 auto;
-  width: 50%;
+  width: 25%;
   height: 50%;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
@@ -33,9 +33,13 @@ New Profile Page
 
 .profile-usertitle-name {
   color: #5a7391;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   margin-bottom: 7px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
 }
 
 .profile-usertitle-job {
@@ -121,8 +125,11 @@ New Profile Page
 
 .profile-desc-title {
   color: #7f90a4;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile-desc-text {

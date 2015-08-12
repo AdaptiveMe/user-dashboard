@@ -39,7 +39,7 @@ Page Header
     background-color: #44475A;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu:before {
-    border-bottom-color: #e4e8ee;
+    border-bottom-color: #383636;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu {
     border: 1px solid #e4e8ee;
@@ -319,7 +319,6 @@ Page Footer
 .page-footer-fixed .page-footer .page-footer-inner {
     color: #121618;
 }
-
 .page-boxed .page-footer .page-footer-inner {
     color: #121618;
 }

@@ -271,7 +271,13 @@ var Layout = function() {
         $(document).on('click', '.page-header-fixed-mobile .page-header .responsive-toggler', function(){
             Metronic.scrollTop();
         });
+
+        /*$('breadcrumb-item-home').on('click', function(e) {
+                   console.log("breadcrumb-item-home");
+    });*/
+
     };
+
 
     // Helper function to calculate sidebar height for fixed sidebar layout.
     var _calculateFixedSidebarViewportHeight = function() {
