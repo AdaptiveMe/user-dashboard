@@ -216,7 +216,7 @@ var Login = function () {
         });
 
         jQuery('#register-btn').click(function () {
-            console.log("jQuery('#register-btn').click(function ()");
+            /*console.log("jQuery('#register-btn').click(function ()");*/
             jQuery('.login-form').hide();
             jQuery('.register-form').show();
         });
