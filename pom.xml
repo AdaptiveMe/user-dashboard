@@ -60,7 +60,7 @@
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <!--filesets>
+                    <filesets>
                         <fileset>
                             <directory>${basedir}/app/bower_components</directory>
                             <followSymlinks>false</followSymlinks>
@@ -69,7 +69,7 @@
                             <directory>${basedir}/node_modules</directory>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
-                    </filesets-->
+                    </filesets>
                 </configuration>
             </plugin>
             <plugin>
@@ -83,13 +83,13 @@
                         <configuration>
                             <target>
                                 <!-- Download NPM dependencies -->
-                                <!--exec dir="${basedir}" executable="npm" failonerror="true">
+                                <exec dir="${basedir}" executable="npm" failonerror="true">
                                     <arg value="install" />
-                                </exec-->
+                                </exec>
                                 <!-- Download Bower dependencies -->
-                                <!--exec dir="${basedir}" executable="bower" failonerror="true">
+                                <exec dir="${basedir}" executable="bower" failonerror="true">
                                     <arg value="install" />
-                                </exec-->
+                                </exec>
                                 <!-- Disable development mode -->
                                 <!--<replace file="${basedir}/app/scripts/app.js">
                                     <replacetoken><![CDATA[var DEV = true;]]></replacetoken>
@@ -100,17 +100,17 @@
                                     <replacevalue><![CDATA[var ONPREM = false;]]></replacevalue>
                                 </replace>-->
                                 <!-- Build the application -->
-                                <!--exec dir="${basedir}/target" executable="grunt" failonerror="true">
+                                <exec dir="${basedir}/target" executable="grunt" failonerror="true">
                                     <arg value="build" />
-                                </exec-->
+                                </exec>
                                 <!-- Build onprem -->
                                 <!--<replace file="${basedir}/app/scripts/app.js">
                                     <replacetoken><![CDATA[var ONPREM = false;]]></replacetoken>
                                     <replacevalue><![CDATA[var ONPREM = true;]]></replacevalue>
                                 </replace>-->
-                                <!--exec dir="${basedir}/target" executable="grunt" failonerror="true">
+                                <exec dir="${basedir}/target" executable="grunt" failonerror="true">
                                     <arg value="onprem" />
-                                </exec-->
+                                </exec>
                                 <!-- Change base HREF of the application that will be hosted on /dashboard -->
                                 <replace file="${basedir}/target/user-dashboard-war/index.html">
                                     <replacetoken><![CDATA[<base href="/">]]></replacetoken>
