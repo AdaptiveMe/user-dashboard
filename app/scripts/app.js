@@ -45,7 +45,9 @@ angular.module('odeskApp', [
     */
 
 }).constant('udCodemirrorConfig', {
+
     codemirror: {
+
         lineWrapping: true,
         lineNumbers: true,
         mode: 'application/json',
@@ -57,16 +59,22 @@ angular.module('odeskApp', [
         styleActiveLine: true,
         theme: 'codenvy'
     }
+
 }).config(function () {
+
     uiCodemirrorDirective.$inject = ["$timeout", "udCodemirrorConfig"];
+
 }).factory('AuthInterceptor', function ($window, $cookies, $q, $location) {
+
     return {
 
         request: function (config) {
             //remove prefix url
+
             if (config.url.indexOf("http://nightly.codenvy-stg.com/api") == 0) {
                 config.url = config.url.substring("http://nightly.codenvy-stg.com".length);
             }
+
             //Do not add token on auth login
             if (config.url.indexOf("/api/auth/login") == -1 && config.url.indexOf("api/") != -1 && $cookies.token) {
                 config.params = config.params || {};
@@ -190,7 +198,10 @@ angular.module('odeskApp', [
     };
 }).run(['$rootScope', function ($rootScope) {
     $rootScope.ONPREM = ONPREM;
-}]);
+}
+
+
+])
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function ($scope, $timeout, $transition, $q) {

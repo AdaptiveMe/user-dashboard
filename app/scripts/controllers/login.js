@@ -17,6 +17,7 @@
 
 angular.module('odeskApp')
     .controller('LoginCtrl', function ($scope, $rootScope, $timeout, $http, $location, $cookies, $window, ProfileService) {
+
         $scope.username = '';
         $scope.password = '';
 
@@ -28,7 +29,16 @@ angular.module('odeskApp')
 
         // document.getElementById("loading-bar-spinner").style.display = 'block';
 
-        $scope.submit = function () {
+        var isValidatedMail = false;
+        var isValidatedUsername = false;
+        var isValidatedPassword = false;
+        var currentValidatedMail = "";
+        var currentValidatedUsername = "";
+        var currentValidatedPassword = "";
+
+        $scope.submit = function (
+
+        ) {
 
             // document.getElementById("loading-bar-spinner").style.display = 'block';
 
@@ -112,83 +122,106 @@ angular.module('odeskApp')
             return false;
         };
 
-        $scope.registerForm = function () {
+        $scope.submitRegister = function () {
 
-            $scope.errorUsernameEmpty = false;
+             console.log("Submit register, email: "+$scope.newEmail);
+             //Validate the email, http://my.adaptive.me/api/register/validate?email=asdf
+             $http({
+                 url: "/api/register/validate"+"?email="+$scope.newEmail,
+                 method: "GET"
+             }).then(function (response) { // success
+                console.log("register validate email then response: "+response);
 
-            /* if( $scope.password.indexOf("")!== -1) {
-             $scope.errorPasswordEmpty = true;
-             $scope.errorSubmit = false;
+                 $http({
+                     url: "/api/register/validate"+"?username="+$scope.newUsername,
+                     method: "GET"
+                 }).then(function (response) { // success
+                     console.log("register validate username then response: "+response);
 
-             }else {
-             $scope.errorPasswordEmpty = false;
-             }*/
-            $http({
-                url: "/api/register/create",
-                method: "POST",
-                data: {"email": $scope.newEmail,  "username": $scope.newUsername, "password": $scope.newPassword}
-            }).then(function (response) { // success
+                      var uploadUrl = "/api/register/create";
+                      $http({
+                          method: 'POST',
+                          url: uploadUrl,
+                          data: $.param({email: $scope.newEmail, username: $scope.newUsername, password: $scope.newPassword}),
+                          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                      }).success( function(){
+                              console.log("success register request");
 
-                //document.getElementById("loading-bar-spinner").style.display = 'none';
-                /* $scope.errorSubmit = false;
+                              $location.path("/login");
+                          }
+                      ).error(  function() {
+                              console.log("error register request");
+                          }
+                      );
 
-                ProfileService.getProfile().then(function (profile, status) {
-                    //console.log("status : "+status);
-                    var fullUserName;
-                    if (profile.attributes.firstName && profile.attributes.lastName) {
-                        fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;
-                    } else {
-                        fullUserName = profile.attributes.email;
-                    }
-                    $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
-                });*/
+                 }, function (response) {
+                     console.log("register validate username error response: "+response);
 
-                /*  $cookies.token = response.data.value;
-                    $cookies.refreshStatus = "DISABLED";*/
-                /* $location.path("/dashboard");*/
+                 });
 
-                console.log("register create then response: "+response);
-                $location.path("/login");
+             }, function (response) {
+                console.log("register validate email error response: "+response);
 
-            }, function (response) {
+             });
 
-                console.log("register create normal response: "+response);
-
-                // optional
-                //console.log(response);
-                //console.log("error on login: "+response);
-
-                //loading-bar-spinner
-
-                //document.getElementById("loading-bar-spinner").style.display = 'none';
-
-                //$('#loading-bar-spinner').remove();
-
-             /*   $scope.errorSubmit = true;
-                $scope.errorPasswordEmpty = false;
-                $scope.errorUserEmpty = false;*/
-                //console.log("error on login: "+error);
-                //alert('error');
-
-                /*if(response.status === 400) {
-                 $scope.errorUsernameEmpty = true;
-                 }else
-                 $scope.errorUsernameEmpty = false;
-
-                 if (response.status === 404){
-                 $scope.errorSubmit = true;
-                 }else
-                 $scope.errorSubmit = false;
-
-                 if (response.status === 401){
-
-                 }*/
-
-                // console.log(response);
-            });
-
-
-            return false;
         };
 
+        var requestRegister = function (){
+
+        };
+
+        $scope.registerForm = function () {
+
+            console.log("Register Form");
+
+            if (!isValidatedMail) {
+
+                isValidatedMail = true;
+
+            }
+
+            else if (!isValidatedUsername) {
+
+                isValidatedUsername = true;
+
+            }
+
+            else {
+
+                /* isValidatedPassword = true;
+                $scope.errorUsernameEmpty = false;
+                var uploadUrl = "/api/register/create";
+                $http({
+                    method: 'POST',
+                    url: uploadUrl,
+                    data: $.param({email: $scope.newEmail, username: $scope.newUsername, password: $scope.newPassword}),
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(
+                ).error(
+                );*/
+
+                /* $http({
+
+                 url: "/api/register/create",
+                 method: "POST",
+                 transformRequest: angular.identity,
+                 /!* data: {email: $scope.newEmail,  username: $scope.newUsername, password: $scope.newPassword},*!/
+                 /!* headers: {'Content-Type': 'multipart/form-data'}*!/
+                 headers: { 'Content-Type': undefined }
+
+                 }).then(function (response) { // success
+
+                 console.log("register create then response: "+response);
+
+                 }, function (response) {
+
+                 console.log("register create normal response: "+response);
+
+                 }); */
+
+            }
+
+            return false;
+
+        };
     });
