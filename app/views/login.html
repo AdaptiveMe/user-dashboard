@@ -45,7 +45,10 @@
             </div>
 
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form"  ng-submit="submit()">
+
+            <!-- <form class="login-form"  ng-submit="submit()">-->
+
+            <form class="login-form" ng-submit="submit()">
 
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
@@ -66,6 +69,7 @@
                                placeholder="Password" ng-model="password">
                     </div>
                 </div>
+
                 <!-- <div class="form-actions">
                     <button  type="submit" class="btn blue pull-right" ng-click="submit()">login</button>
 
@@ -92,90 +96,151 @@
                 </div>
 
                 <div class="forget-password">
-                   <!-- <h4 style="color: white;margin-top: 61px; margin-bottom: 13px;color: white;">Forgot your password
-                        ?</h4>
+                    <!-- <h4 style="color: white;margin-top: 61px; margin-bottom: 13px;color: white;">Forgot your password
+                         ?</h4>
 
-                    <p style="color: white;">
-                        no worries, click <a href="javascript:;" id="forget-password">
-                        here </a>
-                        to reset your password.
-                    </p>-->
+                     <p style="color: white;">
+                         no worries, click <a href="javascript:;" id="forget-password">
+                         here </a>
+                         to reset your password.
+                     </p>-->
                 </div>
 
                 <br><br>
 
                 <div class="create-account">
                     <p style="color: white;">
-                        Don't have an account yet ?&nbsp; <a id="register-btn">
-                        Create an account </a>
+                        Don't have an account yet ?&nbsp;
+                        <a id="register-btn">
+                            Create an account
+                        </a>
                     </p>
                 </div>
 
             </form>
+
             <!-- END LOGIN FORM -->
 
             <!-- BEGIN REGISTRATION FORM -->
-            <form ng-controller="LoginCtrl" class="register-form">
+
+            <!--<form   ng-submit="registerForm()" class="register-form">-->
+
+            <form name="registerForm" ng-submit="submitRegister()" enctype="multipart/form-data" class="register-form">
+
                 <h3>Sign Up</h3>
+
                 <p>
                     Enter your personal details below:
                 </p>
+
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Email</label>
+                    <label class="control-label visible-ie8 visible-ie9"> Email </label>
+
+                    <!-- <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input ng-model="newEmail" class="form-control placeholder-no-fix reset-input" type="text" placeholder="Email" name="email"/>
+                    </div> -->
+
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
-                        <input ng-model="newEmail"   class="form-control placeholder-no-fix reset-input" type="text" placeholder="Email" name="email"/>
+                        <input required name="inputEmail" ng-model="newEmail" class="form-control placeholder-no-fix reset-input"
+                               type="email" placeholder="Email" name="email"/>
+                        <div role="alert">
+                            <span class="error" ng-show="registerForm.inputEmail.$error.required">
+                                Required!</span>
+                            <span class="error" ng-show="registerForm.inputEmail.$error.email">
+                                Not valid email!</span>
+                        </div>
                     </div>
+
                 </div>
+
                 <p>
                     Enter your account details below:
                 </p>
+
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+
+                    <label class="control-label visible-ie8 visible-ie9"> Username </label>
+
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <input ng-model="newUsername" class="form-control placeholder-no-fix reset-input" type="text" autocomplete="off" placeholder="Username" name="username"/>
+                        <input required ng-trim="false" ng-model="newUsername" name="inputUsername"
+                               class="form-control placeholder-no-fix reset-input" type="text"
+                               placeholder="Username"/>
+
+                        <div role="alert">
+                            <span class="error" ng-show="registerForm.inputUsername.$error.required">
+                                Required!</span>
+
+                        </div>
+
+                        <!-- <input ng-model="newUsername" class="form-control placeholder-no-fix reset-input" type="text"
+                                autocomplete="off" placeholder="Username" name="username"/>-->
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
+
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
-                        <input ng-model="newPassword" class="form-control placeholder-no-fix reset-input" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
+                        <input ng-trim="false" required ng-model="newPassword" class="form-control placeholder-no-fix reset-input"
+                               type="text" placeholder="Password"
+                               name="password"/>
+
+                        <div role="alert">
+                            <span class="error" ng-show="registerForm.password.$error.required">
+                                Required!</span>
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" name="tnc"/> I agree to the <a class="link-service-terms" >
+                        <input type="checkbox" name="tnc"/> I agree to the <a class="link-service-terms">
                         Terms of Service </a>
                         and <a class="link-policy-terms">
-                        Privacy Policy   </a>
+                        Privacy Policy </a>
                     </label>
+
                     <div id="register_tnc_error">
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button id="register-back-btn" type="button" class="btn">
-                        <i class="m-icon-swapleft"></i> Back </button>
 
-                    <button id="register-submit-btn" ng-click="registerForm()" class="btn blue pull-right">
+                    <button id="register-back-btn" type="button" class="btn">
+                        <i class="m-icon-swapleft"></i> Back
+                    </button>
+
+                    <!-- <button button  id="register-submit-btn" type="submit" class="btn blue pull-right">
+                        Sign Up <i class="m-icon-swapright m-icon-white"></i>
+                    </button>-->
+
+                    <button type="submit" class="btn blue pull-right">
                         Sign Up <i class="m-icon-swapright m-icon-white"></i>
                     </button>
+
                 </div>
+
             </form>
+
             <!-- END REGISTRATION FORM -->
 
             <!-- BEGIN FORGOT PASSWORD FORM -->
+
             <form class="forget-form" action="index.html" method="post">
                 <h3>Forget Password ?</h3>
+
                 <p>
                     Enter your e-mail address below to reset your password.
                 </p>
+
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
-                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+                               placeholder="Email" name="email"/>
                     </div>
                 </div>
                 <div class="form-actions">
@@ -187,6 +252,7 @@
                     </button>
                 </div>
             </form>
+
             <!-- END FORGOT PASSWORD FORM -->
 
         </div>
@@ -210,11 +276,14 @@
                                         <div class="panel panel-danger">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
-                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_1" aria-expanded="true">
+                                                    <a class="accordion-toggle" data-toggle="collapse"
+                                                       data-parent="#accordion3" href="#accordion3_1"
+                                                       aria-expanded="true">
                                                         Terms of Services </a>
                                                 </h4>
                                             </div>
-                                            <div id="accordion3_1" class="panel-collapse collapse in" aria-expanded="true">
+                                            <div id="accordion3_1" class="panel-collapse collapse in"
+                                                 aria-expanded="true">
                                                 <div class="panel-body"></div>
                                             </div>
                                         </div>
@@ -242,11 +311,14 @@
                                         <div class="panel panel-danger">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
-                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_1" aria-expanded="true">
+                                                    <a class="accordion-toggle" data-toggle="collapse"
+                                                       data-parent="#accordion3" href="#accordion3_1"
+                                                       aria-expanded="true">
                                                         Private Policy </a>
                                                 </h4>
                                             </div>
-                                            <div id="accordion3_1" class="panel-collapse collapse in" aria-expanded="true">
+                                            <div id="accordion3_1" class="panel-collapse collapse in"
+                                                 aria-expanded="true">
                                                 <div class="panel-body"></div>
                                             </div>
                                         </div>
@@ -284,7 +356,7 @@
      }
      });*/
 
-    /* jQuery(document).ready(function() {*/
+    /* jQuery(document).ready(function() { */
 
     /* Metronic.init(); // init metronic core components
      Layout.init(); // init current layout
@@ -297,104 +369,104 @@
 
     //Login();
 
-    $('.register-form').validate({
-        errorElement: 'span', //default input error message container
-        errorClass: 'help-block', // default input error message class
-        focusInvalid: false, // do not focus the last invalid input
-        ignore: "",
-        rules: {
+    /*$('.register-form').validate({
+     errorElement: 'span', //default input error message container
+     errorClass: 'help-block', // default input error message class
+     focusInvalid: false, // do not focus the last invalid input
+     ignore: "",
+     rules: {
 
-            fullname: {
-                required: true
-            },
-            email: {
-                required: true,
-                email: true
-            },
-            address: {
-                required: true
-            },
-            city: {
-                required: true
-            },
-            country: {
-                required: true
-            },
+     fullname: {
+     required: true
+     },
+     email: {
+     required: true,
+     email: true
+     },
+     address: {
+     required: true
+     },
+     city: {
+     required: true
+     },
+     country: {
+     required: true
+     },
 
-            username: {
-                required: true
-            },
-            password: {
-                required: true
-            },
-            rpassword: {
-                equalTo: "#register_password"
-            },
+     username: {
+     required: true
+     },
+     password: {
+     required: true
+     },
+     rpassword: {
+     equalTo: "#register_password"
+     },
 
-            tnc: {
-                required: true
-            }
-        },
+     tnc: {
+     required: true
+     }
+     },
 
-        messages: { // custom messages for radio buttons and checkboxes
-            tnc: {
-                required: "Please accept TNC first."
-            }
-        },
+     messages: { // custom messages for radio buttons and checkboxes
+     tnc: {
+     required: "Please accept TNC first."
+     }
+     },
 
-        invalidHandler: function (event, validator) { //display error alert on form submit
+     invalidHandler: function (event, validator) { //display error alert on form submit
 
-        },
+     },
 
-        highlight: function (element) { // hightlight error inputs
-            $(element)
-                    .closest('.form-group').addClass('has-error'); // set error class to the control group
-        },
+     highlight: function (element) { // hightlight error inputs
+     $(element)
+     .closest('.form-group').addClass('has-error'); // set error class to the control group
+     },
 
-        success: function (label) {
-            label.closest('.form-group').removeClass('has-error');
-            label.remove();
-        },
+     success: function (label) {
+     label.closest('.form-group').removeClass('has-error');
+     label.remove();
+     },
 
-        errorPlacement: function (error, element) {
-            if (element.attr("name") == "tnc") { // insert checkbox errors after the container
-                error.insertAfter($('#register_tnc_error'));
-            } else if (element.closest('.input-icon').size() === 1) {
-                error.insertAfter(element.closest('.input-icon'));
-            } else {
-                error.insertAfter(element);
-            }
-        },
+     errorPlacement: function (error, element) {
+     if (element.attr("name") == "tnc") { // insert checkbox errors after the container
+     error.insertAfter($('#register_tnc_error'));
+     } else if (element.closest('.input-icon').size() === 1) {
+     error.insertAfter(element.closest('.input-icon'));
+     } else {
+     error.insertAfter(element);
+     }
+     },
 
-        submitHandler: function (form) {
-            form.submit();
-        }
-    });
+     submitHandler: function (form) {
+     form.submit();
+     }
+     });*/
 
-    $('.register-form input').keypress(function (e) {
-        if (e.which == 13) {
-            if ($('.register-form').validate().form()) {
-                $('.register-form').submit();
-            }
-            return false;
-        }
-    });
-    $('.register-form input').keypress(function (e) {
-        if (e.which == 13) {
-            if ($('.register-form').validate().form()) {
-                $('.register-form').submit();
-            }
-            return false;
-        }
-    });
-    $('.register-form input').keypress(function (e) {
-        if (e.which == 13) {
-            if ($('.register-form').validate().form()) {
-                $('.register-form').submit();
-            }
-            return false;
-        }
-    });
+    /*$('.register-form input').keypress(function (e) {
+     if (e.which == 13) {
+     if ($('.register-form').validate().form()) {
+     $('.register-form').submit();
+     }
+     return false;
+     }
+     });
+     $('.register-form input').keypress(function (e) {
+     if (e.which == 13) {
+     if ($('.register-form').validate().form()) {
+     $('.register-form').submit();
+     }
+     return false;
+     }
+     });
+     $('.register-form input').keypress(function (e) {
+     if (e.which == 13) {
+     if ($('.register-form').validate().form()) {
+     $('.register-form').submit();
+     }
+     return false;
+     }
+     });*/
 
     jQuery('#register-btn').click(function () {
         /*console.log("jQuery('#register-btn').click(function ()");*/
@@ -484,35 +556,35 @@
         jQuery('.login-form').show();
         jQuery('.forget-form').hide();
     });
-    jQuery ('.service-terms').hide();
-    jQuery ('.policy-terms').hide();
+    jQuery('.service-terms').hide();
+    jQuery('.policy-terms').hide();
 
     jQuery('.link-service-terms').click(function () {
-       /* jQuery('.login-form').hide();
-        jQuery('.forget-form').hide();
-        jQuery('.register-form').hide();*/
+        /* jQuery('.login-form').hide();
+         jQuery('.forget-form').hide();
+         jQuery('.register-form').hide();*/
         jQuery('.loginContent').hide();
         jQuery('.service-terms').show();
     });
     jQuery('.link-policy-terms').click(function () {
-      /*  jQuery('.login-form').hide();
-        jQuery('.forget-form').hide();
-        jQuery('.register-form').hide();*/
+        /*  jQuery('.login-form').hide();
+         jQuery('.forget-form').hide();
+         jQuery('.register-form').hide();*/
         jQuery('.loginContent').hide();
         jQuery('.policy-terms').show();
     });
     jQuery('#back-btn2').click(function () {
-       /* jQuery('.login-form').hide();
-        jQuery('.register-form').show();
-        jQuery('.forget-form').hide();*/
+        /* jQuery('.login-form').hide();
+         jQuery('.register-form').show();
+         jQuery('.forget-form').hide();*/
         jQuery('.loginContent').show();
         jQuery('.policy-terms').hide();
         jQuery('.service-terms').hide();
     });
     jQuery('#back-btn3').click(function () {
-       /* jQuery('.login-form').hide();
-        jQuery('.register-form').show();
-        jQuery('.forget-form').hide();*/
+        /* jQuery('.login-form').hide();
+         jQuery('.register-form').show();
+         jQuery('.forget-form').hide();*/
         jQuery('.loginContent').show();
         jQuery('.policy-terms').hide();
         jQuery('.service-terms').hide();
