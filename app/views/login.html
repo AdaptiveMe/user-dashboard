@@ -48,7 +48,7 @@
 
             <!-- <form class="login-form"  ng-submit="submit()">-->
 
-            <form class="login-form" ng-submit="submit()">
+            <form ng-show="isLoginForm" class="login-form" ng-submit="submit()">
 
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
@@ -111,7 +111,7 @@
                 <div class="create-account">
                     <p style="color: white;">
                         Don't have an account yet ?&nbsp;
-                        <a id="register-btn">
+                        <a ng-click="showRegisterForm()"  >
                             Create an account
                         </a>
                     </p>
@@ -125,7 +125,7 @@
 
             <!--<form   ng-submit="registerForm()" class="register-form">-->
 
-            <form name="registerForm" ng-submit="submitRegister()" enctype="multipart/form-data" class="register-form">
+            <form  ng-show="isRegisterForm" name="registerForm" ng-submit="submitRegister()" enctype="multipart/form-data" class="register-form">
 
                 <h3>Sign Up</h3>
 
@@ -144,13 +144,19 @@
 
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
-                        <input required name="inputEmail" ng-model="newEmail" class="form-control placeholder-no-fix reset-input"
-                               type="email" placeholder="Email" name="email"/>
+                        <input pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]+" required name="inputEmail" ng-model="newEmail" class="form-control placeholder-no-fix reset-input"
+                               type="email" placeholder="Email" name="email" />
                         <div role="alert">
-                            <span class="error" ng-show="registerForm.inputEmail.$error.required">
-                                Required!</span>
-                            <span class="error" ng-show="registerForm.inputEmail.$error.email">
-                                Not valid email!</span>
+                            <span style="color: black;" class="error" ng-show="registerForm.inputEmail.$error.required">
+                                Required</span>
+                            <span style="color: red;" class="error" ng-show="registerForm.inputEmail.$error.email">
+                                Not valid email</span>
+
+                             <span style="color: red;" class="error" ng-show="registerForm.inputEmail.$error.pattern">
+                                Not valid email</span>
+                            <span style="color: red;" class="error" ng-show="errorEmailExist">
+                                Email already exist </span>
+
                         </div>
                     </div>
 
@@ -168,11 +174,20 @@
                         <i class="fa fa-user"></i>
                         <input required ng-trim="false" ng-model="newUsername" name="inputUsername"
                                class="form-control placeholder-no-fix reset-input" type="text"
-                               placeholder="Username"/>
+                               placeholder="Username" ng-minlength=3 ng-maxlength=15 required="required"/>
 
                         <div role="alert">
-                            <span class="error" ng-show="registerForm.inputUsername.$error.required">
-                                Required!</span>
+                            <span style="color: black;" class="error" ng-show="registerForm.inputUsername.$error.required">
+                                Required</span>
+                             <span style="color: red;" class="error" ng-show="errorUsernameExist">
+                                Username already exist </span>
+                             <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.minlength">
+                                 The username is too short </span>
+                            <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.maxlength">
+                                The username is too long </span>
+
+                             <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.pattern">
+                                Not valid username pattern </span>
 
                         </div>
 
@@ -185,23 +200,43 @@
 
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
-                        <input ng-trim="false" required ng-model="newPassword" class="form-control placeholder-no-fix reset-input"
+                        <input  ng-pattern="/^[a-zA-Z0-9]*$/" ng-trim="false" required ng-model="newPassword" class="form-control placeholder-no-fix reset-input"
                                type="text" placeholder="Password"
-                               name="password"/>
-
+                               name="password" ng-minlength=6 ng-maxlength=100/>
                         <div role="alert">
-                            <span class="error" ng-show="registerForm.password.$error.required">
-                                Required!</span>
+                            <span style="color: black;" class="error" ng-show="registerForm.password.$error.required">
+                                Required</span>
+                            <span style="color: red;" class="error" ng-show="registerForm.password.$error.minlength">
+                                 The username is too short </span>
+                            <span style="color: red;" class="error" ng-show="registerForm.password.$error.pattern">
+                                Not valid password pattern</span>
+                            <span style="color: red;" class="error" ng-show="registerForm.password.$error.maxlength">
+                                The password is too long </span>
                         </div>
 
                     </div>
                 </div>
                 <div class="form-group">
+
                     <label>
-                        <input type="checkbox" name="tnc"/> I agree to the <a class="link-service-terms">
+
+                        <!--<input ng-required="readTermsConditions==true" ng-model="readTermsConditions" type="checkbox" name="tnc"/> I agree to the <a class="link-service-terms">
                         Terms of Service </a>
                         and <a class="link-policy-terms">
-                        Privacy Policy </a>
+                        Privacy Policy </a>-->
+
+                        <input type="checkbox"  value="{{val.id}}"  name="group-one" ng-model="registerForm.selectedTerms[val.id]" ng-required="!someSelected(registerForm.selectedTerms)"/>
+
+                        I agree to the <a href=""  ng-click="showServiceTerms()" class="">
+                        Terms of Service </a>and <a ng-click="showPolicyTerms()" class=""> Privacy Policy </a>
+
+                        <div role="alert">
+                            <span style="color: black;" class="error" ng-show="selectedTermsChecked">
+                                You must agree with the terms and conditions </span>
+                        </div>
+
+                    </label>
+
                     </label>
 
                     <div id="register_tnc_error">
@@ -209,7 +244,7 @@
                 </div>
                 <div class="form-actions">
 
-                    <button id="register-back-btn" type="button" class="btn">
+                    <button  ng-click="returnLoginForm()" id="register-back-btn" type="button" class="btn">
                         <i class="m-icon-swapleft"></i> Back
                     </button>
 
@@ -217,7 +252,7 @@
                         Sign Up <i class="m-icon-swapright m-icon-white"></i>
                     </button>-->
 
-                    <button type="submit" class="btn blue pull-right">
+                    <button ng-disabled="registerForm.$invalid || registerForm.$pristine" type="submit" class="btn blue pull-right">
                         Sign Up <i class="m-icon-swapright m-icon-white"></i>
                     </button>
 
@@ -257,7 +292,7 @@
 
         </div>
 
-        <div class="service-terms">
+        <div ng-show="serviceTerms" class="">
             <!-- <h3>Terms of Services</h3>
              <p>
                  ...
@@ -292,7 +327,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" id="back-btn2" class="btn">
+                    <button ng-click="returnRegisterForm()" type="button" id="back-btn2" class="btn">
                         <i class="m-icon-swapleft"></i> Back
                     </button>
                 </div>
@@ -300,7 +335,7 @@
             <!-- END TERMS SERVICES -->
         </div>
 
-        <div class="policy-terms">
+        <div ng-show="policyTerms" class="">
             <div class="portlet ng-scope">
                 <div class="portlet-body">
                     <div class="row">
@@ -328,7 +363,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" id="back-btn3" class="btn">
+                    <button ng-click="returnRegisterForm()" type="button" id="back-btn3" class="btn">
                         <i class="m-icon-swapleft"></i> Back
                     </button>
                 </div>
@@ -342,143 +377,20 @@
 
 <script>
 
-    /*$('.login-form input').keypress(function (e) {
-     //console.log("login-form input').keypr");
-     if (e.which == 13) {
-     //console.log("e.which == 13");
-     if ($('.login-form').validate().form()) {
-     //console.log("$('.login-form').validate().form()");
-     //$('.login-form').submit();
-     }else{
-     //console.log("nooo login-form input').keypr");
-     }
-     return false;
-     }
-     });*/
-
-    /* jQuery(document).ready(function() { */
-
-    /* Metronic.init(); // init metronic core components
-     Layout.init(); // init current layout
-     //Login.init();
-     Demo.init();*/
-
-    // init background slide images
-
-    jQuery('.register-form').hide();
-
-    //Login();
-
-    /*$('.register-form').validate({
-     errorElement: 'span', //default input error message container
-     errorClass: 'help-block', // default input error message class
-     focusInvalid: false, // do not focus the last invalid input
-     ignore: "",
-     rules: {
-
-     fullname: {
-     required: true
-     },
-     email: {
-     required: true,
-     email: true
-     },
-     address: {
-     required: true
-     },
-     city: {
-     required: true
-     },
-     country: {
-     required: true
-     },
-
-     username: {
-     required: true
-     },
-     password: {
-     required: true
-     },
-     rpassword: {
-     equalTo: "#register_password"
-     },
-
-     tnc: {
-     required: true
-     }
-     },
-
-     messages: { // custom messages for radio buttons and checkboxes
-     tnc: {
-     required: "Please accept TNC first."
-     }
-     },
-
-     invalidHandler: function (event, validator) { //display error alert on form submit
-
-     },
-
-     highlight: function (element) { // hightlight error inputs
-     $(element)
-     .closest('.form-group').addClass('has-error'); // set error class to the control group
-     },
-
-     success: function (label) {
-     label.closest('.form-group').removeClass('has-error');
-     label.remove();
-     },
-
-     errorPlacement: function (error, element) {
-     if (element.attr("name") == "tnc") { // insert checkbox errors after the container
-     error.insertAfter($('#register_tnc_error'));
-     } else if (element.closest('.input-icon').size() === 1) {
-     error.insertAfter(element.closest('.input-icon'));
-     } else {
-     error.insertAfter(element);
-     }
-     },
-
-     submitHandler: function (form) {
-     form.submit();
-     }
-     });*/
-
-    /*$('.register-form input').keypress(function (e) {
-     if (e.which == 13) {
-     if ($('.register-form').validate().form()) {
-     $('.register-form').submit();
-     }
-     return false;
-     }
-     });
-     $('.register-form input').keypress(function (e) {
-     if (e.which == 13) {
-     if ($('.register-form').validate().form()) {
-     $('.register-form').submit();
-     }
-     return false;
-     }
-     });
-     $('.register-form input').keypress(function (e) {
-     if (e.which == 13) {
-     if ($('.register-form').validate().form()) {
-     $('.register-form').submit();
-     }
-     return false;
-     }
-     });*/
+    /*jQuery('.register-form').hide();*/
 
     jQuery('#register-btn').click(function () {
-        /*console.log("jQuery('#register-btn').click(function ()");*/
-        jQuery('.login-form').hide();
-        jQuery('.register-form').show();
+        console.log("jQuery('#register-btn').click");
+
+        /* jQuery('.login-form').hide();
+        jQuery('.register-form').show();*/
+
     });
 
     jQuery('#register-back-btn').click(function () {
-        jQuery('.login-form').show();
-        jQuery('.register-form').hide();
+     /*   jQuery('.login-form').show();
+        jQuery('.register-form').hide();*/
     });
-
     $.backstretch(
             [
                 "images/1.jpg",
@@ -553,41 +465,58 @@
     });
 
     jQuery('#back-btn').click(function () {
-        jQuery('.login-form').show();
-        jQuery('.forget-form').hide();
+       /* jQuery('.login-form').show();
+        jQuery('.forget-form').hide();*/
     });
-    jQuery('.service-terms').hide();
-    jQuery('.policy-terms').hide();
+
+    /*jQuery('.service-terms').hide();
+    jQuery('.policy-terms').hide();*/
 
     jQuery('.link-service-terms').click(function () {
         /* jQuery('.login-form').hide();
          jQuery('.forget-form').hide();
          jQuery('.register-form').hide();*/
         jQuery('.loginContent').hide();
-        jQuery('.service-terms').show();
+       /* jQuery('.service-terms').show();*/
     });
     jQuery('.link-policy-terms').click(function () {
         /*  jQuery('.login-form').hide();
          jQuery('.forget-form').hide();
          jQuery('.register-form').hide();*/
         jQuery('.loginContent').hide();
-        jQuery('.policy-terms').show();
+        /*jQuery('.policy-terms').show();*/
     });
     jQuery('#back-btn2').click(function () {
         /* jQuery('.login-form').hide();
          jQuery('.register-form').show();
          jQuery('.forget-form').hide();*/
         jQuery('.loginContent').show();
-        jQuery('.policy-terms').hide();
-        jQuery('.service-terms').hide();
+       /* jQuery('.policy-terms').hide();
+        jQuery('.service-terms').hide();*/
     });
     jQuery('#back-btn3').click(function () {
         /* jQuery('.login-form').hide();
          jQuery('.register-form').show();
          jQuery('.forget-form').hide();*/
         jQuery('.loginContent').show();
-        jQuery('.policy-terms').hide();
-        jQuery('.service-terms').hide();
+       /* jQuery('.policy-terms').hide();
+        jQuery('.service-terms').hide();*/
     });
+
+    /*(document).ready(function(){
+        jQuery('#register-btn').click(function () {
+            console.log("jQuery('#register-btn').click(function ()");
+            jQuery('.login-form').hide();
+            jQuery('.register-form').show();
+        });
+    });*/
+
+    /*$(function () {
+        $("#register-btn").on('click',function () {
+            console.log("jQuery('#register-btn').click(function ()");
+            jQuery('.login-form').hide();
+            jQuery('.register-form').show();
+        });
+    });*/
 
 </script>

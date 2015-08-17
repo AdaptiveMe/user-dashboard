@@ -25,7 +25,18 @@ angular.module('odeskApp')
         $scope.errorUsernameEmpty = false;
         $scope.errorPasswordEmpty = false;
 
-        //console.log( "cookies.myFavorite: "+ $cookies.myFavorite );
+        $scope.errorEmailExist = false;
+        $scope.errorUserNameExist = false;
+
+        $scope.selectedTerms = false;
+
+        $scope.isLoginForm = true;
+        $scope.isRegisterForm = false;
+
+        $scope.serviceTerms = false;
+        $scope.policyTerms = false;
+
+        console.log( "LoginCtrl");
 
         // document.getElementById("loading-bar-spinner").style.display = 'block';
 
@@ -36,9 +47,7 @@ angular.module('odeskApp')
         var currentValidatedUsername = "";
         var currentValidatedPassword = "";
 
-        $scope.submit = function (
-
-        ) {
+        $scope.submit = function () {
 
             // document.getElementById("loading-bar-spinner").style.display = 'block';
 
@@ -124,49 +133,74 @@ angular.module('odeskApp')
 
         $scope.submitRegister = function () {
 
-             console.log("Submit register, email: "+$scope.newEmail);
-             //Validate the email, http://my.adaptive.me/api/register/validate?email=asdf
-             $http({
-                 url: "/api/register/validate"+"?email="+$scope.newEmail,
-                 method: "GET"
-             }).then(function (response) { // success
-                console.log("register validate email then response: "+response);
+            if (!$scope.selectedTerms) {
 
-                 $http({
-                     url: "/api/register/validate"+"?username="+$scope.newUsername,
-                     method: "GET"
-                 }).then(function (response) { // success
-                     console.log("register validate username then response: "+response);
+                console.log("");
+                $scope.selectedTermsChecked =true;
 
-                      var uploadUrl = "/api/register/create";
-                      $http({
-                          method: 'POST',
-                          url: uploadUrl,
-                          data: $.param({email: $scope.newEmail, username: $scope.newUsername, password: $scope.newPassword}),
-                          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                      }).success( function(){
-                              console.log("success register request");
+            } else {
 
-                              $location.path("/login");
-                          }
-                      ).error(  function() {
-                              console.log("error register request");
-                          }
-                      );
+                $scope.selectedTermsChecked =false;
 
-                 }, function (response) {
-                     console.log("register validate username error response: "+response);
+                $scope.errorEmailExist = false;
+                $scope.errorUsernameExist = false;
 
-                 });
+                console.log("Submit register, email: " + $scope.newEmail);
+                //Validate the email, http://my.adaptive.me/api/register/validate?email=asdf
+                $http({
+                    url: "/api/register/validate" + "?email=" + $scope.newEmail,
+                    method: "GET"
+                }).then(function (response) { // success
+                    console.log("register validate email then response: " + response);
 
-             }, function (response) {
-                console.log("register validate email error response: "+response);
+                    $http({
+                        url: "/api/register/validate" + "?username=" + $scope.newUsername,
+                        method: "GET"
+                    }).then(function (response) { // success
+                        console.log("register validate username then response: " + response);
 
-             });
+                        var uploadUrl = "/api/register/create";
+                        $http({
+                            method: 'POST',
+                            url: uploadUrl,
+                            data: $.param({
+                                email: $scope.newEmail,
+                                username: $scope.newUsername,
+                                password: $scope.newPassword
+                            }),
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                        }).success(function () {
+                                console.log("success register request");
+
+                                $scope.errorEmailExist = false;
+                                $scope.errorUsernameExist = false;
+
+                                $location.path("/login");
+
+                            }
+                        ).error(function () {
+                                console.log("error register request");
+                            }
+                        );
+
+                    }, function (response) {
+                        $scope.errorUsernameExist = true;
+                        console.log("register validate username error response: " + response);
+
+                    });
+
+                }, function (response) {
+                    $scope.errorEmailExist = true;
+                    console.log("register validate email error response: " + response);
+
+                });
+
+            }
+
 
         };
 
-        var requestRegister = function (){
+        var requestRegister = function () {
 
         };
 
@@ -189,16 +223,16 @@ angular.module('odeskApp')
             else {
 
                 /* isValidatedPassword = true;
-                $scope.errorUsernameEmpty = false;
-                var uploadUrl = "/api/register/create";
-                $http({
-                    method: 'POST',
-                    url: uploadUrl,
-                    data: $.param({email: $scope.newEmail, username: $scope.newUsername, password: $scope.newPassword}),
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(
-                ).error(
-                );*/
+                 $scope.errorUsernameEmpty = false;
+                 var uploadUrl = "/api/register/create";
+                 $http({
+                 method: 'POST',
+                 url: uploadUrl,
+                 data: $.param({email: $scope.newEmail, username: $scope.newUsername, password: $scope.newPassword}),
+                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                 }).success(
+                 ).error(
+                 );*/
 
                 /* $http({
 
@@ -220,8 +254,59 @@ angular.module('odeskApp')
                  }); */
 
             }
-
             return false;
 
         };
-    });
+
+        $scope.someSelected = function (object) {
+
+            if(typeof object==="undefined"){
+
+            }
+
+            else{
+                return Object.keys(object).some(function (key) {
+                    console.log("checked: " + object[key]);
+                    $scope.selectedTerms = object[key];
+                    return object[key];
+                });
+            }
+
+        }
+
+        $scope.showRegisterForm = function (){
+            console.log("showRegisterForm");
+            $scope.isLoginForm = false;
+            $scope.isRegisterForm = true;
+        };
+
+        $scope.returnLoginForm = function (){
+            console.log("returnLoginForm");
+            $scope.isLoginForm = true;
+            $scope.isRegisterForm = false;
+        };
+
+        $scope.returnRegisterForm = function (){
+            console.log("returnRegisterForm");
+            $scope.serviceTerms = false;
+            $scope.policyTerms = false;
+            $scope.isLoginForm = false;
+            $scope.isRegisterForm = true;
+        };
+
+        $scope.showServiceTerms = function(){
+            console.log("showServiceTerms");
+
+            $scope.serviceTerms = true;
+            $scope.isLoginForm = false;
+            $scope.isRegisterForm = false;
+
+        };
+        $scope.showPolicyTerms = function(){
+            console.log("showPolicyTerms");
+            $scope.policyTerms = true;
+            $scope.isLoginForm = false;
+            $scope.isRegisterForm = false;
+        };
+
+    })

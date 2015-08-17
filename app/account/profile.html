@@ -1,4 +1,3 @@
-
 <h3 class="page-title">
     Account
     <small>Manage your account information</small>
@@ -482,16 +481,16 @@
                                         <i class="icon-settings"></i>
                                         Account Settings </a>
                                 </li>
-                               <!-- <li>
-                                    <a href="page_todo.html" target="_blank">
-                                        <i class="icon-check"></i>
-                                        Tasks </a>
-                                </li>
-                                <li>
-                                    <a href="extra_profile_help.html">
-                                        <i class="icon-info"></i>
-                                        Help </a>
-                                </li>-->
+                                <!-- <li>
+                                     <a href="page_todo.html" target="_blank">
+                                         <i class="icon-check"></i>
+                                         Tasks </a>
+                                 </li>
+                                 <li>
+                                     <a href="extra_profile_help.html">
+                                         <i class="icon-info"></i>
+                                         Help </a>
+                                 </li>-->
                             </ul>
                         </div>
                         <!-- END MENU -->
@@ -527,23 +526,23 @@
                             </div>
                         </div>
                         <!-- END STAT -->
-                       <!-- <div>
-                            <h4 class="profile-desc-title">About {{fullUserName}}</h4>
-                            <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
+                        <!-- <div>
+                             <h4 class="profile-desc-title">About {{fullUserName}}</h4>
+                             <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
 
-                            <div class="margin-top-20 profile-desc-link">
-                                <i class="fa fa-globe"></i>
-                                <a href="http://www.keenthemes.com">...</a>
-                            </div>
-                            <div class="margin-top-20 profile-desc-link">
-                                <i class="fa fa-twitter"></i>
-                                <a href="http://www.twitter.com/keenthemes/">@keenthemes</a>
-                            </div>
-                            <div class="margin-top-20 profile-desc-link">
-                                <i class="fa fa-facebook"></i>
-                                <a href="http://www.facebook.com/keenthemes/">keenthemes</a>
-                            </div>
-                        </div>-->
+                             <div class="margin-top-20 profile-desc-link">
+                                 <i class="fa fa-globe"></i>
+                                 <a href="http://www.keenthemes.com">...</a>
+                             </div>
+                             <div class="margin-top-20 profile-desc-link">
+                                 <i class="fa fa-twitter"></i>
+                                 <a href="http://www.twitter.com/keenthemes/">@keenthemes</a>
+                             </div>
+                             <div class="margin-top-20 profile-desc-link">
+                                 <i class="fa fa-facebook"></i>
+                                 <a href="http://www.facebook.com/keenthemes/">keenthemes</a>
+                             </div>
+                         </div>-->
                     </div>
                     <!-- END PORTLET MAIN -->
                 </div>
@@ -774,7 +773,7 @@
                                 <tabset justified="true">
 
                                     <tab heading="Personal Info">
-                                        <div class="tab-pane active"  >
+                                        <div class="tab-pane active">
 
                                             <!--<form role="form" action="#">
                                                 <div class="form-group">
@@ -818,21 +817,24 @@
                                                 </div>
                                             </form>-->
 
-                                            <form ng-controller="ProfileCtrl" method="post" accept-charset="utf-8" class="form" role="form" ng-submit="updateProfile()">
+                                            <form name="accountForm" ng-controller="ProfileCtrl" method="post" accept-charset="utf-8"
+                                                  class="form" role="form" ng-submit="updateProfile()">
 
-                                                <div class="row form-body">
+                                                <div class="row  ">
                                                     <div class="col-md-12 form-group form-md-line-input"
-                                                         style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
-                                                        <input class="form-control" id="name" name="name" placeholder="Your First Name"
-                                                               ng-model="firstName" type="text" required/>
-                                                        <label for="name" style="left: 0; right: 0;">First Name:</label>
+                                                         style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%; ">
+                                                        <input class="form-control" id="name" name="name"
+                                                               placeholder="Your First Name"
+                                                               ng-model="firstName" type="text" />
+                                                        <label for="name" style="">First Name:</label>
                                                         <!--<span class="help-block">Some help goes here...</span>-->
                                                         <span class="help-block"></span>
                                                     </div>
                                                     <div class="col-md-12 form-group form-md-line-input"
-                                                         style="margin-left: 5px; margin-right: 15px; padding-right: 0px; padding-left: 0px;">
+                                                         style=" margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
                                                         <input class="form-control" id="lastName" name="lastName"
-                                                               placeholder="Your Last Name" ng-model="lastName" type="text" required/>
+                                                               placeholder="Your Last Name" ng-model="lastName"
+                                                               type="text" />
                                                         <label for="lastName">Last Name:</label>
                                                         <!--<span class="help-block">Some help goes here...</span>-->
                                                         <span class="help-block"></span>
@@ -844,12 +846,19 @@
                                                         <label for="email">Email:</label>
 
                                                         <div class="input-group">
-                   <span class="input-group-addon">
-                     <i class="fa fa-envelope"></i>
-                   </span>
-                                                            <input class="form-control" placeholder="Email Address" id="email" name="email"
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-envelope"></i>
+                                                            </span>
+                                                            <input pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]+" class="form-control" placeholder="Email Address"
+                                                                   id="email" name="email"
                                                                    ng-model="email" type="email">
+
                                                         </div>
+                                                         <span style="color: red;" class="error" ng-show="accountForm.email.$error.email">
+                                                             Not valid email</span>
+
+                                                             <span style="color: red;" class="error" ng-show="accountForm.email.$error.pattern">
+                                                                Not valid email</span>
                                                         <!-- <label for="email">Email:</label>
                                                          <input class="form-control" id="email" name="email" placeholder="Your Email Address" ng-model="email" type="email" required autofocus />-->
                                                     </div>
@@ -857,20 +866,41 @@
                                                 <div class="row">
                                                     <div class="col-md-12 form-group form-md-line-input"
                                                          style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
-                                                        <input class="form-control" id="phone" name="phone" ng-model="phone"
-                                                               placeholder="Your Phone Number" type="tel" pattern="(^[0-9-+]+$)"
-                                                               maxlength=15/>
+                                                        <input class="form-control" name="phone"
+                                                               ng-model="phone"
+                                                               placeholder="Your Phone Number: +91-636-78658" type="text"
+                                                               ng-pattern="/[0-9]?/"
+                                                               ng-minlength=9
+                                                               ng-maxlength=15 />
+
                                                         <label for="phone">Phone:</label>
                                                         <!--<span class="help-block">Some help goes here...</span>-->
-                                                        <span class="help-block"></span>
+                                                       <!-- <span class="help-block"></span>-->
+
+<!--
+                                                        <span class="help-block" ng-show="(accountForm.phone.$error.required || accountForm.phone.$error.pattern)">Valid phone number is required</span>
+-->
+
+                                                        <span class="help-block" ng-show="((accountForm.phone.$error.minlength || accountForm.phone.$error.maxlength)  || (   accountForm.phone.$error.pattern)) ">Valid phone number is required should be 10-15 digits</span>
+
                                                     </div>
+
+                                                   <!-- <span class="error" ng-show="(accountForm.phone.$error.required || accountForm.phone.$error.pattern)">Valid phone number is required</span>-->
+
+                                                    <!-- <span style="color: red;" class="error" ng-show="accountForm.phone.$error.number">
+                                                             Not valid phone</span>-->
+
+
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 form-group">
                                                         <label for="country">Country:</label>
-                                                        <select id="country" ng-model="country" class="form-control" required>
+                                                        <select id="country" ng-model="country" class="form-control"
+                                                                required>
                                                             <option value="">Select Your Country</option>
-                                                            <option ng-repeat="country in countries">{{country.name}}</option>
+                                                            <option ng-repeat="country in countries">{{country.name}}
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -878,7 +908,8 @@
                                                     <div class="col-md-12 form-group form-md-line-input"
                                                          style="margin-left: 15px; margin-right: 15px; padding-right: 0px; padding-left: 0px; width: 94%;">
                                                         <input class="form-control" id="companyName" name="companyName"
-                                                               ng-model="companyName" placeholder="Your Company Name" type="text"/>
+                                                               ng-model="companyName" placeholder="Your Company Name"
+                                                               type="text"/>
                                                         <label for="companyName">Company Name:</label>
                                                         <!--<span class="help-block">Some help goes here...</span>-->
                                                         <span class="help-block"></span>
@@ -888,7 +919,8 @@
                                                     <div class="col-md-12 form-group">
                                                         <label for="jobTitle">Job Title:</label>
                                                         <!--<input class="form-control" id="name" name="name" ng-model="jobTitle" placeholder="Product Manager" type="text" required autofocus />-->
-                                                        <select ng-model="jobTitle" id="jobTitle" class="form-control" ng-model="jobTitle"
+                                                        <select ng-model="jobTitle" id="jobTitle" class="form-control"
+                                                                ng-model="jobTitle"
                                                                 autofocus>
                                                             <option value="">Please select role...</option>
                                                             <option value="Developer">Developer</option>
@@ -901,11 +933,12 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                        <div style="color: black;">
-                                                Can our sales teams contact you to discuss our offerings? &nbsp;&nbsp;&nbsp;&nbsp;
-                                            </div>
+                                                <div style="color: black;">
+                                                    Can our sales teams contact you to discuss our offerings? &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
                                                 <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                    <input type="checkbox" id="checkbox1" class="md-check" name="sales" ng-model="sales"
+                                                    <input type="checkbox" id="checkbox1" class="md-check" name="sales"
+                                                           ng-model="sales"
                                                            value="1">
                                                     <label for="checkbox1">
                                                         <span class="inc"></span>
@@ -918,7 +951,8 @@
                                                               &nbsp;&nbsp;Yes-->
 
                                                 <div id="upadateProfileAlert" class="col-md-10">
-                                                    <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Update
+                                                    <div class="alert alert-success" style="display: none;"><b>Successfully
+                                                        Done!</b> Update
                                                         profile information process completed.
                                                     </div>
                                                     <div class="alert alert-danger" style="display: none;"></div>
@@ -926,7 +960,7 @@
                                                 </div>
 
                                                 <div class="form-actions noborder">
-                                                    <button class="btn blue" id="btn1" type="submit">Save</button>
+                                                    <button ng-disabled="accountForm.$invalid || accountForm.$pristine" class="btn blue" id="btn1" type="submit">Save</button>
                                                 </div>
 
                                                 <!--<div id="btn-preloader1" style="display:none">
@@ -944,48 +978,58 @@
                                         </div>
                                     </tab>
                                     <tab heading="Your Skills">
-<!--
-                                        <div class="panel panel-info panel-ce">
--->
+                                        <!--
+                                                                                <div class="panel panel-info panel-ce">
+                                        -->
                                         <div>
                                             <div>
                                                 <!--<div class="panel-heading">
  -->                                              <!-- <h3 class="panel-title">Your Skills</h3>-->
                                             </div>
-                                            <div class="panel-body">
+                                            <div class="panel-body" ng-controller="ProfileCtrl">
                                                 <div class="celist clearfix">
-                                                    <div class="label label-default clearfix" ng-repeat="skill in userSkills"><span class="skill">{{skill.name}}</span>
-                                                        <span ng-click="removeSkill(skill)" class="glyphicon glyphicon-remove"></span></div>
+                                                    <div class="label label-default clearfix"
+                                                         ng-repeat="skill in userSkills"><span class="skill">{{skill.name}}</span>
+                                                        <span ng-click="removeSkill(skill)"
+                                                              class="glyphicon glyphicon-remove"></span></div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <form ng-controller="ProfileCtrl" accept-charset="utf-8" class="form" role="form">
+
+                                                    <form  accept-charset="utf-8"
+                                                          class="form" role="form">
                                                         <div class="row">
                                                             <div class="col-md-12 form-group form-md-line-input">
                                                                 <label for="companyName">Skill:</label>
-                                                                <input class="form-control" id="skill-name" name="name" ng-model="addSkillModel"
+                                                                <input class="form-control" id="skill-name" name="name"
+                                                                       ng-model="addSkillModel"
                                                                        type="text"/>
                                                                 <span class="help-block"></span>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-actions noborder">
-                                                            <button class="btn blue" id="btn3" type="submit" ng-click="addSkill()"
+                                                            <button class="btn blue" id="btn3" type="submit"
+                                                                    ng-click="addSkill()"
                                                                     ng-disabled="skillsPreloader">Save
                                                             </button>
                                                         </div>
                                                         <div id="addSkillsAlert">
-                                                            <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Add
+                                                            <div class="alert alert-success" style="display: none;"><b>Successfully
+                                                                Done!</b> Add
                                                                 Skill process completed.
                                                             </div>
-                                                            <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Add Skill process
+                                                            <div class="alert alert-danger" style="display: none;"><b>Failed!</b>
+                                                                Add Skill process
                                                                 failed.
                                                             </div>
                                                         </div>
                                                         <div id="removeSkillsAlert">
-                                                            <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Remove
+                                                            <div class="alert alert-success" style="display: none;"><b>Successfully
+                                                                Done!</b> Remove
                                                                 Skill process completed.
                                                             </div>
-                                                            <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Remove Skill
+                                                            <div class="alert alert-danger" style="display: none;"><b>Failed!</b>
+                                                                Remove Skill
                                                                 process failed.
                                                             </div>
                                                         </div>
@@ -996,20 +1040,23 @@
                                     </tab>
                                     <tab heading="Your Usage">
                                         <div>
-                                           <!-- <div class="panel-heading">
-                                                <h3 class="panel-title">Your Usage</h3>
-                                            </div>-->
+                                            <!-- <div class="panel-heading">
+                                                 <h3 class="panel-title">Your Usage</h3>
+                                             </div>-->
                                             <div class="panel-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <form ng-controller="ProfileCtrl" method="post" accept-charset="utf-8" class="form" role="form">
+                                                        <form ng-controller="ProfileCtrl" ng-submit="addUsage()" method="post"
+                                                              accept-charset="utf-8" class="form" role="form">
 
                                                             <div class="row">
                                                                 <div class="control-group">
                                                                     <div class="controls col-md-5 col-md-offset-1">
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox11" class="md-check" ng-model="usage_1">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox11"
+                                                                                   class="md-check" ng-model="usage_1">
                                                                             <label for="checkbox11">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
@@ -1017,8 +1064,10 @@
                                                                                 Personal </label>
                                                                         </div>
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox2" class="md-check" ng-model="usage_2">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox2"
+                                                                                   class="md-check" ng-model="usage_2">
                                                                             <label for="checkbox2">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
@@ -1026,8 +1075,10 @@
                                                                                 Open Source </label>
                                                                         </div>
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox3" class="md-check" ng-model="usage_3">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox3"
+                                                                                   class="md-check" ng-model="usage_3">
                                                                             <label for="checkbox3">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
@@ -1038,24 +1089,30 @@
                                                                     </div>
                                                                     <div class="controls col-md-5 col-md-offset-1">
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox4" class="md-check" ng-model="usage_4">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox4"
+                                                                                   class="md-check" ng-model="usage_4">
                                                                             <label for="checkbox4">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
                                                                                 <span class="box"></span>
                                                                                 Hackathon </label>
                                                                         </div>
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox5" class="md-check" ng-model="usage_5">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox5"
+                                                                                   class="md-check" ng-model="usage_5">
                                                                             <label for="checkbox5">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
                                                                                 <span class="box"></span>
                                                                                 Classroom </label>
                                                                         </div>
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox6" class="md-check" ng-model="usage_6">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox6"
+                                                                                   class="md-check" ng-model="usage_6">
                                                                             <label for="checkbox6">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
@@ -1081,16 +1138,22 @@
                                                                 <div class="control-group">
                                                                     <div class="controls col-md-5 col-md-offset-1">
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox7" class="md-check" ng-model="project_1">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox7"
+                                                                                   class="md-check"
+                                                                                   ng-model="project_1">
                                                                             <label for="checkbox7">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
                                                                                 <span class="box"></span>
                                                                                 Mobile </label>
                                                                         </div>
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox8" class="md-check" ng-model="project_2">
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox8"
+                                                                                   class="md-check"
+                                                                                   ng-model="project_2">
                                                                             <label for="checkbox8">
                                                                                 <span class="inc"></span>
                                                                                 <span class="check"></span>
@@ -1109,8 +1172,10 @@
                                                                     </div>
                                                                     <div class="controls col-md-5 col-md-offset-1">
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox10" class="md-check"
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox10"
+                                                                                   class="md-check"
                                                                                    ng-model="project_3">
                                                                             <label for="checkbox10">
                                                                                 <span class="inc"></span>
@@ -1119,8 +1184,10 @@
                                                                                 Web Apps </label>
                                                                         </div>
 
-                                                                        <div class="md-checkbox" style="margin: 10px 1px 1px 1px;">
-                                                                            <input type="checkbox" id="checkbox111" class="md-check"
+                                                                        <div class="md-checkbox"
+                                                                             style="margin: 10px 1px 1px 1px;">
+                                                                            <input type="checkbox" id="checkbox111"
+                                                                                   class="md-check"
                                                                                    ng-model="project_4">
                                                                             <label for="checkbox111">
                                                                                 <span class="inc"></span>
@@ -1140,13 +1207,16 @@
                                                             </div>
 
                                                             <div class="form-actions noborder">
-                                                                <button class="btn blue" id="btn4" type="submit">Save</button>
+                                                                <button class="btn blue" id="btn4" type="submit">Save
+                                                                </button>
                                                             </div>
                                                             <div id="usageAlert">
-                                                                <div class="alert alert-success" style="display: none;"><b>Successfully Done!</b> Save
+                                                                <div class="alert alert-success" style="display: none;">
+                                                                    <b>Successfully Done!</b> Save
                                                                     Usage &amp; Projects process completed.
                                                                 </div>
-                                                                <div class="alert alert-danger" style="display: none;"><b>Failed!</b> Save Usage &amp;
+                                                                <div class="alert alert-danger" style="display: none;">
+                                                                    <b>Failed!</b> Save Usage &amp;
                                                                     Projects process failed.
                                                                 </div>
                                                             </div>
@@ -1157,7 +1227,7 @@
                                         </div>
                                     </tab>
                                     <tab heading="Change Password">
-                                        <div class="tab-pane"  >
+                                        <div class="tab-pane">
 
                                             <!--form action="#">
                                                 <div class="form-group">
@@ -1180,11 +1250,13 @@
                                                 </div>
                                             </form>-->
 
-                                            <form ng-controller="ProfileCtrl" method="post" accept-charset="utf-8" class="form" role="form"
+                                            <form ng-controller="ProfileCtrl" accept-charset="utf-8"
+                                                  class="form" role="form"
                                                   ng-submit="updatePassword()">
                                                 <div class="row">
                                                     <div class="col-md-12 form-group">
                                                         <label for="password1">New Password:</label>
+
                                                         <div class="input-group">
                                                             <input type="password" class="form-control" id="password1"
                                                                    name="password1"
@@ -1241,9 +1313,10 @@
                                                     <!-- <a href="javascript:;" class="btn green-haze">
                                                         Change Password </a>-->
                                                     <button class="btn green-haze" id="btn2" type="submit">
-                                                        Change Password </button>
-                                                    <a href="" class="btn default">
-                                                        Cancel </a>
+                                                        Change Password
+                                                    </button>
+                                                    <!--<a href="" class="btn default">
+                                                        Cancel </a>-->
                                                 </div>
                                             </form>
 
