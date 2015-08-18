@@ -148,7 +148,7 @@
                                type="email" placeholder="Email" name="email" />
                         <div role="alert">
                             <span style="color: black;" class="error" ng-show="registerForm.inputEmail.$error.required">
-                                Required</span>
+                                </span>
                             <span style="color: red;" class="error" ng-show="registerForm.inputEmail.$error.email">
                                 Not valid email</span>
 
@@ -178,7 +178,7 @@
 
                         <div role="alert">
                             <span style="color: black;" class="error" ng-show="registerForm.inputUsername.$error.required">
-                                Required</span>
+                                </span>
                              <span style="color: red;" class="error" ng-show="errorUsernameExist">
                                 Username already exist </span>
                              <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.minlength">
@@ -201,11 +201,11 @@
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
                         <input  ng-pattern="/^[a-zA-Z0-9]*$/" ng-trim="false" required ng-model="newPassword" class="form-control placeholder-no-fix reset-input"
-                               type="text" placeholder="Password"
+                               type="password" placeholder="Password"
                                name="password" ng-minlength=6 ng-maxlength=100/>
                         <div role="alert">
                             <span style="color: black;" class="error" ng-show="registerForm.password.$error.required">
-                                Required</span>
+                                </span>
                             <span style="color: red;" class="error" ng-show="registerForm.password.$error.minlength">
                                  The username is too short </span>
                             <span style="color: red;" class="error" ng-show="registerForm.password.$error.pattern">
