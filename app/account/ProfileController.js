@@ -59,28 +59,40 @@ angular.module('odeskApp')
 
         $scope.addSkill = function () {
 
+            console.log("addSkill");
+
             if ($scope.addSkillModel != '') {
+
+
+
                 $scope.skillsPreloader = true;
                 var next_key = "skill_" + ($scope.userSkills.length + 1);
                 var skills = {};
                 skills[next_key] = $scope.addSkillModel;
 
+                console.log("addSkill addSkillModel: "+$scope.addSkillModel);
+                console.log("addSkill addSkillModel: "+next_key);
+
                 ProfileService.updatePreferences(skills).then(function () {
                     //TODO need to process errors
+
+                    console.log("addSkill addSkillModel updatePreferences focus: "+next_key);
+                    console.log("addSkill addSkillModel updatePreferences focus: "+ $scope.addSkillModel);
+
                     $scope.skillsPreloader = false;
                     $scope.userSkills.push({'key': next_key, 'name': $scope.addSkillModel});
                     $scope.addSkillModel = "";
                     $('#skill-name').focus();
                 });
             }
-        }
+        };
 
         $scope.removeSkill = function (skill) {
             $scope.userSkills = _.without($scope.userSkills, _.findWhere($scope.userSkills,  skill));
             ProfileService.removePreference(new Array(skill.key)).then(function() {
                 //TODO need to process errors
             });
-        }
+        };
 
         $scope.addUsage = function () {
             $('#btn-preloader4').addClass('preloader');
@@ -123,45 +135,51 @@ angular.module('odeskApp')
                 $('#password1').css('border', '1px solid #a94442');
                 $('#password2').css('border', '1px solid #a94442');
             }
-        }
+        };
 
         $scope.updateProfile = function () {
+
+            var appValue = {
+                "firstName":$scope.firstName,
+                "lastName":$scope.lastName,
+                "email":$scope.email,
+                "phone":$scope.phone,
+                "country":$scope.country,
+                "employer":$scope.companyName,
+                "jobtitle":$scope.jobTitle,
+                "sales_can_contact": $scope.sales
+            }
+            ProfileService.updateProfile(appValue)
+                .then(function (profile, status) {
+                    //TODO process error
+                    $('#btn-preloader1').removeClass('preloader');
+                    //$('#btn1').removeClass('btn-disabled');
+                    var fullUserName;
+                    if (profile.attributes.firstName && profile.attributes.lastName) {
+                        fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;
+                    } else {
+                        fullUserName = profile.attributes.email;
+                    }
+                    $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
+                });
+
+
             var filter = /^[0-9-+]+$/;
            /* if (filter.test($scope.phone) && $scope.phone.length>=15 && $scope.phone.length<=20) {*/
-             if (filter.test($scope.phone) && $scope.phone.length>=10 && $scope.phone.length<=20) {
+
+           /*  if (filter.test($scope.phone) && $scope.phone.length>=10 && $scope.phone.length<=20) {
                 $('#phone').css('border', '1px solid #e5e5e5');
                 $('#btn-preloader1').addClass('preloader');
                 //$('#btn1').addClass('btn-disabled');
-                var appValue = {
-                    "firstName":$scope.firstName,
-                    "lastName":$scope.lastName,
-                    "email":$scope.email,
-                    "phone":$scope.phone,
-                    "country":$scope.country,
-                    "employer":$scope.companyName,
-                    "jobtitle":$scope.jobTitle,
-                    "sales_can_contact": $scope.sales
-                }
-                ProfileService.updateProfile(appValue)
-                    .then(function (profile, status) {
-                        //TODO process error
-                        $('#btn-preloader1').removeClass('preloader');
-                        //$('#btn1').removeClass('btn-disabled');
-                        var fullUserName;
-                        if (profile.attributes.firstName && profile.attributes.lastName) {
-                            fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;
-                        } else {
-                            fullUserName = profile.attributes.email;
-                        }
-                        $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
-                    });
+
+
             }
             else {
                 $('#phone').css('border', '1px solid #a94442');
 
                 return false;
-            }
+            }*/
 
-        }
+        };
 
     }]);
