@@ -82,7 +82,7 @@ angular.module('odeskApp', [
             }
 
             if (config.url.indexOf("/api/register/create") == -1 && config.url.indexOf("api/") != -1 ) {
-                console.log("request api/register/create");
+                //console.log("request api/register/create");
                 config.params = config.params || {};
                 angular.extend(config.params, {token: $cookies.token});
             }

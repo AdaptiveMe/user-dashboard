@@ -81,7 +81,7 @@ angular.module('odeskApp')
         ProfileService.getProfile().then(function (profile) {
             var fullUserName;
 
-            console.log("get firstname: "+profile.attributes.firstName);
+            //console.log("get firstname: "+profile.attributes.firstName);
 
             if (profile.attributes.firstName && profile.attributes.lastName) {
                 fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;

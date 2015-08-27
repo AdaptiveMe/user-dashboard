@@ -1,52 +1,29 @@
-<div class="page-md login" ng-controller="LoginCtrl">
+<div class="login" ng-controller="LoginCtrl">
 
-    <div id="wrap" style="padding-bottom: 0">
+    <div class="margin-bottom-40"></div>
 
-        <div class="loginLogo">
-            <a href="">
-                <img style="height: 3em;" src="images/adaptive_logo.png" alt=""/>
-            </a>
-        </div>
+    <div id="wrap">
 
-        <div class="menu-toggler sidebar-toggler">
-        </div>
+        <div class="loginContent margin-top-20" style="color:white">
 
-        <div class="loginContent" style="color: white;">
+            <img style="height: 3em;" src="images/adaptive_logo.png" alt=""/>
 
             <h3 class="form-title" style="margin-top: 24px; margin-bottom: 23px;">Login to your account</h3>
 
-            <!--<div class="alert alert-danger display-hide">-->
-
             <div ng-hide="!errorSubmit" class="alert alert-danger">
-                <!--<button class="close" data-close="alert"></button>-->
-
                 <button class="close" data-close="" ng-click="errorSubmit=false;"></button>
-
-			<span>
-			Enter valid username and password. </span>
+                <span>Enter valid username and password. </span>
             </div>
 
             <div ng-hide="!errorUsernameEmpty" class="alert alert-danger">
-                <!--<button class="close" data-close="alert"></button>-->
-
                 <button class="close" data-close="" ng-click="errorUsernameEmpty=false;"></button>
-
-			<span>
-			Empty username or password. </span>
+                <span>Empty username or password. </span>
             </div>
 
             <div ng-hide="!errorPasswordEmpty" class="alert alert-danger">
-                <!--<button class="close" data-close="alert"></button>-->
-
                 <button class="close" data-close="" ng-click="errorPasswordEmpty=false;"></button>
-
-			<span>
-			Empty username or password. </span>
+                <span>Empty username or password. </span>
             </div>
-
-            <!-- BEGIN LOGIN FORM -->
-
-            <!-- <form class="login-form"  ng-submit="submit()">-->
 
             <form ng-show="isLoginForm" class="login-form" ng-submit="submit()">
 
@@ -70,48 +47,35 @@
                     </div>
                 </div>
 
-                <!-- <div class="form-actions">
-                    <button  type="submit" class="btn blue pull-right" ng-click="submit()">login</button>
-
-                </div>-->
-
-                <div class="form-actions">
-                    <!--  <label class="checkbox" style="color: white;   font-size: 13px;" >-->
+                <div class="form-group">
 
                     <div class="md-checkbox">
                         <input type="checkbox" id="checkbox1" class="md-check reset-input" name="remember" value="1">
-                        <label style="color: white; font-size: 12px;" for="checkbox1">
+                        <label for="checkbox1">
                             <span class="inc"></span>
                             <span class="check"></span>
                             <span class="box"></span>
                             Remember me </label>
                     </div>
 
-                    <!--<input type="checkbox" name="remember" value="1"/> Remember me </label>-->
-
-                    <!-- <button type="submit" class="btn blue pull-right" ng-click="submit()">-->
-                    <button class="btn blue pull-right" ng-click="submit()" style="margin-top: -23px;">
+                    <button class="btn blue pull-right" ng-click="submit()">
                         Login <i class="m-icon-swapright m-icon-white"></i>
                     </button>
                 </div>
 
-                <div class="forget-password">
-                    <!-- <h4 style="color: white;margin-top: 61px; margin-bottom: 13px;color: white;">Forgot your password
-                         ?</h4>
+                <div class="clearfix"></div>
 
-                     <p style="color: white;">
-                         no worries, click <a href="javascript:;" id="forget-password">
-                         here </a>
-                         to reset your password.
-                     </p>-->
+                <div class="form-group">
+                    <h4>Forgot your password?</h4>
+
+                    <p>no worries, click <a href="javascript:;" id="forget-password"> here </a> to reset your password.
+                    </p>
                 </div>
 
-                <br><br>
-
-                <div class="create-account">
+                <div class="form-group">
                     <p style="color: white;">
                         Don't have an account yet ?&nbsp;
-                        <a ng-click="showRegisterForm()"  >
+                        <a ng-click="showRegisterForm()">
                             Create an account
                         </a>
                     </p>
@@ -119,13 +83,9 @@
 
             </form>
 
-            <!-- END LOGIN FORM -->
 
-            <!-- BEGIN REGISTRATION FORM -->
-
-            <!--<form   ng-submit="registerForm()" class="register-form">-->
-
-            <form  ng-show="isRegisterForm" name="registerForm" ng-submit="submitRegister()" enctype="multipart/form-data" class="register-form">
+            <form ng-show="isRegisterForm" name="registerForm" ng-submit="submitRegister()"
+                  enctype="multipart/form-data" class="register-form">
 
                 <h3>Sign Up</h3>
 
@@ -134,20 +94,16 @@
                 </p>
 
                 <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9"> Email </label>
-
-                    <!-- <div class="input-icon">
-                        <i class="fa fa-envelope"></i>
-                        <input ng-model="newEmail" class="form-control placeholder-no-fix reset-input" type="text" placeholder="Email" name="email"/>
-                    </div> -->
 
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
-                        <input pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]+" required name="inputEmail" ng-model="newEmail" class="form-control placeholder-no-fix reset-input"
-                               type="email" placeholder="Email" name="email" />
+                        <input pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]+" required name="inputEmail" ng-model="newEmail"
+                               class="form-control placeholder-no-fix reset-input"
+                               type="email" placeholder="Email" name="email"/>
+
                         <div role="alert">
-                            <span style="color: black;" class="error" ng-show="registerForm.inputEmail.$error.required">
+                            <span class="error" ng-show="registerForm.inputEmail.$error.required">
                                 </span>
                             <span style="color: red;" class="error" ng-show="registerForm.inputEmail.$error.email">
                                 Not valid email</span>
@@ -177,16 +133,20 @@
                                placeholder="Username" ng-minlength=3 ng-maxlength=15 required="required"/>
 
                         <div role="alert">
-                            <span style="color: black;" class="error" ng-show="registerForm.inputUsername.$error.required">
+                            <span style="color: black;" class="error"
+                                  ng-show="registerForm.inputUsername.$error.required">
                                 </span>
                              <span style="color: red;" class="error" ng-show="errorUsernameExist">
                                 Username already exist </span>
-                             <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.minlength">
+                             <span style="color: red;" class="error"
+                                   ng-show="registerForm.inputUsername.$error.minlength">
                                  The username is too short </span>
-                            <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.maxlength">
+                            <span style="color: red;" class="error"
+                                  ng-show="registerForm.inputUsername.$error.maxlength">
                                 The username is too long </span>
 
-                             <span style="color: red;" class="error" ng-show="registerForm.inputUsername.$error.pattern">
+                             <span style="color: red;" class="error"
+                                   ng-show="registerForm.inputUsername.$error.pattern">
                                 Not valid username pattern </span>
 
                         </div>
@@ -200,9 +160,11 @@
 
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
-                        <input  ng-pattern="/^[a-zA-Z0-9]*$/" ng-trim="false" required ng-model="newPassword" class="form-control placeholder-no-fix reset-input"
+                        <input ng-pattern="/^[a-zA-Z0-9]*$/" ng-trim="false" required ng-model="newPassword"
+                               class="form-control placeholder-no-fix reset-input"
                                type="password" placeholder="Password"
                                name="password" ng-minlength=6 ng-maxlength=100/>
+
                         <div role="alert">
                             <span style="color: black;" class="error" ng-show="registerForm.password.$error.required">
                                 </span>
@@ -225,9 +187,11 @@
                         and <a class="link-policy-terms">
                         Privacy Policy </a>-->
 
-                        <input type="checkbox"  value="{{val.id}}"  name="group-one" ng-model="registerForm.selectedTerms[val.id]" ng-required="!someSelected(registerForm.selectedTerms)"/>
+                        <input type="checkbox" value="{{val.id}}" name="group-one"
+                               ng-model="registerForm.selectedTerms[val.id]"
+                               ng-required="!someSelected(registerForm.selectedTerms)"/>
 
-                        I agree to the <a href=""  ng-click="showServiceTerms()" class="">
+                        I agree to the <a href="" ng-click="showServiceTerms()" class="">
                         Terms of Service </a>and <a ng-click="showPolicyTerms()" class=""> Privacy Policy </a>
 
                         <div role="alert">
@@ -244,7 +208,7 @@
                 </div>
                 <div class="form-actions">
 
-                    <button  ng-click="returnLoginForm()" id="register-back-btn" type="button" class="btn">
+                    <button ng-click="returnLoginForm()" id="register-back-btn" type="button" class="btn">
                         <i class="m-icon-swapleft"></i> Back
                     </button>
 
@@ -252,7 +216,8 @@
                         Sign Up <i class="m-icon-swapright m-icon-white"></i>
                     </button>-->
 
-                    <button ng-disabled="registerForm.$invalid || registerForm.$pristine" type="submit" class="btn blue pull-right">
+                    <button ng-disabled="registerForm.$invalid || registerForm.$pristine" type="submit"
+                            class="btn blue pull-right">
                         Sign Up <i class="m-icon-swapright m-icon-white"></i>
                     </button>
 
@@ -293,12 +258,6 @@
         </div>
 
         <div ng-show="serviceTerms" class="">
-            <!-- <h3>Terms of Services</h3>
-             <p>
-                 ...
-             </p>
-             <button type="button" id="back-btn2" class="btn">
-                 <i class="m-icon-swapleft"></i> Back </button>-->
 
             <!-- BEGIN TERMS SERVICES -->
             <div class="portlet ng-scope">
@@ -377,26 +336,27 @@
 
 <script>
 
-    /*jQuery('.register-form').hide();*/
-
-    jQuery('#register-btn').click(function () {
-        console.log("jQuery('#register-btn').click");
-
-        /* jQuery('.login-form').hide();
-        jQuery('.register-form').show();*/
-
-    });
-
-    jQuery('#register-back-btn').click(function () {
-     /*   jQuery('.login-form').show();
-        jQuery('.register-form').hide();*/
-    });
     $.backstretch(
             [
-                "images/1.jpg",
-                "images/2.jpg",
-                "images/3.jpg",
-                "images/4.jpg"
+                "images/bg_001.jpg",
+                "images/bg_002.jpg",
+                "images/bg_003.jpg",
+                "images/bg_004.jpg",
+                "images/bg_005.jpg",
+                "images/bg_006.jpg",
+                "images/bg_007.jpg",
+                "images/bg_008.jpg",
+                "images/bg_009.jpg",
+                "images/bg_010.jpg",
+                "images/bg_011.jpg",
+                "images/bg_012.jpg",
+                "images/bg_013.jpg",
+                "images/bg_014.jpg",
+                "images/bg_015.jpg",
+                "images/bg_016.jpg",
+                "images/bg_017.jpg",
+                "images/bg_018.jpg",
+                "images/bg_019.jpg"
             ],
             {
                 fade: 1000,
@@ -404,8 +364,7 @@
             }
     );
 
-    $('#footerText').css('background-color', '');
-    /*});*/
+    //$('#footerText').css('background-color', '');
 
     jQuery('.forget-form').hide();
 
@@ -464,59 +423,30 @@
         jQuery('.forget-form').show();
     });
 
-    jQuery('#back-btn').click(function () {
-       /* jQuery('.login-form').show();
-        jQuery('.forget-form').hide();*/
+    jQuery('#register-btn').click(function () {
+        console.log("jQuery('#register-btn').click");
     });
 
-    /*jQuery('.service-terms').hide();
-    jQuery('.policy-terms').hide();*/
+    jQuery('#register-back-btn').click(function () {
+        jQuery('.loginContent').show();
+    });
 
     jQuery('.link-service-terms').click(function () {
-        /* jQuery('.login-form').hide();
-         jQuery('.forget-form').hide();
-         jQuery('.register-form').hide();*/
         jQuery('.loginContent').hide();
-       /* jQuery('.service-terms').show();*/
     });
     jQuery('.link-policy-terms').click(function () {
-        /*  jQuery('.login-form').hide();
-         jQuery('.forget-form').hide();
-         jQuery('.register-form').hide();*/
         jQuery('.loginContent').hide();
-        /*jQuery('.policy-terms').show();*/
+    });
+
+    jQuery('#back-btn').click(function () {
+        jQuery('.login-form').show();
+        jQuery('.forget-form').hide();
     });
     jQuery('#back-btn2').click(function () {
-        /* jQuery('.login-form').hide();
-         jQuery('.register-form').show();
-         jQuery('.forget-form').hide();*/
         jQuery('.loginContent').show();
-       /* jQuery('.policy-terms').hide();
-        jQuery('.service-terms').hide();*/
     });
     jQuery('#back-btn3').click(function () {
-        /* jQuery('.login-form').hide();
-         jQuery('.register-form').show();
-         jQuery('.forget-form').hide();*/
         jQuery('.loginContent').show();
-       /* jQuery('.policy-terms').hide();
-        jQuery('.service-terms').hide();*/
     });
-
-    /*(document).ready(function(){
-        jQuery('#register-btn').click(function () {
-            console.log("jQuery('#register-btn').click(function ()");
-            jQuery('.login-form').hide();
-            jQuery('.register-form').show();
-        });
-    });*/
-
-    /*$(function () {
-        $("#register-btn").on('click',function () {
-            console.log("jQuery('#register-btn').click(function ()");
-            jQuery('.login-form').hide();
-            jQuery('.register-form').show();
-        });
-    });*/
 
 </script>

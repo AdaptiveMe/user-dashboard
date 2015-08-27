@@ -1376,7 +1376,7 @@ a.message{
     top: 0;}
 
 .sub li:before {
-    content: "• ";
+    content: "ï¿½ ";
     list-style: none;
     font-size: 26px;
     color:#69AAE4; /* or whatever color you prefer */
@@ -2142,10 +2142,6 @@ html[dir="rtl"] .select2-search input {
     margin: 0px 0px 20px 0px;
     /* font-weight: 300; */
     font-family: "Open Sans", sans-serif;
-}
-
-.clear-padding{
-    padding: 0px; !important;
 }
 
 .dropdown-title{
