@@ -1,0 +1,57 @@
+/* here you can put your own css to customize and override the theme */
+
+@media (max-width: 767px) {
+
+    .page-header.navbar {
+        height: 68px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .page-header-fixed.page-header-fixed-mobile .page-container {
+        margin-top: 68px !important;
+    }
+}
+
+.shadow-color{
+    color: #FFFFFF;
+    background-color: #828282;
+}
+
+.dashboard-stat.shadow-color .more{
+    color: #FFFFFF;
+    background-color: #1E1F29;
+}
+.title-text-box{
+    text-overflow: ellipsis; /* will make [...] at the end */
+    width: 100%; /* change to your preferences */
+    white-space: nowrap; /* paragraph to one line */
+    overflow:hidden; /* older browsers */
+}
+
+.text-box-project{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.clear-padding{
+    padding: 0px; !important;
+}
+
+
+.text-settings-project-box{
+    /*padding-left: 6px;*/
+    font-family: "Open Sans", sans-serif;
+    font: italic;
+    font-size: 10px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+@media( max-width: 350px){
+    .text-settings-project-box{
+        font-size: 8px;
+    }
+}

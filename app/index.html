@@ -14,82 +14,36 @@
     <title>Adaptive Dashbar</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!--<link rel="icon" href="favicon.ico" type="image/x-icon">-->
-    <link rel="icon" href="adaptiveme_imago_me-300x244.png" type="image/png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- build:css(app) styles/vendor.css -->
-    <!-- bower:css -->
-
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
-    <link rel="stylesheet" href="bower_components/select2/select2.css">
-    <link rel="stylesheet" href="bower_components/morris.js/morris.css">
-    <!--<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">-->
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/codemirror/addon/lint/lint.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/codemirror/addon/fold/foldgutter.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/codemirror/theme/mdn-like.css">-->
-    <link rel="stylesheet" type="text/css" href="bower_components/card/lib/css/card.css">
-    <!-- endbower -->
+    <link href="scripts/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link href="scripts/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <!--<link rel="stylesheet" type="text/css" href="styles/codemirror.css">-->
-
-    <!-- bootstrap.css modified -->
-    <link rel="stylesheet" href="styles/bootstrap-dracula.css"/>
-
-    <!-- main.css modified -->
-    <link rel="stylesheet" href="styles/main-dracula.css">
-    <link rel="stylesheet" href="styles/loading-bar.css">
-
-    <!----------------------------- metronic css-------------------------------->
-
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-          type="text/css"/>
-    <link href="scripts/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="scripts/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <!--  <link href="styles/login-soft.css" rel="stylesheet" type="text/css"/>-->
-    <!-- END PAGE LEVEL SCRIPTS -->
-    <!-- BEGIN THEME STYLES -->
-    <link href="styles/components-md-dracula.css" id="style_components" rel="stylesheet" type="text/css"/>
-    <link href="styles/plugins-md.css" rel="stylesheet" type="text/css"/>
-    <link href="styles/layout.css" rel="stylesheet" type="text/css"/>
-    <!-- <link id="style_color" href="styles/themes/default.css" rel="stylesheet" type="text/css"/>-->
-    <link href="styles/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/login-soft.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/new/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="styles/new/plugins-md.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/new/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/new/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="styles/new/custom.css" rel="stylesheet" type="text/css"/>
     <link href="styles/profile.css" rel="stylesheet" type="text/css"/>
-
-    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-    <link href="styles/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
-    <link href="styles/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
-    <link href="styles/jqvmap.css" rel="stylesheet" type="text/css"/>
-
-    <!-- END PAGE LEVEL PLUGIN STYLES -->
-
-    <link href="styles/tasks.css" rel="stylesheet" type="text/css"/>
-    <!--<link href="styles/grey.css" rel="stylesheet" type="text/css" id="style_color"/>-->
-    <!--<link href="styles/dark.css" rel="stylesheet" type="text/css" id="style_color"/>-->
-
-    <!-- dark.css modified -->
-    <link href="styles/dracula.css" rel="stylesheet" type="text/css" id="style_color"/>
-    <!--<link href="styles/jqvmap.css" rel="stylesheet" type="text/css"/>-->
-
     <!-- endbuild -->
 
 </head>
 
 <body ng-controller="MainCtrl" ng-app="odeskApp" ng-cloak
-      class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed">
+      class="page-md page-footer-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed">
 
 <!--TODO: change ng-if -->
 <!--BEGIN LOGIN PAGE-->
+
 <div ng-if="!isLoginPage">
     <!--<div  ng-include="'views/home.html'"></div>-->
     <!--<body class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed" ng-app="odeskApp" ng-controller="MainCtrl">-->
@@ -101,14 +55,15 @@
 
             <div class="page-logo">
                 <!-- <a href="index.html">-->
-                <a>
-                    <!--
-                                    <img src="../images/adaptive_logo_small_white.png" alt="logo" class="logo-default">
-                    -->
-                    <div class="logo-text logo-default">
+                <a ng-href="#/dashbar">
+
+                    <img src="images/DashBar_logo_Beta_v2.png" alt="logo" class="logo-default">
+
+                    <!--<div class="logo-text logo-default">
                         DASHBAR
-                    </div>
+                    </div>-->
                 </a>
+
                 <div class="menu-toggler sidebar-toggler">
                     <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
                 </div>
@@ -124,78 +79,13 @@
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN PAGE ACTIONS -->
             <!-- DOC: Remove "hide" class to enable the page header actions -->
-            <div class="page-actions hide">
+            <div class="page-actions">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-circle red-pink dropdown-toggle"
-                            data-toggle="dropdown">
-                        <i class="icon-bar-chart"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i
-                            class="fa fa-angle-down"></i>
+                    <button type="button" class="btn btn-circle green-haze">
+                        <a href="/ide" style="color: white; text-decoration: none">
+                            <i class="glyphicon-cloud"></i>&nbsp;<span class="hidden-sm hidden-xs">cloud ide</span>
+                        </a>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-user"></i> New User
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-present"></i> New Event <span
-                                    class="badge badge-success">4</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-basket"></i> New order
-                            </a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-flag"></i> Pending Orders <span
-                                    class="badge badge-danger">4</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-users"></i> Pending Users <span
-                                    class="badge badge-warning">12</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-circle green-haze dropdown-toggle"
-                            data-toggle="dropdown">
-                        <i class="icon-bell"></i>&nbsp;<span class="hidden-sm hidden-xs">Post&nbsp;</span>&nbsp;<i
-                            class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-docs"></i> New Post </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-tag"></i> New Comment </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-share"></i> Share </a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-flag"></i> Comments <span class="badge badge-success">4</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-users"></i> Feedbacks <span class="badge badge-danger">2</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <!-- END PAGE ACTIONS -->
@@ -222,26 +112,12 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
-                                <!--   <li>
-                                       <a ng-href="">
-                                           <i class="icon-graph"></i> Status</a>
-                                   </li>-->
-
-                                <!-- <li class="divider">-->
                                 <li>
                                     <a ng-href="#/account">
                                         <i class="icon-user"></i> Account </a>
                                 </li>
-
-                                <li class="divider">
-                                </li>
-                                <!-- <li>
-                                   <a href="">
-                                     <i class="icon-lock"></i> Lock Screen </a>
-                                 </li>-->
                                 <li>
-                                    <a ng-click="logout()">
-                                        <i class="icon-key"></i> Log Out </a>
+                                    <a ng-click="logout()"> <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
                         </li>
@@ -255,160 +131,96 @@
         <!-- END HEADER INNER -->
     </div>
     <!-- END HEADER -->
+
     <!-- BEGIN CONTAINER -->
-    <!-- <div class="page-container" style="margin-bottom: -35px;">-->
-    <div class="page-container" style="margin-bottom: 0px;">
-        <div class="page-container">
-            <!-- BEGIN SIDEBAR -->
-            <div class="page-sidebar-wrapper">
-                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <div class="page-sidebar navbar-collapse collapse">
-                    <!-- BEGIN SIDEBAR MENU -->
-                    <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
-                        data-auto-scroll="true" data-slide-speed="200">
-                        <li id="sidebar-item-1" class="active">
-                            <a id="itemTopMenu3" ng-href="#/dashbar">
-                                <i class="icon-layers"></i>
-                                <span class="title">Dashbar</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li id="sidebar-item-2">
-                            <a ng-href="#/projects">
-                                <i class="icon-docs"></i>
-                                <span class="title">Projects</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li id="sidebar-item-3">
-                            <a ng-href="#/status">
-                                <i class="icon-speedometer"></i>
-                                <span class="title">Status Server</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <!--<li>
-                          <a id="itemTopMenu2" ng-href="#/runner" >
-                            <i class="icon-speedometer"></i>
-                            <span class="title">Runners</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a id="itemTopMenu3" ng-href="#/factories" >
+    <div class="clearfix"></div>
+
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <ul class="page-sidebar-menu page-sidebar-menu-compact page-sidebar-menu-hover-submenu "
+                    data-keep-expanded="false"
+                    data-auto-scroll="true" data-slide-speed="200">
+                    <li id="sidebar-item-1" class="active">
+                        <a id="itemTopMenu3" ng-href="#/dashbar">
                             <i class="icon-layers"></i>
-                            <span class="title">Factories</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a id="itemTopMenu4" ng-href="#/organizations" >
-                            <i class="icon-support"></i>
-                            <span class="title">Workspaces</span>
-                          </a>
-                        </li>-->
-                    </ul>
-                    <!-- END SIDEBAR MENU -->
-                </div>
+                            <span class="title">Dashbar</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li id="sidebar-item-2">
+                        <a ng-href="#/projects">
+                            <i class="icon-docs"></i>
+                            <span class="title">Projects</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li id="sidebar-item-3">
+                        <a ng-href="#/status">
+                            <i class="icon-speedometer"></i>
+                            <span class="title">Server Metrics</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
             </div>
-            <!-- END SIDEBAR -->
+        </div>
+        <!-- END SIDEBAR -->
 
-            <!-- BEGIN CONTENT -->
+        <!-- BEGIN CONTENT -->
 
-            <div class="page-content-wrapper page-content-wrapper-color">
+        <div class="page-content-wrapper page-content-wrapper-color">
 
-                <div class="page-content ">
-                    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="page-content ">
+                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
-                    <!-- <div id="wrap" >-->
-                    <div id="wrap">
-                        <div ng-view=""></div>
-                    </div>
-
-                    <!-- BEGIN DASHBOARD STATS -->
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-
-                        </div>
-                    </div>
-
+                <!-- <div id="wrap" >-->
+                <div id="wrap">
+                    <div ng-view=""></div>
                 </div>
 
+                <!-- BEGIN DASHBOARD STATS -->
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                </div>
+
             </div>
-            <!-- END CONTENT -->
-            <!-- BEGIN QUICK SIDEBAR -->
-            <!--Cooming Soon...-->
-            <!-- END QUICK SIDEBAR -->
+
+        </div>
+        <!-- END CONTENT -->
+        <!-- BEGIN QUICK SIDEBAR -->
+        <!--Cooming Soon...-->
+        <!-- END QUICK SIDEBAR -->
+    </div>
+
+    <div class="page-footer">
+        <div class="page-footer-inner" style=" text-align: center; display: block;float: initial; ">
+            &#169; 2015 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Catalonia
         </div>
     </div>
-    <!-- END CONTAINER -->
-    <!-- <script>
-       jQuery(document).ready(function() {
-         // init background slide images
-         $.backstretch([
-                   "images/bg-white.png",
-                 ], {
-                 }
-         );
-       });
-     </script>-->
 </div>
-<!--END LOGIN PAGE-->
+
 <div ng-if="isLoginPage">
-    <!--<div ng-cloak ng-if="isLoginPage" style="height: 83%;">-->
-    <!--<div  ng-include="'views/login.html'"></div>-->
     <div ng-view=""></div>
 </div>
-<!--BEGIN MAIN PAGE-->
-<div class="page-footer">
-    <div class="page-footer-inner" style=" text-align: center; display: block;float: initial; ">
-        <!--
-              2014 © Metronic by keenthemes. <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
-        -->
-        &#169; 2015 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Catalonia
-    </div>
-
-</div>
-<!--END MAIN PAGE-->
-<!-- Google Analytics: -->
-<script>
-    var _gaq = _gaq || [];
-    if (window.location.hostname == 'localhost') {//patch for tracking localhost in chrome
-        _gaq.push(['_setDomainName', 'none']);
-    }
-    _gaq.push(
-            ['_setAccount', "UA-37306001-1"], // codenvy account
-            ['_trackPageview'],
-            ['exo._setAccount', "UA-1292368-18"], // eXo account
-            ['exo._trackPageview']
-    );
-    (function (d, t) {
-        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g, s)
-    }(document, 'script'));
-</script>
-
-<!-- Marketo Script: -->
-<script type="text/javascript">
-    document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<script>
-    Munchkin.init('519-AYY-549');
-</script>
 
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -571,40 +383,11 @@
 
     jQuery(document).ready(function () {
 
-        /* Metronic.init(); // init metronic core components
-         Layout.init(); // init current layout
-         Demo.init();
-         Index.init();
-         Index.initDashboardDaterange();
-         Index.initJQVMAP(); // init index page's custom scripts/*
-         Index.initCalendar(); // init index page's custom scripts
-         Index.initCharts(); // init index page's custom scripts
-         Index.initChat();
-         Index.initMiniCharts();
-         Tasks.initDashboardWidget();*/
-
-        Metronic.init(); // init metronic core componets
-        Layout.init(); // init layout
-        Demo.init(); // init demo features
+        Metronic.init();
+        Layout.init();
         Index.init();
-        /*Index.init();
-       /!* Index.initDashboardDaterange();*!/
-        Index.initJQVMAP(); // init index page's custom scripts*/
-        /*Index.initCalendar(); */// init index page's custom scripts
-
-      /*  Tasks.initDashboardWidget();*/
-
-        // Index.initDashboardDaterange();
-        // Index.initJQVMAP(); // init index page's custom scripts
-        // Index.initCalendar(); // init index page's custom scripts
-        // Index.initCharts(); // init index page's custom scripts
-        //Index.initChat();
-        //Index.initMiniCharts();
-        // Tasks.initDashboardWidget();
-
     });
 
-    /*$('#footerText').removeAttr('background-color');*/
 
     $(window).resize(function () {
         if ($('body').width() > 991) {
@@ -640,47 +423,6 @@
 
         }
     });
-
-    /*page-sidebar-menu*/
-
-</script>
-
-
-<script type="text/javascript">
-    /*
-     $(function() {
-
-    var data = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
-
-     $.plot("#placeholder", [ data ], {
-         series: {
-         bars: {
-             show: true,
-             barWidth: 0.6,
-             align: "center"
-        }
-     },
-         xaxis: {
-             mode: "categories",
-             tickLength: 0
-         }
-     });
-
-     // Add the Flot version string to the footer
-
-     $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
-     });*/
-
-    /*$(function () {
-        var disk1 = [[0, 3], [4, 8], [8, 5], [9, 13]];
-        $.plot($("#placeholder"), [{
-                    label: "Disk 1",
-                    data: disk1,
-                    lines: {show: true, fill: true}
-                }],
-                {legend: {show: true, container: '#legendholder'}}
-        );
-    });*/
 
 </script>
 

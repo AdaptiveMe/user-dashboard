@@ -112,15 +112,15 @@
                                     <arg value="onprem" />
                                 </exec>
                                 <!-- Change base HREF of the application that will be hosted on /dashboard -->
-                                <replace file="${basedir}/target/user-dashboard-war/index.html">
+                                <!--replace file="${basedir}/target/user-dashboard-war/index.html">
                                     <replacetoken><![CDATA[<base href="/">]]></replacetoken>
                                     <replacevalue><![CDATA[<base href="/dashboard/">]]></replacevalue>
-                                </replace>
+                                </replace-->
                                 <!-- Change base HREF of the application that will be hosted on /dashboard -->
-                                <replace file="${basedir}/target/user-dashboard-onprem-war/index.html">
+                                <!--replace file="${basedir}/target/user-dashboard-onprem-war/index.html">
                                     <replacetoken><![CDATA[<base href="/">]]></replacetoken>
                                     <replacevalue><![CDATA[<base href="/dashboard/">]]></replacevalue>
-                                </replace>
+                                </replace-->
                                 <!-- Enable back development mode -->
                                 <replace file="${basedir}/app/scripts/app.js">
                                     <replacetoken><![CDATA[var DEV = false;]]></replacetoken>
@@ -136,7 +136,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
@@ -167,7 +167,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 </project>

@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
-                    livereload: false
+                    livereload: true
                 }
             },
             jsTest: {
@@ -46,11 +46,12 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    livereload: false
+                    livereload: true
                 },
                 files: [
                     '<%= yeoman.app %>/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
+                    '.tmp/styles/new/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
@@ -62,7 +63,7 @@ module.exports = function (grunt) {
                 port: 9000,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: '0.0.0.0',
-                livereload: false
+                livereload: true
             },
             // e.g.: Use grunt serve --codenvy-url=my.adaptive.me --codenvy-port=80 --no-codenvy-https --codenvy-chg-orig to test with Vagrant
             proxies: [{
