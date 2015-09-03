@@ -49,26 +49,13 @@ angular.module('odeskApp')
 
         $scope.submit = function () {
 
-            // document.getElementById("loading-bar-spinner").style.display = 'block';
-
-            //console.log("$scope.username: "+$scope.username );
-            //console.log("$scope.password: "+$scope.password );
-
             if ($scope.username.length == 0 || $scope.password.length == 0) {
                 $scope.errorUsernameEmpty = true;
                 $scope.errorSubmit = false;
-                //document.getElementById("loading-bar-spinner").style.display = 'none';
             }
             else {
                 $scope.errorUsernameEmpty = false;
 
-                /* if( $scope.password.indexOf("")!== -1) {
-                 $scope.errorPasswordEmpty = true;
-                 $scope.errorSubmit = false;
-
-                 }else {
-                 $scope.errorPasswordEmpty = false;
-                 }*/
                 $http({
                     url: "/api/auth/login",
                     method: "POST",
@@ -95,36 +82,11 @@ angular.module('odeskApp')
                     $location.path("/dashbar");
 
                 }, function (response) { // optional
-                    //console.log(response);
-                    //console.log("error on login: "+response);
-
-                    //loading-bar-spinner
-
-                    //document.getElementById("loading-bar-spinner").style.display = 'none';
-
-                    //$('#loading-bar-spinner').remove();
 
                     $scope.errorSubmit = true;
                     $scope.errorPasswordEmpty = false;
                     $scope.errorUserEmpty = false;
-                    //console.log("error on login: "+error);
-                    //alert('error');
 
-                    /*if(response.status === 400) {
-                     $scope.errorUsernameEmpty = true;
-                     }else
-                     $scope.errorUsernameEmpty = false;
-
-                     if (response.status === 404){
-                     $scope.errorSubmit = true;
-                     }else
-                     $scope.errorSubmit = false;
-
-                     if (response.status === 401){
-
-                     }*/
-
-                    // console.log(response);
                 });
 
             }
@@ -222,37 +184,6 @@ angular.module('odeskApp')
 
             else {
 
-                /* isValidatedPassword = true;
-                 $scope.errorUsernameEmpty = false;
-                 var uploadUrl = "/api/register/create";
-                 $http({
-                 method: 'POST',
-                 url: uploadUrl,
-                 data: $.param({email: $scope.newEmail, username: $scope.newUsername, password: $scope.newPassword}),
-                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                 }).success(
-                 ).error(
-                 );*/
-
-                /* $http({
-
-                 url: "/api/register/create",
-                 method: "POST",
-                 transformRequest: angular.identity,
-                 /!* data: {email: $scope.newEmail,  username: $scope.newUsername, password: $scope.newPassword},*!/
-                 /!* headers: {'Content-Type': 'multipart/form-data'}*!/
-                 headers: { 'Content-Type': undefined }
-
-                 }).then(function (response) { // success
-
-                 console.log("register create then response: "+response);
-
-                 }, function (response) {
-
-                 console.log("register create normal response: "+response);
-
-                 }); */
-
             }
             return false;
 
@@ -278,35 +209,33 @@ angular.module('odeskApp')
             console.log("showRegisterForm");
             $scope.isLoginForm = false;
             $scope.isRegisterForm = true;
+            $location.path("/register");
         };
 
         $scope.returnLoginForm = function (){
+            $location.path("/login");
             console.log("returnLoginForm");
-            $scope.isLoginForm = true;
-            $scope.isRegisterForm = false;
+
         };
 
         $scope.returnRegisterForm = function (){
             console.log("returnRegisterForm");
-            $scope.serviceTerms = false;
-            $scope.policyTerms = false;
-            $scope.isLoginForm = false;
-            $scope.isRegisterForm = true;
+
+            $location.path("/register");
+
         };
 
         $scope.showServiceTerms = function(){
             console.log("showServiceTerms");
 
-            $scope.serviceTerms = true;
-            $scope.isLoginForm = false;
-            $scope.isRegisterForm = false;
+            $location.path("/terms-of-service");
+
 
         };
         $scope.showPolicyTerms = function(){
             console.log("showPolicyTerms");
-            $scope.policyTerms = true;
-            $scope.isLoginForm = false;
-            $scope.isRegisterForm = false;
+            $location.path("/privacy");
+
         };
 
     })
