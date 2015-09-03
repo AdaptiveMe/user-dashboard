@@ -116,6 +116,9 @@ angular.module('odeskApp', [
                     else if ($location.path().indexOf('privacy') != -1) {
                         $location.path('/privacy');
                     }
+                    else if ($location.path().indexOf('resetPassword') != -1) {
+                        $location.path('/resetPassword');
+                    }
                     /* else if ($location.path().indexOf('dashbar') != -1) {
 
                     }*/
@@ -162,6 +165,9 @@ angular.module('odeskApp', [
                 }
                 else if ($location.path().indexOf('privacy') != -1) {
                     $location.path('/privacy');
+                }
+                else if ($location.path().indexOf('resetPassword') != -1) {
+                    $location.path('/resetPassword');
                 }
                 /*else if ($location.path().indexOf('dashbar') != -1) {
 
@@ -243,13 +249,15 @@ angular.module('odeskApp', [
             templateUrl: BASE_URL + 'views/privacy.html',
             controller: 'LoginCtrl'
         })
-
-
         .when('/policy-terms', {
             templateUrl: BASE_URL + 'views/policy-terms.html'
         })
         .when('/service-terms', {
             templateUrl: BASE_URL + 'views/service-terms.html'
+        })
+        .when('/resetPassword', {
+            templateUrl: BASE_URL + 'views/resetPassword.html',
+            controller: 'LoginCtrl'
         })
         .otherwise({
             redirectTo: DEFAULT

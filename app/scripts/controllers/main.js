@@ -21,19 +21,16 @@ angular.module('odeskApp')
 
             if (location) {
                 var newLocation = next;
-                if (newLocation.indexOf("login") !== -1 || newLocation.indexOf("service-terms") !== -1 || newLocation.indexOf("policy-terms") !== -1 ) {
+                if (newLocation.indexOf("login") !== -1 ||
+                    newLocation.indexOf("service-terms") !== -1 ||
+                    newLocation.indexOf("policy-terms") !== -1 ||
+                    newLocation.indexOf ("register") !== -1 ||
+                    newLocation.indexOf ("forgotPassword") !== -1 ||
+                    newLocation.indexOf ("terms-of-service") !== -1 ||
+                    newLocation.indexOf ("privacy") !== -1 ||
+                    newLocation.indexOf ("resetPassword") !== -1) {
                     $scope.isLoginPage = true;
-                } else if ( newLocation.indexOf ("dashboard") !== -1) {
-                    $scope.isLoginPage = false;
-                }
-                else if ( newLocation.indexOf ("register") !== -1 ||  newLocation.indexOf ("forgotPassword") !== -1 || newLocation.indexOf ("terms-of-service") !== -1 || newLocation.indexOf ("privacy") !== -1) {
-                    $scope.isLoginPage = true;
-                }
-               /* else if ( newLocation.indexOf ("forgotPassword") !== -1) {
-                    $scope.isLoginPage = true;
-                }*/
-
-                else {
+                } else {
                     $scope.isLoginPage = false;
                 }
             }
