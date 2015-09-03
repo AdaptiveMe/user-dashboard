@@ -37,12 +37,12 @@ angular.module('odeskApp', [
 ]).config(function (cfpLoadingBarProvider) {
 
     /*
-    this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
-    this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';*/
+     this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
+     this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';*/
     cfpLoadingBarProvider.includeBar = false;
     /*cfpLoadingBarProvider.loadingBarTemplate = '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
-    cfpLoadingBarProvider.spinnerTemplate= '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
-    */
+     cfpLoadingBarProvider.spinnerTemplate= '<div ng-spinner-bar="" class="page-spinner-bar hide">  <div class="bounce1"></div>  <div class="bounce2"></div> <div class="bounce3"></div>  </div>';
+     */
 
 }).constant('udCodemirrorConfig', {
 
@@ -81,20 +81,48 @@ angular.module('odeskApp', [
                 angular.extend(config.params, {token: $cookies.token});
             }
 
-            if (config.url.indexOf("/api/register/create") == -1 && config.url.indexOf("api/") != -1 ) {
+            if (config.url.indexOf("/api/register/create") == -1 && config.url.indexOf("api/") != -1) {
                 //console.log("request api/register/create");
                 config.params = config.params || {};
                 angular.extend(config.params, {token: $cookies.token});
             }
 
-            if ( typeof($cookies.token) === 'undefined'   )  {
+            if (typeof($cookies.token) === 'undefined') {
 
                 // $log.info('Redirect to login page.');
-                if (  $location.path().indexOf('service-terms') == -1) {
-                    if ( $location.path().indexOf('policy-terms') == -1) {
-                        console.log('Undefined token -> Redirect to login page, current page: ' + $location.path() + ', contains: ' + $location.path().indexOf('service-terms'));
-                        $location.path('/login');
+                /*if ($location.path().indexOf('service-terms') == -1) {
+                    if ($location.path().indexOf('policy-terms') == -1) {
+                        if ($location.path().indexOf('register') == -1) {
+                            console.log('Undefined token -> Redirect to login page, current page: ' + $location.path() + ', contains: ' + $location.path().indexOf('service-terms'));
+                            $location.path('/login');
+                        } else
+                            $location.path('/register');
                     }
+                }*/
+
+                if (typeof($cookies.token) === 'undefined') {
+
+                    if ($location.path().indexOf('service-terms') != -1) {
+                    }
+                    else if ($location.path().indexOf('register') != -1) {
+                        $location.path('/register');
+                    }
+                    else if ($location.path().indexOf('forgotPassword') != -1) {
+                        $location.path('/forgotPassword');
+                    }
+                    else if ($location.path().indexOf('terms-of-service') != -1) {
+                        $location.path('/terms-of-service');
+                    }
+                    else if ($location.path().indexOf('privacy') != -1) {
+                        $location.path('/privacy');
+                    }
+                    /* else if ($location.path().indexOf('dashbar') != -1) {
+
+                    }*/
+
+                    else
+                        $location.path('/login');
+
                 }
 
             }
@@ -103,21 +131,51 @@ angular.module('odeskApp', [
         response: function (response) {
 
             //console.log("response AuthInterceptor: " + response );
-            if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 ||  typeof($cookies.token) === 'undefined' ) {
-                if (  $location.path().indexOf('service-terms') == -1) {
-                    if ( $location.path().indexOf('policy-terms') == -1) {
-                        console.log('Error status response -> Redirect to login page.');
-                        $location.path('/login');
+            if (response.status == 401 || response.status == 403 || response.status == 400 || response.status == 404 || typeof($cookies.token) === 'undefined') {
+
+              /*  if ($location.path().indexOf('service-terms') == -1) {
+                    if ($location.path().indexOf('policy-terms') == -1) {
+
+                        if ($location.path().indexOf('register') == -1) {
+
+                            console.log('Error status response -> Redirect to login page.');
+                            $location.path('/login');
+
+                        } else
+                            $location.path('/register');
                     }
                 }
-                }else {
+            } else {
+               */
+
+
+                if ($location.path().indexOf('service-terms') != -1) {
                 }
+                else if ($location.path().indexOf('register') != -1) {
+                    $location.path('/register');
+                }
+                else if ($location.path().indexOf('forgotPassword') != -1) {
+                    $location.path('/forgotPassword');
+                }
+                else if ($location.path().indexOf('terms-of-service') != -1) {
+                    $location.path('/terms-of-service');
+                }
+                else if ($location.path().indexOf('privacy') != -1) {
+                    $location.path('/privacy');
+                }
+                /*else if ($location.path().indexOf('dashbar') != -1) {
+
+                }*/
+                else
+                    $location.path('/login');
+
+            }
 
             return response || $q.when(response);
 
         }
         ,
-        responseError: function (rejection){
+        responseError: function (rejection) {
 
             //$location.path('/login');
             //console.log(rejection.status);
@@ -145,7 +203,8 @@ angular.module('odeskApp', [
 
     $routeProvider
         .when('/status', {
-            templateUrl: BASE_URL + 'views/status.html'
+            templateUrl: BASE_URL + 'views/status.html',
+            controller: 'StatusCtrl'
         })
         .when('/dashbar', {
             templateUrl: BASE_URL + 'views/dashbar.html'
@@ -162,10 +221,30 @@ angular.module('odeskApp', [
             templateUrl: BASE_URL + 'account/profile.html',
             controller: 'ProfileCtrl'
         })
+
+
         .when('/login', {
             templateUrl: BASE_URL + 'views/login.html',
             controller: 'LoginCtrl'
         })
+        .when('/register', {
+            templateUrl: BASE_URL + 'views/register.html',
+            controller: 'LoginCtrl'
+        })
+        .when('/forgotPassword', {
+            templateUrl: BASE_URL + 'views/forgotPassword.html',
+            controller: 'LoginCtrl'
+        })
+        .when('/terms-of-service', {
+            templateUrl: BASE_URL + 'views/terms-of-service.html',
+            controller: 'LoginCtrl'
+        })
+        .when('/privacy', {
+            templateUrl: BASE_URL + 'views/privacy.html',
+            controller: 'LoginCtrl'
+        })
+
+
         .when('/policy-terms', {
             templateUrl: BASE_URL + 'views/policy-terms.html'
         })
@@ -207,5 +286,5 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function ($scope, $timeout, $transition, $q) {
 
     }]).directive('carousel', [function () {
-        return { }
+        return {}
     }]);

@@ -196,3 +196,53 @@ Login page
     font-size: 13px;
   }
 }
+
+/* Wrap content of terms of service and privacy */
+
+.termsContent {
+  background: url(../images/bg-white-lock.png) repeat;
+  width: 280px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+}
+
+@media (max-width: 400px){
+  .termsContent{
+    width: 280px;
+  }
+}
+
+@media (min-width: 450px ){
+  .termsContent{
+    width: 460px;
+  }
+}
+@media (min-width: 750px){
+  .termsContent{
+    width: 650px;
+  }
+}
+
+.chart2 {
+  display: block;
+  /*width: 414px;*/
+  height: 152px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chartPiePlaceholder {
+  display: block;
+  /* width: 342px;*/
+  height: 268px;
+  margin-right: auto;
+  margin-left: auto;
+}

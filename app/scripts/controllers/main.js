@@ -25,7 +25,15 @@ angular.module('odeskApp')
                     $scope.isLoginPage = true;
                 } else if ( newLocation.indexOf ("dashboard") !== -1) {
                     $scope.isLoginPage = false;
-                } else {
+                }
+                else if ( newLocation.indexOf ("register") !== -1 ||  newLocation.indexOf ("forgotPassword") !== -1 || newLocation.indexOf ("terms-of-service") !== -1 || newLocation.indexOf ("privacy") !== -1) {
+                    $scope.isLoginPage = true;
+                }
+               /* else if ( newLocation.indexOf ("forgotPassword") !== -1) {
+                    $scope.isLoginPage = true;
+                }*/
+
+                else {
                     $scope.isLoginPage = false;
                 }
             }
