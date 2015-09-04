@@ -16,7 +16,7 @@
 'use strict';
 
 angular.module('odeskApp')
-    .controller('LoginCtrl', function ($scope, $rootScope, $routeParams, $timeout, $http, $httpProvider, $q, $location, $cookies, $window, ProfileService) {
+    .controller('LoginCtrl', function ($scope, $rootScope, $routeParams, $timeout, $http, $q, $location, $cookies, $window, ProfileService) {
 
         $scope.submitLogin = function () {
 
@@ -130,9 +130,6 @@ angular.module('odeskApp')
                 }).then(function (response) {
 
                     $cookies.token = response.data.value;
-
-                    // send the cookies in the request
-                    $httpProvider.defaults.withCredentials = true;
 
                     var deferred = $q.defer();
 

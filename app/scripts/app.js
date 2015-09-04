@@ -34,7 +34,9 @@ angular.module('odeskApp', [
     'angularFileUpload',
     'ngClipboard'
 
-]).config(function (cfpLoadingBarProvider) {
+]).config(function (cfpLoadingBarProvider, $httpProvider) {
+
+    $httpProvider.defaults.withCredentials = true;
 
     /*
      this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
