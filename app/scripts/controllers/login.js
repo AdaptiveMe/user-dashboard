@@ -16,123 +16,74 @@
 'use strict';
 
 angular.module('odeskApp')
-    .controller('LoginCtrl', function ($scope, $rootScope, $timeout, $http, $location, $cookies, $window, ProfileService) {
+    .controller('LoginCtrl', function ($scope, $rootScope, $routeParams, $timeout, $http, $q, $location, $cookies, $window, ProfileService) {
 
-        $scope.username = '';
-        $scope.password = '';
+        $scope.submitLogin = function () {
 
-        $scope.errorSubmit = false;
-        $scope.errorUsernameEmpty = false;
-        $scope.errorPasswordEmpty = false;
+            $scope.errorSubmit = false;
 
-        $scope.errorEmailExist = false;
-        $scope.errorUserNameExist = false;
-
-        $scope.selectedTerms = false;
-
-        $scope.isLoginForm = true;
-        $scope.isRegisterForm = false;
-
-        $scope.serviceTerms = false;
-        $scope.policyTerms = false;
-
-        console.log( "LoginCtrl");
-
-        // document.getElementById("loading-bar-spinner").style.display = 'block';
-
-        var isValidatedMail = false;
-        var isValidatedUsername = false;
-        var isValidatedPassword = false;
-        var currentValidatedMail = "";
-        var currentValidatedUsername = "";
-        var currentValidatedPassword = "";
-
-        $scope.submit = function () {
-
-            if ($scope.username.length == 0 || $scope.password.length == 0) {
-                $scope.errorUsernameEmpty = true;
-                $scope.errorSubmit = false;
-            }
-            else {
-                $scope.errorUsernameEmpty = false;
+            if ($("#login-form").valid()) {
 
                 $http({
                     url: "/api/auth/login",
                     method: "POST",
-                    data: {"username": $scope.username, "password": $scope.password}
-                }).then(function (response) { // success
-
-                    //document.getElementById("loading-bar-spinner").style.display = 'none';
-                    $scope.errorSubmit = false;
+                    data: {
+                        "username": $scope.username,
+                        "password": $scope.password
+                    }
+                }).then(function (response) {
 
                     ProfileService.getProfile().then(function (profile, status) {
-                        //console.log("status : "+status);
                         var fullUserName;
                         if (profile.attributes.firstName && profile.attributes.lastName) {
                             fullUserName = profile.attributes.firstName + ' ' + profile.attributes.lastName;
                         } else {
                             fullUserName = profile.attributes.email;
                         }
-                        $rootScope.$broadcast('update_fullUserName', fullUserName);// update User name at top
+                        $rootScope.$broadcast('update_fullUserName', fullUserName);
                     });
 
                     $cookies.token = response.data.value;
                     $cookies.refreshStatus = "DISABLED";
-                    /* $location.path("/dashboard");*/
                     $location.path("/dashbar");
 
-                }, function (response) { // optional
+                }, function (response) {
 
                     $scope.errorSubmit = true;
-                    $scope.errorPasswordEmpty = false;
-                    $scope.errorUserEmpty = false;
 
                 });
-
             }
-            return false;
         };
 
         $scope.submitRegister = function () {
 
-            if (!$scope.selectedTerms) {
-
-                console.log("");
-                $scope.selectedTermsChecked =true;
-
-            } else {
-
-                $scope.selectedTermsChecked =false;
+            if ($("#register-form").valid()) {
 
                 $scope.errorEmailExist = false;
                 $scope.errorUsernameExist = false;
 
-                console.log("Submit register, email: " + $scope.newEmail);
-                //Validate the email, http://my.adaptive.me/api/register/validate?email=asdf
                 $http({
-                    url: "/api/register/validate" + "?email=" + $scope.newEmail,
+                    url: "/api/register/validate" + "?email=" + $scope.email,
                     method: "GET"
-                }).then(function (response) { // success
-                    console.log("register validate email then response: " + response);
+                }).then(function (response) {
 
                     $http({
-                        url: "/api/register/validate" + "?username=" + $scope.newUsername,
+                        url: "/api/register/validate" + "?username=" + $scope.username,
                         method: "GET"
-                    }).then(function (response) { // success
-                        console.log("register validate username then response: " + response);
+                    }).then(function (response) {
 
-                        var uploadUrl = "/api/register/create";
                         $http({
+                            url: "/api/register/create",
                             method: 'POST',
-                            url: uploadUrl,
                             data: $.param({
-                                email: $scope.newEmail,
-                                username: $scope.newUsername,
-                                password: $scope.newPassword
+                                email: $scope.email,
+                                username: $scope.username,
+                                password: $scope.password
                             }),
-                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            }
                         }).success(function () {
-                                console.log("success register request");
 
                                 $scope.errorEmailExist = false;
                                 $scope.errorUsernameExist = false;
@@ -140,102 +91,106 @@ angular.module('odeskApp')
                                 $location.path("/login");
 
                             }
-                        ).error(function () {
-                                console.log("error register request");
-                            }
                         );
 
                     }, function (response) {
                         $scope.errorUsernameExist = true;
-                        console.log("register validate username error response: " + response);
-
                     });
 
                 }, function (response) {
                     $scope.errorEmailExist = true;
-                    console.log("register validate email error response: " + response);
-
-                });
-
-            }
-
-
-        };
-
-        var requestRegister = function () {
-
-        };
-
-        $scope.registerForm = function () {
-
-            console.log("Register Form");
-
-            if (!isValidatedMail) {
-
-                isValidatedMail = true;
-
-            }
-
-            else if (!isValidatedUsername) {
-
-                isValidatedUsername = true;
-
-            }
-
-            else {
-
-            }
-            return false;
-
-        };
-
-        $scope.someSelected = function (object) {
-
-            if(typeof object==="undefined"){
-
-            }
-
-            else{
-                return Object.keys(object).some(function (key) {
-                    console.log("checked: " + object[key]);
-                    $scope.selectedTerms = object[key];
-                    return object[key];
                 });
             }
-
-        }
-
-        $scope.showRegisterForm = function (){
-            console.log("showRegisterForm");
-            $scope.isLoginForm = false;
-            $scope.isRegisterForm = true;
-            $location.path("/register");
         };
 
-        $scope.returnLoginForm = function (){
+        $scope.submitForgotPassword = function () {
+
+            if ($("#forget-form").valid()) {
+
+                $http({
+                    url: "/api/register/forgot?email=" + $scope.email,
+                    method: "GET"
+                }).then(function (response) {
+
+                    $location.path("/login");
+
+                }, function (response) {
+                    $scope.errorUserNotFound = true;
+                });
+            }
+        };
+
+        $scope.submitResetPassword = function () {
+
+            if ($("#reset-form").valid()) {
+
+                $http({
+                    url: "/api/register/validateForgotToken?forgotToken=" + $routeParams.forgotToken,
+                    method: "GET"
+                }).then(function (response) {
+
+                    $cookies.token = response.data.value;
+
+                    var deferred = $q.defer();
+
+                    $http({
+                        url: "/api/user/password",
+                        method: "POST",
+                        data: $.param({
+                            password: $scope.password
+                        }),
+                        headers: {
+                            'Accept': '*/*',
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    }).then(function (response) {
+
+                        $location.path("/login");
+
+                    }, function (response) {
+
+                        if (response.status === 409) {
+                            $scope.invalidPassword = true;
+                        } else if (response.status === 404) {
+                            $scope.errorUserNotFound = true;
+                        } else {
+                            $scope.errorServer = true;
+                        }
+                    });
+
+                    return deferred.promise;
+
+                }, function (response) {
+
+                    if (response.status === 409) {
+                        $scope.errorExpired = true;
+                    } else if (response.status === 404) {
+                        $scope.errorUserNotFound = true;
+                    } else {
+                        $scope.errorServer = true;
+                    }
+                });
+            }
+        };
+
+        $scope.showLogin = function () {
             $location.path("/login");
-            console.log("returnLoginForm");
-
         };
 
-        $scope.returnRegisterForm = function (){
-            console.log("returnRegisterForm");
+        $scope.showForgot = function () {
+            $location.path("/forgotPassword");
+        };
 
+        $scope.showRegister = function () {
             $location.path("/register");
-
         };
 
-        $scope.showServiceTerms = function(){
-            console.log("showServiceTerms");
-
+        $scope.showTermsService = function () {
             $location.path("/terms-of-service");
-
-
         };
-        $scope.showPolicyTerms = function(){
-            console.log("showPolicyTerms");
+        $scope.showPrivacy = function () {
             $location.path("/privacy");
-
         };
 
-    })
+    });
