@@ -146,7 +146,7 @@ angular.module('odeskApp')
                         }
                     }).then(function (response) {
 
-                        $location.path("/dashbar");
+                        $location.path("/login");
 
                     }, function (response) {
 
