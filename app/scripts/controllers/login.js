@@ -16,7 +16,7 @@
 'use strict';
 
 angular.module('odeskApp')
-    .controller('LoginCtrl', function ($scope, $rootScope, $routeParams, $timeout, $http, $location, $cookies, $window, ProfileService) {
+    .controller('LoginCtrl', function ($scope, $rootScope, $routeParams, $timeout, $http, $httpProvider, $q, $location, $cookies, $window, ProfileService) {
 
         $scope.submitLogin = function () {
 
@@ -131,6 +131,11 @@ angular.module('odeskApp')
 
                     $cookies.token = response.data.value;
 
+                    // send the cookies in the request
+                    $httpProvider.defaults.withCredentials = true;
+
+                    var deferred = $q.defer();
+
                     $http({
                         url: "/api/user/password",
                         method: "POST",
@@ -138,7 +143,9 @@ angular.module('odeskApp')
                             password: $scope.password
                         }),
                         headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
+                            'Accept': '*/*',
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            'X-Requested-With': 'XMLHttpRequest'
                         }
                     }).then(function (response) {
 
@@ -154,6 +161,8 @@ angular.module('odeskApp')
                             $scope.errorServer = true;
                         }
                     });
+
+                    return deferred.promise;
 
                 }, function (response) {
 
