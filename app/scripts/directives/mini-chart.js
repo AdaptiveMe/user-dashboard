@@ -298,7 +298,7 @@ angular.module('odeskApp').directive('chart', function () {
                                     var x = item.datapoint[0].toFixed(2),
                                         y = item.datapoint[1].toFixed(2);
 
-                                    showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ,' + Object.keys(o) [ item.dataIndex + 1 ]);
+                                    showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ,' + Object.keys(o) [ item.dataIndex - 1 ]);
 
                                 }
                             }
@@ -465,7 +465,7 @@ angular.module('odeskApp').directive('chart', function () {
                                 var x = item.datapoint[0].toFixed(2),
                                     y = item.datapoint[1].toFixed(2);
 
-                                showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ' + Object.keys(o)[item.dataIndex]);
+                                showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ,' + Object.keys(o)[item.dataIndex - 1]);
 
                             }
                         }
@@ -631,7 +631,7 @@ angular.module('odeskApp').directive('chart', function () {
                                 var x = item.datapoint[0].toFixed(2),
                                     y = item.datapoint[1].toFixed(2);
 
-                                showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ' + Object.keys(o)[item.dataIndex]);
+                                showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ,' + Object.keys(o)[item.dataIndex - 1]);
 
                             }
                         }
@@ -795,7 +795,7 @@ angular.module('odeskApp').directive('chart', function () {
                                 var x = item.datapoint[0].toFixed(2),
                                     y = item.datapoint[1].toFixed(2);
 
-                                showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ' + Object.keys(o)[item.dataIndex]);
+                                showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ,' + Object.keys(o)[item.dataIndex -1]);
 
                             }
                         }
@@ -841,7 +841,7 @@ angular.module('odeskApp').directive('flotchartbar', function () {
                 // Start Handing the plot hover
                 var previousPoint2 = null;
 
-                function showChartTooltip(x, y, xValue, yValue) {
+                /*  function showChartTooltip(x, y, xValue, yValue) {
                     $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
                         position: 'absolute',
                         display: 'none',
@@ -852,7 +852,6 @@ angular.module('odeskApp').directive('flotchartbar', function () {
                         'background-color': '#fff'
                     }).appendTo("body").fadeIn(200);
                 }
-
                 elem.bind("plothover", function (event, pos, item) {
                     $("#x").text(pos.x.toFixed(2));
                     $("#y").text(pos.y.toFixed(2));
@@ -866,85 +865,202 @@ angular.module('odeskApp').directive('flotchartbar', function () {
                         }
                     }
                 });
-
                 elem.bind("mouseleave", function () {
                     $("#tooltip").remove();
-                });
+                });*/
 
                 // End of Handing the plot hover
 
                 scope.$watch('dataChartBarDashbar', function (v) {
-                    var options = {
-                        series: {
-                            bars: {
-                                show: true
-                            },
-                            fillColor: '#35aa47'
-                        },
-                        bars: {
-                            align: "center",
-                            barWidth: 0.8,
-                            fillColor: '#35aa47'
-                        },
-                        xaxis: {
-                            tickFormatter: function (v, axis) {
-                                return "";
-                            }
-                            ,
-                            axisLabel: ".....",
-                            axisLabelUseCanvas: true,
-                            axisLabelFontSizePixels: 12,
-                            axisLabelFontFamily: 'Verdana, Arial',
-                            axisLabelPadding: 10,
-                            font: {
-                                lineHeight: 14,
-                                style: "normal",
-                                variant: "small-caps",
-                                color: "#6F7B8A"
-                            },
-                        },
-                        yaxis: {
-                            max: 1.0,
-                            axisLabel: ".....",
 
-                            axisLabelFontSizePixels: 12,
-                            axisLabelFontFamily: 'Verdana, Arial',
-
-                            font: {
-                                lineHeight: 14,
-                                style: "normal",
-                                variant: "small-caps",
-                                color: "#6F7B8A"
-                            },
-
-                            tickFormatter: function (v, axis) {
-                                return v.toFixed(2) + "Gb";
-                            }
-
-                        },
-                        legend: {
-                            noColumns: 0,
-                            labelBoxBorderColor: "#000000",
-                            position: "nw"
-                        },
-                        grid: {
-
-                            hoverable: true,
-                            clickable: true,
-                            tickColor: "#eee",
-                            borderColor: "#eee",
-                            borderWidth: 1
-                        }
-                    };
                     if (!chart) {
+
+                        var options = {
+                            series: {
+                                bars: {
+                                    show: true
+                                },
+                                fillColor: '#35aa47'
+                            },
+                            bars: {
+                                align: "center",
+                                barWidth: 0.8,
+                                fillColor: '#35aa47'
+                            },
+                            xaxis: {
+
+                                axisLabel: ".....",
+                                axisLabelUseCanvas: true,
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                axisLabelPadding: 10,
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+                            },
+                            yaxis: {
+                                max: 1.0,
+                                axisLabel: ".....",
+
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                }
+
+                            },
+                            legend: {
+                                noColumns: 0,
+                                labelBoxBorderColor: "#000000",
+                                position: "nw"
+                            },
+                            grid: {
+
+                                hoverable: true,
+                                clickable: true,
+                                tickColor: "#eee",
+                                borderColor: "#eee",
+                                borderWidth: 1
+                            }
+                        };
+
                         var data = [];
                         var dataset = [];
                         var ticks = [];
                         chart = $.plot(elem, dataset, options);
                         elem.show();
                     } else {
+
+                        var arrayFormatDefaultd1 = [];
+                        var arrayFormatDefaultd2 = [];
+                        var arrayFormatDefaultd3 = [];
+                        var counter1 = 0;
+                        var array4 = [];
+
+                        var arr = Object.keys(v).map(function (k) {
+
+                            var param = (parseInt(v[k]) / 1024 / 1024 / 1024).toFixed(3);
+                            return param;
+
+                        });
+
+                        for (var i = 0; i < arr.length; i++) {
+                            var array12 = [];
+                            array12 [0] = i;
+                            array12 [1] = arr[i];
+                            arrayFormatDefaultd1[20 - i] = array12;
+                            arrayFormatDefaultd3 [i] = array12;
+                        }
+
+                        // Start Handing the plot hover
+
+                        function showChartTooltip(x,y, xValue, yValue) {
+                            $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
+                                position: 'absolute',
+                                display: 'none',
+                                top: y - 40,
+                                left: x - 40,
+                                border: '0px solid #ccc',
+                                padding: '2px 6px',
+                                'background-color': '#fff'
+                            }).appendTo("body").fadeIn(200);
+                        }
+                        elem.bind("plothover", function (event, pos, item) {
+
+                            $("#x").text(pos.x.toFixed(2));
+                            $("#y").text(pos.y.toFixed(2));
+
+                            if (item) {
+
+                                if (previousPoint2 != item.dataIndex) {
+
+                                    previousPoint2 = item.dataIndex;
+                                    $("#tooltip").remove();
+
+                                    var x = item.datapoint[0].toFixed(2),
+                                        y = item.datapoint[1].toFixed(2);
+
+                                    showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb ,' + Object.keys(v) [ item.dataIndex - 1 ]);
+
+                                }
+                            }
+                        });
+                        elem.bind("mouseleave", function () {
+                            $("#tooltip").remove();
+                        });
+
+                        var options = {
+                            series: {
+                                bars: {
+                                    show: true
+                                },
+                                fillColor: '#35aa47'
+                            },
+                            bars: {
+                                align: "center",
+                                barWidth: 0.8,
+                                fillColor: '#35aa47'
+                            },
+                            xaxis: {
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return "";
+                                }
+                                ,
+                                axisLabel: ".....",
+                                axisLabelUseCanvas: true,
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                axisLabelPadding: 10,
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+                            },
+                            yaxis: {
+                                max: 1.0,
+                                axisLabel: ".....",
+
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return arrayFormatDefaultd1.toFixed(2) + "Gb";
+                                }
+
+                            },
+                            legend: {
+                                noColumns: 0,
+                                labelBoxBorderColor: "#000000",
+                                position: "nw"
+                            },
+                            grid: {
+
+                                hoverable: true,
+                                clickable: true,
+                                tickColor: "#eee",
+                                borderColor: "#eee",
+                                borderWidth: 1
+                            }
+                        };
+
                         var data = [[0, 0]];
-                        var dataset = [{label: "Memory load", data: v, color: "#35aa47"}];
+                        var dataset = [{label: "Memory load", data: arrayFormatDefaultd1, color: "#35aa47"}];
                         chart = $.plot(elem, dataset, options);
                         chart.setData(dataset);
                         chart.setupGrid();
@@ -956,36 +1072,6 @@ angular.module('odeskApp').directive('flotchartbar', function () {
 
                 // Start Handing the plot hover
                 var previousPoint2 = null;
-
-                function showChartTooltip(x, y, xValue, yValue) {
-                    $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
-                        position: 'absolute',
-                        display: 'none',
-                        top: y - 40,
-                        left: x - 40,
-                        border: '0px solid #ccc',
-                        padding: '2px 6px',
-                        'background-color': '#fff'
-                    }).appendTo("body").fadeIn(200);
-                }
-
-                elem.bind("plothover", function (event, pos, item) {
-                    $("#x").text(pos.x.toFixed(2));
-                    $("#y").text(pos.y.toFixed(2));
-                    if (item) {
-                        if (previousPoint2 != item.dataIndex) {
-                            previousPoint2 = item.dataIndex;
-                            $("#tooltip").remove();
-                            var x = item.datapoint[0].toFixed(2),
-                                y = item.datapoint[1].toFixed(2);
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb');
-                        }
-                    }
-                });
-                elem.bind("mouseleave", function () {
-                    $("#tooltip").remove();
-                });
-                // End of Handing the plot hover
 
                 scope.$watch('dataChartBarDatabase', function (v) {
                     var options = {
@@ -1053,8 +1139,135 @@ angular.module('odeskApp').directive('flotchartbar', function () {
                         chart = $.plot(elem, dataset, options);
                         elem.show();
                     } else {
+
+                        //////////
+
+                        var arrayFormatDefaultd1 = [];
+                        var arrayFormatDefaultd2 = [];
+                        var arrayFormatDefaultd3 = [];
+                        var counter1 = 0;
+                        var array4 = [];
+
+                        var arr = Object.keys(v).map(function (k) {
+
+                            var param = (parseInt(v[k]) / 1024 / 1024 / 1024).toFixed(3);
+                            return param;
+
+                        });
+
+                        for (var i = 0; i < arr.length; i++) {
+                            var array12 = [];
+                            array12 [0] = i;
+                            array12 [1] = arr[i];
+                            arrayFormatDefaultd1[20 - i] = array12;
+                            arrayFormatDefaultd3 [i] = array12;
+                        }
+
+                        // Start Handing the plot hover
+
+                        function showChartTooltip(x,y, xValue, yValue) {
+                            $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
+                                position: 'absolute',
+                                display: 'none',
+                                top: y - 40,
+                                left: x - 40,
+                                border: '0px solid #ccc',
+                                padding: '2px 6px',
+                                'background-color': '#fff'
+                            }).appendTo("body").fadeIn(200);
+                        }
+                        elem.bind("plothover", function (event, pos, item) {
+
+                            $("#x").text(pos.x.toFixed(2));
+                            $("#y").text(pos.y.toFixed(2));
+
+                            if (item) {
+
+                                if (previousPoint2 != item.dataIndex) {
+
+                                    previousPoint2 = item.dataIndex;
+                                    $("#tooltip").remove();
+
+                                    var x = item.datapoint[0].toFixed(2),
+                                        y = item.datapoint[1].toFixed(2);
+
+                                    showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb ,' + Object.keys(v) [ item.dataIndex - 1 ]);
+
+                                }
+                            }
+                        });
+                        elem.bind("mouseleave", function () {
+                            $("#tooltip").remove();
+                        });
+                        ///////
+
+                        var options = {
+                            series: {
+                                bars: {
+                                    show: true
+                                },
+                                fillColor: '#35aa47'
+                            },
+                            bars: {
+                                align: "center",
+                                barWidth: 0.8,
+                                fillColor: '#35aa47'
+                            },
+                            xaxis: {
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return "";
+                                }
+                                ,
+                                axisLabel: ".....",
+                                axisLabelUseCanvas: true,
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                axisLabelPadding: 10,
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+                            },
+                            yaxis: {
+                                max: 1.0,
+                                axisLabel: ".....",
+
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return arrayFormatDefaultd1.toFixed(2) + "Gb";
+                                }
+
+                            },
+                            legend: {
+                                noColumns: 0,
+                                labelBoxBorderColor: "#000000",
+                                position: "nw"
+                            },
+                            grid: {
+
+                                hoverable: true,
+                                clickable: true,
+                                tickColor: "#eee",
+                                borderColor: "#eee",
+                                borderWidth: 1
+                            }
+                        };
+
                         var data = [[0, 0]];
-                        var dataset = [{label: "Memory load", data: v, color: "#35aa47"}];
+                        var dataset = [{label: "Memory load", data: arrayFormatDefaultd1, color: "#35aa47"}];
+
+
                         chart = $.plot(elem, dataset, options);
                         chart.setData(dataset);
                         chart.setupGrid();
@@ -1066,36 +1279,6 @@ angular.module('odeskApp').directive('flotchartbar', function () {
 
                 // Start Handing the plot hover
                 var previousPoint2 = null;
-
-                function showChartTooltip(x, y, xValue, yValue) {
-                    $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
-                        position: 'absolute',
-                        display: 'none',
-                        top: y - 40,
-                        left: x - 40,
-                        border: '0px solid #ccc',
-                        padding: '2px 6px',
-                        'background-color': '#fff'
-                    }).appendTo("body").fadeIn(200);
-                }
-
-                elem.bind("plothover", function (event, pos, item) {
-                    $("#x").text(pos.x.toFixed(2));
-                    $("#y").text(pos.y.toFixed(2));
-                    if (item) {
-                        if (previousPoint2 != item.dataIndex) {
-                            previousPoint2 = item.dataIndex;
-                            $("#tooltip").remove();
-                            var x = item.datapoint[0].toFixed(2),
-                                y = item.datapoint[1].toFixed(2);
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb');
-                        }
-                    }
-                });
-                elem.bind("mouseleave", function () {
-                    $("#tooltip").remove();
-                });
-                // End of Handing the plot hover
 
                 scope.$watch('dataChartBarFile', function (v) {
                     var options = {
@@ -1167,118 +1350,332 @@ angular.module('odeskApp').directive('flotchartbar', function () {
                         chart = $.plot(elem, dataset, options);
                         elem.show();
                     } else {
+
+                        //////////
+
+                        var arrayFormatDefaultd1 = [];
+                        var arrayFormatDefaultd2 = [];
+                        var arrayFormatDefaultd3 = [];
+                        var counter1 = 0;
+                        var array4 = [];
+
+                        var arr = Object.keys(v).map(function (k) {
+
+                            var param = (parseInt(v[k]) / 1024 / 1024 / 1024).toFixed(3);
+                            return param;
+
+                        });
+
+                        for (var i = 0; i < arr.length; i++) {
+                            var array12 = [];
+                            array12 [0] = i;
+                            array12 [1] = arr[i];
+                            arrayFormatDefaultd1[20 - i] = array12;
+                            arrayFormatDefaultd3 [i] = array12;
+                        }
+
+                        // Start Handing the plot hover
+
+                        function showChartTooltip(x,y, xValue, yValue) {
+                            $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
+                                position: 'absolute',
+                                display: 'none',
+                                top: y - 40,
+                                left: x - 40,
+                                border: '0px solid #ccc',
+                                padding: '2px 6px',
+                                'background-color': '#fff'
+                            }).appendTo("body").fadeIn(200);
+                        }
+                        elem.bind("plothover", function (event, pos, item) {
+
+                            $("#x").text(pos.x.toFixed(2));
+                            $("#y").text(pos.y.toFixed(2));
+
+                            if (item) {
+
+                                if (previousPoint2 != item.dataIndex) {
+
+                                    previousPoint2 = item.dataIndex;
+                                    $("#tooltip").remove();
+
+                                    var x = item.datapoint[0].toFixed(2),
+                                        y = item.datapoint[1].toFixed(2);
+
+                                    showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb ,' + Object.keys(v) [ item.dataIndex - 1 ]);
+
+                                }
+                            }
+                        });
+                        elem.bind("mouseleave", function () {
+                            $("#tooltip").remove();
+                        });
+                        ///////
+
+                        var options = {
+                            series: {
+                                bars: {
+                                    show: true
+                                },
+                                fillColor: '#35aa47'
+                            },
+                            bars: {
+                                align: "center",
+                                barWidth: 0.8,
+                                fillColor: '#35aa47'
+                            },
+                            xaxis: {
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return "";
+                                }
+                                ,
+                                axisLabel: ".....",
+                                axisLabelUseCanvas: true,
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                axisLabelPadding: 10,
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+                            },
+                            yaxis: {
+                                max: 1.0,
+                                axisLabel: ".....",
+
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return arrayFormatDefaultd1.toFixed(2) + "Gb";
+                                }
+
+                            },
+                            legend: {
+                                noColumns: 0,
+                                labelBoxBorderColor: "#000000",
+                                position: "nw"
+                            },
+                            grid: {
+
+                                hoverable: true,
+                                clickable: true,
+                                tickColor: "#eee",
+                                borderColor: "#eee",
+                                borderWidth: 1
+                            }
+                        };
+
                         var data = [[0, 0]];
-                        var dataset = [{label: "Memory load", data: v, color: "#35aa47"}];
+                        var dataset = [{label: "Memory load", data: arrayFormatDefaultd1, color: "#35aa47"}];
+
                         chart = $.plot(elem, dataset, options);
                         chart.setData(dataset);
                         chart.setupGrid();
                         chart.draw();
                     }
                 });
+
             } else if (attrs.valuechart.indexOf("infrastructure") != -1) {
 
                 // Start Handing the plot hover
                 var previousPoint2 = null;
 
-                function showChartTooltip(x, y, xValue, yValue) {
-                    $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
-                        position: 'absolute',
-                        display: 'none',
-                        top: y - 40,
-                        left: x - 40,
-                        border: '0px solid #ccc',
-                        padding: '2px 6px',
-                        'background-color': '#fff'
-                    }).appendTo("body").fadeIn(200);
-                }
-
-                elem.bind("plothover", function (event, pos, item) {
-                    $("#x").text(pos.x.toFixed(2));
-                    $("#y").text(pos.y.toFixed(2));
-                    if (item) {
-                        if (previousPoint2 != item.dataIndex) {
-                            previousPoint2 = item.dataIndex;
-                            $("#tooltip").remove();
-                            var x = item.datapoint[0].toFixed(2),
-                                y = item.datapoint[1].toFixed(2);
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb');
-                        }
-                    }
-                });
-                elem.bind("mouseleave", function () {
-                    $("#tooltip").remove();
-                });
-
-                // End of Handing the plot hover
-
                 scope.$watch('dataChartBarInfra', function (v) {
-                    var options = {
-                        series: {
-                            bars: {
-                                show: true
-                            },
-                            fillColor: '#35aa47'
-                        },
-                        bars: {
-                            align: "center",
-                            barWidth: 0.8,
-                            fillColor: '#35aa47'
-                        },
-                        xaxis: {
-                            tickFormatter: function (v, axis) {
-                                return "";
-                            }
-                            ,
-                            axisLabel: ".....",
-                            axisLabelUseCanvas: true,
-                            axisLabelFontSizePixels: 12,
-                            axisLabelFontFamily: 'Verdana, Arial',
-                            axisLabelPadding: 10,
-                            font: {
-                                lineHeight: 14,
-                                style: "normal",
-                                variant: "small-caps",
-                                color: "#6F7B8A"
-                            },
-                            /* ticks: ticks*/
-                        },
-                        yaxis: {
-                            axisLabel: ".....",
-                            axisLabelFontSizePixels: 12,
-                            axisLabelFontFamily: 'Verdana, Arial',
-                            font: {
-                                lineHeight: 14,
-                                style: "normal",
-                                variant: "small-caps",
-                                color: "#6F7B8A"
-                            },
 
-                            tickFormatter: function (v, axis) {
-                                return v.toFixed(2) + "Gb";
-                            }
-                        },
-                        legend: {
-                            noColumns: 0,
-                            labelBoxBorderColor: "#000000",
-                            position: "nw"
-                        },
-                        grid: {
-                            hoverable: true,
-                            clickable: true,
-                            tickColor: "#eee",
-                            borderColor: "#eee",
-                            borderWidth: 1
-                        }
-                    };
                     if (!chart) {
+                        var options = {
+                            series: {
+                                bars: {
+                                    show: true
+                                },
+                                fillColor: '#35aa47'
+                            },
+                            bars: {
+                                align: "center",
+                                barWidth: 0.8,
+                                fillColor: '#35aa47'
+                            },
+                            xaxis: {
+                                tickFormatter: function (v, axis) {
+                                    return "";
+                                }
+                                ,
+                                axisLabel: ".....",
+                                axisLabelUseCanvas: true,
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                axisLabelPadding: 10,
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+                                /* ticks: ticks*/
+                            },
+                            yaxis: {
+                                axisLabel: ".....",
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+
+                                tickFormatter: function (v, axis) {
+                                    return v.toFixed(2) + "Gb";
+                                }
+                            },
+                            legend: {
+                                noColumns: 0,
+                                labelBoxBorderColor: "#000000",
+                                position: "nw"
+                            },
+                            grid: {
+                                hoverable: true,
+                                clickable: true,
+                                tickColor: "#eee",
+                                borderColor: "#eee",
+                                borderWidth: 1
+                            }
+                        };
                         var data = [];
                         var dataset = [];
                         var ticks = [];
                         chart = $.plot(elem, dataset, options);
                         elem.show();
                     } else {
+
+                        var arrayFormatDefaultd1 = [];
+                        var arrayFormatDefaultd2 = [];
+                        var arrayFormatDefaultd3 = [];
+                        var counter1 = 0;
+                        var array4 = [];
+
+                        var arr = Object.keys(v).map(function (k) {
+
+                            var param = (parseInt(v[k]) / 1024 / 1024 / 1024).toFixed(3);
+                            return param;
+
+                        });
+
+                        for (var i = 0; i < arr.length; i++) {
+                            var array12 = [];
+                            array12 [0] = i;
+                            array12 [1] = arr[i];
+                            arrayFormatDefaultd1[20 - i] = array12;
+                            arrayFormatDefaultd3 [i] = array12;
+                        }
+
+                        function showChartTooltip(x,y, xValue, yValue) {
+                            $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
+                                position: 'absolute',
+                                display: 'none',
+                                top: y - 40,
+                                left: x - 40,
+                                border: '0px solid #ccc',
+                                padding: '2px 6px',
+                                'background-color': '#fff'
+                            }).appendTo("body").fadeIn(200);
+                        }
+                        elem.bind("plothover", function (event, pos, item) {
+
+                            $("#x").text(pos.x.toFixed(2));
+                            $("#y").text(pos.y.toFixed(2));
+
+                            if (item) {
+
+                                if (previousPoint2 != item.dataIndex) {
+
+                                    previousPoint2 = item.dataIndex;
+                                    $("#tooltip").remove();
+
+                                    var x = item.datapoint[0].toFixed(2),
+                                        y = item.datapoint[1].toFixed(2);
+
+                                    showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Gb ,' + Object.keys(v) [ item.dataIndex - 1 ]);
+
+                                }
+                            }
+                        });
+                        elem.bind("mouseleave", function () {
+                            $("#tooltip").remove();
+                        });
+
+                        var options = {
+                            series: {
+                                bars: {
+                                    show: true
+                                },
+                                fillColor: '#35aa47'
+                            },
+                            bars: {
+                                align: "center",
+                                barWidth: 0.8,
+                                fillColor: '#35aa47'
+                            },
+                            xaxis: {
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return "";
+                                }
+                                ,
+                                axisLabel: ".....",
+                                axisLabelUseCanvas: true,
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                axisLabelPadding: 10,
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+                                /* ticks: ticks*/
+                            },
+                            yaxis: {
+                                axisLabel: ".....",
+                                axisLabelFontSizePixels: 12,
+                                axisLabelFontFamily: 'Verdana, Arial',
+                                font: {
+                                    lineHeight: 14,
+                                    style: "normal",
+                                    variant: "small-caps",
+                                    color: "#6F7B8A"
+                                },
+
+                                tickFormatter: function (arrayFormatDefaultd1, axis) {
+                                    return arrayFormatDefaultd1.toFixed(2) + "Gb";
+                                }
+                            },
+                            legend: {
+                                noColumns: 0,
+                                labelBoxBorderColor: "#000000",
+                                position: "nw"
+                            },
+                            grid: {
+                                hoverable: true,
+                                clickable: true,
+                                tickColor: "#eee",
+                                borderColor: "#eee",
+                                borderWidth: 1
+                            }
+                        };
+
                         var data = [[0, 0]];
-                        var dataset = [{label: "Memory load", data: v, color: "#35aa47"}];
+                        var dataset = [{label: "Memory load", data: arrayFormatDefaultd1, color: "#35aa47"}];
+
                         chart = $.plot(elem, dataset, options);
                         chart.setData(dataset);
                         chart.setupGrid();

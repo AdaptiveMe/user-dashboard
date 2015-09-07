@@ -112,7 +112,10 @@ angular.module('odeskApp')
                         $scope.dataChartDashbar = o;
                         break;
                     case 2:
-                        $scope.dataChartBarDashbar = arrayFormatDefaultd1;
+                        //Old
+                       // $scope.dataChartBarDashbar = arrayFormatDefaultd1;
+                        //New
+                        $scope.dataChartBarDashbar = o;
                         break;
                     case 3:
                         $scope.dataChartPieUsageFile1 = arrayFormatDefaultd3;
@@ -135,8 +138,13 @@ angular.module('odeskApp')
                         //$scope.databaseMemoryValues = arr.toString();
                         break;
                     case 6:
-                        $scope.databaseFileValues = arr.toString();
-                        $scope.dataChartBarDatabase = arrayFormatDefaultd1;
+                        //Old
+                        //$scope.dataChartBarDatabase = arrayFormatDefaultd1;
+                        //New
+                        $scope.dataChartBarDatabase = o;
+
+                        //$scope.databaseFileValues = arr.toString();
+
                         break;
                     case 7:
                         $scope.dataChartPieUsageFile3 = arrayFormatDefaultd3;
@@ -160,8 +168,11 @@ angular.module('odeskApp')
                         $scope.dataChartInfra = o;
                         break;
                     case 10:
-                        $scope.fileCPULoadValues = arr.toString();
-                        $scope.dataChartBarInfra = arrayFormatDefaultd1;
+                        //$scope.fileCPULoadValues = arr.toString();
+                        //Old
+                        //$scope.dataChartBarInfra = arrayFormatDefaultd1;
+                        //New
+                        $scope.dataChartBarInfra = o;
                         break;
                     case 11:
                         $scope.dataChartPieUsageInfra7 = arrayFormatDefaultd3;
@@ -184,8 +195,12 @@ angular.module('odeskApp')
                         $scope.dataChartFile = o;
                         break;
                     case 14:
-                        $scope.fileFileValues = arr.toString();
-                        $scope.dataChartBarFile = arrayFormatDefaultd1;
+                        //Old
+                        //$scope.fileFileValues = arr.toString();
+                        //$scope.dataChartBarFile = arrayFormatDefaultd1;
+                        //New
+                        $scope.dataChartBarFile = o;
+
                         break;
                     case 15:
                         $scope.dataChartPieUsageFile5 = arrayFormatDefaultd3;
