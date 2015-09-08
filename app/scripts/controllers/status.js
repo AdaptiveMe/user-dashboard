@@ -49,6 +49,7 @@ angular.module('odeskApp')
                 var counter1 = 0;
                 var array4 = [];
                 var arrayFormatDefaultd1 = [];
+                var metric_total_values = 0;
 
                 var arr = Object.keys(o).map(function (k) {
 
@@ -65,10 +66,12 @@ angular.module('odeskApp')
                 });
 
                 for (var i = 0; i < arr.length; i++) {
+                    metric_total_values = arr.length ;
                     var array12 = [];
                     array12 [0] = i;
                     array12 [1] = arr[i];
-                    arrayFormatDefaultd1[ parseInt(constants.metric_total_values) - i] = array12;
+                   // arrayFormatDefaultd1[ parseInt(constants.metric_total_values) - i] = array12;
+                    arrayFormatDefaultd1[ metric_total_values] = array12;
                     arrayFormatDefaultd3 [i] = array12;
                 }
 
@@ -214,27 +217,5 @@ angular.module('odeskApp')
         $interval(function () {
             $scope.callMetrics();
         }, constants.update_metric_values * 1000);
-       /* $scope.callTotalUsers = function () {
-            $scope.callMetricFormat1 = function (server, metric, number, callNum) {
-                $http({
-                    url: constants.url_api_request + server + "/" + metric + "/" + number,
-                    method: "GET"
-                }).then(function (response) {  // success
-
-                    var o = response.data;
-        };
-
-        $scope.callTotalBuilds = function () {
-
-        };
-
-        $scope.callTotalAndroidBuilds = function () {
-
-        };
-
-        $scope.callTotalIosBuilds = function () {
-
-        };
-*/
 
     });
