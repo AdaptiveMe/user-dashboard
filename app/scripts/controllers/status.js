@@ -1,6 +1,11 @@
 angular.module('odeskApp')
     .controller('StatusCtrl', function ($scope, $rootScope, $timeout, $http, $location, $cookies, $window, ProfileService, $interval) {
 
+        $scope.label_total_users = constants.label_total_users ;
+        $scope.label_total_builds = constants.label_total_builds ;
+        $scope.label_total_android_builds = constants.label_total_android_builds ;
+        $scope.label_total_ios_builds = constants.label_total_ios_builds ;
+
         $scope.dataMini = "";
 
         $scope.dashbarCPULoadValues = "";
@@ -20,7 +25,7 @@ angular.module('odeskApp')
         $scope.infraFileValues = "";
 
         $http({
-            url: "/api/metrics/user/total",
+            url: constants.url_user_request,
             method: "GET"
         }).then(function (response) { // success
 
@@ -31,8 +36,9 @@ angular.module('odeskApp')
         });
 
         $scope.callMetricFormat1 = function (server, metric, number, callNum) {
+            //console.log( server + "/" + metric + number + ", value: " +callNum);
             $http({
-                url: "/api/metrics/server/" + server + "/" + metric + "/" + number,
+                url: server + "/" + metric + number,
                 method: "GET"
             }).then(function (response) {  // success
 
@@ -47,82 +53,41 @@ angular.module('odeskApp')
                 var arr = Object.keys(o).map(function (k) {
 
                     var param = (parseInt(o[k]) / 1024 / 1024 / 1024).toFixed(3);
-                    //console.log("param: "+param);
 
                     if (callNum == 1 || callNum == 5 || callNum == 9 || callNum == 13) {
                         param = Math.round(parseFloat(o[k]) * 100);
-                        // console.log("/api/metrics/server/" + server + "/" + metric + "/" + number + ", value: " + param);
 
                     } else {
-                        console.log("/api/metrics/server/" + server + "/" + metric + "/" + number + ", value: " + param);
+                        //console.log("/api/metrics/server/" + server + "/" + metric + "/" + number + ", value: " + param);
                     }
-
                     return param;
 
                 });
 
                 for (var i = 0; i < arr.length; i++) {
-
                     var array12 = [];
                     array12 [0] = i;
                     array12 [1] = arr[i];
-                    arrayFormatDefaultd1[20 - i] = array12;
+                    arrayFormatDefaultd1[ parseInt(constants.metric_total_values) - i] = array12;
                     arrayFormatDefaultd3 [i] = array12;
                 }
-
-                var dataChartFormatY = [
-                    {
-                        label: "CPU load",
-                        data: arrayFormatDefaultd1,
-                        lines: {
-                            fill: 0.2,
-                            lineWidth: 0,
-                        },
-                        color: ['#0066FF']
-                    }, {
-
-                        data: arrayFormatDefaultd1,
-                        points: {
-                            show: true,
-                            fill: true,
-                            radius: 4,
-                            fillColor: "#0066FF",
-                            lineWidth: 2
-                        },
-                        color: '#0066FF',
-                        shadowSize: 1
-                    }, {
-                        data: arrayFormatDefaultd1,
-                        lines: {
-                            show: true,
-                            fill: false,
-                            lineWidth: 3
-                        },
-                        color: '#0066FF',
-                        shadowSize: 0
-                    },
-                ];
 
                 switch (callNum) {
 
                     // data Dashbar
 
                     case 1:
-                        $scope.dataChartDashbar = dataChartFormatY;
+                        $scope.dataChartDashbar = o;
                         break;
                     case 2:
-                        $scope.dataChartBarDashbar = arrayFormatDefaultd1;
+                        $scope.dataChartBarDashbar = o;
                         break;
                     case 3:
-                        //$scope.databaseDashbarValues31 = arr.toString();
                         $scope.dataChartPieUsageFile1 = arrayFormatDefaultd3;
-                        $scope.callMetricFormat1("my.adaptive.me", "disk_available", "1", 4);
+                        $scope.callMetricFormat1(constants.url_api_request+constants.server_my, constants.metric_disk_available, "/" +"1", 4);
                         break;
                     case 4:
-                        //$scope.databaseDashbarValues = arr.toString();
-                        //$scope.dataChartDashbar = dataChartFormatY;
                         var arrayPieValues = [];
-
                         arrayPieValues[0] = $scope.dataChartPieUsageFile1[0][1];
                         arrayPieValues[1] = arrayFormatDefaultd3[0][1];
                         $scope.dataChartPieDashbar = arrayPieValues;
@@ -131,17 +96,16 @@ angular.module('odeskApp')
                     // data Database
 
                     case 5:
-                        $scope.dataChartDatabase = dataChartFormatY;
-                        $scope.databaseMemoryValues = arr.toString();
+                        $scope.dataChartDatabase = o;
                         break;
                     case 6:
-                        $scope.databaseFileValues = arr.toString();
-                        $scope.dataChartBarDatabase = arrayFormatDefaultd1;
+
+                        $scope.dataChartBarDatabase = o;
+
                         break;
                     case 7:
-                        //$scope.infraCPULoadValues = arr.toString();
                         $scope.dataChartPieUsageFile3 = arrayFormatDefaultd3;
-                        $scope.callMetricFormat1("db.adaptive.me", "disk_available", "1", 8);
+                        $scope.callMetricFormat1(constants.url_api_request+ constants.server_db, constants.metric_disk_available,"/" + "1", 8);
                         break;
                     case 8:
                         $scope.infraMemoryValues = arr.toString();
@@ -154,20 +118,18 @@ angular.module('odeskApp')
                     // data Infra
 
                     case 9:
-                        $scope.infraFileValues = arr.toString();
-                        $scope.dataChartInfra = dataChartFormatY;
+
+                        $scope.dataChartInfra = o;
                         break;
                     case 10:
-                        $scope.fileCPULoadValues = arr.toString();
-                        $scope.dataChartBarInfra = arrayFormatDefaultd1;
+
+                        $scope.dataChartBarInfra = o;
                         break;
                     case 11:
-                        //$scope.fileMemoryValues = arr.toString();
                         $scope.dataChartPieUsageInfra7 = arrayFormatDefaultd3;
-                        $scope.callMetricFormat1("infra1.adaptive.me", "disk_available", "1", 12);
+                        $scope.callMetricFormat1( constants.url_api_request+constants.server_infra1,constants.metric_disk_available ,"/" + "1", 12);
                         break;
                     case 12:
-                       // $scope.fileFileValues = arr.toString();
                         var arrayPieValues = [];
                         arrayPieValues[0] = $scope.dataChartPieUsageInfra7[0][1];
                         arrayPieValues[1] = arrayFormatDefaultd3[0][1];
@@ -177,23 +139,40 @@ angular.module('odeskApp')
                     // data File
 
                     case 13:
-                        $scope.fileFileValues = arr.toString();
-                        $scope.dataChartFile = dataChartFormatY;
+
+                        $scope.dataChartFile = o;
                         break;
                     case 14:
-                        $scope.fileFileValues = arr.toString();
-                        $scope.dataChartBarFile = arrayFormatDefaultd1;
+
+                        $scope.dataChartBarFile = o;
+
                         break;
                     case 15:
-                        //$scope.fileFileValues = arr.toString();
                         $scope.dataChartPieUsageFile5 = arrayFormatDefaultd3;
-                        $scope.callMetricFormat1("fd.adaptive.me", "disk_available", "1", 16);
+                        $scope.callMetricFormat1(constants.url_api_request+constants.server_fd ,constants.metric_disk_available, "/" +"1", 16);
                         break;
                     case 16:
                         var arrayPieValues = [];
                         arrayPieValues[0] = $scope.dataChartPieUsageFile5[0][1];
                         arrayPieValues[1] = arrayFormatDefaultd3[0][1];
                         $scope.dataChartPieFile = arrayPieValues;
+                        break;
+                    case 17:
+
+                        break;
+                    case 18:
+
+                        $scope. total_builds  =  o.sum;
+
+                        break;
+                    case 19:
+
+                        $scope.total_android_builds =o.sum;
+
+                        break;
+                    case 20:
+
+                        $scope. total_ios_builds = o.sum;
                         break;
 
                 }
@@ -207,30 +186,55 @@ angular.module('odeskApp')
 
         $scope.callMetrics = function () {
 
-            $scope.callMetricFormat1("my.adaptive.me", "system_cpu_load", "20", 1);
-            $scope.callMetricFormat1("my.adaptive.me", "mem_used", "20", 2);
-            $scope.callMetricFormat1("my.adaptive.me", "disk_used", "1", 3);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_my, constants.metric_system_cpu_load,"/" +constants.metric_total_values, 1);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_my, constants.metric_mem_used,"/" + constants.metric_total_values, 2);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_my, constants.metric_disk_used,"/" + "1", 3);
 
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_db, constants.metric_system_cpu_load, "/" +constants.metric_total_values, 5);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_db, constants.metric_mem_used,"/" + constants.metric_total_values, 6);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_db, constants.metric_disk_used, "/" +"1", 7);
 
-            $scope.callMetricFormat1("db.adaptive.me", "system_cpu_load", "20", 5);
-            $scope.callMetricFormat1("db.adaptive.me", "mem_used", "20", 6);
-            $scope.callMetricFormat1("db.adaptive.me", "disk_used", "1", 7);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_infra1, constants.metric_system_cpu_load, "/" +constants.metric_total_values, 9);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_infra1, constants.metric_mem_used,"/" + constants.metric_total_values, 10);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_infra1, constants.metric_disk_used,"/" + "1", 11);
 
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_fd, constants.metric_system_cpu_load, "/" + constants.metric_total_values, 13);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_fd, constants.metric_mem_used, "/" +constants.metric_total_values, 14);
+            $scope.callMetricFormat1(constants.url_api_request+constants.server_fd, constants.metric_disk_used, "/" +"1", 15);
 
-            $scope.callMetricFormat1("infra1.adaptive.me", "system_cpu_load", "20", 9);
-            $scope.callMetricFormat1("infra1.adaptive.me", "mem_used", "20", 10);
-            $scope.callMetricFormat1("infra1.adaptive.me", "disk_used", "1", 11);
+            //$scope.callMetricFormat1( ,  , "1", 17);
 
-            $scope.callMetricFormat1("fd.adaptive.me", "system_cpu_load", "20", 13);
-            $scope.callMetricFormat1("fd.adaptive.me", "mem_used", "20", 14);
-            $scope.callMetricFormat1("fd.adaptive.me", "disk_used", "1", 15);
-
+            $scope.callMetricFormat1( constants.url_api_request_metric_build , constants.metric_total_sum + "/0/1441152000000", "", 18);
+            $scope.callMetricFormat1( constants.url_api_request_metric_build , constants.metric_total_sum + "/0/1441152000000?platform=android", "", 19);
+            $scope.callMetricFormat1( constants.url_api_request_metric_build , constants.metric_total_sum + "/0/1441152000000?platform=ios", "", 20);
 
         };
 
-        $interval($scope.callMetrics(), 30000);
+        $interval($scope.callMetrics(), constants.update_metric_values * 1000);
         $interval(function () {
             $scope.callMetrics();
-        }, 30000);
+        }, constants.update_metric_values * 1000);
+       /* $scope.callTotalUsers = function () {
+            $scope.callMetricFormat1 = function (server, metric, number, callNum) {
+                $http({
+                    url: constants.url_api_request + server + "/" + metric + "/" + number,
+                    method: "GET"
+                }).then(function (response) {  // success
+
+                    var o = response.data;
+        };
+
+        $scope.callTotalBuilds = function () {
+
+        };
+
+        $scope.callTotalAndroidBuilds = function () {
+
+        };
+
+        $scope.callTotalIosBuilds = function () {
+
+        };
+*/
 
     });
