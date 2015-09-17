@@ -45,7 +45,7 @@ angular.module('odeskApp')
 
                     $cookies.token = response.data.value;
                     $cookies.refreshStatus = "DISABLED";
-                    $location.path("/dashbar");
+                    $location.path("/projects");
 
                 }, function (response) {
 

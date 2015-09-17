@@ -198,11 +198,11 @@ angular.module('odeskApp', [
 
     if (DEV) {
         /*DEFAULT = '/login';*/
-        DEFAULT = '/dashbar';
+        DEFAULT = '/projects';
         BASE_URL = '/';
     } else {
-        DEFAULT = '/dashbar';
-        BASE_URL = '/dashbar/';
+        DEFAULT = '/projects';
+        BASE_URL = '/projects/';
     }
 
     if (DEV) {

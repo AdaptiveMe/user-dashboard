@@ -7,7 +7,7 @@
     <ul class="page-breadcrumb breadcrumb-item-home">
         <li class="breadcrumb-item-home" id="breadcrumb-item-home">
             <i class="fa fa-home"></i>
-            <a class="breadcrumb-item-home" ng-href="#/dashbar">Home</a>
+            <a class="breadcrumb-item-home" ng-href="#/projects">Home</a>
             <i class="fa fa-angle-right"></i>
         </li>
     </ul>
@@ -615,70 +615,13 @@
         <!-- modal-dialog -->
     </div>
 
-    <script>
+</div>
 
-        $('.page-sidebar-menu').on('click', 'li', function () {
-            $('.page-sidebar-menu li.active').removeClass('active');
-            $(this).addClass('active');
-        });
+<script>
 
-        $('#footerText').css('background-color', 'rgb(77, 91, 103)');
+    $('.page-sidebar-menu').on('click', 'li', function () {
+        $('.page-sidebar-menu li.active').removeClass('active');
+        $(this).addClass('active');
+    });
 
-        $('.backstretch').remove();
-
-        var resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
-
-        var content = $('.page-content');
-        var sidebar = $('.page-sidebar');
-        var body = $('body');
-        var height;
-
-        if (body.hasClass("page-footer-fixed") === true && body.hasClass("page-sidebar-fixed") === false) {
-
-            var available_height = Metronic.getViewPort().height - $('.page-footer').outerHeight() - $('.page-header').outerHeight();
-            if (content.height() < available_height) {
-                content.attr('style', 'min-height:' + available_height + 'px');
-
-            }
-        } else {
-
-            if (body.hasClass('page-sidebar-fixed')) {
-
-                height = _calculateFixedSidebarViewportHeight();
-                if (body.hasClass('page-footer-fixed') === false) {
-                    height = height - $('.page-footer').outerHeight();
-
-                }
-            } else {
-                var headerHeight = $('.page-header').outerHeight();
-                var footerHeight = $('.page-footer').outerHeight();
-
-                if (Metronic.getViewPort().width < resBreakpointMd) {
-                    height = Metronic.getViewPort().height - headerHeight - footerHeight;
-
-                } else {
-                    height = sidebar.outerHeight() + 10;
-
-                }
-
-                if ((height + headerHeight + footerHeight) <= Metronic.getViewPort().height) {
-                    height = Metronic.getViewPort().height - headerHeight - footerHeight;
-
-                }
-            }
-            content.attr('style', 'min-height:' + height + 'px');
-
-        }
-
-        $('.breadcrumb-item-home').on('click', 'li > a', function () {
-            /*$('.page-sidebar-menu li.active').removeClass('active');
-             $(this).addClass('active');*/
-            console.log("breadcrumb-item-home");
-
-            $('#sidebar-item-2').removeClass('active');
-            $('#sidebar-item-3').removeClass('active');
-            $('#sidebar-item-1').addClass('active');
-
-        });
-
-    </script>
+</script>

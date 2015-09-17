@@ -60,7 +60,7 @@ angular.module('odeskApp')
                 });
 
             } else {
-                window.location = "/#/dashbar"
+                window.location = "/#/projects"
             }
         };
 

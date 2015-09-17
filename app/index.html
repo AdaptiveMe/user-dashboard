@@ -55,7 +55,7 @@
 
             <div class="page-logo">
                 <!-- <a href="index.html">-->
-                <a ng-href="#/dashbar">
+                <a ng-href="#/projects">
 
                     <img src="images/DashBar_logo_Beta_v2.png" alt="logo" class="logo-default">
 
@@ -143,27 +143,32 @@
                 <ul class="page-sidebar-menu page-sidebar-menu-compact page-sidebar-menu-hover-submenu "
                     data-keep-expanded="false"
                     data-auto-scroll="true" data-slide-speed="200">
-                    <li id="sidebar-item-1" class="active">
+                    <!--<li id="sidebar-item-1" class="active">
                         <a id="itemTopMenu3" ng-href="#/dashbar">
                             <i class="icon-layers"></i>
                             <span class="title">Dashbar</span>
                             <span class="selected"></span>
                         </a>
-                    </li>
-                    <li id="sidebar-item-2">
+                    </li>-->
+                    <li id="sidebar-item-1">
                         <a ng-href="#/projects">
                             <i class="icon-docs"></i>
                             <span class="title">Projects</span>
-                            <span class="selected"></span>
                         </a>
                     </li>
-                    <li id="sidebar-item-3">
+                    <li id="sidebar-item-2">
+                        <a ng-href="#/account">
+                            <i class="icon-user"></i>
+                            <span class="title">Account</span>
+                        </a>
+                    </li>
+                    <!--<li id="sidebar-item-3">
                         <a ng-href="#/status">
                             <i class="icon-speedometer"></i>
                             <span class="title">Server Metrics</span>
                             <span class="selected"></span>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>
@@ -382,11 +387,6 @@
 
 <script>
 
-    $('.page-sidebar-menu').on('click', 'li', function () {
-        $('.page-sidebar-menu li.active').removeClass('active');
-        $(this).addClass('active');
-    });
-
     jQuery(document).ready(function () {
 
         Metronic.init();
@@ -428,34 +428,6 @@
 
         }
     });
-
-    $.backstretch(
-            [
-                "images/bg_001.jpg",
-                "images/bg_002.jpg",
-                "images/bg_003.jpg",
-                "images/bg_004.jpg",
-                "images/bg_005.jpg",
-                "images/bg_006.jpg",
-                "images/bg_007.jpg",
-                "images/bg_008.jpg",
-                "images/bg_009.jpg",
-                "images/bg_010.jpg",
-                "images/bg_011.jpg",
-                "images/bg_012.jpg",
-                "images/bg_013.jpg",
-                "images/bg_014.jpg",
-                "images/bg_015.jpg",
-                "images/bg_016.jpg",
-                "images/bg_017.jpg",
-                "images/bg_018.jpg",
-                "images/bg_019.jpg"
-            ],
-            {
-                fade: 1000,
-                duration: 8000
-            }
-    );
 
 </script>
 

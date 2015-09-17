@@ -7,7 +7,7 @@
     <ul class="page-breadcrumb breadcrumb-item-home">
         <li>
             <i class="fa fa-home"></i>
-            <a   ng-href="#/dashbar">Home</a>
+            <a   ng-href="#/projects">Home</a>
             <i class="fa fa-angle-right"></i>
         </li>
     </ul>
@@ -387,14 +387,7 @@
 <!-- END CONTENT -->
 
 <script>
-
-    $('.page-sidebar-menu').on('click', 'li', function () {
-        $('.page-sidebar-menu li.active').removeClass('active');
-        $(this).addClass('active');
-    });
-
     $('#footerText').css('background-color', 'rgb(77, 91, 103)');
-    $('.backstretch').remove();
 
     var resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
     var content = $('.page-content');
@@ -445,16 +438,12 @@
     Index.initMiniCharts();
     /*Tasks.initDashboardWidget();*/
 
-    $('.breadcrumb-item-home').on('click', 'li > a', function () {
-        /*$('.page-sidebar-menu li.active').removeClass('active');
-        $(this).addClass('active');*/
-        console.log("breadcrumb-item-home");
 
-        $('#sidebar-item-2').removeClass('active');
-        $('#sidebar-item-3').removeClass('active');
-        $('#sidebar-item-1').addClass('active');
-
+    $('.page-sidebar-menu').on('click', 'li', function () {
+        $('.page-sidebar-menu li.active').removeClass('active');
+        $('#sidebar-item-2').addClass('active');
     });
+    $('.backstretch').remove();
 
 
 </script>
