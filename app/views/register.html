@@ -28,7 +28,7 @@
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
                         <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
-                               placeholder="Email" ng-model="email"/>
+                               placeholder="Email" ng-model="email" name="email"/>
                     </div>
                 </div>
 
@@ -78,6 +78,10 @@
 
 <script>
 
+    $.validator.addMethod("loginRegex", function(value, element) {
+        return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
+    }, "Username must contain only letters, numbers, or dashes.");
+
     $('#register-form').validate({
         errorElement: 'span', //default input error message container
         errorClass: 'help-block', // default input error message class
@@ -85,7 +89,8 @@
         ignore: "",
         rules: {
             username: {
-                required: true
+                required: true,
+                loginRegex: true
             },
             password: {
                 required: true
@@ -100,7 +105,8 @@
         },
         messages: {
             username: {
-                required: "Username is required"
+                required: "Username is required",
+                loginRegex: "Username must contain only letters, numbers, or dashes."
             },
             password: {
                 required: "Password is required"
