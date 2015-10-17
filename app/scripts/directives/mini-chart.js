@@ -76,22 +76,12 @@ angular.module('odeskApp').directive('chart', function () {
                         var arrayFormatDefaultd1 = [];
 
                         var arr = Object.keys(o).map(function (k) {
-
                             var param = (parseInt(o[k]) / 1024 / 1024 / 1024).toFixed(3);
-                            //console.log("param: "+param);
-
                             if(true){
-
-                            /*if (callNum == 1 || callNum == 5 || callNum == 9 || callNum == 13) {*/
                                 param = Math.round(parseFloat(o[k]) * 100);
-                                // console.log("/api/metrics/server/" + server + "/" + metric + "/" + number + ", value: " + param);
-
                             } else {
-                                //console.log("/api/metrics/server/" + server + "/" + metric + "/" + number + ", value: " + param);
                             }
-
                             return param;
-
                         });
 
                         for (var i = 0; i < arr.length; i++) {
@@ -180,7 +170,9 @@ angular.module('odeskApp').directive('chart', function () {
                             }
 
                         };
+
                         function showChartTooltip(x,y, xValue, yValue) {
+
                             $('<div id="tooltip" class="chart-tooltip">' + yValue + '<\/div>').css({
                                 position: 'absolute',
                                 display: 'none',
@@ -191,31 +183,26 @@ angular.module('odeskApp').directive('chart', function () {
                                 'background-color': '#fff'
                             }).appendTo("body").fadeIn(200);
                         }
+
                         elem.bind("plothover", function (event, pos, item) {
 
                             $("#x").text(pos.x.toFixed(2));
                             $("#y").text(pos.y.toFixed(2));
 
                             if (item) {
-
                                 if (previousPoint2 != item.dataIndex) {
-
                                     previousPoint2 = item.dataIndex;
                                     $("#tooltip").remove();
-
                                     var x = item.datapoint[0].toFixed(2),
                                         y = item.datapoint[1].toFixed(2);
-
                                     showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + '% ,' + Object.keys(o) [ item.dataIndex - 1 ]);
-
                                 }
                             }
                         });
+
                         elem.bind("mouseleave", function () {
                             $("#tooltip").remove();
                         });
-
-                        // End of Handing the plot hover
 
                         chart = $.plot(elem, dataChartFormatY, opts2);
                         chart.setData(dataChartFormatY);
@@ -229,7 +216,6 @@ angular.module('odeskApp').directive('chart', function () {
             else if (attrs.valuechart.indexOf("database") != -1) {
 
                 scope.$watch('dataChartDatabase', function (o) {
-
 
                     var arrayFormatDefaultd1 = [];
                     var arrayFormatDefaultd2 = [];

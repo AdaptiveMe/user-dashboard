@@ -13,7 +13,7 @@ var constants = {
    'metric_disk_used': 'disk_used',
    'metric_disk_available': 'disk_available',
 
-   'metric_total_values': '5',
+   'metric_total_values': '20',
    'update_metric_values': 30,
 
    'metric_time_day': "time/day",
@@ -43,7 +43,5 @@ var constants = {
    'label_total_builds': "Total builds",
    'label_total_android_builds': "Total android builds",
    'label_total_ios_builds': "Total iOS builds",
-
-
 
 };
